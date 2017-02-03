@@ -1,0 +1,30 @@
+<?php 
+            $event_array = array();
+             
+             foreach($this->eventCalender As $ecIndex=>$event){
+                 
+                 $className = 'bg-blue';
+                 
+                 if($event->getTitleCategory() == 'Office Event'){
+                     $className = 'bg-green';
+                 }elseif($event->getTitleCategory() == 'Meeting'){
+                     $className = 'bg-purple';
+                 }elseif($event->getTitleCategory() == 'Office Holiday'){
+                     $className = 'bg-red';
+                 }elseif($event->getTitleCategory() == 'Other Events'){
+                     $className = 'bg-blue';
+                 }
+                 
+                 $event_array[] = array(
+                        'id' => $event->getId(),
+                        'title' => $event->getTitle(),
+                        'start' => $event->getStartDate(),
+                        'end' => $event->getEndDate(),
+                        'title_category' => $event->getTitleCategory(),
+                        'className'=>$className,
+                        'allDay'=>$event->getAllDay()
+                        );
+             }
+             
+             echo json_encode($event_array);
+?>

@@ -1,0 +1,45 @@
+<link href="<?php print($this->baseUrl());?>/assets/skin/plugins/fullcalendar/fullcalendar.css" rel="stylesheet"> 
+<!-- BEGIN MAIN CONTENT -->
+        <div id="main-content">
+
+            <!-- BEGIN MODAL -->
+            <div class="modal fade" id="event-modal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title"><strong>Manage</strong> my events</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-success save-event">Create event</button>
+                            <button type="button" class="btn btn-danger delete-event" data-dismiss="modal">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END MODAL -->
+
+            <div class="widget-fullwidth bg-gray-light row">
+                
+                <div class="col-md-12 p-0 no-bd">
+                    <div class="widget bg-white">
+                        <div class="widget-body">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div id="calendar"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END MAIN CONTENT -->
+        <!-- PAGE LEVEL SCRIPTS -->
+    <script src='<?php print($this->baseUrl());?>/assets/skin/plugins/fullcalendar/moment.min.js'></script>
+    <script src='<?php print($this->baseUrl());?>/assets/skin/plugins/fullcalendar/fullcalendar.min.js'></script>
+    <script src="<?php print($this->baseUrl());?>/assets/skin/js/staff-calendar.js"></script>

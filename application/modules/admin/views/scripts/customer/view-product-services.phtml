@@ -1,0 +1,99 @@
+                    <!-- Navigation info -->
+                    <ul id="nav-info" class="clearfix">
+                        <li><a href="index.html"><i class="icon-home"></i></a></li>
+                        <li><a href="javascript:void(0)">Pages</a></li>
+                        <li class="active"><a href="">Blank</a></li>
+                    </ul>
+                    <!-- END Navigation info -->
+
+                    <!-- Your Content -->
+                    
+                    <h3 class="page-header page-header-top">Clients Profile</h3>
+                      
+                     <div class="row-fluid">
+                    
+<p>Active Client: 
+    
+     <select id="cmbClientId"  name="cmbClientId" class="input-xlarge">
+                                        <option value=""></option>
+                                        <?php foreach($this->clientDetails As $cIndex=>$client){?>
+                                        <option value="<?php print($this->baseUrl());?>/admin/client/view/id/<?php print($client->getId());?>"  <?php if($this->clientInfo->getId() == $client->getId()){?> selected="selected" <?php } ?> ><?php print($client->getCompanyname());?> - <?php print($client->getFirstname());?> <?php print($client->getLastname());?></option>
+                                         <?php } ?>
+                                        
+                                    </select>
+    
+                     </div> 
+                        
+                            
+                         <!-- Tabs -->
+                         <?php echo $this->partial('common/_client_links.phtml', array('clientId' => $this->clientInfo->getId(),'currentLink' => $this->actionName)); ?>
+                         
+                         
+                    <!-- END Tabs -->
+                   
+                    
+                        
+                                           <div class="form-box-content">
+                            
+                            
+                            <table class="table table-hover">
+                        <thead>
+                            <tr>
+                             
+                                
+                                <th>Product/Service Name</th>
+                                <th>Price</th>
+                                <th class="hidden-phone">Billing Cycle</th>
+                                <th class="span2 text-center">Next Due Date</th>
+                                <th class="span1 text-center"><i class="icon-bolt"></i> View</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            
+                           
+                          <?php if($this->orders){?>
+                            <?php foreach($this->orders As $oIndex=>$order){?>
+                            
+                            <?php foreach($order->getOrderProducts() As $oIndex=>$orderProducts){?>
+                            <tr>
+                                
+                                <td><?php print($orderProducts->getProduct()->getProductName());?></td>
+                                <td><?php print($orderProducts->getAmount());?></td>
+                                <td><?php print($orderProducts->getBillingCycle());?></td>
+                                <td><?php print($orderProducts->getNextDueDate());?></td>
+                                
+                                <td class="span1 text-center">
+                                    <div class="btn-group">
+                                        <a href="<?php print($this->baseUrl());?>/admin/order/view-product-service/client/<?php print($orderProducts->getClient());?>/id/<?php print($orderProducts->getId());?>" data-toggle="tooltip" title="Edit" class="btn btn-mini btn-success"><i class="icon-pencil"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <?php } ?>
+                            
+                            <?php } ?>
+                            <?php } ?>
+                            
+                        
+                        </tbody>
+                    </table>
+                    <!-- END Default style -->
+                            
+                            
+
+
+                            
+                        </div>
+                        
+                      
+                    
+                    <!-- End Your Content -->
+                    <script>
+$(document).on("change", "#cmbClientId", function(e) {
+   var location = $(this).val();
+   document.location.href = location;
+   
+});
+</script>
+                    
+               

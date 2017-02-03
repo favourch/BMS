@@ -1,0 +1,58 @@
+   <div id="main-content">
+            
+            <div class="row">
+                <div class="col-md-12">
+            
+                    
+                    
+                    <div class="panel panel-default">
+                   
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <form id="form_attachments" name="form_attachments" role="form" method="post" class="form-horizontal" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Attachment-Title");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                 <input parsley-minlength="3" class="form-control" type="text" name="txtAttachmentTitle" id="txtAttachmentTitle"/>
+                                            </div>
+                                        </div>
+                                      
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Attachment-Description");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <textarea class="form-control" type="text" name="txtAttachmentDescription" id="txtAttachmentDescription"></textarea>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Attachment");?></strong>
+                                        </label>
+                                        <div class="controls">
+                                            <input class="form-control" type="file" id="txtAttachment" name="txtAttachment">
+                                        </div>
+                                    </div>
+                                        
+                                   
+                                        <div class="form-group text-left">
+                                            <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Submit");?></button>
+                                            <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel");?></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    
+                </div>
+            </div>
+            
+                        
+            
+                        
+        </div>
+<script src="<?php print($this->baseUrl());?>/assets/validator/admin/attachments.js"></script>

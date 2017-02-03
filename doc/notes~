@@ -1,0 +1,12 @@
+user_data_privilage
+	1 - Allow all country
+	2 - All only in selected country
+	3 - Allow only in selected region
+	4 - Allow only in selected branches
+	5 - Allow only in selected departments
+        6 - Custome selected 
+
+allowed_countries
+allowed_regions
+allowed_branches
+allowed_departments

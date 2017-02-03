@@ -1,0 +1,235 @@
+   <div id="main-content">
+            
+            <div class="row">
+                <div class="col-md-12">
+            
+                    <div class="panel panel-default">
+                   
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form id="form_inquire" name="form_inquire" role="form" method="post" class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Full-Name");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtFullName" id="txtFullName" value="<?php print($this->inquireInformation->getFullName());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Telephone-Number");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtTelephoneNumber" id="txtTelephoneNumber" value="<?php print($this->inquireInformation->getTelephoneNumber());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Contact-Number");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtContactNumber" id="txtContactNumber" value="<?php print($this->inquireInformation->getContactNumber());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Email-Address");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtEmailAddress" id="txtEmailAddress" value="<?php print($this->inquireInformation->getEmailAddress());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Gender");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <select  class="form-control normal_input" name="txtGender" id="txtGender">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <option value="male" <?php if($this->inquireInformation->getGender() == 'male'){?> selected="selected" <?php } ?>><?php echo $this->translate("male"); ?></option>
+                                                     <option value="female" <?php if($this->inquireInformation->getGender() == 'female'){?> selected="selected" <?php } ?>><?php echo $this->translate("female"); ?></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Inquire-Media");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                
+                                                <select  class="form-control normal_input" name="txtInquireMedia" id="txtInquireMedia">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->inquireMediaList As $iMedia=>$inquireMedia){?>
+                                                    <option value="<?php print($inquireMedia);?>" <?php if($this->inquireInformation->getInquireMedia() == $inquireMedia){?> selected="selected" <?php } ?>><?php echo $this->translate($inquireMedia); ?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                    <span class="panel-inner-title"><strong><?php echo $this->translate("Postal-Address"); ?></strong></span>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Address"); ?></strong></label>
+                                    <div class="controls">
+                                        <input class="form-control normal_input" type="text" id="txtPostalAddressAddress" name="txtPostalAddressAddress" value="<?php print($this->inquireInformation->getPostalAddressAddress());?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Street"); ?></strong>
+                                    </label>
+                                    <div class="controls">
+                                        <input class="form-control normal_input" type="text" id="txtPostalAddressStreet" name="txtPostalAddressStreet" value="<?php print($this->inquireInformation->getPostalAddressStreet());?>">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("City"); ?></strong>
+                                    </label>
+                                    <div class="controls">
+                                        <input class="form-control normal_input" type="text" id="txtPostalAddressCity" name="txtPostalAddressCity" value="<?php print($this->inquireInformation->getPostalAddressCity());?>">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("State"); ?></strong>
+                                    </label>
+                                    <div class="controls">
+                                        <input class="form-control normal_input" type="text" id="txtPostalAddressState" name="txtPostalAddressState" value="<?php print($this->inquireInformation->getPostalAddressState());?>">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Zip-Postal-Code"); ?></strong>
+                                    </label>
+                                    <div class="controls">
+                                        <input class="form-control normal_input" type="text" id="txtPostalAddressZip" name="txtPostalAddressZip" value="<?php print($this->inquireInformation->getPostalAddressZip());?>">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Country"); ?></strong>
+                                    </label>
+                                    <div class="controls">
+                                        <select  class="form-control normal_input" name="txtPostalAddressCountry" id="txtPostalAddressCountry">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->countryNameList As $cList=>$countryName){?>
+                                                    <option value="<?php print($countryName->getCountryCode());?>" <?php if($this->inquireInformation->getPostalAddressCountry() == $countryName->getCountryCode()){?> selected="selected" <?php }?>><?php echo $this->translate($countryName->getName()); ?></option>
+                                                    <?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                        
+                                        
+                                        
+                                        <div class="form-group">
+                                    <span class="panel-inner-title"><strong><?php echo $this->translate("Inquire-Location"); ?></strong></span>
+                                </div>
+                                        
+                                        
+                                        
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Country-Name");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <select class="form-control normal_input" name="txtCountry" id="txtCountry">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->countries As $cIndex=>$country){?>
+                                                     <option value="<?php print($country->getId());?>" <?php if($this->inquireInformation->getCountry() == $country->getId()){?> selected="selected" <?php } ?>><?php print($country->getName());?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Region-Name");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <span id="region">
+                                                <select class="form-control normal_input" name="txtRegion" id="txtRegion">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->regions As $cIndex=>$region){?>
+                                                     <option value="<?php print($region->getId());?>" <?php if($this->inquireInformation->getRegion() == $region->getId()){?> selected="selected" <?php } ?>><?php print($region->getName());?></option>
+                                                    <?php } ?>
+                                                </select>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Branch-Name");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <span id="branch">
+                                               <select class="form-control normal_input" name="txtBranchName" id="txtBranchName">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->branches As $cIndex=>$branch){?>
+                                                     <option value="<?php print($branch->getId());?>" <?php if($this->inquireInformation->getBranch() == $branch->getId()){?> selected="selected" <?php } ?>><?php print($branch->getName());?></option>
+                                                    <?php } ?>
+                                                </select>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Department-Name");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <span id="department">
+                                                <select class="form-control normal_input" name="txtDepartmentName" id="txtDepartmentName">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->departments As $dIndex=>$department){?>
+                                                     <option value="<?php print($department->getId());?>" <?php if($this->inquireInformation->getDepartment() == $department->getId()){?> selected="selected" <?php } ?>><?php print($department->getName());?></option>
+                                                    <?php } ?>
+                                                </select>
+                                                </span>
+                                            </div>
+                                        </div>         
+                                        
+                                        <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Status"); ?></strong>
+                                    </label>
+                                    <div class="controls">
+                                        <input class="form-control normal_input" type="text" id="txtStatus" name="txtStatus" value="<?php print($this->inquireInformation->getStatus());?>">
+                                    </div>
+                                </div>
+                                        
+                                        
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Description");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <textarea parsley-minlength="3" class="form-control" type="text" name="txtDescription" id="txtDescription"><?php print($this->inquireInformation->getDescription());?></textarea>
+                                            </div>
+                                        </div>
+                                        
+                                   
+                                        <div class="form-group text-left">
+                                            <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Submit");?></button>
+                                            <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel");?></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    
+                </div>
+            </div>
+            
+                        
+            
+                        
+        </div>
+<script src="<?php print($this->baseUrl());?>/assets/validator/admin/inquire.js"></script>

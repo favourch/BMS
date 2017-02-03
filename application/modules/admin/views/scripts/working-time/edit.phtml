@@ -1,0 +1,124 @@
+   <div id="main-content">
+            
+            <div class="row">
+                
+                <form class="form-horizontal" id="form_working_time" name="form_working_time" role="form" method="post">
+                    
+                    
+                    
+                    
+                    <?php 
+                    $rowIndex = 0;
+                    foreach($this->weekDays As $lIndex=>$weekDay){
+                        
+                        $workingDayInfo = $this->workingDays[$rowIndex];
+                        ?>
+                <div class="col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            
+                            <h5 class="panel-title"><strong><?php echo $this->translate($weekDay); ?>
+                                    <input parsley-minlength="3" class="form-control" type="hidden" name="txtWeekDays[]" value="<?php print($weekDay);?>"/>
+                                    <input parsley-minlength="3" class="form-control" type="hidden" name="txtWeekDayId[]" value="<?php print($workingDayInfo->getId());?>"/>
+                                </strong></h5>
+                            <div class="row border-top">
+                                 <div class="col-md-12 col-sm-12 col-xs-12 m-t-20 m-b-20">
+                                        
+                                       <div class="form-group">
+                                        <label class="col-sm-3 control-label"><strong><?php echo $this->translate("On-Time");?></strong></label>
+                                        <div class="col-sm-9">
+                                            <input parsley-minlength="3" class="form-control" type="text" name="txtOnTime[]" value="<?php print($workingDayInfo->getOnTime());?>"/>
+                                        </div>
+                                        </div>
+                                     
+                                     <div class="form-group">
+                                        <label class="col-sm-3 control-label"><strong><?php echo $this->translate("Off-Time");?></strong></label>
+                                        <div class="col-sm-9">
+                                            <input parsley-minlength="3" class="form-control" type="text" name="txtOffTime[]" value="<?php print($workingDayInfo->getOffTime());?>"/>
+                                        </div>
+                                        </div>
+                                     
+                                      <div class="form-group">
+                                        <label class="col-sm-3 control-label"><strong><?php echo $this->translate("Is-Working");?></strong></label>
+                                        <div class="col-sm-9">
+                                           <select parsley-minlength="3" class="form-control normal_input" name="cmbIsWorking[]">
+                                                   <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                   <option value="Yes" <?php if($workingDayInfo->getIsWorking() == 'Yes'){?> selected="selected" <?php } ?>><?php echo $this->translate("Yes"); ?></option>
+                                                     <option value="No" <?php if($workingDayInfo->getIsWorking() == 'No'){?> selected="selected" <?php } ?>><?php echo $this->translate("No"); ?></option>
+                                                </select>
+                                        </div>
+                                        </div>
+                                     
+                                     <div class="form-group">
+                                        <label class="col-sm-3 control-label"><strong><?php echo $this->translate("Expected-Working-Hours");?></strong></label>
+                                        <div class="col-sm-9">
+                                           <select parsley-minlength="3" class="form-control normal_input" name="cmbWorkingHours[]">
+                                                   <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                     <option value="0" <?php if($workingDayInfo->getExpectedWorkingHours() == 0){?> selected="selected" <?php } ?>>0</option>
+                                                     <option value="0.25" <?php if($workingDayInfo->getExpectedWorkingHours() == 0.25){?> selected="selected" <?php } ?>>0.25</option>
+                                                     <option value="0.50" <?php if($workingDayInfo->getExpectedWorkingHours() == 0.50){?> selected="selected" <?php } ?>>0.50</option>
+                                                     <option value="0.75" <?php if($workingDayInfo->getExpectedWorkingHours() == 0.75){?> selected="selected" <?php } ?>>0.75</option>
+                                                     <option value="1.00" <?php if($workingDayInfo->getExpectedWorkingHours() == 1.00){?> selected="selected" <?php } ?>>1.00</option>
+                                                </select>
+                                        </div>
+                                        </div>
+                                     
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <?php 
+                    $rowIndex = $rowIndex + 1;
+                    } ?>
+                    
+                    <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            
+                            <h5 class="panel-title"><strong><?php echo $this->translate('Other-Settings'); ?></strong></h5>
+                            <div class="row border-top">
+                                 <div class="col-md-12 col-sm-12 col-xs-12 m-t-20 m-b-20">
+                                        
+                                       <div class="form-group">
+                                        <label class="col-sm-3 control-label"><strong><?php echo $this->translate("Effective-From");?></strong></label>
+                                        <div class="col-sm-9">
+                                            <input parsley-minlength="3" class="form-control normal_input pickadate" type="text" name="txtEffectiveFrom" id="txtEffectiveFrom" value="<?php print($this->workingScheduleInformation->getEffectiveFromDate());?>"/>
+                                        </div>
+                                        </div>
+                                     
+                                     <div class="form-group">
+                                        <label class="col-sm-3 control-label"><strong><?php echo $this->translate("Is-Active-Currently");?></strong></label>
+                                        <div class="col-sm-9">
+                                           <select parsley-minlength="3" class="form-control normal_input" name="cmbIsActiveCurrently" id="cmbIsActiveCurrently">
+                                                   <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                   <option value="Yes" <?php if($this->workingScheduleInformation->getIsActive() == 'Yes'){?> selected="selected" <?php }?>><?php echo $this->translate("Yes"); ?></option>
+                                                     <option value="No" <?php if($this->workingScheduleInformation->getIsActive() == 'No'){?> selected="selected" <?php }?>><?php echo $this->translate("No"); ?></option>
+                                                </select>
+                                        </div>
+                                        </div>
+                                     
+                                 <div class="form-group">
+                                  
+                                                            <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Submit");?></button>
+                                                            <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel");?></button>
+                                      
+                                     </div>
+                                     
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    
+                    
+                    </form>
+                
+                
+            </div>
+            
+                        
+            
+                        
+        </div>
+<script src="<?php print($this->baseUrl());?>/assets/validator/admin/form_working_time.js"></script>

@@ -1,0 +1,68 @@
+
+                    <!-- Navigation info -->
+                    <ul id="nav-info" class="clearfix">
+                        <li><a href="<?php print($this->baseUrl());?>/admin/"><i class="icon-home"></i></a></li>
+                        <li><a href="<?php print($this->baseUrl());?>/admin/billing/transactions/">Billing</a></li>
+                        <li class="active"><a href="#">Invoices</a></li>
+                    </ul>
+                    <!-- END Navigation info -->
+
+                    <!-- Default style -->
+                    <h3 class="page-header page-header-top">Invoices</h3>
+                    
+                    
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th class="span1 text-center">Invoice #</th>
+                                <th>Client Name</th>
+                                <th class="span2 text-center">Invoice Date</th>
+                                <th class="span2 text-center">Due Date</th>
+                                <th class="span1 text-center">Total</th>
+                                <th class="span2 text-center">Payment Method</th>
+                                <th class="span1 text-center">Status</th>
+                                <th class="span1 text-center"><i class="icon-bolt"></i> Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            
+                            <?php if($this->invoices){?>
+			    <?php foreach($this->invoices As $index=>$invoice){?>
+                            <tr>
+                                <td class="span1 text-center"><?php print($index+1);?></td>
+                                <td><?php print($invoice->getClient()->getCompanyname());?></td>
+                                <td><?php print($invoice->getDate());?></td>
+                                <td><?php print($invoice->getDueDate());?></td>
+                                <td><?php print($invoice->getTotal());?></td>
+                                <td>
+                                <?php 
+                                if($invoice->getPaymentmethod()){
+                                print($invoice->getPaymentmethod()->getName());
+                                }
+                                ?>
+                                </td>
+                                <td><?php print($invoice->getStatus());?></td>                             
+                                
+                                <td class="span1 text-center">
+                                    
+                                    <div class="btn-group">
+                                        <a href="<?php print($this->baseUrl());?>/admin/billing/view-invoice/id/<?php print($invoice->getId());?>" data-toggle="tooltip" title="View Invoice" class="btn btn-mini btn-success"><i class="icon-pencil"></i></a>
+                                        <a href="<?php print($this->baseUrl());?>/admin/billing/delete-invoice/id/<?php print($invoice->getId());?>" data-toggle="tooltip" title="Delete Invoice" class="btn btn-mini btn-danger"><i class="icon-remove"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <?php } ?>
+			    <?php } ?>
+                            
+                        
+                        </tbody>
+                    </table>
+                    <!-- END Default style -->
+
+                    
+                    <?php if(count($this->invoices)>0){?>
+			<?php echo $this->partial('common/_pagination.phtml', array('paginationData' => $this->paggination)); ?>
+		     <?php } ?>
+                    
+                    

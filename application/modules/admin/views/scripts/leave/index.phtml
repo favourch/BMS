@@ -1,0 +1,85 @@
+<div id="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    
+                     <div class="btn-group">
+                        <a href="<?php print($this->baseUrl()); ?>/admin/leave/add-leave/" id="table-edit_new" class="btn btn-danger">
+                            <?php echo $this->translate("Add-New");?> <i class="fa fa-plus"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="btn-group pull-right">
+                        <a href="#" id="form-data-back" class="btn btn-blue">
+                            <?php echo $this->translate("Go-back");?> <i class="fa fa-backward"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12 table-responsive m-t-20">
+                            <table class="table table-bordered table_obtor_data table-hover">
+                                <thead class="no-bd">
+                                    <tr>
+                                        <th class="table_id table_head"><?php echo $this->translate("ID");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Employee");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("No-Of-Days-Leave");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Leave-From-Date");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Leave-To-Date");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Acting-Staff");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("App-Status");?></th>
+                                        <th class="text-center table_head data_table_action"><?php echo $this->translate("Actions");?></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="no-bd-y">
+
+                               <?php if($this->leaveInformations){?>
+                                     <?php foreach($this->leaveInformations As $lIndex=>$leaveInformation){
+                                         $employeeInfo = $this->getEmployee($leaveInformation->getEmployee());
+                                         ?>
+                                            <tr>
+                                                <td>
+                                                    <a title="<?php echo $this->translate("View");?>" href="<?php print($this->baseUrl()); ?>/admin/leave/view/id/<?php print($leaveInformation->getId());?>">
+                                                    <?php print($leaveInformation->getId());?>
+                                                    </a>
+                                                </td>
+                                                <td><?php print($employeeInfo->getNameWithInitials());?></td>
+                                                <td><?php print($leaveInformation->getNoOfDaysLeave());?></td>
+                                                <td><?php print($leaveInformation->getFromDate());?></td>
+                                                <td><?php print($leaveInformation->getToDate());?></td>
+                                                <td>
+                                                   <?php if($this->getEmployee($leaveInformation->getActingStaffId())){?><?php print($this->getEmployee($leaveInformation->getActingStaffId())->getNameWithInitials());?><?php } ?>
+                                                </td>
+                                                
+                                                <td><?php print($leaveInformation->getAppStatus());?></td>
+                                                
+                                                <td class="text-center">
+                                                    <a title="<?php echo $this->translate("Edit");?>" href="<?php print($this->baseUrl()); ?>/admin/leave/edit/id/<?php print($leaveInformation->getId());?>"><img src="<?php print($this->baseUrl()); ?>/assets/skin/images/b_edit.png" /></a>
+                                                    <a title="<?php echo $this->translate("Delete");?>" href="<?php print($this->baseUrl()); ?>/admin/leave/delete/id/<?php print($leaveInformation->getId());?>" class="form-data-delete"><img src="<?php print($this->baseUrl()); ?>/assets/skin/images/b_drop.png" /></a>
+                                                </td>
+                                            </tr>
+                               <?php } ?>
+                                   <?php } else {?>
+                                            <tr>
+                                                <td colspan="7" class="table_data_not_found"><?php echo $this->translate("Records-Not-Available");?></td>
+                                            </tr>
+                                    <?php } ?>
+                                            
+                                         
+                                        
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                    
+                    
+                    <!-- The pagination comes here... -->
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

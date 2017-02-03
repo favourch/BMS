@@ -1,0 +1,6 @@
+<select class="form-control" name="branch" id="branch">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->branches As $cIndex=>$branch){?>
+                                                     <option value="<?php print($branch->getId());?>"><?php print($branch->getName());?></option>
+                                                    <?php } ?>
+                                                </select>

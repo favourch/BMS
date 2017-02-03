@@ -1,0 +1,275 @@
+                    <!-- Navigation info -->
+                    <ul id="nav-info" class="clearfix">
+                        <li><a href="index.html"><i class="icon-home"></i></a></li>
+                        <li><a href="javascript:void(0)">Pages</a></li>
+                        <li class="active"><a href="">Blank</a></li>
+                    </ul>
+                    <!-- END Navigation info -->
+
+                    <!-- Your Content -->
+                    
+                    <h3 class="page-header page-header-top">Clients Profile</h3>
+                      
+                     <div class="row-fluid">
+                    
+<p>Active Client: 
+    
+     <select id="cmbClientId"  name="cmbClientId" class="input-xlarge">
+                                        <option value=""></option>
+                                        <?php foreach($this->clientDetails As $cIndex=>$client){?>
+                                        <option value="<?php print($this->baseUrl());?>/admin/client/view/id/<?php print($client->getId());?>"  <?php if($this->clientInfo->getId() == $client->getId()){?> selected="selected" <?php } ?> ><?php print($client->getCompanyname());?> - <?php print($client->getFirstname());?> <?php print($client->getLastname());?></option>
+                                         <?php } ?>
+                                        
+                                    </select>
+    
+                     </div> 
+                        
+                            
+                         <!-- Tabs -->
+                         <?php echo $this->partial('common/_client_links.phtml', array('clientId' => $this->clientInfo->getId(),'currentLink' => $this->actionName)); ?>
+                         
+                         
+                    <!-- END Tabs -->
+                    
+                        
+                                           <div class="form-box-content">
+                            
+                            
+                            
+                            <table class="table">
+
+<tbody>
+<tr>
+<td>
+   First Name
+</td>
+<td>
+   <?php print($this->clientInfo->getFirstname());?>
+</td>
+<td>
+   Address 1
+</td>
+<td>
+   <?php print($this->clientInfo->getAddress1());?>
+</td>
+</tr>
+
+<tr>
+<td>
+   Last Name
+</td>
+<td>
+    <?php print($this->clientInfo->getLastname());?>
+</td>
+<td>
+   Address 2
+</td>
+<td>
+    <?php print($this->clientInfo->getAddress2());?>
+</td>
+</tr>
+
+<tr>
+<td>
+   Company Name
+</td>
+<td>
+    <?php print($this->clientInfo->getCompanyname());?>
+</td>
+<td>
+   City
+</td>
+<td>
+   <?php print($this->clientInfo->getCity());?>
+</td>
+</tr>
+
+
+<tr>
+<td>
+   Email Address
+</td>
+<td>
+    <?php print($this->clientInfo->getEmail());?>
+</td>
+<td>
+   State/Region
+</td>
+<td>
+    <?php print($this->clientInfo->getState());?>
+</td>
+</tr>
+
+
+<tr>
+<td>
+   Password
+</td>
+<td>
+    ***********************
+</td>
+<td>
+  Postcode
+</td>
+<td>
+   <?php print($this->clientInfo->getPostcode());?>
+</td>
+</tr>
+
+<tr>
+<td>
+   Security Question
+</td>
+<td>
+    
+    
+</td>
+<td>
+ Country
+</td>
+<td>
+    <?php print($this->clientInfo->getCountry()->getName());?>
+</td>
+</tr>
+
+
+<tr>
+<td>
+   Security Answer
+</td>
+<td>
+    <?php print($this->clientInfo->getSecurityqans());?>
+</td>
+<td>
+ Phone Number
+</td>
+<td>
+    <?php print($this->clientInfo->getPhonenumber());?>
+</td>
+</tr>
+
+
+<tr>
+
+<td colspan="4">
+    &nbsp;
+</td>
+
+
+</tr>
+
+<tr>
+<td>
+   Late Fees
+</td>
+<td>
+    <?php if($this->clientInfo->getLatefeeoveride() == 1){?> Yes <?php } ?>
+</td>
+<td>
+ Payment Method
+</td>
+<td>
+    <?php print($this->clientInfo->getDefaultgateway()->getName());?>
+</td>
+</tr>
+
+
+<tr>
+<td>
+   Overdue Notices
+</td>
+<td>
+   <?php if($this->clientInfo->getOverideduenotices() == 1){?> Yes <?php } ?> 
+</td>
+<td>
+ Billing Contact
+</td>
+<td>
+    
+</td>
+</tr>
+
+<tr>
+<td>
+   Tax Exempt
+</td>
+<td>
+   <?php if($this->clientInfo->getTaxexempt() == 1){?> Yes <?php } ?>
+</td>
+<td>
+ Language
+</td>
+<td>
+    <?php print($this->clientInfo->getLanguage());?>
+</td>
+</tr>
+
+
+<tr>
+<td>
+   Separate Invoices
+</td>
+<td>
+    <?php if($this->clientInfo->getSeparateinvoices() == 1){?> Yes <?php } ?>
+</td>
+<td>
+ Status
+</td>
+<td>
+    <?php print($this->clientInfo->getStatus());?>
+</td>
+</tr>
+
+
+<tr>
+<td>
+   Disable CC Processing
+</td>
+<td>
+    <?php if($this->clientInfo->getDisableautocc() == 1){?> Yes <?php } ?>
+</td>
+<td>
+Currency
+</td>
+<td>
+   <?php print($this->clientInfo->getCurrency()->getName());?>
+</td>
+</tr>
+
+
+<tr>
+<td>
+   Admin Notes
+</td>
+<td colspan="3">
+   <?php print($this->clientInfo->getNotes());?>
+</td>
+
+
+</tr>
+
+
+
+
+
+
+
+</tbody>
+</table>
+
+                        
+                        
+                        
+                        
+                     </div>  
+                   
+                    <!-- End Your Content -->
+                    <script>
+$(document).on("change", "#cmbClientId", function(e) {
+   var location = $(this).val();
+   document.location.href = location;
+   
+});
+</script>
+                    
+               

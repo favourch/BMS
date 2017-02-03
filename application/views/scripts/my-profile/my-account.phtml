@@ -1,0 +1,61 @@
+<div id="main-content">
+    <div class="row">
+        <div class="col-md-12">
+
+
+
+            <div class="panel panel-default">
+                <form id="form_user" name="form_user" role="form" method="post" class="form-horizontal">
+                    <div class="panel-body">
+                        
+                        <h5 class="panel-title"><strong><?php echo $this->translate("Change-Password"); ?></strong></h5>
+                        <div class="row border-top">
+                            <div class="col-md-5 m-t-20">
+                                
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Password"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3" class="form-control" type="password" name="txtUserPassword" id="txtUserPassword"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Confirm-Password"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3" class="form-control" type="password" name="txtConfirmPassword" id="txtConfirmPassword"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                      
+<div class="row">
+                            <div class="col-md-12 m-t-20">
+                                <div class="form-group text-left">
+                               <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Submit");?></button>
+                                            <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel");?></button>
+                                </div>
+			    </div>
+</div>
+
+                    </div>
+
+            </div>
+            </form>
+
+
+        </div>
+
+
+
+    </div>
+</div>
+
+
+
+
+</div>
+<script src="<?php print($this->baseUrl()); ?>/assets/validator/staff/change_password.js"></script>

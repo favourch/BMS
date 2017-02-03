@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/media/projects/testing.obtor.com/application/modules/admin/views/scripts/common/_top_menu.phtml</file>
+            <file>file:/media/projects/testing.obtor.com/application/modules/admin/views/scripts/login/index.phtml</file>
+            <file>file:/media/projects/testing.obtor.com/application/layouts/scripts/login_layout.phtml</file>
+            <file>file:/media/projects/testing.obtor.com/application/modules/admin/views/scripts/common/_main_sidebar.phtml</file>
+            <file>file:/media/projects/testing.obtor.com/assets/admin-login/css/style.default.css</file>
+            <file>file:/media/projects/testing.obtor.com/application/modules/admin/views/scripts/login/lockscreen.phtml</file>
+            <file>file:/media/projects/testing.obtor.com/application/modules/admin/views/scripts/login/reset-password.phtml</file>
+            <file>file:/media/projects/testing.obtor.com/application/modules/admin/controllers/LoginController.php</file>
+        </group>
+    </open-files>
+</project-private>

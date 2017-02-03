@@ -1,0 +1,165 @@
+   <div id="main-content">
+            
+            <div class="row">
+                <div class="col-md-12">
+            
+                    
+                    <form id="form_staff" name="form_staff" role="form" method="get" class="form-horizontal" action="<?php print($this->baseUrl()); ?>/admin/staff/">
+                    <div class="panel panel-default">
+                   
+                        <div class="panel-body">
+                            
+                            
+                                <h5 class="panel-title"><strong><?php echo $this->translate("Basic-Information"); ?></strong></h5>
+                            <div class="row border-top">
+                                <div class="col-md-5 col-sm-12 col-xs-12 m-t-20 m-b-20">
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Employee-Number");?></strong></label>
+                                        <div class="controls">
+                                            <input class="form-control" type="text" id="employee-number" name="employee-number">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Full-Name");?></strong>
+                                        </label>
+                                        <div class="controls">
+                                            <input class="form-control" type="text" id="full-name" name="full-name">
+                                        </div>
+                                    </div>
+                                   
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Date-Of-Birth");?></strong></label>
+                                        <div class="controls">
+                                            <input class="pickadate form-control picker__input" type="text" id="date-of-birth" name="date-of-birth">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("NIC-Number");?></strong></label>
+                                        <div class="controls">
+                                            <input class="form-control" type="text" id="nic-number" name="nic-number">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Driving-License-No");?></strong></label>
+                                        <div class="controls">
+                                            <input class="form-control" type="text" id="driving-license-no" name="driving-license-no">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Telephone-number-residence");?></strong></label>
+                                        <div class="controls">
+                                            <input class="form-control" type="text" id="telephone-number-residence" name="telephone-number-residence">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Contact-number-mobile");?></strong></label>
+                                        <div class="controls">
+                                            <input class="form-control" type="text" id="contact-number" name="contact-number">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("E-mail-Address-Personal");?></strong></label>
+                                        <div class="controls">
+                                            <input class="form-control" type="text" id="email-address-personal" name="email-address-personal">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("E-mail-Address-Office");?></strong></label>
+                                        <div class="controls">
+                                            <input class="form-control" type="text" id="email-address-office" name="email-address-office">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Employee-Status");?></strong></label>
+                                        <div class="controls">
+                                           <select class="form-control" name="employee-status" id="employee-status">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                     <option value="In-Service"><?php echo $this->translate("In-Service"); ?></option>
+                                                     <option value="Not-In-Service"><?php echo $this->translate("Not-In-Service"); ?></option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    
+                                </div>
+                            </div>
+                                
+                                
+                                <h5 class="panel-title"><strong><?php echo $this->translate("Work-Location"); ?></strong></h5>
+                            <div class="row border-top">
+                                <div class="col-md-5 col-sm-12 col-xs-12 m-t-20 m-b-20">
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Country");?></strong></label>
+                                        <div class="controls">
+                                                <select class="form-control" name="country" id="country">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->countries As $cIndex=>$country){?>
+                                                     <option value="<?php print($country->getId());?>"><?php print($country->getName());?></option>
+                                                    <?php } ?>
+                                                </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Region");?></strong>
+                                        </label>
+                                        <div class="controls">
+                                            <span id="region_box">
+                                                <select class="form-control" name="region" id="region">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                </select>
+                                                </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Branch");?></strong>
+                                        </label>
+                                        <div class="controls">
+                                            <span id="branch_box">
+                                                <select class="form-control" name="branch" id="branch">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                </select>
+                                                </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Department");?></strong></label>
+                                        <div class="controls">
+                                           <span id="department_box">
+                                                <select class="form-control" name="department" id="department">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                </select>
+                                                </span>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    <div class="form-group text-left">
+                                                            <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Search-Record");?></button>
+                                                            <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel");?></button>
+                                                </div>
+                                </div>
+                            </div>
+                            
+                            
+                            
+                        </div>
+                    </div>
+</form>
+                    
+                    
+                </div>
+            </div>
+            
+                        
+            
+                        
+        </div>

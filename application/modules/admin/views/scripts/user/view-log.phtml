@@ -1,0 +1,52 @@
+ <div id="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="btn-group pull-right">
+                        <a href="#" id="form-data-back" class="btn btn-blue">
+                            <?php echo $this->translate("Go-back");?> <i class="fa fa-backward"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12 table-responsive">
+                            <table class="table table-hover">
+                                <thead class="no-bd">
+                                    <tr>
+                                        <th class="table_id"><strong><?php echo $this->translate("ID");?></strong></th>
+                                        <th class="table_date"><strong><?php echo $this->translate("Date");?></strong></th>
+                                        <th><strong><?php echo $this->translate("Log-Message");?></strong></th>
+                                       
+                                    </tr>
+                                </thead>
+                                <tbody class="no-bd-y">
+
+                                    <?php if ($this->systemLog) { ?>
+                                        <?php foreach ($this->systemLog As $lIndex => $systemLogInfo) { ?>
+                                            <tr>
+                                                <td><?php print($lIndex+1); ?></td>
+                                                <td><?php print($this->longDate($systemLogInfo->getActionDate())); ?></td>
+                                                <td><?php print($systemLogInfo->getLogMessage()); ?></td>
+                                        
+                                            </tr>
+                                        <?php } ?>
+                                    <?php } ?>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                    
+                    
+                    <?php if(count($this->systemLog)>0){?>
+			<?php echo $this->partial('common/_pagination.phtml', array('paginationData' => $this->paggination)); ?>
+                    <?php } ?>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

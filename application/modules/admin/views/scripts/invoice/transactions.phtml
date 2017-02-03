@@ -1,0 +1,65 @@
+
+                    <!-- Navigation info -->
+                    <ul id="nav-info" class="clearfix">
+                        <li><a href="<?php print($this->baseUrl());?>/admin/"><i class="icon-home"></i></a></li>
+                        <li><a href="<?php print($this->baseUrl());?>/admin/billing/transactions/">Billing</a></li>
+                        <li class="active"><a href="#">Transactions</a></li>
+                    </ul>
+                    <!-- END Navigation info -->
+
+                    <!-- Default style -->
+                    <h3 class="page-header page-header-top">Transactions</h3>
+                    
+                    
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th class="span1 text-center">ID</th>
+                                <th>Client Name</th>
+                                <th class="span1 text-center">Date</th>
+                                <th>Payment Method</th>
+                                <th class="span3">Description</th>
+                                <th class="span1 text-center">Amount In</th>
+                                <th class="span1 text-center">Fees</th>
+                                <th class="span1 text-center">Amount Out</th>
+                                <th class="span1 text-center"><i class="icon-bolt"></i> Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            
+                            <?php if($this->transactions){?>
+			    <?php foreach($this->transactions As $index=>$transaction){?>
+                            <tr>
+                                <td class="span1 text-center"><?php print($index+1);?></td>
+                                <td><?php print($transaction->getClient()->getCompanyname());?></td>
+                                <td><?php print($transaction->getDate());?></td>
+                                <td><?php print($transaction->getGateway()->getName());?></td>
+                                <td><?php print($transaction->getDescription());?></td>
+                                <td><?php print($transaction->getAmountIn());?></td>
+                                <td><?php print($transaction->getFees());?></td>
+                                <td><?php print($transaction->getAmountOut());?></td>
+                              
+                                
+                                <td class="span1 text-center">
+                                    
+                                    <div class="btn-group">
+                                        <a href="<?php print($this->baseUrl());?>/admin/billing/edit-transactions/id/<?php print($transaction->getId());?>" data-toggle="tooltip" title="Edit" class="btn btn-mini btn-success"><i class="icon-pencil"></i></a>
+                                        <a href="<?php print($this->baseUrl());?>/admin/billing/delete-transaction/id/<?php print($transaction->getId());?>" data-toggle="tooltip" title="Delete" class="btn btn-mini btn-danger"><i class="icon-remove"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <?php } ?>
+			    <?php } ?>
+                            
+                        
+                        </tbody>
+                    </table>
+                    <!-- END Default style -->
+
+                    
+                    <?php if(count($this->transactions)>0){?>
+			<?php echo $this->partial('common/_pagination.phtml', array('paginationData' => $this->paggination)); ?>
+		     <?php } ?>
+                    
+                    

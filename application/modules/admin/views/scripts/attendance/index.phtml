@@ -1,0 +1,264 @@
+<div id="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    
+                      <h3 class="panel-title"><strong><?php echo $this->translate("Today-s");?></strong><?php echo $this->translate("Attendance-Details");?> <small><?php print($this->formatDateStrWithWeek($this->reportDateOn));?></small></h3>
+                    
+                    <div class="btn-group pull-right">
+                        <a href="#" id="form-data-back" class="btn btn-blue">
+                            <?php echo $this->translate("Go-back");?> <i class="fa fa-backward"></i>
+                        </a>
+                    </div>
+                </div>
+                
+          
+                <div class="panel-body">
+                    <div class="row">
+                        
+                        
+                        
+                        <div class="col-md-12 col-sm-12 col-xs-12 table-responsive">
+                            
+                            
+                            <table class="table table-bordered table_obtor_data table-hover">
+                  
+                                <thead class="no-bd">
+                                    <tr>
+
+                                        <th class="table_id table_head"><strong><?php echo $this->translate("Id");?></strong></th>
+                                        <th class="table_data table_head"><strong><?php echo $this->translate("Employee-Name");?></strong></th>
+                                        <th class="table_data table_head table_time_row"><strong><?php echo $this->translate("On-Time");?></strong></th>
+                                        <th class="table_data table_head table_time_row"><strong><?php echo $this->translate("Off-Time");?></strong></th>
+                                        <th class="table_data table_head table_time_row"><strong><?php echo $this->translate("In-Time");?></strong></th>
+                                        <th class="table_data table_head table_time_row"><strong><?php echo $this->translate("Out-Time");?></strong></th>
+                                        <th class="table_data table_head"><strong><?php echo $this->translate("Other-In-Out");?></strong></th>
+          
+                                    </tr>
+                                </thead>
+                                <tbody class="no-bd-y">
+
+                               
+                                    <?php 
+                                    $totalNumberOfPresentStaffFullTime = 0;
+                                    $totalNumberOfPresentStaffPartTime = 0;
+                                    $totalNumberOfPresentStaffOtherTime = 0;
+                                    if($this->attendanceInformation){?>
+                                    <?php 
+                                    foreach($this->attendanceInformation As $attIndex=>$attendanceInfo){
+                                    $employeeInfo = $this->getEmployee($attendanceInfo->getEmployee());
+                                    if($attendanceInfo->getEmployeeType() == 6){
+                                        $totalNumberOfPresentStaffFullTime = $totalNumberOfPresentStaffFullTime + 1;
+                                    }elseif($attendanceInfo->getEmployeeType() == 10) {
+                                        $totalNumberOfPresentStaffPartTime = $totalNumberOfPresentStaffPartTime + 1;   
+                                    }elseif($attendanceInfo->getEmployeeType() == 5) {
+                                        $totalNumberOfPresentStaffOtherTime = $totalNumberOfPresentStaffOtherTime + 1;      
+                                    }
+                                    ?>
+                                            <tr>
+                                                <td>
+                                                    <a title="<?php echo $this->translate("View");?>" href="<?php print($this->baseUrl()); ?>/admin/attendance/view/id/<?php print($attendanceInfo->getId());?>">
+                                                    <?php print($attIndex+1);?>
+                                                    </a>
+                                                </td>
+                                                <td><?php print($employeeInfo->getNameWithInitials());?></td>
+                                                <td><?php print($attendanceInfo->getScheduledOnTime());?></td>
+                                                <td><?php print($attendanceInfo->getScheduledOffTime());?></td>
+                                                <td><?php print($attendanceInfo->getAttendanceInTime());?></td>
+                                                <td><?php print($attendanceInfo->getAttendanceOutTime());?></td>
+                                                <td><?php print($attendanceInfo->getOtherInOut());?></td>
+                                   
+                                               
+                                            </tr>
+                                    <?php } ?>
+                                            <?php } else {?>
+                                      <tr>
+                                                <td colspan="7" class="table_data_not_found"><?php echo $this->translate("Records-Not-Available");?></td>
+                                            </tr>
+                                             <?php } ?>
+                                        
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                    
+                    
+                  
+                    
+                    <!-- The pagination comes here... -->
+                    <div class="row">
+                        <div class="btn-group pull-right">
+                            <a href="<?php print($this->baseUrl()); ?>/uploads/samples/attendance_fingerprint.csv" target="_blank" id="table-edit_new" class="btn btn-warning">
+                            <?php echo $this->translate("Download-Sample-Csv");?> <i class="fa fa-download"></i>
+                        </a>
+                    </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+            <div class="col-md-6">
+                <div class="panel panel-default">
+
+
+                    <div class="panel-body">
+                        <h5 class="panel-title"><strong><?php echo $this->translate("Staff-s-Attendance-Summary"); ?></strong></h5>
+                        <div class="row border-top">
+                            <div class="col-md-12 col-sm-12 col-xs-12 m-t-20 m-b-20">
+                                
+                                <table class="table table-bordered table_obtor_data table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2"><?php echo $this->translate("Report-On-Date");?> &ldquo; <?php print($this->formatDateStrWithWeek($this->reportDateOn));?> &rdquo;</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="attendance_summary_desc"><strong><?php echo $this->translate("Full-Time-Staffs"); ?></strong></td>
+                                                <td class="attendance_value data_value_summary"><strong><?php print($this->totalFullTimeStaff);?></strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="attendance_summary_desc"><?php echo $this->translate("Total-Number-Of-Present-Staff"); ?></td>
+                                                <td class="attendance_value data_value"><?php print($totalNumberOfPresentStaffFullTime);?></td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td class="attendance_summary_desc"><?php echo $this->translate("On Leave"); ?></td>
+                                                <td class="attendance_value data_value"><?php print($this->totalFullTimeStaffOnLeave);?></td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td class="attendance_summary_desc"><?php echo $this->translate("Absent-Not-Applied-Leave"); ?></td>
+                                                <td class="attendance_value data_value"><?php print($this->totalFullTimeStaffAbsent);?></td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td class="attendance_summary_desc"><strong><?php echo $this->translate("Part-Time-Staffs"); ?></strong></td>
+                                                <td class="attendance_value data_value_summary"><strong><?php print($this->totalPartTimeStaff);?></strong></td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td class="attendance_summary_desc"><?php echo $this->translate("Total-Number-Of-Present-Staff"); ?></td>
+                                                <td class="attendance_value data_value"><?php print($totalNumberOfPresentStaffPartTime);?></td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td class="attendance_summary_desc"><?php echo $this->translate("On Leave"); ?></td>
+                                                <td class="attendance_value data_value"><?php print($this->totalPartTimeStaffOnLeave);?></td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td class="attendance_summary_desc"><?php echo $this->translate("Absent-Not-Applied-Leave"); ?></td>
+                                                <td class="attendance_value data_value"><?php print($this->totalPartTimeStaffAbsent);?></td>
+                                            </tr>
+                                           
+                                            
+                                            <tr>
+                                                <td class="attendance_summary_desc"><strong><?php echo $this->translate("Freelance-and-Other-Staffs"); ?></strong></td>
+                                                <td class="attendance_value data_value_summary"><strong><?php print($this->totalOtherStaffs);?></strong></td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td class="attendance_summary_desc"><?php echo $this->translate("Total-Number-Of-Present-Staff"); ?></td>
+                                                <td class="attendance_value data_value"><?php print($totalNumberOfPresentStaffOtherTime);?></td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td class="attendance_summary_desc"><?php echo $this->translate("On Leave"); ?></td>
+                                                <td class="attendance_value data_value"><?php print($this->totalNumberOfStaffsOnLeave);?></td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td class="attendance_summary_desc"><?php echo $this->translate("Absent-Not-Applied-Leave"); ?></td>
+                                                <td class="attendance_value data_value"><?php print($this->totalNumberOfStaffsAbsent);?></td>
+                                            </tr>
+                                           
+                                        </tbody>
+                                    </table>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-md-6">
+                <div class="panel panel-default">
+
+
+                    <div class="panel-body">
+                        <h5 class="panel-title"><strong><?php echo $this->translate("Staff-s-Attendance-Final-Summary"); ?></strong></h5>
+                        <div class="row border-top">
+                            <div class="col-md-12 col-sm-12 col-xs-12 m-t-20 m-b-20">
+                               <table class="table table-bordered table_obtor_data table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2"><?php echo $this->translate("Report-On-Date");?> &ldquo; <?php print($this->formatDateStrWithWeek($this->reportDateOn));?> &rdquo;</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                            <tr>
+                                                <td class="attendance_summary_desc"><?php echo $this->translate("Full-Time-Staff"); ?></td>
+                                                <td class="attendance_value data_value"><?php print($this->totalFullTimeStaff);?></td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td class="attendance_summary_desc"><?php echo $this->translate("Part-Time-Staff"); ?></td>
+                                                <td class="attendance_value data_value"><?php print($this->totalPartTimeStaff);?></td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td class="attendance_summary_desc"><?php echo $this->translate("Freelance-and-Other-Staffs"); ?></td>
+                                                <td class="attendance_value data_value"><?php print($this->totalOtherStaffs);?></td>
+                                            </tr>
+                                            
+                                            
+                                            
+                                            <tr>
+                                                <td class="attendance_summary_desc"><strong><?php echo $this->translate("Total-Number-Of-Staffs"); ?></strong></td>
+                                                <td class="attendance_value data_value data_value_summary"><?php print($this->totalNumberOfStaffs);?></td>
+                                            </tr>
+                                        
+                                        <tr>
+                                                <td class="attendance_summary_desc"><?php echo $this->translate("Total-Number-Of-Present-Staff"); ?></td>
+                                                <td class="attendance_value data_value"><?php print($totalNumberOfPresentStaffFullTime+$totalNumberOfPresentStaffPartTime+$totalNumberOfPresentStaffOtherTime);?></td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td class="attendance_summary_desc"><?php echo $this->translate("On Leave"); ?></td>
+                                                <td class="attendance_value data_value"><?php print($this->finalTotalOnLeave);?></td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td class="attendance_summary_desc"><?php echo $this->translate("Absent-Not-Applied-Leave"); ?></td>
+                                                <td class="attendance_value data_value"><?php print($this->finalTotalAbsent);?></td>
+                                            </tr>
+                                           
+                                        </tbody>
+                                    </table>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        
+        
+     
+        
+        
+    </div>
+</div>

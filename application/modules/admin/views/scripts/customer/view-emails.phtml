@@ -1,0 +1,80 @@
+                    <!-- Navigation info -->
+                    <ul id="nav-info" class="clearfix">
+                        <li><a href="index.html"><i class="icon-home"></i></a></li>
+                        <li><a href="javascript:void(0)">Pages</a></li>
+                        <li class="active"><a href="">Blank</a></li>
+                    </ul>
+                    <!-- END Navigation info -->
+
+                    <!-- Your Content -->
+                    
+                    <h3 class="page-header page-header-top">Clients Profile</h3>
+                      
+                    
+                        
+                            
+                         <!-- Tabs -->
+                         <?php echo $this->partial('common/_client_links.phtml', array('clientId' => $this->clientInfo->getId(),'currentLink' => $this->actionName)); ?>
+                         
+                       
+                   
+                     	
+                         
+                        <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th class="span1 text-center">ID</th>
+                                <th class="span3 text-center">Sent Date</th>
+                                <th>Subject</th>
+                                <th class="span6 text-center">Sent To</th>
+                                <th class="span2 text-center"><i class="icon-bolt"></i> Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            
+                            <?php if($this->maillogs){?>
+			    <?php foreach($this->maillogs As $index=>$maillog){?>
+                            <tr>
+                                <td class="span1 text-center"><?php print($index+1);?></td>
+                                <td class="span3 text-center"><?php print($maillog->getDate());?></td>
+                                <td><?php print($maillog->getSubject());?></td>
+                                <td class="span6 text-center"><?php print($maillog->getUserid()->getFirstname());?> / <?php print($maillog->getTo());?></td>
+                                <td class="span1 text-center">
+                                    
+                                    <div class="btn-group">
+                                        <a href="#" data-toggle="tooltip" title="Details" class="btn btn-mini btn-info"><i class="icon-info-sign"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <?php } ?>
+			    <?php } ?>
+                            
+                        
+                        </tbody>
+                    </table>
+                    <!-- END Default style -->
+
+                    
+                    <?php if(count($this->maillogs)>0){?>
+			<?php echo $this->partial('common/_pagination.phtml', array('paginationData' => $this->paggination)); ?>
+		     <?php } ?>
+                       
+                        
+                        
+                    
+                    
+                    
+                    
+                    
+                   
+                    <!-- End Your Content -->
+                    <script>
+$(document).on("change", "#cmbClientId", function(e) {
+   var location = $(this).val();
+   document.location.href = location;
+   
+});
+</script>
+                    
+               

@@ -1,0 +1,65 @@
+   <div id="main-content">
+            
+            <div class="row">
+                <div class="col-md-12">
+            
+                    
+                    
+                    <div class="panel panel-default">
+                        
+                        <div class="panel-heading">
+                    
+                    
+                    
+                    <div class="btn-group pull-right">
+                        <a href="#" id="form-data-back" class="btn btn-blue">
+                            <?php echo $this->translate("Go-back");?> <i class="fa fa-backward"></i>
+                        </a>
+                    </div>
+                            <BR/>
+                            <BR/>
+                </div>
+                   
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form id="form_images_upload" name="form_images_upload" role="form" method="post" class="form-horizontal" enctype="multipart/form-data">
+                                        
+                                        
+                                        <div class="form-group">
+                                            <div class="panel panel-default">
+                                    <div class="panel-body center-contents">
+                                        <?php if($this->employeeInformation->getProfileImage() != ""){?>
+                                        <img src="<?php print($this->baseUrl()); ?>/uploads/images/staff/<?php print($this->employeeInformation->getProfileImage());?>" class="img-responsive" alt="profil">
+                                        <?php } else {?>
+                                        <img src="<?php print($this->baseUrl()); ?>/uploads/images/staff/davis_shawn.jpg" class="img-responsive" alt="profil">
+                                         <?php } ?>
+                                    </div>
+                                </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Attachment-new-image-file");?></strong></label>
+                                        <span class="tips"> Image width : 210px and height : 275px </span>
+                                        <div class="controls">
+                                            <input class="form-control normal_input" type="file" id="txtItemPicture" name="txtItemPicture">
+                                            <input type="hidden" name="txtOldImage" id="txtOldImage" value="<?php print($this->employeeInformation->getProfileImage());?>" />
+                                        </div>
+                                    </div>
+                                        
+                                               
+                                        
+                                        
+                                   
+                                        <div class="form-group text-left">
+                                            <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Submit");?></button>
+                                            <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel");?></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

@@ -1,0 +1,100 @@
+<div id="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    
+                     <div class="btn-group">
+                        <a href="<?php print($this->baseUrl()); ?>/admin/payroll/extra-bonus/" id="table-edit_new" class="btn btn-danger">
+                            <?php echo $this->translate("Add-Extra-Bonus");?> <i class="fa fa-plus"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="btn-group">
+                        <a href="<?php print($this->baseUrl()); ?>/admin/payroll/extra-deduction/" id="table-edit_new" class="btn btn-danger">
+                            <?php echo $this->translate("Add-Extra-Deduction");?> <i class="fa fa-plus"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="btn-group pull-right">
+                        <a href="#" id="form-data-back" class="btn btn-blue">
+                            <?php echo $this->translate("Go-back");?> <i class="fa fa-backward"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12 table-responsive m-t-20 table_padding">
+                            <table class="table table-bordered table_obtor_data table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="table_id table_head"><?php echo $this->translate("ID");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Salary-Month");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Employee-Name");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Gross-Salary-Amount");?></th>
+                                        <th class="table_head table_data_xx"><?php echo $this->translate("Total-Deduction");?></th>
+                                        <th class="table_head table_data_xxxx"><?php echo $this->translate("Net-Salary-Amount");?></th>
+                                        <th class="table_head table_data_xx"><?php echo $this->translate("Status");?></th>
+                                        <th class="text-center table_head data_table_action"><?php echo $this->translate("Actions");?></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="no-bd-y">
+
+                                    <?php if ($this->employeeSalaryPayment) { ?>
+                                        <?php foreach ($this->employeeSalaryPayment As $esIndex => $employeeSalaryInfo) { ?>
+                                            <tr>
+                                                <td>
+                                                    <a title="<?php echo $this->translate("View");?>" href="<?php print($this->baseUrl()); ?>/admin/payroll/salary-view/id/<?php print($employeeSalaryInfo->getId()); ?>">
+                                                    <?php print($esIndex+1); ?>
+                                                    </a>
+                                                </td>
+                                                <td><?php print($employeeSalaryInfo->getSalMonth()); ?>/<?php print($employeeSalaryInfo->getSalYear()); ?></td>
+                                                <td>
+                                                    <a title="<?php echo $this->translate("View");?>" href="<?php print($this->baseUrl()); ?>/admin/payroll/employee-salary-view/?employee=<?php print($employeeSalaryInfo->getEmployeeId()); ?>&year=<?php print($employeeSalaryInfo->getSalYear()); ?>">
+                                                    <?php print($this->getEmployee($employeeSalaryInfo->getEmployeeId())->getNameWithInitials()); ?>
+                                                    </a>
+                                                </td>
+                                                <td><?php print($employeeSalaryInfo->getGrossSalaryAmount()); ?></td>
+                                                <td><?php print($employeeSalaryInfo->getTotalDeduction()); ?></td>
+                                                <td><?php print($employeeSalaryInfo->getNetSalaryAmount()); ?></td>
+                                                <td>
+                                                    <?php if($employeeSalaryInfo->getCurrentStatus() == "Paid") {?>
+                                                    <span class="label bg-green"><?php echo $this->translate("Paid"); ?></span>
+                                                    <?php } else {?>
+                                                    <span class="label bg-red"><?php echo $this->translate("Pending"); ?></span>
+                                                    <?php } ?>
+                                                </td>
+                                                
+                                                <td class="text-center">
+                                                    <?php if($employeeSalaryInfo->getCurrentStatus() == "Pending") {?>
+                                                    <a href="#" id="payLink<?php print($employeeSalaryInfo->getId());?>" onclick="paySalaryNow(<?php print($employeeSalaryInfo->getId());?>);">
+                                                        <span class="label label-success">
+                                                           <?php echo $this->translate("Pay-Now"); ?>
+                                                        </span>
+                                                     </a>
+                                                    <?php } ?>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
+                                    <?php } else {?>
+                                            <tr>
+                                                <td colspan="8" class="table_data_not_found"><?php echo $this->translate("Records-Not-Available");?></td>
+                                            </tr>
+                                    <?php } ?>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                    
+                    
+                    <?php if(count($this->employeeSalaryPayment)>0){?>
+			<?php echo $this->partial('common/_pagination.phtml', array('paginationData' => $this->paggination)); ?>
+                    <?php } ?>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

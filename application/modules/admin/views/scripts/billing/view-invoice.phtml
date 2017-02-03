@@ -1,0 +1,247 @@
+<!-- Navigation info -->
+<ul id="nav-info" class="clearfix">
+    <li><a href="<?php print($this->baseUrl()); ?>/admin/"><i class="icon-home"></i></a></li>
+    <li><a href="<?php print($this->baseUrl()); ?>/admin/order/">Manage Orders</a></li>
+    <li class="active"><a href="#">Order Details</a></li>
+</ul>
+<!-- END Navigation info -->
+
+<!-- Text Inputs -->
+<form class="form-horizontal form-box remove-margin" method="post" action="" id="form-validation" novalidate="novalidate">
+    <h4 class="form-box-header">Invoice #<?php print($this->invoiceInfo->getId());?></h4>
+
+
+    <div class="form-box-content">
+
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>
+                        <table id="nobordertable">
+                            <tbody>
+                                <tr>
+                                    <td>Client Name</td>
+                                    <td>:<?php print($this->invoiceInfo->getClient()->getFirstname());?> (<a href="#">View Invoices</a>) </td>
+                                </tr>
+                                <tr>
+                                    <td>Invoice Date</td>
+                                    <td>:<?php print($this->invoiceInfo->getDate());?></td>
+                                </tr>
+                                <tr>
+                                    <td>Due Date</td>
+                                    <td>:<?php print($this->invoiceInfo->getDueDate());?></td>
+                                </tr>
+                                <tr>
+                                    <td>Total Due</td>
+                                    <td>:<?php print($this->customerCurrency->getCurrencySym());?> <?php print($this->invoiceInfo->getTotal());?> <?php print($this->customerCurrency->getName());?></td>
+                                </tr>
+                                <tr>
+                                    <td>Balance</td>
+                                    <td>:<?php print($this->customerCurrency->getCurrencySym());?> 0.00 <?php print($this->customerCurrency->getName());?></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+
+                    <td>
+                        <table id="nobordertable">
+                            <tbody>
+                                <tr>
+                                    <td class="text-center">Paid</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">18/11/2013 15:30</td>
+                                </tr>
+                                 <tr>
+                                    <td class="text-center">Payment Method: Direct Debit</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">
+                                       <select name="tplname">
+    <option>Invoice Payment Confirmation</option>
+    <option>Credit Card Payment Confirmation</option>
+    <option>Invoice Created</option>
+    <option>Credit Card Invoice Created</option>
+    <option>Invoice Payment Reminder</option>
+    <option>First Invoice Overdue Notice</option>
+    <option>Second Invoice Overdue Notice</option>
+    <option>Third Invoice Overdue Notice</option>
+    <option>Credit Card Payment Due</option>
+    <option>Credit Card Payment Failed</option>
+    <option>Invoice Refund Confirmation</option>
+</select>
+                                        <button class="btn">Send Email</button>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="text-center">
+                                      <button class="btn">Attempt Capture</button>
+                                      <button class="btn">Mark Cancelled</button>
+                                      <button class="btn">Mark Unpaid</button>  
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="text-center">
+                                      <button class="btn">Printable Version</button>
+                                      <button class="btn">View PDF</button>
+                                      <button class="btn">Download PDF</button>  
+                                    </td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+
+
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+
+
+
+    </div>
+</form>
+<!-- END Text Inputs -->
+<BR/>
+<div class="row-fluid grid-boxes">
+    <div class="span12 remove-margin text-align-left"><strong>Invoice Items</strong></div>
+</div>
+
+<div class="form-box-content" style="padding-left: 0px; padding-right: 0px;">
+    <form class="form-horizontal form-box remove-margin" method="post" action="" id="form-validation" novalidate="novalidate">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th class="span1 text-center"></th>
+                <th>Description</th>
+                <th class="span2 text-right">Amount</th>
+                <th class="span1 text-center">Taxed</th>
+                <th class="span1 text-center"></th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            
+            <?php if($this->invoiceItems){?>
+            <?php 
+            $row_num = 1;
+            $subtotal = 0;
+            foreach($this->invoiceItems As $iIndex=>$invoiceItem){?>
+            <tr>
+                <td><?php print($row_num);?><input type="hidden" name="txtInvoiceItemId[]" value="<?php print($invoiceItem->getId());?>" style="width: 100%;" /></td>
+                <td><input type="text" name="txtInvoiceItems[]" value="<?php print($invoiceItem->getDescription());?>" style="width: 100%;" />  </td>
+               
+                <td class="text-right"><input type="text" name="txtInvoiceAmount[]" value="<?php print($invoiceItem->getAmount());?>" style="width: 80%;" class="text-right" /></td>
+                <td class="text-center"><input type="checkbox" name="txtInvoicetax[]" value="1" style="width: 100%;" <?php if($invoiceItem->getTaxed() == 1){?> checked="checked" <?php } ?> /></td>
+                <td class="text-center">x</td>
+            </tr>
+            <?php 
+            $subtotal = $subtotal + $invoiceItem->getAmount(); 
+            $row_num = $row_num + 1;
+            } ?>
+            <?php } ?>
+            <tr>
+                <td><?php print($row_num);?></td>
+                <td><input type="text" name="txtInvoiceItem" value="" style="width: 100%;" />  </td>
+                <td class="text-right"><input type="text" name="txtInvoiceAmt" value="" style="width: 80%;" class="text-right" /></td>
+                <td class="text-center"><input type="checkbox" name="txtInvoicet" value="1" style="width: 100%;" /></td>
+                <td class="text-center">x</td>
+            </tr>
+        </tbody>
+    </table>
+        
+        <table class="table table-hover">
+       <tbody>
+            <tr>
+                <td class="span1 text-center">&nbsp;</td>
+                <td class="text-right"><strong>Sub Total:</strong></td>
+                <td class="span2 text-right"><?php print($this->customerCurrency->getCurrencySym());?> <?php print($subtotal);?> <?php print($this->customerCurrency->getName());?></td>
+                <td class="span1 text-center">&nbsp;</td>
+                <td class="span1 text-center"></td>
+            </tr>
+            <tr>
+                <td class="span1 text-center">&nbsp;</td>
+                <td class="text-right">VAT:</td>
+                <td class="span2 text-right"><?php print($this->customerCurrency->getCurrencySym());?> 0.00 <?php print($this->customerCurrency->getName());?></td>
+                <td class="span1 text-center">&nbsp;</td>
+                <td class="span1 text-center"></td>
+            </tr>
+            
+            <tr>
+                <td class="span1 text-center">&nbsp;</td>
+                <td class="text-right"><strong>Total Due:</strong></td>
+                <td class="span2 text-right"><?php print($this->customerCurrency->getCurrencySym());?> <?php print($this->invoiceInfo->getTotal());?> <?php print($this->customerCurrency->getName());?></td>
+                <td class="span1 text-center">&nbsp;</td>
+                <td class="span1 text-center"></td>
+            </tr>
+        </tbody>
+        </table>
+        
+        <table class="table table-hover">
+             <tr>
+                 <td style="float: right;">
+                     <input type="hidden" name="txtInvoiceId" value="<?php print($this->invoiceInfo->getId());?>" />
+                    <button class="btn btn-success"><i class="icon-save"></i> Save Changes</button>
+                </td>
+            </tr>
+        </table>
+           
+      
+        </form>
+</div>
+
+
+<BR/>
+<div class="row-fluid grid-boxes">
+    <div class="span12 remove-margin text-align-left"><strong>Transactions</strong></div>
+</div>
+
+<div class="form-box-content">
+    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th class="span1 text-center">ID</th>
+                                <th class="span1 text-center">Date</th>
+                                <th class="span2">Payment Method</th>
+                                <th class="span1">Transaction ID</th>
+                                <th class="span1 text-center">Amount In</th>
+                                <th class="span1 text-center">Fees</th>
+                                <th class="span1 text-center">Amount Out</th>
+                                <th class="span1 text-center"><i class="icon-bolt"></i> Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            
+                            <?php if($this->transactions){?>
+			    <?php foreach($this->transactions As $index=>$transaction){?>
+                            <tr>
+                                <td class="span1 text-center"><?php print($index+1);?></td>
+                                <td><?php print($transaction->getDate());?></td>
+                                <td><?php print($transaction->getGateway()->getName());?></td>
+                                <td><?php print($transaction->getTransId());?></td>
+                                <td><?php print($this->customerCurrency->getCurrencySym());?> <?php print($transaction->getAmountIn());?> <?php print($this->customerCurrency->getName());?></td>
+                                <td><?php print($this->customerCurrency->getCurrencySym());?> <?php print($transaction->getFees());?> <?php print($this->customerCurrency->getName());?></td>
+                                <td><?php print($this->customerCurrency->getCurrencySym());?> <?php print($transaction->getAmountOut());?> <?php print($this->customerCurrency->getName());?></td>
+                              
+                                
+                                <td class="span1 text-center">
+                                    
+                                    <div class="btn-group">
+                                      
+                                        <a href="<?php print($this->baseUrl());?>/admin/billing/delete-transaction/id/<?php print($transaction->getId());?>/invoiceId/<?php print($this->invoiceInfo->getId());?>/act/view-invoice" data-toggle="tooltip" title="Delete" class="btn btn-mini btn-danger"><i class="icon-remove"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <?php } ?>
+			    <?php } ?>
+                            
+                        
+                        </tbody>
+                    </table>
+                    <!-- END Default style -->
+</div>

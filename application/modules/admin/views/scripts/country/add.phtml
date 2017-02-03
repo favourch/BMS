@@ -1,0 +1,50 @@
+   <div id="main-content">
+            
+            <div class="row">
+                <div class="col-md-12">
+            
+                    
+                    
+                    <div class="panel panel-default">
+                   
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form id="form_country" name="form_country" role="form" method="post" class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Country-Name");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtCountryName" id="txtCountryName"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Country-Code");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtCountryCode" id="txtCountryCode"/>
+                                            </div>
+                                        </div>
+                                        
+                                   
+                                        <div class="form-group text-left">
+                                            <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Submit");?></button>
+                                            <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel");?></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    
+                </div>
+            </div>
+            
+                        
+            
+                        
+        </div>
+<script src="<?php print($this->baseUrl());?>/assets/validator/admin/country.js"></script>

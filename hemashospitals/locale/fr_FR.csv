@@ -1,0 +1,266 @@
+Administration-Panel-ObtorEBMS;Panneau d'administration ObtorEBMS
+Dashboard;Tableau de bord
+Staff-Management;Gestion du personnel
+Manage-Staffs;Gérer états-majors
+Add-New-Staff;Ajouter un nouveau personnel
+View-All-Staffs;Voir tous les états-majors
+Advanced-Search;Recherche avancée
+Attendance;Présence
+Today-s-Attendance;Le nombre de spectateurs
+Add-New-Attendance;Ajouter une nouvelle fréquentation
+Upload-Attendance-Csv-upload;Upload Attendance (Csv upload)
+Search-Attendance;Search Attendance
+Leaves;Leaves
+Today-s-Leave;Today's Leave
+Add-New-Leave;Add New Leave
+Pending-Leave-Applications;Pending Leave Applications
+Search-Leaves;Search Leaves
+Performance-Trackers;Performance Trackers
+Manage-Trackers;Manage Trackers
+Employee-Trackers;Employee Trackers
+Manage-Jobs;Manage Jobs
+Job-Titles;Job Titles
+Job-Categories;Job Categories
+Employment-Types;Employment Types
+Employment-Status;Employment Status
+Work-Shifts;Work Shifts
+Recruitment;Recruitment
+Manage-Vacancies;Manage Vacancies
+Manage-Candidates;Manage Candidates
+Manage-Documents;Manage Documents
+Add-New-Document;Add New Document
+Task-Management;Task Management
+Manage-Tasks;Manage Tasks
+Add-New-Task;Add New Task
+View-All-Tasks;View All Tasks
+Search-Tasks;Search Tasks
+Calendar;Calendar
+Announcements;Announcements
+Manage-Announcements;Manage-Announcements
+Make-New-Announcement;Make New Announcement
+View-All-Announcements;View All Announcements
+Search-Announcements;Search Announcements
+Customer-Inquiries;Customer Inquiries
+Manage-Inquiries;Manage Inquiries
+Add-New-Inquiries;Add New Inquiries
+View-All-Inquiries;View All Inquiries
+Search-Inquiries;Search Inquiries
+Assets;Assets
+Manage-Assets;Manage Assets
+Add-New-Asset;Add New Asset
+Brands;Brands
+Vendors;Vendors
+Category;Category
+Leads;Leads
+Manage-Leads;Manage Leads
+Add-New-Lead;Add New Lead
+Upload-Leads-Csv;Upload Leads (Csv)
+Search-Leads;Search Leads
+Contacts;Contacts
+Manage-Contacts;Manage Contacts
+Add-New-Contact;Add New Contact
+Search-Contact;Search Contact
+Opportunities;Opportunities
+Manage-Opportunities;Manage Opportunities
+Add-New-Opportunity;Add New Opportunity
+Search-Opportunity;Search Opportunity
+Email-Campaigns;Email Campaigns
+Manage-Emails;Manage Emails
+Add-New-Email;Add New Email
+Search-Email;Search Email
+Inventory;Inventory
+Products;Products
+Services;Services
+Purchase-Orders;Purchase Orders
+Sales-and-Sales-Order;Sales and Sales Order
+Invoices;Invoices
+Quotes;Quotes
+Create-New-Quote;Create New Quote
+View-Quotes;View Quotes
+Projects;Projects
+Manage-Projects;Manage Projects
+Add-New-Project;Add New Project
+Search-Project;Search Project
+User-Management;User Management
+Manage-Roles;Manage Roles
+Manage-Users;Manage Users
+Add-New-User;Add New User
+Edit-User;Edit User
+View-User-Logs;Les journaux de l'utilisateur
+User-s-Log-Information;Connexion de l'utilisateur
+User-s-History;User's History
+Statistics;Statistics
+Organization;Organization
+Manage-Country;Manage Country
+Manage-Regions;Manage Regions
+Manage-Branches;Manage Branches
+Manage-Departments;Manage Departments
+Logs;Logs
+Activity-Logs;Activity Logs
+Settings;Settings
+System-Settings;System Settings
+My-Account;My Account
+Change-Password;Change Password
+User-Roles;Rôles de l'utilisateur
+Add-New;Ajouter un nouveau
+Role-Name;Rôle Nom
+Actions;Actes
+Edit;Modifier
+View;Voir
+Delete;Effacer
+Submit;Soumettre
+Cancel;Annuler
+Add-New-User-Role;Ajouter un nouveau rôle d'utilisateur
+Edit-User-Role;Modifier le rôle d'utilisateur
+Go-back;Retour
+Countries;Pays
+Country-Name;Nom du pays
+Add-New-Country;Ajouter un nouveau pays
+Edit-Country;Modifier Pays
+Country-Code;Code Du Pays / Préfixe
+Region-Name;Nom région
+Region-Code;Code de région / Préfixe
+Add-New-Region;Ajouter une nouvelle région
+Edit-Region;Modifier une région
+Branch-Name;Nom de la direction
+Branch-Code;Code de la Direction générale
+Departments;Départements
+Department-Name;Nom Département
+Add-New-Department;Ajouter un nouveau département
+Department-Code;Code de département
+Edit-Department;Modifier Département
+Users;Utilisateurs
+Add-New-User;Ajouter un nouvel utilisateur
+select;Sélectionner
+Employee-Number;Nombre des employés
+Full-Name;Nom et prénom
+Email-Address;Adresse e-mail
+Display-Name;Nom d'affichage
+Status;Statut
+Enabled;Activé
+Disabled;Handicapés
+Suspended;Suspendu
+Basic-Information;Données de base
+Login-Information;Informations de connexion
+Username;Nom d'utilisateur
+Password;mot de passe
+Confirm-Password;Confirmez le mot de passe
+User-Role-and-Privilege;Rôle de l'utilisateur et Privilège
+User-Role;Rôle de l'utilisateur
+Data-Privilege;Privilège de données
+Global-User;mondial utilisateur
+Country-User;pays utilisateur
+Region-User;Région utilisateur
+Branch-User;Direction l'utilisateur
+Department-User;Département utilisateur
+Assign-Manually;Attribution manuelle
+Select-Country-Region-Branch-Department;Sélectionnez Pays Région Département Direction
+ID;ID
+Date;Date
+Log-Message;Journal des messages
+Name-with-initials;Nom d'initiales
+Gender;Sexe
+Date-Of-Birth;Date de naissance
+NIC-Number;NIC Number
+Driving-License-No;Pas de permis de conduire
+Telephone-number-residence;Numéro de téléphone (résidence)
+Contact-number-mobile;Numéro de téléphone (mobile)
+E-mail-Address-Personal;Adresse e-mail (personnel)
+E-mail-Address-Office;Adresse e-mail (Bureau)
+Work-Location;Lieu de travail
+Country;Pays
+Region;Région
+Branch;Branche
+Department;Département
+Employment-Details;Détails de l'emploi
+Joined-Date;Inscrit
+Designation;Désignation
+Contract-Status;Statut du contrat
+Employee-Type;Type de contrat
+Employee-Status;Statut de l'employé
+Staff-ID-Status;Staff ID Status
+Staff-ID-Issued-Date;Personnel ID Date d'émission
+EPF-ETF-Number;EPF/ETF Nombre
+EPF-ETF-JoinedDate;EPF/ETF Inscrit
+Permanent-address;Adresse permanente
+Address;Adresse
+Street;Rue
+City;Ville
+State;État
+Zip-Postal-Code;Zip/Postal Code
+Residential-Address;Adresse résidentielle
+In-Case-of-Emergency;En cas d'urgence
+Contact-Name;Nom du contact
+Relationship;Relations
+Email-address;Adresse e-mail
+male;Mâle
+female;Femelle
+Probation;Probation
+Confirmed;Confirmé
+Part-Time;À temps partiel
+Full-Time;À temps plein
+In-Service;En service
+Not-In-Service;Pas en service
+Issued;Publié
+Not-Issued;Non Publié
+Name-with-initials-head;Nom de l'employé
+Contact-Numbers;Numéros de téléphone
+E-mail-Address;Adresse e-mail
+Status;Statut
+Edit-Staff;Modifier les informations du personnel
+View-Staff;Affichage des informations du personnel
+Edit-Profile;Modifier le profil
+Work-experience;Expérience professionnelle
+Education-Qualification;Niveau d'études
+Skills;Compétences
+Languages;Langues
+License;Licence
+Attachments;Pièces jointes
+Professional-Experience;Expériences Professionnelles
+Add-New-Professional-Experience;Ajouter Nouvelle Expérience professionnelle
+Company-Name;Nom de l'entreprise
+Job-Title;Titre du poste
+From-Date;date d'
+To-Date;à ce jour
+Comments;Commentaires
+View-Professional-Experience;Voir Expérience professionnelle
+Edit-Professional-Experience;Modifier Expérience professionnelle
+Educational-Qualification;Qualification pour l'éducation
+Level;niveau
+Institute;institut
+Major-Specialization;Spécialisation Major
+Year;année
+Gpa;Gpa
+Start-Date;date de début
+End-Date;date de fin
+Skills;Compétences
+Title;Titre
+Years-Of-Experience;Années d'expérience
+Add-New-Skill;Ajouter Nouvelle compétence
+Edit-Skill;Modifier Compétences
+View-Skill;Voir Savoir-faire
+Assets;Actif
+Add-New-Asset;Ajouter un nouveau Asset
+simple;Asset simple
+bundle;Bundle Asset
+Asset-Type;Type d'actif
+Serial-Number;Numéro de série
+Model;Modèle
+Purchased-Date;Date d'achat
+Cost;Coût
+Warranty-Valid-Until;Garantie Valide jusqu'au
+Tag-Number;Nombre de Tag
+Barcode;Barcode
+Vendor;Vendeur
+Date-Acquired;Date d'acquisition
+Purchased-From;Acheté d'
+Next-Maintenance-Date;Maintenance Prochaine date
+Description;Description
+Current-User;Utilisateur actuel
+In-Use;Utilisé
+Ready-Use;Prêt à l'emploi
+Waiting-For-Service;Attente pour le service
+Sent-Out-For-Service;Envoyé pour le service
+Out-Of-Use;Hors d'usage
+Sold;Vendu
+Edit-Asset;Modifier actifs

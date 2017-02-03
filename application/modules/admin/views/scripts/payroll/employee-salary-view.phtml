@@ -1,0 +1,92 @@
+<div id="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    
+                     <div class="btn-group">
+                        <a href="<?php print($this->baseUrl()); ?>/admin/staff/add/" id="table-edit_new" class="btn btn-danger">
+                            <?php echo $this->translate("Add-New");?> <i class="fa fa-plus"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="btn-group pull-right">
+                        <a href="#" id="form-data-back" class="btn btn-blue">
+                            <?php echo $this->translate("Go-back");?> <i class="fa fa-backward"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12 table-responsive m-t-20 table_padding">
+                            <table class="table table-bordered table_obtor_data table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="table_id"><?php echo $this->translate("ID");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Salary-Month");?></th>
+                                        <th class="table_data_xxxxx"><?php echo $this->translate("Gross-Salary-Amount");?></th>
+                                        <th class="table_data_xxxxx"><?php echo $this->translate("Total-Deduction");?></th>
+                                        <th class="table_data_xxxxx"><?php echo $this->translate("Net-Salary-Amount");?></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="no-bd-y">
+
+                                    <?php if ($this->employeeSalaryPayment) { ?>
+                                        <?php 
+                                        $grossSalaryAmount  = 0;
+                                        $totalDeduction     = 0;
+                                        $netSalaryAmount    = 0;
+                                        foreach ($this->employeeSalaryPayment As $esIndex => $employeeSalaryInfo) { ?>
+                                            <tr>
+                                                <td>
+                                                    <a title="<?php echo $this->translate("View");?>" href="<?php print($this->baseUrl()); ?>/admin/payroll/salary-view/id/<?php print($employeeSalaryInfo->getId()); ?>">
+                                                    <?php print($esIndex+1); ?>
+                                                    </a>
+                                                </td>
+                                                <td><?php print($employeeSalaryInfo->getSalMonth()); ?>/<?php print($employeeSalaryInfo->getSalYear()); ?></td>
+                                                <td class="table_data_text_right"><?php print($employeeSalaryInfo->getGrossSalaryAmount()); ?></td>
+                                                <td class="table_data_text_right"><?php print($employeeSalaryInfo->getTotalDeduction()); ?></td>
+                                                <td class="table_data_text_right"><?php print($employeeSalaryInfo->getNetSalaryAmount()); ?></td>
+                                            </tr>
+                                        <?php 
+                                        $grossSalaryAmount  = $grossSalaryAmount + $employeeSalaryInfo->getGrossSalaryAmount();
+                                        $totalDeduction     = $totalDeduction + $employeeSalaryInfo->getTotalDeduction();
+                                        $netSalaryAmount    = $netSalaryAmount + $employeeSalaryInfo->getNetSalaryAmount();
+                                        } ?>
+                                            
+                                            <tr>
+                                                <td colspan="2" class="table_data_text_right">
+                                                    <strong><?php echo $this->translate("Total");?></strong>
+                                                </td>
+                                                
+                                                <td class="table_data_text_right">
+                                                     <strong><?php print($this->formatToDecimal($grossSalaryAmount));?></strong>
+                                                </td>
+                                                 <td class="table_data_text_right">
+                                                     <strong><?php print($this->formatToDecimal($totalDeduction));?></strong>
+                                                </td>
+                                                <td class="table_data_text_right">
+                                                     <strong><?php print($this->formatToDecimal($netSalaryAmount));?></strong>
+                                                </td>
+                                            </tr>
+                                            
+                                    <?php } else {?>
+                                            <tr>
+                                                <td colspan="5" class="table_data_not_found"><?php echo $this->translate("Records-Not-Available");?></td>
+                                            </tr>
+                                    <?php } ?>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

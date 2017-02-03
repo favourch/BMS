@@ -1,0 +1,63 @@
+   <div id="main-content">
+            
+            <div class="row">
+                <div class="col-md-12">
+            
+                    
+                    
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                    <div class="btn-group pull-right">
+                        <a href="#" id="form-data-back" class="btn btn-blue">
+                            <?php echo $this->translate("Go-back");?> <i class="fa fa-backward"></i>
+                        </a>
+                    </div>
+           
+                </div>
+                   
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form id="form_model" name="form_model" role="form" method="post" class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Model-Name");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtModelName" id="txtModelName" value="<?php print($this->modelInfo->getName());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Category");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <select parsley-minlength="3" class="form-control normal_input" name="txtModelCategory" id="txtModelCategory">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->categoryList As $cIndex=>$category){?>
+                                                    <option value="<?php print($category->getId());?>" <?php if($this->modelInfo->getCategory() == $category->getId()){?> selected="selected" <?php } ?> ><?php print($category->getName());?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                   
+                                        <div class="form-group text-left">
+                                            <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Submit");?></button>
+                                            <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel");?></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    
+                </div>
+            </div>
+            
+                        
+            
+                        
+        </div>
+<script src="<?php print($this->baseUrl());?>/assets/validator/admin/model.js"></script>

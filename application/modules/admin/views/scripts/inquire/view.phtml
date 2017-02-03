@@ -1,0 +1,218 @@
+<div id="main-content">
+
+    <div class="row">
+        <div class="col-md-12">
+           
+                <div class="panel panel-default">
+                    
+                    <div class="panel-heading">
+                    <div class="btn-group pull-right">
+                        <a href="#" id="form-data-back" class="btn btn-blue">
+                            <?php echo $this->translate("Go-back");?> <i class="fa fa-backward"></i>
+                        </a>
+                    </div>
+           
+                </div>
+
+                    <div class="panel-body">
+
+
+                        <div class="row">
+                        
+                            <div class="col-md-12">
+                                
+                                
+                               <div class="col-md-12 col-sm-12 col-xs-12 m-t-20">
+                                    <div class="view_information">
+                                            <p>
+                                              <?php echo $this->translate("The-Inquire-Details"); ?>
+                                            </p>
+                                             <ul>
+                                               
+                                             <li>
+                                                  <span><?php echo $this->translate("Full-Name");?></span><?php if($this->inquireInformation->getFullName() != ""){print($this->inquireInformation->getFullName());}else{print("-");}?><div class="clear"></div>
+                                             </li>
+                                             
+                                              <li>
+                                                  <span><?php echo $this->translate("Telephone-Number");?></span><?php if($this->inquireInformation->getTelephoneNumber() != ""){print($this->inquireInformation->getTelephoneNumber());}else{print("-");}?><div class="clear"></div>
+                                             </li>
+                                              
+                                             <li>
+                                                  <span><?php echo $this->translate("Contact-Number");?></span><?php if($this->inquireInformation->getContactNumber() != ""){print($this->inquireInformation->getContactNumber());}else{print("-");}?><div class="clear"></div>
+                                             </li>
+                                             
+                                             <li>
+                                                  <span><?php echo $this->translate("Email-Address");?></span><?php if($this->inquireInformation->getEmailAddress() != ""){print($this->inquireInformation->getEmailAddress());}else{print("-");}?><div class="clear"></div>
+                                             </li>
+                                             
+                                             <li>
+                                                  <span><?php echo $this->translate("Gender");?></span><?php if($this->inquireInformation->getGender() == 'male'){?><?php echo $this->translate("male"); ?><?php }else if($this->inquireInformation->getGender() == 'female'){?><?php echo $this->translate("female"); ?> <?php } else {?>-<?php }?><div class="clear"></div>
+                                             </li>
+                                             
+                                             <li>
+                                                  <span><?php echo $this->translate("Inquire-Media");?></span><?php if($this->inquireInformation->getInquireMedia() != ""){print($this->inquireInformation->getInquireMedia());}else{print("-");}?><div class="clear"></div>
+                                             </li>
+                                    
+                                               <li>
+                                                  <span><?php echo $this->translate("Status"); ?></span><?php if($this->inquireInformation->getStatus() != ""){print($this->translate($this->inquireInformation->getStatus()));}else{print("-");}?><div class="clear"></div>
+                                             </li>
+                                              
+                                            </ul>
+                                            
+                                            <p>
+                                              <?php echo $this->translate("Postal-Address"); ?>
+                                            </p>
+                                             <div class="clear"></div>
+                                            <ul>
+                                               
+                                             <li>
+                                                  <span><?php echo $this->translate("Address"); ?></span><?php if($this->inquireInformation->getPostalAddressAddress() != ""){print($this->inquireInformation->getPostalAddressAddress());}else{print("-");}?><div class="clear"></div>
+                                             </li>
+                                             
+                                             <li>
+                                                  <span><?php echo $this->translate("Street"); ?></span><?php if($this->inquireInformation->getPostalAddressStreet() != ""){print($this->inquireInformation->getPostalAddressStreet());}else{print("-");}?><div class="clear"></div>
+                                             </li>
+                                             
+                                             <li>
+                                                  <span><?php echo $this->translate("City"); ?></span><?php if($this->inquireInformation->getPostalAddressCity() != ""){print($this->inquireInformation->getPostalAddressCity());}else{print("-");}?><div class="clear"></div>
+                                             </li>
+                                             
+                                             <li>
+                                                  <span><?php echo $this->translate("State"); ?></span><?php if($this->inquireInformation->getPostalAddressState() != ""){print($this->inquireInformation->getPostalAddressState());}else{print("-");}?><div class="clear"></div>
+                                             </li>
+                                             
+                                             <li>
+                                                  <span><?php echo $this->translate("Zip-Postal-Code"); ?></span><?php if($this->inquireInformation->getPostalAddressZip() != ""){print($this->inquireInformation->getPostalAddressZip());}else{print("-");}?><div class="clear"></div>
+                                             </li>
+                                             
+                                              <li>
+                                                  <span><?php echo $this->translate("Country"); ?></span><?php if($this->inquireInformation->getPostalAddressCountry() != ""){print($this->inquireInformation->getPostalAddressCountry());}else{print("-");}?><div class="clear"></div>
+                                             </li>
+                                          
+                                             
+                                            </ul>
+                                             
+                                             <p>
+                                           <?php echo $this->translate("Inquire-Location"); ?>
+                                            </p>
+                                             <div class="clear"></div>
+                                            <ul>
+                                               
+                                             <li>
+                                                  <span><?php echo $this->translate("Country-Name");?></span><?php if($this->inquireInformation->getCountry()){ print($this->getCountry($this->inquireInformation->getCountry())->getName()); } else {?> - <?php } ?><div class="clear"></div>
+                                             </li>
+                                             
+                                              <li>
+                                                  <span><?php echo $this->translate("Region-Name");?></span><?php if($this->inquireInformation->getRegion()){ print($this->getRegion($this->inquireInformation->getRegion())->getName()); }else {?> - <?php } ?><div class="clear"></div>
+                                             </li>
+                                             
+                                             <li>
+                                                  <span><?php echo $this->translate("Branch-Name");?></span><?php if($this->inquireInformation->getBranch()){ print($this->getBranch($this->inquireInformation->getBranch())->getName()); }else {?> - <?php } ?><div class="clear"></div>
+                                             </li>
+                                             
+                                             <li>
+                                                  <span><?php echo $this->translate("Department-Name");?></span><?php if($this->inquireInformation->getDepartment()){ print($this->getDepartment($this->inquireInformation->getDepartment())->getName()); }else {?> - <?php } ?><div class="clear"></div>
+                                             </li>
+                                        
+                                             </ul>
+                                             
+                                             <p>
+                                           <?php echo $this->translate("Description");?>
+                                            </p>
+                                            <div class="clear"></div>
+                                            <ul>
+                                                <li><?php if($this->inquireInformation->getDescription() != ""){print($this->inquireInformation->getDescription());}else{print("-");}?></li>
+                                            </ul>
+                                            
+                                     <div class="clear"></div>
+                                     </div>
+                                </div>
+                                
+                                <div class="col-md-12 col-sm-12 col-xs-12 m-t-20">
+                                    <h5 class="panel-title"><strong><?php echo $this->translate("Inquiry-Follow-Up"); ?></strong></h5>
+                                    <div class="row border-top">
+                                        
+                                        <div class="panel-heading">
+                    
+                     
+                    
+                    <div class="btn-group pull-right">
+                       
+                        <button class="btn btn-danger" id="table-edit_new" data-toggle="modal" data-target="#modal-responsive"> Add New <i class="fa fa-plus"></i></button>
+                    </div>
+                </div>
+                                
+                                       <?php if($this->followupInformations){?>
+                                        <?php foreach($this->followupInformations As $fIndex=>$followupInfo){?>
+                                        <h3><?php print($followupInfo->getFollowupTitle());?>&nbsp;&nbsp;<small><?php print($this->formatDate($followupInfo->getModifiedOn()));?></small></h3>
+                                        <p>
+                                            <?php print($followupInfo->getFollowupDescription());?>
+                                        </p>
+                                        <?php } ?>
+                                        <?php } else {?>
+                                            <p class="table_data_not_found"><?php echo $this->translate("Records-Not-Available");?></p>
+                                       <?php } ?>
+                                
+                                
+                                </div>
+                                </div>
+                                 
+                                
+                            </div>
+                            
+                            
+                           
+                                    
+                            
+                            
+                        </div>
+                    </div>
+                    
+                    
+                   
+                    
+                    
+                </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-responsive" aria-hidden="true">
+    <form id="form_inquire_followup" name="form_inquire_followup" role="form" method="post" class="form-horizontal">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title" id="myModalLabel"><strong><?php echo $this->translate("New-Follow-Up");?></strong> <?php echo $this->translate("Information");?></h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="field-1" class="control-label"><?php echo $this->translate("Follow-Up-Title");?></label>
+                                        <input type="text" class="form-control" id="txtFollowUpTitle" name="txtFollowUpTitle" />
+                                        <input type="hidden" class="form-control" id="txtInquireId" name="txtInquireId" value="<?php print($this->inquireInformation->getId());?>" />
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="field-3" class="control-label"><?php echo $this->translate("Follow-Up-Description");?></label>
+                                        <textarea class="form-control" id="txtFollowUpDescription" name="txtFollowUpDescription"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="modal-footer text-center">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="inquireFollowUp('<?php print($this->baseUrl());?>/admin/inquire/followup');" name="btnInquireFollwUp" id="btnInquireFollwUp">
+                                <i class="fa fa-check"></i> <?php echo $this->translate("Submit");?>
+                            </button>
+                            <button type="reset" class="btn btn-default" data-dismiss="modal"><?php echo $this->translate("Cancel");?></button>
+                        </div>
+                    </div>
+                </div>
+        </form>
+            </div>

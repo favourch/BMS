@@ -1,0 +1,79 @@
+                    <!-- Navigation info -->
+                    <ul id="nav-info" class="clearfix">
+                        <li><a href="index.html"><i class="icon-home"></i></a></li>
+                        <li><a href="javascript:void(0)">Pages</a></li>
+                        <li class="active"><a href="">Blank</a></li>
+                    </ul>
+                    <!-- END Navigation info -->
+
+                    <!-- Your Content -->
+                    
+                    <h3 class="page-header page-header-top">Clients Profile</h3>
+                      
+                    
+                        
+                            
+                         <!-- Tabs -->
+                         <?php echo $this->partial('common/_client_links.phtml', array('clientId' => $this->clientInfo->getId(),'currentLink' => $this->actionName)); ?>
+                         
+                         
+                    <!-- END Tabs -->
+                   
+                        <table class="table table-hover">
+                        <thead>
+                            <tr>
+                             
+                                
+                                <th class="span3">Registration Date</th>
+                                <th class="hidden-phone">Domain</th>
+                                <th class="span2 text-center">Next Due Date</th>
+                                <th class="span2 text-center">Price</th>
+                                <th class="span2 text-center"><i class="icon-bolt"></i> View</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            
+                           
+                          <?php if($this->myDomains){?>
+                            <?php foreach($this->myDomains As $dIndex=>$domain){?>
+                            
+                            
+                            <tr>
+                                
+                                <td><?php print($domain->getRegistrationdate());?></td>
+                                <td><?php print($domain->getDomain());?></td>
+                                <td><?php print($domain->getNextduedate());?></td>
+                                <td>
+                                    <?php print($domain->getClient()->getCurrency()->getCurrencySym());?> 
+                                    <?php print($this->formatToDecimal($domain->getRecurringamount()));?>
+                                     <?php print($domain->getClient()->getCurrency()->getName());?>
+                                </td>
+                                
+                                <td class="span1 text-center">
+                                    <div class="btn-group">
+                                        <a href="<?php print($this->baseUrl());?>/admin/domain/view/id/<?php print($domain->getId());?>" data-toggle="tooltip" title="View Domain" class="btn btn-mini btn-success"><i class="icon-pencil"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <?php } ?>
+                            
+                            <?php } ?>
+                            
+                        
+                        </tbody>
+                    </table>
+                    <!-- END Default style -->
+                        
+                     
+                   
+                    <!-- End Your Content -->
+                    <script>
+$(document).on("change", "#cmbClientId", function(e) {
+   var location = $(this).val();
+   document.location.href = location;
+   
+});
+</script>
+                    
+               

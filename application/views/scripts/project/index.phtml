@@ -1,0 +1,80 @@
+<div id="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    
+                    
+                    
+                    <div class="btn-group pull-right">
+                        <a href="#" id="form-data-back" class="btn btn-blue">
+                            <?php echo $this->translate("Go-back");?> <i class="fa fa-backward"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12 table-responsive m-t-20">
+                            <table class="table table-bordered table_obtor_data table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="table_id table_head"><?php echo $this->translate("ID");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Project-Name");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Start-Date");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Target-End-Date");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Actual-End-Date");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Target-Budget");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Priority");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Status");?></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="no-bd-y">
+
+                                    <?php if ($this->projectInfo) { ?>
+                                        <?php foreach ($this->projectInfo As $pIndex => $project) { ?>
+                                            <tr>
+                                                <td>
+                                                    <a title="<?php echo $this->translate("View");?>" href="<?php print($this->baseUrl()); ?>/project/view/id/<?php print($project->getId()); ?>">
+                                                    <?php print($project->getId()); ?>
+                                                    </a>
+                                                </td>
+                                                <td><?php print($project->getProjectName()); ?></td>
+                                                <td>
+                                                   <?php print($project->getStartDate()); ?>
+                                                </td>
+                                                <td><?php print($project->getTargetendDate()); ?></td>
+                                                <td><?php print($project->getActualendDate()); ?></td>
+                                                <td>
+                                                   <?php print($project->getTargetBudget()); ?>
+                                                </td>
+                                                <td>
+                                                    <?php print($project->getProjectPriority()); ?>
+                                                </td>
+                                                <td>
+                                                    <?php print($project->getProjectStatus()); ?>
+                                                </td>
+                                              
+                                            </tr>
+                                        <?php } ?>
+                                     <?php } else {?>
+                                            <tr>
+                                                <td colspan="8" class="table_data_not_found"><?php echo $this->translate("Records-Not-Available");?></td>
+                                            </tr>
+                                    <?php } ?>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                    
+                    
+                    <?php if(count($this->projectInfo)>0){?>
+			<?php echo $this->partial('common/_pagination.phtml', array('paginationData' => $this->paggination)); ?>
+                    <?php } ?>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,624 @@
+<div id="main-content" class="page-profil">
+            <div class="row">
+
+                <!-- BEGIN PROFIL SIDEBAR -->
+                <div class="col-md-3 profil-sidebar">
+                    <img src="<?php print($this->baseUrl());?>/assets/skin/img/profil_page/me.jpg" class="img-responsive" alt="profil">
+                    <div class="p-20">
+                        <div class="profil-sidebar-element">
+                            <h4>About Me</h4>
+                            <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis pra quem é amistosis quis leo.</p>
+                        </div>
+                        <div class="profil-sidebar-element">
+                            <h4 class="pull-left">Age</h4>
+                            <div class="sidebar-number pull-right">42 Yrs</div>
+                            <div class="clearfix m-b-10"></div>
+                            <h5 class="pull-left">Working Experience</h5>
+                            <div class="sidebar-number pull-right">7 Yrs</div>
+                            <div class="clearfix m-b-10"></div>
+                            <h5 class="pull-left">Working with us</h5>
+                            <div class="sidebar-number pull-right">8 Yrs</div>
+                            
+                            <div class="clearfix"></div>
+                            
+                            
+                        </div>
+                        <div class="profil-sidebar-element">
+                            <h4>Leave Summary</h4>
+                            <p class="c-gray m-t-0"><i>Last leave: 15 days ago</i>
+                            </p>
+                          
+                            <div class="clearfix"></div>
+
+                            <p class="m-t-0"><span class="c-blue"><strong>25</strong></span> Days allocated</p>
+                            <p class="m-t-0"><span class="c-blue"><strong>10</strong></span> Days taken</p>
+                            <p class="m-t-0"><span class="c-blue"><strong>15</strong></span> Days Remains</p>
+                        </div>
+                        <div class="profil-sidebar-element">
+                            <div class="clearfix"></div>
+                            
+                            <div>
+                                <a href="<?php print($this->baseUrl()); ?>/admin/staff/edit/id/<?php print($this->employeeInformation->getId()); ?>" class="btn btn-block btn-blue bd-0 no-bd">
+                                    <i class="glyphicon glyphicon-user"></i> <?php echo $this->translate("Edit-Profile"); ?>
+                                </a>
+                                <a href="<?php print($this->baseUrl()); ?>/admin/professional-experience/?rel-id=<?php print($this->employeeInformation->getId()); ?>&rel-object=Employee" class="btn btn-block btn-blue bd-0 no-bd">
+                                    <i class="glyphicon glyphicon-share"></i> <?php echo $this->translate("Work-experience"); ?> 
+                                </a>
+                                
+                                <a href="<?php print($this->baseUrl()); ?>/admin/education-qualification/?rel-id=<?php print($this->employeeInformation->getId()); ?>&rel-object=Employee" class="btn btn-block btn-blue bd-0 no-bd">
+                                    <i class="glyphicon glyphicon-briefcase"></i> <?php echo $this->translate("Education-Qualification"); ?> 
+                                </a>
+                                
+                                <a href="<?php print($this->baseUrl()); ?>/admin/skills/?rel-id=<?php print($this->employeeInformation->getId()); ?>&rel-object=Employee" class="btn btn-block btn-blue bd-0 no-bd">
+                                    <i class="glyphicon glyphicon-gift"></i> <?php echo $this->translate("Skills"); ?>
+                                </a>
+                                
+                                 <a href="<?php print($this->baseUrl()); ?>/admin/languages/?rel-id=<?php print($this->employeeInformation->getId()); ?>&rel-object=Employee" class="btn btn-block btn-blue bd-0 no-bd">
+                                    <i class="glyphicon glyphicon-retweet"></i> <?php echo $this->translate("Languages"); ?>
+                                </a>
+                                
+                                 <a href="<?php print($this->baseUrl()); ?>/admin/license/?rel-id=<?php print($this->employeeInformation->getId()); ?>&rel-object=Employee" class="btn btn-block btn-blue bd-0 no-bd">
+                                    <i class="glyphicon glyphicon-link"></i> <?php echo $this->translate("License"); ?>
+                                </a>
+                                
+                                <a href="<?php print($this->baseUrl()); ?>/admin/attachments/?rel-id=<?php print($this->employeeInformation->getId()); ?>&rel-object=Employee" class="btn btn-block btn-blue bd-0 no-bd">
+                                    <i class="glyphicon glyphicon-paperclip"></i> <?php echo $this->translate("Attachments"); ?>
+                                </a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END PROFIL SIDEBAR -->
+
+                <!-- BEGIN PROFIL CONTENT -->
+                <div class="col-md-9 profil-content m-t-20">
+                    <h2><?php print($this->employeeInformation->getFullName());?> <span class="c-blue">#<?php print($this->employeeInformation->getEmployeeNumber());?></span></h2>
+                    <div class="row m-t-20">
+                        
+                        
+                        <div class="col-md-12 profil-presentation">
+
+                            <div class="col-md-6">
+                                <form id="form2" class="form-horizontal" parsley-validate="">
+                                <div class="form-group">
+                                    <h5 class="panel-title data_view"><strong><?php echo $this->translate("Basic-Information"); ?></strong></h5>
+                                    </div>
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Employee-Number");?> : </label>
+                                <span class="tips data_value">
+                                    <?php print($this->employeeInformation->getEmployeeNumber());?>
+                                </span>
+                                </div>
+                                
+                                
+                                <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Full-Name");?> : </label>
+                                <span class="tips data_value">
+                                    <?php print($this->employeeInformation->getFullName());?>
+                                </span>
+                                </div>
+                                    
+                                    
+                                 <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Name-with-initials");?> : </label>
+                                <span class="tips data_value">
+                                    <?php print($this->employeeInformation->getNameWithInitials());?>
+                                </span>
+                                </div>
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Gender");?> : </label>
+                                <span class="tips data_value">
+                                    <?php if($this->employeeInformation->getGender() == 'male'){?> <?php echo $this->translate("male"); ?> <?php } else {?> <?php echo $this->translate("female"); ?> <?php } ?>
+                                </span>
+                                </div>
+                                    
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Date-Of-Birth");?> : </label>
+                                <span class="tips data_value">
+                                    <?php print($this->employeeInformation->getDateOfBirth());?>
+                                </span>
+                                </div>
+                                    
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Driving-License-No");?> : </label>
+                                <span class="tips data_value">
+                                    <?php print($this->employeeInformation->getDrivingLicenseNo());?>
+                               </span>
+                                </div>
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Telephone-number-residence");?> : </label>
+                                <span class="tips data_value">
+                                    <?php print($this->employeeInformation->getTelephoneNumberResidence());?>
+                               </span>
+                                </div>
+                                    
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Contact-number-mobile");?> : </label>
+                                <span class="tips data_value">
+                                   <?php print($this->employeeInformation->getEmergencyContactTelephoneNumberMobile());?>
+                                </span>
+                                </div>
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("E-mail-Address-Personal");?> : </label>
+                                <span class="tips data_value">
+                                   <?php print($this->employeeInformation->getEMailAddressPersonal());?>
+                                </span>
+                                </div>
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("E-mail-Address-Office");?> : </label>
+                                <span class="tips data_value">
+                                   <?php print($this->employeeInformation->getEMailAddressOffice());?>
+                                </span>
+                                </div>
+                                    
+                                    <div class="form-group">
+                                    <h5 class="panel-title data_view"><strong><?php echo $this->translate("Work-Location"); ?></strong></h5>
+                                    </div>
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Country");?> : </label>
+                                <span class="tips data_value">
+                                   <?php print($this->employeeInformation->getCountry());?>
+                                </span>
+                                </div>
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Region");?> : </label>
+                                <span class="tips data_value">
+                                   <?php print($this->employeeInformation->getRegion());?>
+                                </span>
+                                </div>
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Branch");?> : </label>
+                                <span class="tips data_value">
+                                   <?php print($this->employeeInformation->getBranch());?>
+                                </span>
+                                </div>
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Department");?>: </label>
+                                <span class="tips data_value">
+                                   <?php print($this->employeeInformation->getDepartment());?>
+                               </span>
+                                </div>
+                                    
+                                    <div class="form-group">
+                                    <h5 class="panel-title data_view"><strong><?php echo $this->translate("Employment-Details"); ?></strong></h5>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Joined-Date");?>: </label>
+                                <span class="tips data_value">
+                                   <?php print($this->employeeInformation->getJoinedDate());?>
+                               </span>
+                                </div>
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Designation");?>: </label>
+                                <span class="tips data_value">
+                                   <?php print($this->employeeInformation->getDesignation());?>
+                                </span>
+                                </div>
+                                    
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Contract-Status");?>: </label>
+                                <span class="tips data_value">
+                                   <?php print($this->employeeInformation->getContractStatus());?>
+                                </span>
+                                </div>
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Employee-Type");?>: </label>
+                                <span class="tips data_value">
+                                   <?php print($this->employeeInformation->getEmployeeType());?>
+                                </span>
+                                </div>
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Employee-Status");?>: </label>
+                                <span class="tips data_value">
+                                   <?php print($this->employeeInformation->getEmployeeStatus());?>
+                               </span>
+                                </div>
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Staff-ID-Status");?>: </label>
+                                <span class="tips data_value">
+                                   <?php print($this->employeeInformation->getStaffIdStatus());?>
+                               </span>
+                                </div>
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Staff-ID-Issued-Date");?>: </label>
+                                <span class="tips data_value">
+                                   <?php print($this->employeeInformation->getStaffIdIssueDate());?>
+                                </span>
+                                </div>
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("EPF-ETF-Number");?>: </label>
+                                <span class="tips data_value">
+                                   <?php print($this->employeeInformation->getEpfEtfNumber());?>
+                                </span>
+                                </div>
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("EPF-ETF-JoinedDate");?>: </label>
+                                <span class="tips data_value">
+                                   <?php print($this->employeeInformation->getEpfEtfNumberJoinedDate());?>
+                                </span>
+                                </div>
+                                    
+                                 
+                                    
+                               
+                                
+                                </form>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                
+                               
+                                <form id="form2" class="form-horizontal" parsley-validate="">
+                                <div class="form-group">
+                                    <h5 class="panel-title data_view"><strong><?php echo $this->translate("Permanent-address"); ?></strong></h5>
+                                    </div>
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Address"); ?> : </label>
+                                <span class="tips data_value">
+                                    <?php print($this->employeeInformation->getPermanentAddressAddress());?>
+                                </span>
+                                </div>
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Street"); ?> : </label>
+                                <span class="tips data_value">
+                                    <?php print($this->employeeInformation->getPermanentAddressState());?>
+                                </span>
+                                </div>
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("City"); ?> : </label>
+                                <span class="tips data_value">
+                                   <?php print($this->employeeInformation->getPermanentAddressCity());?>
+                                </span>
+                                </div>
+                                    
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("State"); ?> : </label>
+                                <span class="tips data_value">
+                                   <?php print($this->employeeInformation->getPermanentAddressState());?>
+                                </span>
+                                </div>
+                                    
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Zip-Postal-Code"); ?> : </label>
+                                <span class="tips data_value">
+                                   <?php print($this->employeeInformation->getPermanentAddressZip());?>
+                               </span>
+                                </div>
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Country"); ?> : </label>
+                                <span class="tips data_value">
+                                   <?php print($this->employeeInformation->getPermanentAddressCountry());?>
+                                </span>
+                                </div>
+                                    
+                                   
+                                    <div class="form-group">
+                                    <h5 class="panel-title data_view"><strong><?php echo $this->translate("Residential-Address"); ?></strong></h5>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Address"); ?>: </label>
+                                <span class="tips data_value">
+                                   <?php print($this->employeeInformation->getResidentialAddressAddress());?>
+                                </span>
+                                </div>
+                                    
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Street"); ?>: </label>
+                                <span class="tips data_value">
+                                  <?php print($this->employeeInformation->getResidentialAddressStreet());?>
+                                </span>
+                                </div>
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("City"); ?>: </label>
+                                <span class="tips data_value">
+                                  <?php print($this->employeeInformation->getResidentialAddressCity());?>
+                                </span>
+                                </div>
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("State"); ?>: </label>
+                                <span class="tips data_value">
+                                  <?php print($this->employeeInformation->getResidentialAddressState());?>
+                                </span>
+                                </div>
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Zip-Postal-Code"); ?>: </label>
+                                <span class="tips data_value">
+                                  <?php print($this->employeeInformation->getResidentialAddressZip());?>
+                                </span>
+                                </div>
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Country"); ?>: </label>
+                                <span class="tips data_value">
+                                  <?php print($this->employeeInformation->getResidentialAddressCountry());?>
+                                </span>
+                                </div>
+                                    
+                                    
+                                    
+                                    <div class="form-group">
+                                    <h5 class="panel-title data_view"><strong><?php echo $this->translate("In-Case-of-Emergency"); ?></strong></h5>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Contact-Name"); ?>: </label>
+                                <span class="tips data_value">
+                                   <?php print($this->employeeInformation->getEmergencyContactName());?>
+                               </span>
+                                </div>
+                                    
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Relationship"); ?>: </label>
+                                <span class="tips data_value">
+                                  <?php print($this->employeeInformation->getEmergencyContactRelationship());?>
+                                </span>
+                                </div>
+                                    
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Email-address"); ?>: </label>
+                                <span class="tips data_value">
+                                  <?php print($this->employeeInformation->getEmergencyContactEmailAddress());?>
+                                </span>
+                                </div>
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Telephone-number-residence"); ?>: </label>
+                                <span class="tips data_value">
+                                  <?php print($this->employeeInformation->getEmergencyContactTelephoneNumberResidence());?>
+                               </span>
+                                </div>
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Contact-number-mobile"); ?>: </label>
+                                <span class="tips data_value">
+                                  <?php print($this->employeeInformation->getEmergencyContactTelephoneNumberMobile());?>
+                                </span>
+                                </div>
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Address"); ?>: </label>
+                                <span class="tips data_value">
+                                 <?php print($this->employeeInformation->getEmergencyContactAddress());?>
+                               </span>
+                                </div>
+                                    
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Street"); ?>: </label>
+                                <span class="tips data_value">
+                                 <?php print($this->employeeInformation->getEmergencyContactAddressStreet());?>
+                               </span>
+                                </div>
+                                    
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("City"); ?>: </label>
+                                <span class="tips data_value">
+                                 <?php print($this->employeeInformation->getEmergencyContactAddressCity());?>
+                                </span>
+                                </div>
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("State"); ?>: </label>
+                                <span class="tips data_value">
+                                 <?php print($this->employeeInformation->getEmergencyContactAddressState());?>
+                                </span>
+                                </div>
+                                    
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Zip-Postal-Code"); ?>: </label>
+                                <span class="tips data_value">
+                                 <?php print($this->employeeInformation->getEmergencyContactAddressZip());?>
+                                </span>
+                                </div>
+                                    
+                                    <div class="form-group">
+                                <label class="col-sm-5 data_row_caption"><?php echo $this->translate("Country"); ?>: </label>
+                                <span class="tips data_value">
+                                 <?php print($this->employeeInformation->getEmergencyContactAddressCountry());?>
+                               </span>
+                                </div>
+                                    
+                                    
+                                </form>
+                                
+                                
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
+                    
+                    
+                 
+                    <div class="panel-body">
+                        <h5 class="panel-title"><strong><?php echo $this->translate("Professional-Experience"); ?></strong></h5>
+                    <div class="row m-t-20">
+                        
+                        
+                        <div class="col-md-12 col-sm-12 col-xs-12 table-responsive">
+                            <table class="table table-hover table_obtor_data">
+                                <thead class="no-bd">
+                                    <tr>
+                                        <th><strong><?php echo $this->translate("ID");?></strong></th>
+                                        <th><strong><?php echo $this->translate("Company-Name");?></strong></th>
+                                        <th><strong><?php echo $this->translate("Job-Title");?></strong></th>
+                                        <th class="table_data"><strong><?php echo $this->translate("From-Date");?></strong></th>
+                                         <th class="table_data"><strong><?php echo $this->translate("To-Date");?></strong></th>
+   
+                                        <th class="text-center data_table_action"><strong><?php echo $this->translate("Actions");?></strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="no-bd-y">
+
+                                    <?php if ($this->professionalExperience) { ?>
+                                        <?php foreach ($this->professionalExperience As $rIndex => $professionalExp) { ?>
+                                            <tr>
+                                                <td>
+                                                    <a title="<?php echo $this->translate("View");?>" href="<?php print($this->baseUrl()); ?>/admin/professional-experience/view/?rel-id=1&rel-object=Employee&id=<?php print($professionalExp->getId()); ?>">
+                                                    <?php print($rIndex+1); ?>
+                                                    </a>
+                                                </td>
+                                                <td><?php print($professionalExp->getCompanyName()); ?></td>
+                                                <td><?php print($professionalExp->getJobTitle()); ?></td>
+                                                <td><?php print($professionalExp->getFromDate()); ?></td>
+                                                <td><?php print($professionalExp->getToDate()); ?></td>
+
+                                                <td class="text-center">
+                                                    <a title="<?php echo $this->translate("Edit");?>" href="<?php print($this->baseUrl()); ?>/admin/professional-experience/edit/?rel-id=1&rel-object=Employee&id=<?php print($professionalExp->getId()); ?>"><img src="<?php print($this->baseUrl()); ?>/assets/skin/images/b_edit.png" /></a>
+                                                    <a title="<?php echo $this->translate("Delete");?>" href="<?php print($this->baseUrl()); ?>/admin/professional-experience/delete/?rel-id=1&rel-object=Employee&id=<?php print($professionalExp->getId()); ?>" class="form-data-delete"><img src="<?php print($this->baseUrl()); ?>/assets/skin/images/b_drop.png" /></a>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
+                                    <?php } ?>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                        
+                    </div>
+                        </div>
+                    
+                    
+                    
+                   
+                    <div class="panel-body">
+                        <h5 class="panel-title"><strong><?php echo $this->translate("Educational-Qualification"); ?></strong></h5>
+                    <div class="row m-t-20">
+                        
+                        
+                        <div class="col-md-12 col-sm-12 col-xs-12 table-responsive">
+                            <table class="table table-hover table_obtor_data">
+                                <thead class="no-bd">
+                                    <tr>
+                                        <th><strong><?php echo $this->translate("ID");?></strong></th>
+                                        <th><strong><?php echo $this->translate("Level");?></strong></th>
+                                        <th><strong><?php echo $this->translate("Institute");?></strong></th>
+                                        <th class="table_data"><strong><?php echo $this->translate("From-Date");?></strong></th>
+                                         <th class="table_data"><strong><?php echo $this->translate("To-Date");?></strong></th>
+   
+                                        <th class="text-center data_table_action"><strong><?php echo $this->translate("Actions");?></strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="no-bd-y">
+
+                                    <?php if ($this->education) { ?>
+                                        <?php foreach ($this->education As $rIndex => $educationQual) { ?>
+                                            <tr>
+                                                <td>
+                                                    <a title="<?php echo $this->translate("View");?>" href="<?php print($this->baseUrl()); ?>/admin/education-qualification/view/?rel-id=1&rel-object=Employee&id=<?php print($educationQual->getId()); ?>">
+                                                    <?php print($rIndex+1); ?>
+                                                    </a>
+                                                </td>
+                                                <td><?php print($educationQual->getLevel()); ?></td>
+                                                <td><?php print($educationQual->getInstitute()); ?></td>
+                                                <td><?php print($educationQual->getStartDate()); ?></td>
+                                                <td><?php print($educationQual->getEndDate()); ?></td>
+
+                                                <td class="text-center">
+                                                    <a title="<?php echo $this->translate("Edit");?>" href="<?php print($this->baseUrl()); ?>/admin/education-qualification/edit/?rel-id=1&rel-object=Employee&id=<?php print($educationQual->getId()); ?>"><img src="<?php print($this->baseUrl()); ?>/assets/skin/images/b_edit.png" /></a>
+                                                    <a title="<?php echo $this->translate("Delete");?>" href="<?php print($this->baseUrl()); ?>/admin/education-qualification/delete/?rel-id=1&rel-object=Employee&id=<?php print($educationQual->getId()); ?>" class="form-data-delete"><img src="<?php print($this->baseUrl()); ?>/assets/skin/images/b_drop.png" /></a>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
+                                    <?php } ?>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                        
+                    </div>
+                        </div>
+                    
+                    
+                    <div class="panel-body">
+                        <h5 class="panel-title"><strong><?php echo $this->translate("Skills"); ?></strong></h5>
+                    <div class="row m-t-20">
+                        
+                        
+                        <div class="col-md-12 col-sm-12 col-xs-12 table-responsive">
+                            
+                            <table class="table table-hover table_obtor_data">
+                                <thead class="no-bd">
+                                    <tr>
+                                        <th><strong><?php echo $this->translate("ID");?></strong></th>
+                                        <th><strong><?php echo $this->translate("Title");?></strong></th>
+                                        <th><strong><?php echo $this->translate("Years-Of-Experience");?></strong></th>   
+                                        <th class="text-center data_table_action"><strong><?php echo $this->translate("Actions");?></strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="no-bd-y">
+
+                                    <?php if ($this->skills) { ?>
+                                        <?php foreach ($this->skills As $rIndex => $skill) { ?>
+                                            <tr>
+                                                <td>
+                                                    <a title="<?php echo $this->translate("View");?>" href="<?php print($this->baseUrl()); ?>/admin/skills/view/?rel-id=1&rel-object=Employee&id=<?php print($skill->getId()); ?>">
+                                                    <?php print($rIndex+1); ?>
+                                                    </a>
+                                                </td>
+                                                <td><?php print($skill->getTitle()); ?></td>
+                                                <td><?php print($skill->getYearsOfExperience()); ?></td>
+
+                                                <td class="text-center">
+                                                    <a title="<?php echo $this->translate("Edit");?>" href="<?php print($this->baseUrl()); ?>/admin/skills/edit/?rel-id=1&rel-object=Employee&id=<?php print($skill->getId()); ?>"><img src="<?php print($this->baseUrl()); ?>/assets/skin/images/b_edit.png" /></a>
+                                                    <a title="<?php echo $this->translate("Delete");?>" href="<?php print($this->baseUrl()); ?>/admin/skills/delete/?rel-id=1&rel-object=Employee&id=<?php print($skill->getId()); ?>" class="form-data-delete"><img src="<?php print($this->baseUrl()); ?>/assets/skin/images/b_drop.png" /></a>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
+                                    <?php } ?>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                        
+                    </div>
+                        </div>
+                       
+                    
+                    
+                    
+                    
+                    
+                  
+                </div>
+                <!-- END PROFIL CONTENT -->
+
+            </div>
+        </div>

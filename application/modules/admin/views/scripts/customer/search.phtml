@@ -1,0 +1,77 @@
+   <div id="main-content">
+            
+            <div class="row">
+                <div class="col-md-12">
+            
+                    
+                    <form id="form_customer" name="form_customer" role="form" method="get" class="form-horizontal" action="<?php print($this->baseUrl()); ?>/admin/customer/">
+                    <div class="panel panel-default">
+                   
+                        <div class="panel-body">
+                            
+                            
+                               
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("First-Name");?></strong></label>
+                                        <div class="controls">
+                                            <input class="form-control normal_input" type="text" id="first-name" name="first-name">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Last-Name");?></strong>
+                                        </label>
+                                        <div class="controls">
+                                            <input class="form-control normal_input" type="text" id="last-name" name="last-name">
+                                        </div>
+                                    </div>
+                                   
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Email-Address");?></strong></label>
+                                        <div class="controls">
+                                            <input class="form-control normal_input" type="text" id="email-address" name="email-address">
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Customer-Status");?></strong></label>
+                                        <div class="controls">
+                                           <select class="form-control normal_input" name="customer-status" id="customer-status">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                     <option value="Active"><?php echo $this->translate("Active"); ?></option>
+                                                     <option value="Inactive"><?php echo $this->translate("Inactive"); ?></option>
+                                                     <option value="Closed"><?php echo $this->translate("Closed"); ?></option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    <div class="form-group text-left">
+                                                            <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Search-Record");?></button>
+                                                            <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel");?></button>
+                                                </div>
+                                    
+                                </div>
+                            </div>
+                                
+                                
+                             
+                            
+                            
+                            
+                        </div>
+                    </div>
+</form>
+                    
+                    
+                </div>
+            </div>
+            
+                        
+            
+                        
+        </div>

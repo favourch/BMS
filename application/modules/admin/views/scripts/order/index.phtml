@@ -1,0 +1,89 @@
+<div id="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    
+                     <div class="btn-group">
+                        <a href="<?php print($this->baseUrl());?>/admin/order/add/" id="table-edit_new" class="btn btn-danger">
+                            <?php echo $this->translate("Add-New");?> <i class="fa fa-plus"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="btn-group pull-right">
+                        <a href="#" id="form-data-back" class="btn btn-blue">
+                            <?php echo $this->translate("Go-back");?> <i class="fa fa-backward"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12 table-responsive m-t-20">
+                            <table class="table table-bordered table_obtor_data table-hover">
+                                <thead class="no-bd">
+                                    <tr>
+                                        <th class="table_id table_head"><?php echo $this->translate("ID");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Order");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Date");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Client-Name");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Payment-Method");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Total");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Payment-Status");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Status");?></th>
+                                        <th class="text-center table_head data_table_action"><?php echo $this->translate("Actions");?></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="no-bd-y">
+
+                               <?php if($this->orders){?>
+                                        <?php foreach($this->orders As $index=>$order){?>
+                                            <tr>
+                                                <td>
+                                                    <a title="<?php echo $this->translate("View");?>" href="<?php print($this->baseUrl());?>/admin/order/view/id/<?php print($order->getId());?>">
+                                                   <?php print($order->getId());?>
+                                                    </a>
+                                                </td>
+                                                <td><?php print($order->getOrdernum());?></td>
+                                                <td><?php print($order->getDate());?></td>
+                                                <td><?php print($this->getClient($order->getUserId())->getFirstname());?></td>
+                                                <td><?php print($order->getPaymentmethod()->getName());?></td>
+                                               <td><?php print($order->getAmount());?></td>
+                                                <td><?php if($order->getInvoiceid()){ print($order->getInvoiceid()->getStatus()); } else { print("Pending");} ?></td>
+                                                <td>
+                                                    <?php if($order->getStatus() == 'Active') {?>
+                                                    <span class="label bg-green">Active</span>
+                                                    <?php }elseif($order->getStatus() == 'Pending') {?>
+                                                    <span class="label bg-orange">Pending</span>
+                                                    <?php } else {?>
+                                                    <span class="label bg-red">Closed</span>
+                                                    <?php } ?>
+                                                </td>
+                                                <td class="text-center">
+                                                    <a title="<?php echo $this->translate("Delete");?>" href="<?php print($this->baseUrl());?>/admin/order/delete/id/<?php print($order->getId());?>" class="form-data-delete"><img src="<?php print($this->baseUrl()); ?>/assets/skin/images/b_drop.png" /></a>
+                                                </td>
+                                            </tr>
+                                            
+                                        <?php } ?>
+			    <?php } else {?>
+                                            <tr>
+                                                <td colspan="9" class="table_data_not_found"><?php echo $this->translate("Records-Not-Available");?></td>
+                                            </tr>
+                                    <?php } ?>
+                                        
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                    
+                    <?php if(count($this->orders)>0){?>
+			<?php echo $this->partial('common/_pagination.phtml', array('paginationData' => $this->paggination)); ?>
+                    <?php } ?>
+                    <!-- The pagination comes here... -->
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

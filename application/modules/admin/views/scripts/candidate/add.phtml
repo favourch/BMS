@@ -1,0 +1,235 @@
+<div id="main-content">
+
+    <div class="row">
+        <div class="col-md-12">
+
+
+
+            <div class="panel panel-default">
+
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form id="form_test" name="form_test" role="form" method="post" class="form-horizontal">
+                                
+                                
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Vacancy"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <select  class="form-control normal_input" name="txtVacancy" id="txtVacancy">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->vacancyInfo As $vIndex=>$vacancy){?>
+                                                    <option value="<?php print($vacancy->getId());?>"><?php print($vacancy->getVacancyTitle());?></option>
+                                                    <?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Full-Name"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtFullName" id="txtFullName"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Name-With-Ini"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtNameWithIni" id="txtNameWithIni"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Email-Address"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtEmailAddress" id="txtEmailAddress"/>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Telephone-Number"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtTelephoneNumber" id="txtTelephoneNumber"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Contact-Number"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtContactNumber" id="txtContactNumber"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Date-Of-Birth"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtDateOfBirth" id="txtDateOfBirth"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Gender"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+
+                                        <select  class="form-control normal_input" name="txtGender" id="txtGender">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                     <option value="male"><?php echo $this->translate("male"); ?></option>
+                                                     <option value="female"><?php echo $this->translate("female"); ?></option>
+                                                </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <span class="panel-inner-title"><strong><?php echo $this->translate("Permanent-address"); ?></strong></span>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Address"); ?></strong></label>
+                                    <div class="controls">
+                                        <input class="form-control normal_input" type="text" id="txtPermanentAddressAddress" name="txtPermanentAddressAddress">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Street"); ?></strong>
+                                    </label>
+                                    <div class="controls">
+                                        <input class="form-control normal_input" type="text" id="txtPermanentAddressStreet" name="txtPermanentAddressStreet">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("City"); ?></strong>
+                                    </label>
+                                    <div class="controls">
+                                        <input class="form-control normal_input" type="text" id="txtPermanentAddressCity" name="txtPermanentAddressCity">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("State"); ?></strong>
+                                    </label>
+                                    <div class="controls">
+                                        <input class="form-control normal_input" type="text" id="txtPermanentAddressState" name="txtPermanentAddressState">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Zip-Postal-Code"); ?></strong>
+                                    </label>
+                                    <div class="controls">
+                                        <input class="form-control normal_input" type="text" id="txtPermanentAddressZip" name="txtPermanentAddressZip">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Country"); ?></strong>
+                                    </label>
+                                    <div class="controls">
+                                        <select  class="form-control normal_input" name="txtPermanentAddressCountry" id="txtPermanentAddressCountry">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->countryNameList As $cList=>$countryName){?>
+                                                     <option value="<?php print($countryName->getCountryCode());?>"><?php echo $this->translate($countryName->getName()); ?></option>
+                                                    <?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <span class="panel-inner-title"><strong><?php echo $this->translate("Residential-Address"); ?></strong></span>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Address"); ?></strong></label>
+                                    <div class="controls">
+                                        <input class="form-control normal_input" type="text" id="txtResidentialAddressAddress" name="txtResidentialAddressAddress">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Street"); ?></strong>
+                                    </label>
+                                    <div class="controls">
+                                        <input class="form-control normal_input" type="text" id="txtResidentialAddressStreet" name="txtResidentialAddressStreet">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("City"); ?></strong>
+                                    </label>
+                                    <div class="controls">
+                                        <input class="form-control normal_input" type="text" id="txtResidentialAddressCity" name="txtResidentialAddressCity">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("State"); ?></strong>
+                                    </label>
+                                    <div class="controls">
+                                        <input class="form-control normal_input" type="text" id="txtResidentialAddressState" name="txtResidentialAddressState">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Zip-Postal-Code"); ?></strong>
+                                    </label>
+                                    <div class="controls">
+                                        <input class="form-control normal_input" type="text" id="txtResidentialAddressZip" name="txtResidentialAddressZip">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Country"); ?></strong>
+                                    </label>
+                                    <div class="controls">
+                                        <select  class="form-control normal_input" name="txtResidentialAddressCountry" id="txtResidentialAddressCountry">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->countryNameList As $cList=>$countryName){?>
+                                                     <option value="<?php print($countryName->getCountryCode());?>"><?php echo $this->translate($countryName->getName()); ?></option>
+                                                    <?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+
+
+                               
+
+                                <div class="form-group text-left">
+                                    <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Submit"); ?></button>
+                                    <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel"); ?></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+
+</div>
+<script src="<?php print($this->baseUrl()); ?>/assets/validator/admin/test.js"></script>

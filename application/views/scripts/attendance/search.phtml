@@ -1,0 +1,65 @@
+<div id="main-content">
+
+    <div class="row">
+        <div class="col-md-12">
+
+
+
+            <div class="panel panel-default">
+
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form id="form_attendance" name="form_attendance" role="form" method="get" class="form-horizontal" action="<?php print($this->baseUrl());?>/attendance/">
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Attendance-Month"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <div class="col-md-4">
+                                        <select parsley-minlength="3" class="form-control" name="month" id="month">
+                                                    <option value="">-- select country --</option>
+                                                     <option value="1"><?php echo $this->translate("January"); ?></option>
+                                                    <option value="2"><?php echo $this->translate("February"); ?></option>
+                                                    <option value="3"><?php echo $this->translate("March"); ?></option>
+                                                    <option value="4"><?php echo $this->translate("April"); ?></option>
+                                                    <option value="5"><?php echo $this->translate("May"); ?></option>
+                                                    <option value="6"><?php echo $this->translate("June"); ?></option>
+                                                    <option value="7"><?php echo $this->translate("July"); ?></option>
+                                                    <option value="8"><?php echo $this->translate("August"); ?></option>
+                                                    <option value="9"><?php echo $this->translate("September"); ?></option>
+                                                    <option value="10"><?php echo $this->translate("October"); ?></option>
+                                                    <option value="11"><?php echo $this->translate("November"); ?></option>
+                                                    <option value="12"><?php echo $this->translate("December"); ?></option>
+                                                </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                         <select parsley-minlength="3" class="form-control" name="year" id="year">
+                                                    <option value="">-- select country --</option>
+                                                    <?php for($year=2013;$year<=date('Y');$year++){?>
+                                                     <option value="<?php print($year);?>"><?php print($year);?></option>
+                                                    <?php } ?>
+                                                </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                        
+                                <div class="form-group text-left">
+                                    <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Search"); ?></button>
+                                    <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel"); ?></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+
+</div>

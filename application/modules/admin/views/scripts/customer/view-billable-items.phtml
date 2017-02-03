@@ -1,0 +1,83 @@
+                    <!-- Navigation info -->
+                    <ul id="nav-info" class="clearfix">
+                        <li><a href="index.html"><i class="icon-home"></i></a></li>
+                        <li><a href="javascript:void(0)">Pages</a></li>
+                        <li class="active"><a href="">Blank</a></li>
+                    </ul>
+                    <!-- END Navigation info -->
+
+                    <!-- Your Content -->
+                    
+                    <h3 class="page-header page-header-top">Clients Profile</h3>
+                      
+                    
+                        
+                            
+                         <!-- Tabs -->
+                         <?php echo $this->partial('common/_client_links.phtml', array('clientId' => $this->clientInfo->getId(),'currentLink' => $this->actionName)); ?>
+                         
+                         <h4>Uninvoiced Items - £0.00 GBP (0)</h4>
+                    <!-- END Tabs -->
+                   
+                         
+                        <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th class="span1">ID</th>
+                                <th>Description</th>
+                                <th class="span1">Hours</th>
+                                <th class="span1 text-center">Amount</th>
+                                <th class="span2 text-center">Invoice Action</th>
+                                <th class="span2 text-center"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            
+                        </tbody>
+                    </table>
+                    <!-- END Default style -->
+                        
+                        
+                        
+                  
+                    
+                    
+                    
+                    
+                    <h4>Invoiced Items - £0.00 GBP (0)</h4>
+                    <!-- END Tabs -->
+                   
+                     	
+                         
+                        <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th class="span1">ID</th>
+                                <th>Description</th>
+                                <th class="span1">Hours</th>
+                                <th class="span1 text-center">Amount</th>
+                                <th class="span2 text-center">Invoice Action</th>
+                                <th class="span2 text-center"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            
+                        </tbody>
+                    </table>
+                    <!-- END Default style -->
+                    
+                    
+                    
+                   
+                    <!-- End Your Content -->
+                    <script>
+$(document).on("change", "#cmbClientId", function(e) {
+   var location = $(this).val();
+   document.location.href = location;
+   
+});
+</script>
+                    
+               

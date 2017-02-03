@@ -1,0 +1,78 @@
+<link href="<?php print($this->baseUrl());?>/assets/skin/plugins/fullcalendar/fullcalendar.css" rel="stylesheet"> 
+<!-- BEGIN MAIN CONTENT -->
+        <div id="main-content">
+
+            <!-- BEGIN MODAL -->
+            <div class="modal fade" id="event-modal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title"><strong>Manage</strong> my events</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-success save-event">Create event</button>
+                            <button type="button" class="btn btn-danger delete-event" data-dismiss="modal">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END MODAL -->
+
+            <div class="widget-fullwidth bg-gray-light row">
+                <div class="col-md-3 p-0">
+                    <div class="widget bg-gray-light">
+                        <div class="widget-body">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <h2 class="text-white semi-bold" id="calender-current-day">Calendar Manager</h2>
+                                 
+                                    <div id='external-events'>
+                                        <br>
+                                        <br>
+                                        <p>Drag and drop your event or click in the calendar</p>
+                                        <div class="external-event bg-green" data-class="bg-green" style="position: relative;">
+                                            <i class="fa fa-move"></i>Office Event
+                                        </div>
+                                        <div class="external-event bg-purple" data-class="bg-purple" style="position: relative;">
+                                            <i class="fa fa-move"></i>Meeting
+                                        </div>
+                                        <div class="external-event bg-red" data-class="bg-red" style="position: relative;">
+                                            <i class="fa fa-move"></i>Office Holiday
+                                        </div>
+                                        <div class="external-event bg-blue" data-class="bg-blue" style="position: relative;">
+                                            <i class="fa fa-move"></i>Other Events
+                                        </div>
+                                        
+                                        <div class="external-event bg-orange" data-class="bg-orange" style="position: relative;">
+                                            <i class="fa fa-move"></i>Staff Leave
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9 p-0 no-bd">
+                    <div class="widget bg-white">
+                        <div class="widget-body">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div id="calendar"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END MAIN CONTENT -->
+        <!-- PAGE LEVEL SCRIPTS -->
+    <script src='<?php print($this->baseUrl());?>/assets/skin/plugins/fullcalendar/moment.min.js'></script>
+    <script src='<?php print($this->baseUrl());?>/assets/skin/plugins/fullcalendar/fullcalendar.min.js'></script>
+    <script src="<?php print($this->baseUrl());?>/assets/skin/js/calendar.js"></script>

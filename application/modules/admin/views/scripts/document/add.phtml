@@ -1,0 +1,71 @@
+   <div id="main-content">
+            
+            <div class="row">
+                <div class="col-md-12">
+            
+                    
+                    
+                    <div class="panel panel-default">
+                   
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form id="form_document" name="form_document" role="form" method="post" class="form-horizontal" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Document-Title");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control" type="text" name="txtDocumentTitle" id="txtDocumentTitle"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Description");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <textarea parsley-minlength="3" class="form-control" type="text" name="txtDescription" id="txtDescription"></textarea>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Attachment-file");?></strong>
+                                        </label>
+                                        <div class="controls">
+                                            <input class="form-control normal_input" type="file" id="txtAttachment" name="txtAttachment">
+                                        </div>
+                                    </div>
+                                        
+                                               <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Permission"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <select parsley-minlength="3" class="form-control normal_input" name="txtPermission" id="txtPermission">
+                                            <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                            <option value="Public"><?php echo $this->translate("Public"); ?></option>
+                                            <option value="Private"><?php echo $this->translate("Private"); ?></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                        
+                                        
+                                   
+                                        <div class="form-group text-left">
+                                            <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Submit");?></button>
+                                            <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel");?></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    
+                </div>
+            </div>
+            
+                        
+            
+                        
+        </div>
+<script src="<?php print($this->baseUrl());?>/assets/validator/admin/document.js"></script>

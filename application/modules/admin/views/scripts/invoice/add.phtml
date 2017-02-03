@@ -1,0 +1,286 @@
+                  <!-- Navigation info -->
+                    <ul id="nav-info" class="clearfix">
+                        <li><a href="<?php print($this->baseUrl());?>/admin/"><i class="icon-home"></i></a></li>
+                        <li><a href="<?php print($this->baseUrl());?>/admin/client/">View/Search Clients</a></li>
+                        <li class="active"><a href="#">Add New Client</a></li>
+                    </ul>
+                    <!-- END Navigation info -->
+
+                    <!-- Text Inputs -->
+                    <form class="form-horizontal form-box remove-margin" method="post" action="" id="form-validation" novalidate="novalidate">
+                        <h4 class="form-box-header">Add New Client</h4>
+                        
+
+                        <div class="form-box-content">
+                            
+                            
+                            
+                            <table class="table">
+
+<tbody>
+<tr>
+<td>
+   First Name
+</td>
+<td>
+    <input type="text" id="first_name" name="first_name" class="input-xlarge" tabindex="1">
+</td>
+<td>
+   Address 1
+</td>
+<td>
+    <input type="text" id="address1" name="address1" class="input-xlarge" tabindex="8">
+</td>
+</tr>
+
+<tr>
+<td>
+   Last Name
+</td>
+<td>
+    <input type="text" id="last_name" name="last_name" class="input-xlarge" tabindex="2">
+</td>
+<td>
+   Address 2
+</td>
+<td>
+    <input type="text" id="address2" name="address2" class="input-xlarge" tabindex="9">
+</td>
+</tr>
+
+<tr>
+<td>
+   Company Name
+</td>
+<td>
+    <input type="text" id="company_name" name="company_name" class="input-xlarge" tabindex="3">
+</td>
+<td>
+   City
+</td>
+<td>
+    <input type="text" id="city_name" name="city_name" class="input-xlarge" tabindex="10">
+</td>
+</tr>
+
+
+<tr>
+<td>
+   Email Address
+</td>
+<td>
+    <input type="text" id="email_address" name="email_address" class="input-xlarge" tabindex="4">
+</td>
+<td>
+   State/Region
+</td>
+<td>
+    <input type="text" id="state_region" name="state_region" class="input-xlarge" tabindex="11">
+</td>
+</tr>
+
+
+<tr>
+<td>
+   Password
+</td>
+<td>
+    <input type="password" id="client_password" name="client_password" class="input-xlarge" tabindex="5">
+</td>
+<td>
+  Postcode
+</td>
+<td>
+    <input type="text" id="post_code" name="post_code" class="input-xlarge" tabindex="12">
+</td>
+</tr>
+
+<tr>
+<td>
+   Security Question
+</td>
+<td>
+    <select name="security_question" id="security_question" class="input-xlarge" tabindex="6">
+        <option value="">Please select</option>
+    </select>
+    
+</td>
+<td>
+ Country
+</td>
+<td>
+    <select name="country_name" id="country_name" class="input-xlarge" tabindex="13">
+        <option value="">Please select</option>
+        <?php foreach($this->countryList As $cIndex=>$country){?>
+        <option value="<?php print($country->getCountryCode());?>"><?php print($country->getName());?></option>
+        <?php } ?>
+    </select>
+</td>
+</tr>
+
+
+<tr>
+<td>
+   Security Answer
+</td>
+<td>
+    <input type="text" id="security_answer" name="security_answer" class="input-xlarge" tabindex="7">
+</td>
+<td>
+ Phone Number
+</td>
+<td>
+    <input type="text" id="phone_number" name="phone_number" class="input-xlarge" tabindex="14">
+</td>
+</tr>
+
+
+<tr>
+
+<td colspan="4">
+    &nbsp;
+</td>
+
+
+</tr>
+
+<tr>
+<td>
+   Late Fees
+</td>
+<td>
+    <label for="late_fees" class="checkbox">
+        <input type="checkbox" value="1" name="late_fees" id="late_fees" tabindex="15"> Don't Apply Late Fees
+    </label>
+</td>
+<td>
+ Payment Method
+</td>
+<td>
+    <select name="payment_method" id="payment_method" class="input-xlarge" tabindex="20">
+        <option value="">Please select</option>
+        <?php foreach($this->paymentMethodList As $pIndex=>$paymentMethod){?>
+        <option value="<?php print($paymentMethod->getNameKey());?>"><?php print($paymentMethod->getName());?></option>
+        <?php } ?>
+    </select>
+</td>
+</tr>
+
+
+<tr>
+<td>
+   Overdue Notices
+</td>
+<td>
+    <label for="overdue_notices" class="checkbox" tabindex="16">
+        <input type="checkbox" value="1" name="overdue_notices" id="overdue_notices"> Don't Send Overdue Emails
+    </label>
+</td>
+<td>
+ Billing Contact
+</td>
+<td>
+    <select name="billing_contact" id="billing_contact" class="input-xlarge" tabindex="21">
+        <option value="">Default</option>
+    </select>
+</td>
+</tr>
+
+<tr>
+<td>
+   Tax Exempt
+</td>
+<td>
+    <label for="tax_exempt" class="checkbox" tabindex="17">
+        <input type="checkbox" value="1" name="tax_exempt" id="tax_exempt"> Don't Apply Tax to Invoices
+    </label>
+</td>
+<td>
+ Language
+</td>
+<td>
+    <select name="language" id="language" class="input-xlarge" tabindex="22">
+        <option value="">Please select</option>
+        <?php foreach($this->languageList As $lIndex=>$language){?>
+        <option value="<?php print($language->getLanguageCode());?>"><?php print($language->getName());?></option>
+        <?php } ?>
+    </select>
+</td>
+</tr>
+
+
+<tr>
+<td>
+   Separate Invoices
+</td>
+<td>
+    <label for="tax_exempt" class="checkbox" tabindex="18">
+        <input type="checkbox" value="1" name="separate_invoices" id="separate_invoices"> Separate Invoices for Services
+    </label>
+</td>
+<td>
+ Status
+</td>
+<td>
+    <select name="status" id="status" class="input-xlarge" tabindex="23">
+        <option value="Active">Active</option>
+<option value="Inactive">Inactive</option>
+<option value="Closed">Closed</option>
+    </select>
+</td>
+</tr>
+
+
+<tr>
+<td>
+   Disable CC Processing
+</td>
+<td>
+    <label for="disable_cc_processing" class="checkbox" tabindex="19">
+        <input type="checkbox" value="1" name="disable_cc_processing" id="disable_cc_processing"> Disable Automatic CC Processing
+    </label>
+</td>
+<td>
+Currency
+</td>
+<td>
+    <select name="currency" id="currency" class="input-xlarge" tabindex="24">
+        <?php foreach($this->currencyList As $cIndex=>$currency){?>
+        <option value="<?php print($currency->getId());?>"><?php print($currency->getName());?></option>
+        <?php } ?>
+    </select>
+</td>
+</tr>
+
+
+<tr>
+<td>
+   Admin Notes
+</td>
+<td colspan="3">
+    <textarea rows="3" class="textarea-large" id="admin_notes" name="admin_notes" tabindex="25"></textarea>
+</td>
+
+
+</tr>
+
+
+
+
+
+
+
+</tbody>
+</table>
+                            
+                            
+                            
+
+
+                            <div class="form-actions">
+                                <button class="btn btn-success"><i class="icon-save"></i> Save</button>
+                                <button class="btn btn-danger"><i class="icon-remove"></i> Delete</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- END Text Inputs -->

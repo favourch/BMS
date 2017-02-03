@@ -1,0 +1,55 @@
+ <div id="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="btn-group">
+                        <a href="<?php print($this->baseUrl()); ?>/admin/skills/add/?rel-id=<?php print($this->relId);?>&rel-object=<?php print($this->relObject);?>" id="table-edit_new" class="btn btn-danger">
+                            <?php echo $this->translate("Add-New");?> <i class="fa fa-plus"></i>
+                        </a>
+                    </div>
+                    
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12 table-responsive">
+                            <table class="table table-hover table_obtor_data">
+                                <thead class="no-bd">
+                                    <tr>
+                                        <th><strong><?php echo $this->translate("ID");?></strong></th>
+                                        <th><strong><?php echo $this->translate("Title");?></strong></th>
+                                        <th><strong><?php echo $this->translate("Years-Of-Experience");?></strong></th>   
+                                        <th class="text-center data_table_action"><strong><?php echo $this->translate("Actions");?></strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="no-bd-y">
+
+                                    <?php if ($this->skills) { ?>
+                                        <?php foreach ($this->skills As $rIndex => $skill) { ?>
+                                            <tr>
+                                                <td>
+                                                    <a title="<?php echo $this->translate("View");?>" href="<?php print($this->baseUrl()); ?>/admin/skills/view/?rel-id=1&rel-object=Employee&id=<?php print($skill->getId()); ?>">
+                                                    <?php print($rIndex+1); ?>
+                                                    </a>
+                                                </td>
+                                                <td><?php print($skill->getTitle()); ?></td>
+                                                <td><?php print($skill->getYearsOfExperience()); ?></td>
+
+                                                <td class="text-center">
+                                                    <a title="<?php echo $this->translate("Edit");?>" href="<?php print($this->baseUrl()); ?>/admin/skills/edit/?rel-id=1&rel-object=Employee&id=<?php print($skill->getId()); ?>"><img src="<?php print($this->baseUrl()); ?>/assets/skin/images/b_edit.png" /></a>
+                                                    <a title="<?php echo $this->translate("Delete");?>" href="<?php print($this->baseUrl()); ?>/admin/skills/delete/?rel-id=1&rel-object=Employee&id=<?php print($skill->getId()); ?>" class="form-data-delete"><img src="<?php print($this->baseUrl()); ?>/assets/skin/images/b_drop.png" /></a>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
+                                    <?php } ?>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

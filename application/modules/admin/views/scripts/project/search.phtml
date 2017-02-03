@@ -1,0 +1,111 @@
+   <div id="main-content">
+            
+            <div class="row">
+                <div class="col-md-12">
+            
+                    
+                    
+                    <div class="panel panel-default">
+                   
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <form id="form_project" name="form_project" role="form" method="get" class="form-horizontal" action="<?php print($this->baseUrl()); ?>/admin/project/">
+                                        
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Project-Number");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control" type="text" name="project-number" id="project-number"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Project-Name");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control" type="text" name="project-name" id="project-name"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Link-To-Accounts-Contacts");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <select  class="form-control" name="accounts-contacts" id="accounts-contacts">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->clientList As $cIndex=>$client){?>
+                                                    <option value="<?php print($client->getId());?>"><?php print($client->getFirstname());?> <?php print($client->getLastname());?> (#<?php print($client->getId());?>)</option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                       
+                                     
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Project-Status");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <select  class="form-control" name="project-status" id="project-status">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->projectStatusList As $pIndex=>$projectStatus){?>
+                                                    <option value="<?php print($projectStatus);?>"><?php print($this->translate($projectStatus));?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Project-Priority");?></strong>
+                                            
+                                            </label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <select  class="form-control" name="project-priority" id="project-priority">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->projectPriorityList As $pIndex=>$projectPriority){?>
+                                                    <option value="<?php print($projectPriority);?>"><?php print($this->translate($projectPriority));?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Project-Type");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <select  class="form-control" name="project-type" id="project-type">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->projectTypeList As $pIndex=>$projectType){?>
+                                                    <option value="<?php print($projectType);?>"><?php print($this->translate($projectType));?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                       
+                                        
+                                   
+                                        <div class="form-group text-left">
+                                            <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Search");?></button>
+                                            <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel");?></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    
+                </div>
+            </div>
+            
+                        
+            
+                        
+        </div>
+<script src="<?php print($this->baseUrl());?>/assets/validator/admin/project.js"></script>

@@ -1,0 +1,101 @@
+
+                    <!-- Navigation info -->
+                    <ul id="nav-info" class="clearfix">
+                        <li><a href="<?php print($this->baseUrl());?>/admin/"><i class="icon-home"></i></a></li>
+                        <li><a href="<?php print($this->baseUrl());?>/admin/billing/transactions/">Billing</a></li>
+                        <li class="active"><a href="#">Transactions</a></li>
+                    </ul>
+                    <!-- END Navigation info -->
+
+                    <!-- Text Inputs -->
+                    <form class="form-horizontal form-box remove-margin" method="post" action="" id="form-validation" novalidate="novalidate">
+                        <h4 class="form-box-header">Edit Transaction</h4>
+                        <div class="form-box-content">
+                            
+                            
+                            
+                            <div class="control-group">
+                                <label class="control-label" for="firstname-input">Related Client</label>
+                                <div class="controls">
+                                   <select id="cmbClient"  name="cmbClient" class="input-xxlarge">
+                                        <option value=""></option>
+                                        <?php foreach($this->clientDetails As $cIndex=>$client){?>
+                                        <option value="<?php print($client->getId());?>" <?php if($client->getId() == $this->transactionInfo->getClient()->getId()){?> selected="selected" <?php } ?> ><?php print($client->getCompanyname());?> - <?php print($client->getFirstname());?> <?php print($client->getLastname());?></option>
+                                         <?php } ?>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label class="control-label" for="firstname-input">Date</label>
+                                <div class="controls">
+                                    <input type="text" id="txtTransactionDate" name="txtTransactionDate" class="input-xlarge" value="<?php print($this->transactionInfo->getDate());?>" />
+                                </div>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label class="control-label" for="firstname-input">Payment Method</label>
+                                <div class="controls">
+                                   <select id="cmbPaymentMethod"  name="cmbPaymentMethod" class="input-xlarge">
+                                        <option value=""></option>
+                                        <?php foreach($this->paymentMethods As $pmIndex=>$paymentMethod){?>
+                                        <option value="<?php print($paymentMethod->getId());?>" <?php if($this->transactionInfo->getGateway()->getId() == $paymentMethod->getId()){?> selected="selected" <?php } ?> ><?php print($paymentMethod->getName());?></option>
+                                         <?php } ?>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label class="control-label" for="firstname-input">Description</label>
+                                <div class="controls">
+                                    <input type="text" id="txtDescription" name="txtDescription" class="input-xlarge" value="<?php print($this->transactionInfo->getDescription());?>" />
+                                </div>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label class="control-label" for="firstname-input">Invoice ID</label>
+                                <div class="controls">
+                                    <input type="text" id="txtInvoiceID" name="txtInvoiceID" class="input-xlarge" value="<?php print($this->transactionInfo->getInvoiceId());?>" />
+                                </div>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label class="control-label" for="firstname-input">Transaction ID</label>
+                                <div class="controls">
+                                    <input type="text" id="txtTransactionID" name="txtTransactionID" class="input-xlarge" value="<?php print($this->transactionInfo->getTransId());?>" />
+                                </div>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label class="control-label" for="firstname-input">Amount In</label>
+                                <div class="controls">
+                                    <input type="text" id="txtAmountIn" name="txtAmountIn" class="input-xlarge" value="<?php print($this->transactionInfo->getAmountIn());?>" />
+                                </div>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label class="control-label" for="firstname-input">Fees</label>
+                                <div class="controls">
+                                    <input type="text" id="txtFees" name="txtFees" class="input-xlarge" value="<?php print($this->transactionInfo->getFees());?>" >
+                                </div>
+                            </div>
+                           
+                            <div class="control-group">
+                                <label class="control-label" for="firstname-input">Amount Out</label>
+                                <div class="controls">
+                                    <input type="text" id="txtAmountOut" name="txtAmountOut" class="input-xlarge" value="<?php print($this->transactionInfo->getAmountOut());?>" />
+                                </div>
+                            </div>
+                            
+                            
+
+
+                            <div class="form-actions">
+                                <input type="hidden" name="txtId" id="txtId" value="<?php print($this->transactionInfo->getId());?>" /> 
+                                <button class="btn btn-success"><i class="icon-save"></i> Save</button>
+                                <button class="btn btn-danger"><i class="icon-remove"></i> Delete</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- END Text Inputs -->

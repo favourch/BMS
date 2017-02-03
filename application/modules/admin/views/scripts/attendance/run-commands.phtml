@@ -1,0 +1,123 @@
+<div id="main-content">
+
+    <div class="row">
+        <div class="col-md-12">
+
+
+
+            <div class="panel panel-default">
+                
+                <div class="panel-body">
+                    <h5 class="panel-title"><strong><?php echo $this->translate("Quick-Import"); ?></strong></h5>
+                    <div class="row border-top" m-b-20>
+                        <div class="col-md-12">
+                            
+                            <div class="col-md-12 col-sm-12 col-xs-12 m-t-20">
+                            <form id="form_attendance_single_command" name="form_attendance_single_command" role="form" method="post" class="form-horizontal">
+                                
+                                <div class="form-group" id="quick_single_command_progres">
+                                    <img src="<?php print($this->baseUrl());?>/assets/skin/images/ajax-loader-long.gif" />
+                                </div>
+
+
+                                <div class="form-group text-left">
+                                    <button class="btn btn-blue" type="button" name="Submit" id="Submit" onclick="quickExportAttendance('<?php print(date('Y-m-d'));?>');"><?php echo $this->translate("Import-Todays-Attendance"); ?></button>
+                                    <button class="btn btn-blue" type="button" name="Submit" id="Submit" onclick="quickExportAttendance('<?php print(date('Y-m-d',strtotime("-1 days")));?>');"><?php echo $this->translate("Import-Yesterdays-Attendance"); ?></button>
+                                </div>
+                            </form>
+                                </div>
+                        </div>
+                    </div>
+                    </div>
+                    
+                    <div class="panel-body">
+                      <h5 class="panel-title"><strong><?php echo $this->translate("Import-Using-Date"); ?></strong></h5>
+                    <div class="row border-top">
+                        <div class="col-md-12">
+                            
+                            <div class="col-md-12 col-sm-12 col-xs-12 m-t-20">
+                                <form id="form_attendance_single_command_date" name="form_attendance_single_command_date" role="form" method="post" class="form-horizontal" onsubmit="exportAttendanceDate($('#txtDateOn').val());">
+                                
+                                    
+                                    <div class="form-group" id="single_command_progres">
+                                    <img src="<?php print($this->baseUrl());?>/assets/skin/images/ajax-loader-long.gif" />
+                                </div>
+                                    
+                                    <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Date-On"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3" class="form-control normal_input pickadate" type="text" name="txtDateOn" id="txtDateOn"/>
+                                    </div>
+                                </div>
+                                
+                                
+
+
+                                <div class="form-group text-left">
+                                    <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Run-Command"); ?></button>
+                                    <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel"); ?></button>
+                                </div>
+                            </form>
+                                </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+
+</div>
+<script type="text/javascript">
+    /* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+jQuery(document).ready(function() {
+    // The text to show up within a field when it is incorrect
+    emptyerror = "This field is required.";
+    
+    jQuery("#form_attendance_single_command_date").submit(function() {
+        
+        //Country Name
+        var dateOn = jQuery('#txtDateOn').val();
+        if ((dateOn == "") || (dateOn == emptyerror)) {
+            jQuery('#txtDateOn').addClass("form_error");
+            jQuery('#txtDateOn').val(emptyerror);
+        } else {
+            jQuery('#txtDateOn').removeClass("form_error");
+        }
+        
+        
+        if (jQuery(":input").hasClass("form_error")) {
+            validationErrorMsg();
+            return false;
+        } else {
+            return true;
+        }
+        
+        
+        
+    });
+    
+     // Clears any fields in the form when the user clicks on them
+    jQuery(":input").focus(function() {
+        if (jQuery(this).hasClass("form_error")) {
+            jQuery(this).val("");
+            jQuery(this).removeClass("form_error");
+        }
+			
+    });
+    
+});
+
+
+</script>

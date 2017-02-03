@@ -1,0 +1,87 @@
+   <div id="main-content">
+            
+            <div class="row">
+                <div class="col-md-12">
+            
+                    
+                    
+                    <div class="panel panel-default">
+                   
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <form id="form_languages" name="form_languages" role="form" method="post" class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Language");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <select class="form-control" type="text" name="txtLanguage" id="txtLanguage"/>
+                                                <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                <?php foreach($this->languages As $lIndex=>$language){?>
+                                                     <option value="<?php print($language);?>"><?php print($this->translate($language));?></option>
+                                                    <?php } ?>
+                                            </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Fluency");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <select class="form-control" type="text" name="txtFluency" id="txtFluency"/>
+                                                <option value="">--<?php echo $this->translate("select"); ?>--</option>    
+                                                <option value="Speaking"><?php print($this->translate('Speaking'));?></option>    
+                                                <option value="Writing"><?php print($this->translate('Writing'));?></option>                                     
+                                                <option value="Reading"><?php print($this->translate('Reading'));?></option>
+                                                <option value="Speaking-And-Writing"><?php print($this->translate('Speaking-And-Writing'));?></option>  
+                                                <option value="Speaking-And-Reading"><?php print($this->translate('Speaking-And-Reading'));?></option> 
+                                                <option value="Writing-And-Reading"><?php print($this->translate('Writing-And-Reading'));?></option> 
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Competency");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <select class="form-control" type="text" name="txtCompetency" id="txtCompetency"/>
+                                                <option value="">--<?php echo $this->translate("select"); ?>--</option>    
+                                                <option value="Poor"><?php print($this->translate('Poor'));?></option>
+                                                <option value="Basic"><?php print($this->translate('Basic'));?></option>
+                                                <option value="Good"><?php print($this->translate('Good'));?></option>
+                                                <option value="Mother-Tongue"><?php print($this->translate('Mother-Tongue'));?></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                         
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Comments");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <textarea class="form-control" type="text" name="txtComments" id="txtComments"></textarea>
+                                            </div>
+                                        </div>
+                                        
+                                   
+                                        <div class="form-group text-left">
+                                            <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Submit");?></button>
+                                            <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel");?></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    
+                </div>
+            </div>
+            
+                        
+            
+                        
+        </div>
+<script src="<?php print($this->baseUrl());?>/assets/validator/admin/language.js"></script>

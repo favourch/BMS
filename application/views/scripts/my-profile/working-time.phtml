@@ -1,0 +1,93 @@
+ <div id="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="btn-group pull-right">
+                        <a href="#" id="form-data-back" class="btn btn-blue">
+                            <?php echo $this->translate("Go-back");?> <i class="fa fa-backward"></i>
+                        </a>
+                    </div>
+           
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12 m-t-20 table-responsive">
+                            <table class="table table-bordered table_obtor_data table-hover">
+                                <thead class="no-bd">
+                                    <tr>
+                                        <th class="table_id table_head"><?php echo $this->translate("ID");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Effective-From");?></th>  
+                                        <th class="table_data table_data_xx"><?php echo $this->translate("Is-Active");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Week-Day");?></th>
+                                        <th class="table_data table_data_xx"><?php echo $this->translate("Is-On-Duty");?></th>
+                                        <th class="table_data table_data_xx"><?php echo $this->translate("On-Time");?></th>   
+                                        <th class="table_data table_data_xx"><?php echo $this->translate("Off-Time");?></th>  
+                                    </tr>
+                                </thead>
+                                <tbody class="no-bd-y">
+
+                                    <?php if ($this->employeeWorkingSchedule) { ?>
+                                        <?php foreach ($this->employeeWorkingSchedule As $rIndex => $empWorkingSchedule) { ?>
+                                            <tr>
+                                                <td>
+                                                    <?php print($rIndex+1); ?>
+                                                </td>
+                                                <td><?php print($empWorkingSchedule->getEffectiveFromDate()); ?></td>
+                                                <td><?php print($this->translate($empWorkingSchedule->getIsActive())); ?></td>
+                                                <td colspan="4">&nbsp;</td>
+                                                
+                                            </tr>
+                                            <?php 
+                                            $staffWorkingDays =  $empWorkingSchedule->getWeekDays();
+                                            if($staffWorkingDays){
+                                                 foreach($staffWorkingDays As $sIndex=>$staffWorkingDay){
+                                            ?>
+                                            
+                                            <tr>
+                                                <td>
+                                                   &nbsp;
+                                                </td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                                <td><?php echo $this->translate($staffWorkingDay->getWeekDay());?></td>
+                                                <td>
+                                                    <?php if($staffWorkingDay->getIsWorking() == 'Yes'){?>
+                                                    <span class="label bg-green"><?php echo $this->translate($staffWorkingDay->getIsWorking());?></span>
+                                                    <?php } else {?>
+                                                    <span class="label bg-red"><?php echo $this->translate($staffWorkingDay->getIsWorking());?></span>
+                                                    <?php } ?>
+                                                    
+                                                </td>
+                                                <td>
+                                                    <?php if($staffWorkingDay->getIsWorking() == 'Yes'){?>
+                                                    <?php print($staffWorkingDay->getOnTime());?>
+                                                    <?php } else {?>
+                                                    <?php print('-');?>
+                                                    <?php } ?>
+                                                    
+                                                </td>
+                                                <td>
+                                                    <?php if($staffWorkingDay->getIsWorking() == 'Yes'){?>
+                                                    <?php print($staffWorkingDay->getOffTime());?>
+                                                    <?php } else {?>
+                                                    <?php print('-');?>
+                                                    <?php } ?>
+                                                    
+                                                </td>
+                                                
+                                            </tr>
+                                        <?php } }?>
+                                        <?php } ?>
+                                    <?php } ?>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

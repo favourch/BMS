@@ -1,0 +1,60 @@
+<div id="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12 table-responsive m-t-20">
+                            <table class="table table-bordered table_obtor_data table-hover">
+                                <thead class="no-bd">
+                                    <tr>
+                                        <th class="table_id table_head"><?php echo $this->translate("ID");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("User-Name");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Login-Date");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Login-Time");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Logout-Time");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Login-From");?></th>
+                                      
+                                    </tr>
+                                </thead>
+                                <tbody class="no-bd-y">
+
+                                    <?php if ($this->userHistoryInfo) { ?>
+                                        <?php foreach ($this->userHistoryInfo As $uhIndex => $userHistory) { ?>
+                                            <tr>
+                                                <td>
+                                                   <?php print($aIndex+1); ?>
+                                                </td>
+                                                <td><?php print($this->getAdminUser($userHistory->getUserId())->getFullName()); ?></td>
+                                                <td>
+                                                    <?php print($userHistory->getLoginDate()); ?>
+                                                </td>
+                                                <td><?php print($userHistory->getLoginTime()); ?></td>
+                                                <td><?php print($userHistory->getLogoutTime()); ?></td>
+                                                 <td><?php print($userHistory->getLoginFrom()); ?></td>
+                                               
+                                            </tr>
+                                        <?php } ?>
+                                     <?php } else {?>
+                                            <tr>
+                                                <td colspan="6" class="table_data_not_found"><?php echo $this->translate("Records-Not-Available");?></td>
+                                            </tr>
+                                    <?php } ?>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                    
+                    
+                    <?php if(count($this->userHistoryInfo)>0){?>
+			<?php echo $this->partial('common/_pagination.phtml', array('paginationData' => $this->paggination)); ?>
+                    <?php } ?>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

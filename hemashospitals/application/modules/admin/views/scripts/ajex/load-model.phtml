@@ -1,0 +1,6 @@
+<select class="form-control" name="txtModel" id="txtModel">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->models As $mIndex=>$model){?>
+                                                     <option value="<?php print($model->getId());?>"><?php print($model->getName());?></option>
+                                                    <?php } ?>
+                                                </select>

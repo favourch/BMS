@@ -1,0 +1,184 @@
+   <div id="main-content">
+            
+            <div class="row">
+                <div class="col-md-12">
+            
+                    
+                    
+                    <div class="panel panel-default">
+                        
+                         <div class="panel-heading">
+                    <div class="btn-group pull-right">
+                        <a href="#" id="form-data-back" class="btn btn-blue">
+                            <?php echo $this->translate("Go-back");?> <i class="fa fa-backward"></i>
+                        </a>
+                    </div>
+           
+                </div>
+                   
+                        <div class="panel-body">
+                            <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-12 col-sm-12 col-xs-12 m-t-20">
+                                    <div class="view_information">
+                                            <ul>
+                                                <li>
+                                                    <span><?php echo $this->translate("Employee-Name");?></span>
+                                                   : <?php print($this->getEmployee($this->employeeSalaryPaymentInfo->getEmployeeId())->getNameWithInitials()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+                                                <li>
+                                                    <span><?php echo $this->translate("Salary-Month");?></span>
+                                                   : <?php print($this->employeeSalaryPaymentInfo->getSalMonth()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("Salary-Year");?></span>
+                                                    : <?php print($this->employeeSalaryPaymentInfo->getSalYear()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+                                                
+                                                <li>
+                                                    <span><?php echo $this->translate("Generated-On");?></span>
+                                                    : <?php print($this->employeeSalaryPaymentInfo->getGeneratedOn()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+                                                
+                                                <li>
+                                                    <span><?php echo $this->translate("Current-Status");?></span>
+                                                    : <?php if($this->employeeSalaryPaymentInfo->getCurrentStatus() == "Paid") {?>
+                                                    <label class="label bg-green"><?php echo $this->translate("Paid"); ?></label>
+                                                    <?php } else {?>
+                                                    <label class="label bg-red">
+                                                        <?php echo $this->translate("Pending"); ?>
+                                                    </label>
+                                                    &nbsp;&nbsp;&nbsp;click here to pay now&nbsp;
+                                                    <a href="#" id="payLink<?php print($this->employeeSalaryPaymentInfo->getId());?>" onclick="paySalaryNow(<?php print($this->employeeSalaryPaymentInfo->getId());?>);">
+                                                        <label class="label label-success">
+                                                           <?php echo $this->translate("Pay-Now"); ?>
+                                                        </label>
+                                                       </a>
+                                                    <?php } ?>
+                                                    <div class="clear"></div>
+                                                </li>
+                                                
+                                                <li>
+                                                    <span><?php echo $this->translate("Paid-On");?></span>
+                                                    : <?php print($this->employeeSalaryPaymentInfo->getPaidOn()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+                                                
+                                                <li>
+                                                    <span><?php echo $this->translate("Paid-By");?></span>
+                                                    : <?php print($this->employeeSalaryPaymentInfo->getPaidBy()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+                                                
+                                                <li>
+                                                    <span><?php echo $this->translate("Gross-Salary-Amount");?></span>
+                                                    : <?php print($this->employeeSalaryPaymentInfo->getGrossSalaryAmount()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+                                                
+                                                <li>
+                                                    <span><?php echo $this->translate("Total-Deduction");?></span>
+                                                    : <?php print($this->employeeSalaryPaymentInfo->getTotalDeduction()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+                                                
+                                                <li>
+                                                    <span><?php echo $this->translate("Net-Salary-Amount");?></span>
+                                                    : <?php print($this->employeeSalaryPaymentInfo->getNetSalaryAmount()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+                                                
+                                            </ul>
+                                    </div>
+                                </div>
+                            </div>
+                                
+                                
+                               
+                                     <div class="col-md-12 col-sm-12 col-xs-12 table-responsive m-t-20 table_padding">
+                            <table class="table table-bordered table_obtor_data table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="table_id table_head"><?php echo $this->translate("ID");?></th>
+                                        <th class="table_data table_data_xx"><?php echo $this->translate("Salary-Type");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Remarks");?></th>
+                                        <th class="table_data_x"><?php echo $this->translate("Addition-Amount");?></th>
+                                        <th class="table_data_x"><?php echo $this->translate("Deduction-Amount");?></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="no-bd-y">
+
+                                    <?php if ($this->employeeSalaryPaymentBreakdownInfo) { ?>
+                                        <?php foreach ($this->employeeSalaryPaymentBreakdownInfo As $esIndex => $employeeBreakdownInfo) { ?>
+                                            <tr>
+                                                <td>
+                                                    <a title="<?php echo $this->translate("View");?>" href="<?php print($this->baseUrl()); ?>/admin/payroll/salary-breakdown-view/id/<?php print($employeeBreakdownInfo->getId()); ?>">
+                                                    <?php print($esIndex+1); ?>
+                                                    </a>
+                                                </td>
+                                                <td><?php print($employeeBreakdownInfo->getSalaryType()); ?></td>
+                                                <td><?php print($employeeBreakdownInfo->getRemarks()); ?></td>
+                                                <td align="right">
+                                                    <?php 
+                                                    if($employeeBreakdownInfo->getAmountType() == 'Addition'){
+                                                        print($employeeBreakdownInfo->getAmount()); 
+                                                    }
+                                                    ?>
+                                                </td>
+                                                <td align="right">
+                                                    <?php 
+                                                    if($employeeBreakdownInfo->getAmountType() == 'Deduction'){
+                                                        print($employeeBreakdownInfo->getAmount()); 
+                                                    }
+                                                    ?>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
+                                            
+                                            <tr>
+                                                
+                                                <td colspan="3" align="right">
+                                                    <strong><?php echo $this->translate("Total");?></strong>
+                                                </td>
+                                                <td align="right">
+                                                    <strong>
+                                                   <?php print($this->employeeSalaryPaymentInfo->getGrossSalaryAmount()); ?>
+                                                        </strong>
+                                                </td>
+                                                <td align="right">
+                                                    <strong>
+                                                   <?php print($this->employeeSalaryPaymentInfo->getTotalDeduction()); ?>
+                                                        </strong>
+                                                </td>
+                                            </tr>
+                                            
+                                    <?php } else {?>
+                                            <tr>
+                                                <td colspan="5" class="table_data_not_found"><?php echo $this->translate("Records-Not-Available");?></td>
+                                            </tr>
+                                    <?php } ?>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                                
+                                
+                        </div>
+                        </div>
+                    </div>
+
+                    
+                    
+                </div>
+            </div>
+            
+                        
+            
+                        
+        </div>

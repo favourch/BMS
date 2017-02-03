@@ -1,0 +1,89 @@
+<div id="main-content">
+
+    <div class="row">
+        <div class="col-md-12">
+
+
+
+            <div class="panel panel-default">
+
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form id="form_invoice" name="form_invoice" role="form" method="get" class="form-horizontal" action="<?php print($this->baseUrl());?>/admin/invoice/index/">
+                                
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Invoice-Number"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3" class="form-control normal_input" type="text" name="invoice-number" id="invoice-number"/>
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Customer"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <select id="customer"  name="customer" class="form-control normal_input">
+                                                    <option value=""></option>
+                                                    <?php foreach($this->clientDetails As $cIndex=>$client){?>
+                                                    <option value="<?php print($client->getId());?>"  <?php if($this->clientId == $client->getId()){?> selected="selected" <?php } ?> ><?php print($client->getCompanyname());?> - <?php print($client->getFirstname());?> <?php print($client->getLastname());?></option>
+                                                    <?php } ?>
+                                                </select>
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("From-Date"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3" class="form-control normal_input" type="text" name="from-date" id="from-date"/>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("To-Date"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3" class="form-control normal_input" type="text" name="to-date" id="to-date"/>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Status"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <select id="status"  name="status" class="form-control normal_input">
+                                                    <option value=""></option>
+                                                     <option value="Paid"><?php echo $this->translate("Paid"); ?></option>
+                                                     <option value="Unpaid"><?php echo $this->translate("Unpaid"); ?></option>
+                                                     <option value="Pending"><?php echo $this->translate("Pending"); ?></option>
+                                                     <option value="Cancelled"><?php echo $this->translate("Cancelled"); ?></option>
+                                                     <option value="Refunded"><?php echo $this->translate("Refunded"); ?></option>
+                                                     <option value="Collections"><?php echo $this->translate("Collections"); ?></option>
+                                                </select>
+                                    </div>
+                                </div>
+
+                        
+                                <div class="form-group text-left">
+                                    <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Search"); ?></button>
+                                    <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel"); ?></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+
+</div>

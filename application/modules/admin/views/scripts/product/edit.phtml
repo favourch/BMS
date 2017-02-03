@@ -1,0 +1,368 @@
+   <div id="main-content">
+       <form id="form_product" name="form_product" role="form" method="post" class="form-horizontal">
+            <div class="row">
+                <div class="col-md-12">
+            
+                    
+                    
+                    <div class="panel panel-default">
+                   
+                        <div class="panel-body">
+                            
+                                <div class="col-md-5 pull-left">
+                                    <div class="row">
+                                    
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Product-Type");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                    <select name="cmbProductType" id="cmbProductType" class="form-control">
+                                                        <option value="">Please select</option>
+                                                         <?php foreach($this->productTypes As $pIndex=>$productType){?>
+                                                        <option value="<?php print($productType->getId());?>" <?php if($this->productInfo->getProductType()->getId() == $productType->getId()){?> selected="selected" <?php } ?>><?php print($productType->getName());?></option>
+                                                        <?php } ?>
+                                                    </select>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Product-Name");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input type="text" id="txtProductName" name="txtProductName" class="form-control" value="<?php print($this->productInfo->getProductName());?>">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Require-Domain");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                 <input type="checkbox" value="1" id="chkRequiredDomain" name="chkRequiredDomain" <?php if($this->productInfo->getShowdomainoptions() == 1){?> checked="checked" <?php } ?>> <?php echo $this->translate("Tick-to-show-domain-registration-options");?>
+                                            </div>
+                                        </div>
+                                        
+                             
+                         <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Sort-Order");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input type="text" id="txtSortOrder" name="txtSortOrder" class="form-control" value="<?php print($this->productInfo->getSortOrder());?>">
+                                            </div>
+                                        </div>
+                          
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Hidden");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input type="checkbox" value="1" id="chkHide" name="chkHide" <?php if($this->productInfo->getIsHidden() == 1){?> checked="checked" <?php } ?>> <?php echo $this->translate("Tick-to-hide-from-order-form");?>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Has-Admin");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                  <input type="radio" value="Yes" id="cmbHasAdmin" name="cmbHasAdmin" <?php if($this->productInfo->getHasAdmin() == 'Yes'){?> checked="checked" <?php } ?>> <?php echo $this->translate("Yes");?>
+                                                  <input type="radio" value="No" id="cmbHasAdmin" name="cmbHasAdmin" <?php if($this->productInfo->getHasAdmin() != 'Yes'){?> checked="checked" <?php } ?>> <?php echo $this->translate("No");?>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                   
+                                </div>
+                            </div>
+                            
+                                 <div class="col-md-5 pull-right">
+                                    <div class="row">
+                                    
+                                        <div class="form-group">
+                                            <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Product-Group");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                    <select name="cmbProductGroup" id="cmbProductGroup" class="form-control">
+                                        <option value="">Please select</option>
+                                        <?php foreach($this->productGroups As $pIndex=>$productGroup){?>
+                                        <option value="<?php print($productGroup->getId());?>" <?php if($this->productInfo->getProductGroup() == $productGroup->getId()){?> selected="selected" <?php } ?>><?php print($productGroup->getName());?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                            </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("cPanel-Package");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                   <select name="cmbcPanelPackage" id="cmbcPanelPackage" class="form-control">
+                                        <option value="">Please select</option>
+
+                                         <?php foreach($this->cpanelPackages As $pIndex=>$package){?>
+        <option value="<?php print($package->getName());?>" <?php if($this->productInfo->getCPanelPackage() == $package->getName()){?> selected="selected" <?php } ?> ><?php print(ucfirst($package->getName()));?></option>
+        <?php } ?>
+
+                                    </select>
+                                </div>
+                            </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Stock-Control");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                     <input type="checkbox" value="1" id="chkEnableQty" name="chkEnableQty" <?php if($this->productInfo->getStockcontrol() == 1){?> checked="checked" <?php } ?>> Enable - Quantity in Stock : <input type="text" id="qtyInStock" name="qtyInStock" class="form-control" value="<?php print($this->productInfo->getProductQty());?>">
+                                </div>
+                            </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Apply-Tax");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                     <input type="checkbox" value="1" id="chkApplyTax" name="chkApplyTax" <?php if($this->productInfo->getTax() == 1){?> checked="checked" <?php } ?>> Tick this box to charge tax for this product
+                                </div>
+                            </div>
+                                
+                                
+                           <div class="form-group">
+                                            <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Retired");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                     <input type="checkbox" value="1" id="chkRetired" name="chkHide" <?php if($this->productInfo->getIsRetired() == 1){?> checked="checked" <?php } ?>> Tick to hide from admin area product dropdown menus
+                                </div>
+                            </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Welcome Email");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                     <select name="cmbMailTemplate" id="cmbMailTemplate" class="form-control">
+        <option value="">Please select</option>
+        
+        <?php foreach($this->mailTemplates As $mIndex=>$mailTemplate){?>
+        <option value="<?php print($mailTemplate->getTemplateId());?>" <?php if($this->productInfo->getWelcomeemail() == $mailTemplate->getTemplateId()){?> selected="selected" <?php } ?>><?php print($mailTemplate->getTemplateName());?></option>
+        <?php } ?>
+        
+    </select>
+                                </div>
+                            </div>
+                                        
+                                  
+                                </div>
+                            </div>
+                            
+                            
+                            
+                            <div class="col-md-12 pull-right">
+                                    <div class="row">
+                                        
+                                        
+                                    
+                                       <div class="form-group">
+                                    <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Product-Description");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                     <textarea rows="3" class="form-control" id="txtProductDescription" name="txtProductDescription"><?php print($this->productInfo->getProductDescription());?></textarea>
+                                </div>
+                            </div>
+                                        
+                            <div class="form-group">
+                                    <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Payment-Type");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                     <input type="radio" value="free" name="rdPayType" id="rdPayType" <?php if($this->productInfo->getPaytype() == 'free'){?> checked="checked" <?php } ?>><?php echo $this->translate("Free");?>
+                                     <input type="radio" value="onetime" name="rdPayType" id="rdPayType" <?php if($this->productInfo->getPaytype() == 'onetime'){?> checked="checked" <?php } ?>> <?php echo $this->translate("One-Time");?>
+                                     <input type="radio" value="recurring" name="rdPayType" id="rdPayType" <?php if($this->productInfo->getPaytype() == 'recurring'){?> checked="checked" <?php } ?>><?php echo $this->translate("Recurring");?>
+                                </div>
+                            </div>
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                    
+                                </div>
+                                
+                                
+                                <div class="row">
+                                    
+                                                           <div class="col-md-12 col-sm-12 col-xs-12 table-responsive m-t-20">
+                            <table class="table table-hover table_obtor_data">
+                                <thead class="no-bd">
+                                    <tr>
+                                       
+                                        <th class="table_data"><strong><?php echo $this->translate("Currency");?></strong></th>
+                                        <th class="table_data"><strong>&nbsp;</strong></th>
+                                        <th class="table_data"><strong><?php echo $this->translate(" One-Time/Monthly");?></strong></th>
+                                        <th class="table_data"><strong><?php echo $this->translate("Quarterly");?></strong></th>
+                                        <th class="table_data"><strong><?php echo $this->translate("Semi-Annually");?></strong></th>
+                                        <th class="table_data"><strong><?php echo $this->translate("Annually");?></strong></th>
+                                        <th class="table_data"><strong><?php echo $this->translate("Biennially");?></strong></th>
+					<th class="table_data"><strong><?php echo $this->translate("Triennially");?></strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="no-bd-y">
+
+                               <?php foreach($this->currencies As $cIndex=>$currency){?>
+                                            <tr>
+                                                <td>
+						 &nbsp;<?php print($currency->getName());?>
+   <input type="hidden" class="form-control" name="txtCurrencyId[]" value="<?php print($currency->getId());?>" />
+						</td>
+                                                
+                                                
+                                                <?php 
+$priceId = "";
+$priceType = "";
+$priceCurrency = "";
+$priceProductId = "";
+$priceMsetupfee = "";
+$priceQsetupfee = "";
+$priceSsetupfee = "";
+$priceAsetupfee = "";
+$priceBsetupfee = "";
+$priceTsetupfee = "";
+$priceMonthly = "";
+$priceQuarterly = "";
+$priceSemiannually = "";
+$priceAnnually = "";
+$priceBiennially = "";
+$priceTriennially = "";
+foreach($this->productInfo->getProductPrices() As $pIndex=>$productPrice){
+    
+  if(($productPrice->getCurrency() == $currency->getId()) && ($productPrice->getType() == 'product')){
+      
+        $priceId            = $productPrice->getId();
+        $priceType          = $productPrice->getType();
+        $priceCurrency      = $productPrice->getId();
+        $priceProductId     = $productPrice->getProductId();
+        $priceMsetupfee     = $productPrice->getMonthlySetupfee();
+        $priceQsetupfee     = $productPrice->getQuarterlySetupfee();
+        $priceSsetupfee     = $productPrice->getSemiAnnuallySetupfee();
+        $priceAsetupfee     = $productPrice->getAnnuallySetupfee();
+        $priceBsetupfee     = $productPrice->getBienniallySetupfee();
+        $priceTsetupfee     = $productPrice->getTrienniallySetupfee();
+        $priceMonthly       = $productPrice->getMonthlyFee();
+        $priceQuarterly     = $productPrice->getQuarterlyFee();
+        $priceSemiannually  = $productPrice->getSemiAnnuallyFee();
+        $priceAnnually      = $productPrice->getAnnuallyFee();
+        $priceBiennially    = $productPrice->getBienniallyFee();
+        $priceTriennially   = $productPrice->getTrienniallyFee();
+      
+  }  
+    
+}
+?>
+                                                
+                                                
+                                                <td>Setup Fee<input type="hidden" class="input-mini" name="txtPriceId[]" value="<?php print($priceId);?>" /></td>
+                                                <td>
+						<input type="text" class="form-control" name="txtSetUpFeeMonthly[]" value="<?php print($priceMsetupfee);?>" />
+						</td>
+                                                <td>
+						<input type="text" class="form-control" name="txtSetUpFeeQuarterly[]" value="<?php print($priceQsetupfee);?>" />
+						</td>
+
+						<td>
+						<input type="text" class="form-control" name="txtSetUpFeeSemiAnnually[]" value="<?php print($priceSsetupfee);?>"/>
+						</td>
+
+						<td>
+						<input type="text" class="form-control" name="txtSetUpFeeAnnually[]" value="<?php print($priceAsetupfee);?>"/>
+						</td>
+                                               
+						<td>
+						<input type="text" class="form-control" name="txtSetUpFeeBiennially[]" value="<?php print($priceBsetupfee);?>"/>
+						</td>
+
+						<td>
+						<input type="text" class="form-control" name="txtSetUpFeeTriennially[]" value="<?php print($priceTsetupfee);?>"/>
+						</td>
+                                               
+                                                
+                                            </tr>
+
+
+<tr>
+<td>
+   &nbsp;
+</td>
+
+<td>
+   Price
+</td>
+
+<td>
+  <input type="text" class="form-control" name="txtFeeMonthly[]" value="<?php print($priceMonthly);?>"/>
+</td>
+
+<td>
+<input type="text" class="form-control" name="txtFeeQuarterly[]" value="<?php print($priceQuarterly);?>"/>
+</td>
+
+<td>
+<input type="text" class="form-control" name="txtFeeSemiAnnually[]" value="<?php print($priceSemiannually);?>"/>
+</td>
+
+<td>
+<input type="text" class="form-control" name="txtFeeAnnually[]" value="<?php print($priceAnnually);?>"/>
+</td>
+
+<td>
+<input type="text" class="form-control" name="txtFeeBiennially[]" value="<?php print($priceBiennially);?>"/>
+</td>
+
+<td>
+<input type="text" class="form-control" name="txtFeeTriennially[]" value="<?php print($priceTriennially);?>"/>
+</td>
+
+</tr>
+
+
+                                            
+                                            <?php } ?>
+                                           
+                                        
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                                    
+                                </div>
+                                
+                                
+                                
+                                <div class="row">
+                                    
+                                    
+                                    
+                                    <div class="form-group text-left">
+  <input type="hidden" id="txtProductId" name="txtProductId" class="input-xlarge" value="<?php print($this->productInfo->getId());?>" />
+                                            <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Submit");?></button>
+                                            <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel");?></button>
+                                        </div>
+                                    
+                                    
+                                </div>
+                                
+                                
+                                
+                                
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+
+                    
+                    
+                </div>
+            </div>
+            
+                        
+            
+                   </form>     
+        </div>
+<script src="<?php print($this->baseUrl());?>/assets/validator/admin/product.js"></script>

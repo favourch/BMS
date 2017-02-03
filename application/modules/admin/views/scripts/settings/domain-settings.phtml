@@ -1,0 +1,58 @@
+   <div id="main-content">
+            
+            <div class="row">
+                <div class="col-md-12">
+            
+                    
+                    
+                    <div class="panel panel-default">
+                   
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form id="form_domain_settings" name="form_domain_settings" role="form" method="post" class="form-horizontal">
+                                        
+                                        <?php foreach($this->generalSettingsValues As $sIndex=>$setting){?>
+                                        <div class="form-group">
+                                            <label class="form-label"><strong>
+                                                <input type="hidden" name="txtFieldId[]" value="<?php print($setting->getId());?>" />
+                                                <?php echo $this->translate($setting->getSettingFieldName());?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <?php if($setting->getInputType() == 'text_field'){?>
+                                    <input type="text" id="txtFieldName<?php print($sIndex);?>" name="txtFieldName<?php print($sIndex);?>" class="form-control" value="<?php print($setting->getSettingValue());?>">
+                                    <?php } elseif($setting->getInputType() == 'check'){?>
+                                    <input type="checkbox" id="txtFieldName<?php print($sIndex);?>" name="txtFieldName<?php print($sIndex);?>" class="form-control" value="Yes" <?php if($setting->getSettingValue() == 'Yes'){?> checked="checked" <?php } ?> >
+                                    <span><?php print($setting->getFieldDescription());?></span>
+                                    <?php } elseif($setting->getInputType() == 'radio'){?>
+                                    <input type="radio" id="txtFieldName<?php print($sIndex);?>" name="txtFieldName<?php print($sIndex);?>" class="form-control" value="Yes" <?php if($setting->getSettingValue() == 'Yes'){?> checked="checked" <?php } ?>>
+                                    <span><?php print($setting->getFieldDescription());?></span>
+                                    <?php } elseif($setting->getInputType() == 'text_area'){?>
+                                    <textarea id="txtFieldName<?php print($sIndex);?>" name="txtFieldName<?php print($sIndex);?>" class="form-control" rows="7"><?php print($setting->getSettingValue());?></textarea>
+                                     <?php } ?>
+                                            </div>
+                                        </div>
+                                        <?php } ?>
+                                        
+                                        
+                                   
+                                        <div class="form-group text-left">
+                                            <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Submit");?></button>
+                                            <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel");?></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    
+                </div>
+            </div>
+            
+                        
+            
+                        
+        </div>
+<script src="<?php print($this->baseUrl());?>/assets/validator/admin/test.js"></script>

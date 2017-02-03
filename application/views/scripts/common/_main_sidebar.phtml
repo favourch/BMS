@@ -1,0 +1,127 @@
+<!-- BEGIN MAIN SIDEBAR -->
+        <nav id="sidebar">
+            <div id="main-menu">
+                <ul class="sidebar-nav">
+                    <li <?php if($this->controllerName=='index' && $this->actionName=='index'){?> class="current active" <?php } ?>>
+                        <a href="<?php print($this->baseUrl());?>/"><i class="fa fa-dashboard"></i><span class="sidebar-text"><?php echo $this->translate("Dashboard");?></span></a>
+                    </li>
+                    
+       
+                    <li <?php if($this->controllerName=='my-profile' && $this->actionName=='index'){?> class="current active" <?php } ?>>
+                        <a href="<?php print($this->baseUrl());?>/my-profile/"><i class="glyph-icon flaticon-account"></i><span class="sidebar-text"><?php echo $this->translate("My-Profile");?></span></a>
+                    </li>
+                    
+                           <!-- HRM Module -->
+                    <li <?php if($this->controllerName=='attendance'){?> class="current active hasSub" <?php } ?>>
+                        <a href="#"><i class="fa fa-credit-card"></i><span class="sidebar-text"><?php echo $this->translate("Attendance"); ?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+				
+                            <li <?php if($this->controllerName=='attendance' && $this->actionName=='index'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/attendance/"><span class="sidebar-text"><?php echo $this->translate("Attendance-Summary"); ?></span></a>
+                            </li>
+                        
+                            <li <?php if($this->controllerName=='attendance' && $this->actionName=='search'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/attendance/search/"><span class="sidebar-text"><?php echo $this->translate("Search-Attendance"); ?></span></a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+               
+                    
+                    
+                    <!-- HRM Module -->
+                    <li <?php if($this->controllerName=='leave'){?> class="current active hasSub" <?php } ?>>
+                        <a href="#"><i class="glyphicon glyphicon-calendar"></i><span class="sidebar-text"><?php echo $this->translate("Leaves"); ?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+			
+                            <li <?php if($this->controllerName=='leave' && ($this->actionName=='add' || $this->actionName=='add-leave')){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/leave/add-leave/"><span class="sidebar-text"><?php echo $this->translate("Apply-Leave"); ?></span></a>
+                            </li>
+                            
+                            <li <?php if($this->controllerName=='leave' && $this->actionName=='latest-leave-applications'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/leave/latest-leave-applications/"><span class="sidebar-text"><?php echo $this->translate("Latest-Leave-Applications"); ?></span></a>
+                            </li>
+       
+                            <li <?php if($this->controllerName=='leave' && $this->actionName=='search'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/leave/search/"><span class="sidebar-text"><?php echo $this->translate("Search-Leaves"); ?></span></a>
+                            </li>
+                             
+                        </ul>
+                    </li>
+                    
+         
+                    
+                    <li <?php if($this->controllerName=='project'){?> class="current active hasSub" <?php } ?>>
+                        <a href="#"><i class="fa fa-stack-overflow"></i>
+                            <span class="sidebar-text"><?php echo $this->translate("Projects-And-Tasks"); ?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+				
+                            <li <?php if($this->controllerName=='project' && $this->actionName=='index'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/project/"><span class="sidebar-text"><?php echo $this->translate("Projects"); ?></span></a>
+                            </li>
+                        
+                            <li <?php if($this->controllerName=='project' && $this->actionName=='search'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/project/search/"><span class="sidebar-text"><?php echo $this->translate("Search-Projects"); ?></span></a>
+                            </li>
+                            
+                             <li <?php if($this->controllerName=='project' && $this->actionName=='tasks'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/project/tasks/"><span class="sidebar-text">
+                                    <?php echo $this->translate("Tasks"); ?></span></a>
+                            </li>
+                            
+                            
+                        </ul>
+                    </li>
+           
+                    
+                     <li <?php if($this->controllerName=='to-do-list'){?> class="current active hasSub" <?php } ?>>
+                        <a href="#"><i class="fa fa-edit"></i><span class="sidebar-text"><?php echo $this->translate("My-To-DO-List"); ?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+                               
+                              <li <?php if($this->controllerName=='to-do-list' && $this->actionName=='index'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/to-do-list/index/?status=Active"><span class="sidebar-text"><?php echo $this->translate("My-To-DO-List"); ?></span></a>
+                              </li>
+                            
+                              <li <?php if($this->controllerName=='to-do-list' && $this->actionName=='add'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/to-do-list/add"><span class="sidebar-text"><?php echo $this->translate("Add-To-My-List"); ?></span></a>
+                              </li>
+                            <li <?php if($this->controllerName=='to-do-list' && $this->actionName=='search'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/to-do-list/search"><span class="sidebar-text"><?php echo $this->translate("Search"); ?></span></a>
+                              </li>
+                            
+                        </ul>
+                    </li>
+                   
+                    
+                   
+                    <li <?php if($this->controllerName=='calendar'){?> class="current active" <?php } ?>>
+                        <a href="<?php print($this->baseUrl());?>/calendar/"><i class="glyph-icon flaticon-calendar53"></i><span class="sidebar-text"><?php echo $this->translate("Calendar"); ?></span></a>
+                    </li>
+                    
+                    <li <?php if($this->controllerName=='document'){?> class="current active" <?php } ?>>
+                        <a href="<?php print($this->baseUrl());?>/document/"><i class="fa fa-dropbox"></i><span class="sidebar-text"><?php echo $this->translate("My-Documents"); ?></span></a>
+                    </li>
+                    
+               
+                    	<li <?php if($this->controllerName=='my-profile' && $this->actionName=='my-account'){?> class="current active" <?php } ?>>
+                        <a href="<?php print($this->baseUrl());?>/my-profile/my-account/"><i class="glyph-icon flaticon-settings21"></i><span class="sidebar-text">
+                           <?php echo $this->translate("Settings"); ?>
+                            </span></a>
+                    </li>
+                    
+                 
+                    
+                </ul>
+            </div>
+            <div class="footer-widget">
+               
+               
+                <div class="sidebar-footer clearfix">
+                    <a class="pull-left" href="<?php print($this->baseUrl());?>/my-profile/my-account/" rel="tooltip" data-placement="top" data-original-title="Settings"><i class="glyph-icon flaticon-settings21"></i></a>
+                    <a class="pull-left toggle_fullscreen" href="#" rel="tooltip" data-placement="top" data-original-title="Fullscreen"><i class="glyph-icon flaticon-fullscreen3"></i></a>
+                    <a class="pull-left" href="<?php print($this->baseUrl());?>/login/lockscreen" rel="tooltip" data-placement="top" data-original-title="Lockscreen"><i class="glyph-icon flaticon-padlock23"></i></a>
+                    <a class="pull-left" href="<?php print($this->baseUrl());?>/login/logout" rel="tooltip" data-placement="top" data-original-title="Logout"><i class="fa fa-power-off"></i></a>
+                </div> 
+            </div>
+        </nav>
+        <!-- END MAIN SIDEBAR -->

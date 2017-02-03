@@ -1,0 +1,64 @@
+   <div id="main-content">
+            
+            <div class="row">
+                <div class="col-md-12">
+            
+                    
+                    
+                    <div class="panel panel-default">
+
+ <div class="panel-heading">
+                    <div class="btn-group pull-right">
+                        <a href="#" id="form-data-back" class="btn btn-blue">
+                            <?php echo $this->translate("Go-back");?> <i class="fa fa-backward"></i>
+                        </a>
+                    </div>
+           
+                </div>
+                   
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12 m-t-20">
+                                    
+<div class="view_information">
+                                            <ul>
+                                                <li>
+                                                    <span><?php echo $this->translate("Attachment-Title");?></span>
+                                                   : <?php print($this->attachmentsInfo->getAttachmentTitle());?>  
+                                                    <div class="clear"></div>
+                                                </li>
+                                               
+                                                <li>
+                                                    <span><?php echo $this->translate("Attachment-Description");?></span>
+                                                   :  <?php print($this->attachmentsInfo->getAttachmentDescription());?>    
+                                                    <div class="clear"></div>
+                                                </li>
+                                               
+                                                 <li>
+                                                    <span><?php echo $this->translate("Attachment");?></span>
+                                                   : <a href="<?php print($this->baseUrl());?>/uploads/attachments/Employee/<?php print($this->attachmentsInfo->getDocPath());?>" target="_blank">
+                                            <?php echo $this->translate("Attachment");?>
+                                            </a>
+                                                    <div class="clear"></div>
+                                                </li>
+                                                
+                                            </ul>
+                                    </div>
+                                        
+                                
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    
+                </div>
+            </div>
+            
+                        
+            
+                        
+        </div>
+<script src="<?php print($this->baseUrl());?>/assets/validator/admin/attachments.js"></script>

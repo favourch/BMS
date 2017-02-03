@@ -1,0 +1,302 @@
+   <div id="main-content">
+       <form id="form_customer" name="form_customer" role="form" method="post" class="form-horizontal">
+            <div class="row">
+                <div class="col-md-12">
+            
+                    
+                    
+                    <div class="panel panel-default">
+                   
+                        <div class="panel-body">
+                            
+                                <div class="col-md-5 pull-left">
+                                    <div class="row">
+                                    
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("First-Name");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input type="text" id="first_name" name="first_name" class="form-control" tabindex="1">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Last-Name");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input type="text" id="last_name" name="last_name" class="form-control" tabindex="2">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Company-Name");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                 <input type="text" id="company_name" name="company_name" class="form-control" tabindex="3">
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Email-Address");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input type="text" id="email_address" name="email_address" class="form-control" tabindex="4">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Password");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input type="password" id="client_password" name="client_password" class="form-control" tabindex="5">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label" for="firstname-input"> <strong><?php echo $this->translate("Security-Question");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                      <select name="security_question" id="security_question" class="form-control" tabindex="6">
+        <option value="">Please select</option>
+        <?php foreach($this->seqServiceList As $seqIndex=>$seqService){ ?>
+        <option value="<?php print($seqService->getId());?>"><?php print($seqService->getName());?></option>
+        <?php } ?>
+    </select>
+                                </div>
+                            </div>
+                                        
+                                         <div class="form-group">
+                                             <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Security-Answer");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                     <input type="text" id="security_answer" name="security_answer" class="form-control" tabindex="7">
+                                </div>
+                            </div>
+                                
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Late-Fees");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                     <input type="checkbox" value="1" name="late_fees" id="late_fees" tabindex="15"> <?php echo $this->translate("Don-t-Apply-Late-Fees");?>
+                                </div>
+                            </div>
+                                
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Overdue-Notices");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                    <input type="checkbox" value="1" name="overdue_notices" id="overdue_notices"><?php echo $this->translate("Don-t-Send-Overdue-Emails");?> 
+                                </div>
+                            </div>
+                                
+                                
+                                 <div class="form-group">
+                                     <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Tax-Exempt");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                   <input type="checkbox" value="1" name="tax_exempt" id="tax_exempt"><?php echo $this->translate("Don-t-Apply-Tax-to-Invoices");?> 
+                                </div>
+                            </div>
+                                
+                                
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Separate-Invoices");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                   <input type="checkbox" value="1" name="separate_invoices" id="separate_invoices"> <?php echo $this->translate("Separate-Invoices-for-Services");?>
+                                </div>
+                            </div>
+                                
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Disable-CC-Processing");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                   <input type="checkbox" value="1" name="disable_cc_processing" id="disable_cc_processing"> <?php echo $this->translate("Disable-Automatic-CC-Processing");?>
+                                </div>
+                            </div>
+                                        
+                                   
+                                </div>
+                            </div>
+                            
+                                 <div class="col-md-5 pull-right">
+                                    <div class="row">
+                                    
+                                        <div class="form-group">
+                                            <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Address-1");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                     <input type="text" id="address1" name="address1" class="form-control" tabindex="8">
+                                </div>
+                            </div>
+                                
+                                
+                                 <div class="form-group">
+                                     <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Address-2");?></strong> </label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                     <input type="text" id="address2" name="address2" class="form-control" tabindex="9">
+                                </div>
+                            </div>
+                                
+                                
+                                 <div class="form-group">
+                                     <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("City");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                    <input type="text" id="city_name" name="city_name" class="form-control" tabindex="10">
+                                </div>
+                            </div>
+                                
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("State/Region");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                   <input type="text" id="state_region" name="state_region" class="form-control" tabindex="11">
+                                </div>
+                            </div>
+                                
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Postcode");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                  <input type="text" id="post_code" name="post_code" class="form-control" tabindex="12">
+                                </div>
+                            </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Country");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                  <select name="country_name" id="country_name" class="form-control" tabindex="13">
+        <option value="">Please select</option>
+        <?php foreach($this->countryList As $cIndex=>$country){?>
+        <option value="<?php print($country->getCountryCode());?>"><?php print($country->getName());?></option>
+        <?php } ?>
+    </select>
+                                </div>
+                            </div>
+                                
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Phone-Number");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                  <input type="text" id="phone_number" name="phone_number" class="form-control" tabindex="14">
+                                </div>
+                            </div>
+                                
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="firstname-input"> <strong><?php echo $this->translate("Payment-Method");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                   <select name="payment_method" id="payment_method" class="form-control" tabindex="20">
+        <option value="">Please select</option>
+        <?php foreach($this->paymentMethodList As $pIndex=>$paymentMethod){?>
+        <option value="<?php print($paymentMethod->getId());?>"><?php print($paymentMethod->getName());?></option>
+        <?php } ?>
+    </select>
+                                </div>
+                            </div>
+                                
+                                
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Billing-Contact");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                    <select name="billing_contact" id="billing_contact" class="form-control" tabindex="21">
+        <option value="">Default</option>
+    </select>
+                                </div>
+                            </div>
+                                
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Language");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                    <select name="language" id="language" class="form-control" tabindex="22">
+        <option value="">Please select</option>
+        <?php foreach($this->languageList As $lIndex=>$language){?>
+        <option value="<?php print($language->getLanguageCode());?>"><?php print($language->getName());?></option>
+        <?php } ?>
+    </select>
+                                </div>
+                            </div>
+                                
+                                
+                                
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Status");?></strong> </label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                     <select name="status" id="status" class="form-control" tabindex="23">
+        <option value="Active">Active</option>
+<option value="Inactive">Inactive</option>
+<option value="Closed">Closed</option>
+    </select>
+                                </div>
+                            </div>
+                                
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Currency");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                     <select name="currency" id="currency" class="form-control" tabindex="24">
+        <?php foreach($this->currencyList As $cIndex=>$currency){?>
+        <option value="<?php print($currency->getId());?>"><?php print($currency->getName());?></option>
+        <?php } ?>
+    </select>
+                                </div>
+                            </div>
+                                        
+                                  
+                                </div>
+                            </div>
+                            
+                            
+                            
+                            <div class="col-md-12 pull-right">
+                                    <div class="row">
+                                    
+                                       <div class="form-group">
+                                    <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Admin-Notes");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                     <textarea rows="3" class="form-control" id="admin_notes" name="admin_notes" tabindex="25"></textarea>
+                                </div>
+                            </div>
+                                        
+                                        <div class="form-group text-left">
+                                            <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Submit");?></button>
+                                            <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel");?></button>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+
+                    
+                    
+                </div>
+            </div>
+            
+                        
+            
+                   </form>     
+        </div>
+<script src="<?php print($this->baseUrl());?>/assets/validator/admin/customer.js"></script>

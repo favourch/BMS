@@ -1,0 +1,57 @@
+<div id="main-content">
+
+    <div class="row">
+        <div class="col-md-12">
+
+
+
+            <div class="panel panel-default">
+
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form id="form_attendance" name="form_attendance" role="form" method="get" class="form-horizontal" action="<?php print($this->baseUrl());?>/admin/domain/index/">
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Domain-Name"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3" class="form-control normal_input" type="text" name="domain-name" id="domain-name"/>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Domain-Status");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                 <select  class="form-control normal_input" name="status" id="status">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                     <option value="Active"><?php echo $this->translate("Active"); ?></option>
+                                                     <option value="Pending"><?php echo $this->translate("Pending"); ?></option>
+                                                     <option value="Pending Transfer"><?php echo $this->translate("Pending Transfer"); ?></option>
+                                                     <option value="Expired"><?php echo $this->translate("Expired"); ?></option>
+                                                      <option value="Fraud"><?php echo $this->translate("Fraud"); ?></option>
+                                                      <option value="Cancelled"><?php echo $this->translate("Cancelled"); ?></option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                        
+                                <div class="form-group text-left">
+                                    <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Search"); ?></button>
+                                    <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel"); ?></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+
+</div>

@@ -1,0 +1,80 @@
+ <div id="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="btn-group">
+                        <a href="<?php print($this->baseUrl());?>/admin/order/add/" id="table-edit_new" class="btn btn-danger">
+                            <?php echo $this->translate("Add-New-Order");?> <i class="fa fa-plus"></i>
+                        </a>
+                    </div>
+                    
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12 table-responsive">
+                            <table class="table table-bordered table_obtor_data table-hover">
+                                <thead class="no-bd">
+                                    <tr>
+                                        <th class="table_id table_head"><?php echo $this->translate("ID"); ?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Domain"); ?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Client Name"); ?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Reg Period"); ?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Register"); ?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Price"); ?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Next Due Date"); ?></th>
+                                        <th class="text-center table_head data_table_action"><?php echo $this->translate("Expiry-Date"); ?></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="no-bd-y">
+
+                                    <?php if($this->domains){?>
+			    <?php foreach($this->domains As $index=>$domain){?>
+                            <tr>
+                                <td class="span1 text-center"><?php print($domain->getId());?></td>
+                                <td><?php print($domain->getDomain());?>
+                                
+                                     <?php if($domain->getStatus() == 'Active') {?>
+                                    <span class="label label-success">Active</span>
+                                    <?php }elseif($domain->getStatus() == 'Pending') {?>
+                                    <span class="label label-warning">Pending</span>
+                                    <?php }elseif($domain->getStatus() == 'Pending Transfer') {?>
+                                    <span class="label label-warning">Pending Transfer</span>
+                                    <?php }elseif($domain->getStatus() == 'Expired') {?>
+                                    <span class="label label-info">Expired</span>
+                                    <?php }elseif($domain->getStatus() == 'Cancelled') {?>
+                                    <span class="label label-inverse">Cancelled</span>
+                                    <?php } else {?>
+                                    <span class="label label-important">Fraud</span>
+                                    <?php } ?>
+                                
+                                </td>
+                                <td><?php print($domain->getClient()->getFirstname());?></td>
+                                <td><?php print($domain->getRegistrationperiod());?> Year</td>
+                                <td><?php print($domain->getRegistrar());?></td>
+                                <td><?php print($domain->getFirstpaymentamount());?></td>
+                                <td><?php print($domain->getNextduedate());?></td>
+                                <td><?php print($domain->getExpirydate());?></td>
+                            </tr>
+                            <?php } ?>
+			    <?php } else {?>
+                                            <tr>
+                                                <td colspan="8" class="table_data_not_found"><?php echo $this->translate("Records-Not-Available");?></td>
+                                            </tr>
+                                    <?php } ?>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                    
+                    <?php if(count($this->domains)>0){?>
+			<?php echo $this->partial('common/_pagination.phtml', array('paginationData' => $this->paggination)); ?>
+                    <?php } ?>
+                    <!-- The pagination comes here... -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

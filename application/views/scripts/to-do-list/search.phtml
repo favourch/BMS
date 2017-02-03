@@ -1,0 +1,57 @@
+   <div id="main-content">
+            
+            <div class="row">
+                <div class="col-md-12">
+            
+                    
+                    
+                    <div class="panel panel-default">
+                   
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <form id="form_toDoList" name="form_toDoList" role="form" method="get" class="form-horizontal" action="<?php print($this->baseUrl());?>/to-do-list/">
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Search-Text");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control" type="text" name="q" id="q"/>
+                                            </div>
+                                        </div>
+                                        
+                                      
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Status");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <select name="status" id="status" class="form-control normal_input">
+                                                    <option value=""></option>
+                                                    <option value="Active"><?php echo $this->translate("Active");?></option>
+                                                    <option value="Completed"><?php echo $this->translate("Completed");?></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                   
+                                        <div class="form-group text-left">
+                                            <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Submit");?></button>
+                                            <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel");?></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    
+                </div>
+            </div>
+            
+                        
+            
+                        
+        </div>
+<script src="<?php print($this->baseUrl());?>/assets/validator/admin/toDoList.js"></script>

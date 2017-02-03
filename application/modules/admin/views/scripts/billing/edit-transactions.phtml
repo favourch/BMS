@@ -1,0 +1,120 @@
+   <div id="main-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        
+                        <div class="panel-heading">
+                    <div class="btn-group pull-right">
+                        <a href="#" id="form-data-back" class="btn btn-blue">
+                            <?php echo $this->translate("Go-back");?> <i class="fa fa-backward"></i>
+                        </a>
+                    </div>
+           
+                </div>
+                        
+                        
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form id="form_transactions" name="form_transactions" role="form" method="post" class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Related-Client");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <select id="cmbClient"  name="cmbClient" class="form-control normal_input">
+                                        <option value=""></option>
+                                        <?php foreach($this->clientDetails As $cIndex=>$client){?>
+                                        <option value="<?php print($client->getId());?>" <?php if($client->getId() == $this->transactionInfo->getClient()->getId()){?> selected="selected" <?php } ?> ><?php print($client->getCompanyname());?> - <?php print($client->getFirstname());?> <?php print($client->getLastname());?></option>
+                                         <?php } ?>
+                                    </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Date");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input type="text" id="txtTransactionDate" name="txtTransactionDate" class="form-control normal_input" value="<?php print($this->transactionInfo->getDate());?>" />
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Payment-Method");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <select id="cmbPaymentMethod"  name="cmbPaymentMethod" class="form-control normal_input">
+                                        <option value=""></option>
+                                        <?php foreach($this->paymentMethods As $pmIndex=>$paymentMethod){?>
+                                        <option value="<?php print($paymentMethod->getId());?>" <?php if($this->transactionInfo->getGateway()->getId() == $paymentMethod->getId()){?> selected="selected" <?php } ?> ><?php print($paymentMethod->getName());?></option>
+                                         <?php } ?>
+                                        
+                                    </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Description");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input type="text" id="txtDescription" name="txtDescription" class="form-control normal_input" value="<?php print($this->transactionInfo->getDescription());?>" />
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Invoice-ID");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input type="text" id="txtInvoiceID" name="txtInvoiceID" class="form-control normal_input" value="<?php print($this->transactionInfo->getInvoiceId());?>" />
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Transaction-ID");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input type="text" id="txtTransactionID" name="txtTransactionID" class="form-control normal_input" value="<?php print($this->transactionInfo->getTransId());?>" />
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Amount-In");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input type="text" id="txtAmountIn" name="txtAmountIn" class="form-control normal_input" value="<?php print($this->transactionInfo->getAmountIn());?>" />
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Fees");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input type="text" id="txtFees" name="txtFees" class="form-control normal_input" value="<?php print($this->transactionInfo->getFees());?>" >
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Amount-Out");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input type="text" id="txtAmountOut" name="txtAmountOut" class="form-control normal_input" value="<?php print($this->transactionInfo->getAmountOut());?>" />
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        <div class="form-group text-left">
+                                            <input type="hidden" name="txtId" id="txtId" value="<?php print($this->transactionInfo->getId());?>" /> 
+                                            <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Submit");?></button>
+                                            <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel");?></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<script src="<?php print($this->baseUrl());?>/assets/validator/admin/transactions.js"></script>

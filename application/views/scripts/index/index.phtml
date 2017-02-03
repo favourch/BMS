@@ -1,0 +1,194 @@
+<div id="main-content" class="dashboard">
+    <div class="row m-t-20">
+            
+        
+        
+        <div class="col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><strong>To Do</strong> List</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                     <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 8%;">#</th>
+                                                <th><?php echo $this->translate("Title");?></th>
+                                                <th style="width: 8%;"><?php echo $this->translate("Status");?></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                           <?php if ($this->toDoListInfo) { ?>
+                                        <?php foreach ($this->toDoListInfo As $rIndex => $toDoList) { ?>
+                                            <tr>
+                                                <td><?php print($rIndex+1);?></td>
+                                                <td><?php print($toDoList->getListTitle()); ?></td>
+                                                <td><?php print($toDoList->getStatus()); ?></td>
+                                            </tr>
+                                           <?php } ?>
+                                    <?php } else {?>
+                                            <tr>
+                                                <td colspan="3" class="table_data_not_found"><?php echo $this->translate("Records-Not-Available");?></td>
+                                            </tr>
+                                    <?php } ?>
+                                           
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+        
+        <div class="col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><strong>Pending</strong> Tasks</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th><?php echo $this->translate("Task_Name");?></th>
+                                                <th class="table_data_xx"><?php echo $this->translate("Current_Status");?></th>
+                                               
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                            <?php if ($this->taskInformation) { ?>
+                                        <?php foreach ($this->taskInformation As $vIndex => $task) { ?>
+                                            <tr>
+                                                <td>
+                                                    <a title="<?php echo $this->translate("View");?>" href="<?php print($this->baseUrl()); ?>/project/task-view/id/<?php print($task->getId()); ?>">
+                                                    <?php print($task->getId()); ?>
+                                                    </a>
+                                                </td>
+                                               <td><?php print($task->getName()); ?></td>
+                                                <td><?php print($task->getCurrentStatus()); ?></td>
+                                            </tr>
+                                            <?php } ?>
+                                   <?php } else {?>
+                                            <tr>
+                                                <td colspan="3" class="table_data_not_found"><?php echo $this->translate("Records-Not-Available");?></td>
+                                            </tr>
+                                    <?php } ?>
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+        
+    </div>
+    
+    
+     <div class="row m-t-20">
+            
+        
+        
+        <div class="col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><strong>Recent</strong> Attendance</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th><?php echo $this->translate("Data-Row-Date-On");?></th>
+                                                <th><?php echo $this->translate("In-Time");?></th>
+                                                <th><?php echo $this->translate("Out-Time");?></th>
+                                                <th><?php echo $this->translate("Other-In-Out");?></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                            <?php
+                                            if($this->attendanceInformation){
+                                            foreach($this->attendanceInformation As $attIndex=>$attendanceInfo){?>
+                                            
+                                            <tr>
+                                                <td><?php print($attendanceInfo->getDateOn());?></td>
+                                                <td><?php print($attendanceInfo->getAttendanceInTime());?></td>
+                                                <td><?php print($attendanceInfo->getAttendanceOutTime());?></td>
+                                                <td><?php print($attendanceInfo->getOtherInOut());?></td>
+                                            </tr>
+                                            <?php } ?>
+                                   <?php } else {?>
+                                            <tr>
+                                                <td colspan="4" class="table_data_not_found"><?php echo $this->translate("Records-Not-Available");?></td>
+                                            </tr>
+                                    <?php } ?>
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+        
+        <div class="col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><strong>Recent</strong> Leave Applications</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th><?php echo $this->translate("Leave-From-Date");?></th>
+                                                <th><?php echo $this->translate("Leave-To-Date");?></th>
+                                                <th><?php echo $this->translate("App-Status");?></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php if($this->leaveInformations){?>
+                                     <?php foreach($this->leaveInformations As $lIndex=>$leaveInformation){
+                                         ?> 
+                                            <tr>
+                                                <td>
+                                                    <a title="<?php echo $this->translate("View");?>" href="<?php print($this->baseUrl()); ?>/leave/view/id/<?php print($leaveInformation->getId());?>">
+                                                    <?php print($leaveInformation->getId());?>
+                                                    </a>
+                                                </td>
+                                                <td><?php print($leaveInformation->getFromDate());?></td>
+                                                <td><?php print($leaveInformation->getToDate());?></td>
+                                                <td><?php print($leaveInformation->getAppStatus());?></td>
+                                            </tr>
+                                             <?php } ?>
+                                   <?php } else {?>
+                                            <tr>
+                                                <td colspan="4" class="table_data_not_found"><?php echo $this->translate("Records-Not-Available");?></td>
+                                            </tr>
+                                    <?php } ?>
+                                           
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+        
+    </div>
+    
+    
+</div>

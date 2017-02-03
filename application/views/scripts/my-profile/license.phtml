@@ -1,0 +1,55 @@
+ <div id="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="btn-group pull-right">
+                        <a href="#" id="form-data-back" class="btn btn-blue">
+                            <?php echo $this->translate("Go-back");?> <i class="fa fa-backward"></i>
+                        </a>
+                    </div>
+           
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12 m-t-20 table-responsive">
+                            <table class="table table-bordered table_obtor_data table-hover">
+                                <thead class="no-bd">
+                                    <tr>
+                                        <th class="table_id table_head"><?php echo $this->translate("ID");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("License-Type");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("License-Number");?></th>   
+                                        <th class="table_data table_head"><?php echo $this->translate("Issued-Date");?></th>  
+                                        <th class="table_data table_head"><?php echo $this->translate("Expiry-Date");?></th>  
+                                    </tr>
+                                </thead>
+                                <tbody class="no-bd-y">
+
+                                    <?php if ($this->licenses) { ?>
+                                        <?php foreach ($this->licenses As $rIndex => $license) { ?>
+                                            <tr>
+                                                <td>
+                                                    <?php print($rIndex+1); ?>
+                                                </td>
+                                                <td><?php print($this->translate($license->getLicenseType())); ?></td>
+                                                <td><?php print($this->translate($license->getLicenseNumber())); ?></td>
+                                                <td><?php print($this->translate($license->getIssuedDate())); ?></td>
+                                                <td><?php print($this->translate($license->getExpiryDate())); ?></td>
+                                            </tr>
+                                        <?php } ?>
+                                   <?php } else {?>
+                                            <tr>
+                                                <td colspan="5" class="table_data_not_found"><?php echo $this->translate("Records-Not-Available");?></td>
+                                            </tr>
+                                    <?php } ?>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

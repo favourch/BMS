@@ -1,0 +1,546 @@
+<!-- BEGIN MAIN CONTENT -->
+<div id="main-content">
+    <div class="panel-content">
+        <div class="row media-manager">
+
+
+            <div class="col-sm-3 media-menu">
+
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-4 col-md-12">
+                                <div class="btn-group media-group">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu media-menu" role="menu">
+                                        <li><a href="<?php print($this->baseUrl()); ?>/admin/staff/images-upload/id/<?php print($this->employeeInformation->getId()); ?>"><i class="fa fa-pencil"></i> Edit</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-body center-contents">
+                                        <?php if($this->employeeInformation->getProfileImage() != ""){?>
+                                            <img src="<?php print($this->baseUrl()); ?>/uploads/images/staff/<?php print($this->employeeInformation->getProfileImage());?>" class="img-responsive" alt="profil">
+                                            <?php } else {?>
+                                        <img src="<?php print($this->baseUrl()); ?>/uploads/images/staff/davis_shawn.jpg" class="img-responsive" alt="profil">
+                                            <?php } ?>
+                                      
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div  class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <table class="table">
+                                    <tr>
+                                        <td>
+                                            <a href="<?php print($this->baseUrl()); ?>/admin/staff/edit/id/<?php print($this->employeeInformation->getId()); ?>">
+                                                <i class="glyphicon glyphicon-user"></i> <?php echo $this->translate("Edit-Profile"); ?>
+                                            </a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <a href="<?php print($this->baseUrl()); ?>/admin/professional-experience/?rel-id=<?php print($this->employeeInformation->getId()); ?>&rel-object=Employee">
+                                                <i class="glyphicon glyphicon-share"></i> <?php echo $this->translate("Work-experience"); ?> 
+                                            </a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <a href="<?php print($this->baseUrl()); ?>/admin/education-qualification/?rel-id=<?php print($this->employeeInformation->getId()); ?>&rel-object=Employee" >
+                                                <i class="glyphicon glyphicon-briefcase"></i> <?php echo $this->translate("Education-Qualification"); ?> 
+                                            </a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <a href="<?php print($this->baseUrl()); ?>/admin/skills/?rel-id=<?php print($this->employeeInformation->getId()); ?>&rel-object=Employee">
+                                                <i class="glyphicon glyphicon-gift"></i> <?php echo $this->translate("Skills"); ?>
+                                            </a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <a href="<?php print($this->baseUrl()); ?>/admin/languages/?rel-id=<?php print($this->employeeInformation->getId()); ?>&rel-object=Employee">
+                                                <i class="glyphicon glyphicon-retweet"></i> <?php echo $this->translate("Languages"); ?>
+                                            </a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <a href="<?php print($this->baseUrl()); ?>/admin/license/?rel-id=<?php print($this->employeeInformation->getId()); ?>&rel-object=Employee">
+                                                <i class="glyphicon glyphicon-link"></i> <?php echo $this->translate("License"); ?>
+                                            </a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <a href="<?php print($this->baseUrl()); ?>/admin/attachments/?rel-id=<?php print($this->employeeInformation->getId()); ?>&rel-object=Employee">
+                                                <i class="glyphicon glyphicon-paperclip"></i> <?php echo $this->translate("Attachments"); ?>
+                                            </a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <a href="<?php print($this->baseUrl()); ?>/admin/working-time/?rel-id=<?php print($this->employeeInformation->getId()); ?>">
+                                                <i class="glyphicon glyphicon-th"></i> <?php echo $this->translate("Working-Time"); ?>
+                                            </a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <a href="<?php print($this->baseUrl()); ?>/admin/salary-particulars/?rel-id=<?php print($this->employeeInformation->getId()); ?>">
+                                                <i class="glyphicon glyphicon-book"></i> <?php echo $this->translate("Salary-Particulars"); ?>
+                                            </a>
+                                        </td>
+                                    </tr>
+
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <div class="col-sm-9">
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <div class="panel panel-default">
+
+                            <div class="panel-body">
+                                <h5 class="panel-title"><strong>Basic Information</strong></h5>
+                                <div class="row border-top">
+                                    <div class="col-md-12 col-sm-12 col-xs-12 m-t-20 m-b-20">
+
+                                        <div class="view_information">
+
+                                            <ul>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("Employee-Number"); ?></span>
+                                                    <?php print($this->employeeInformation->getEmployeeNumber()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("Full-Name"); ?></span>
+                                                    <?php print($this->employeeInformation->getFullName()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+
+                                                <li>
+                                                    <span><?php echo $this->translate("Name-with-initials"); ?></span>
+                                                    <?php print($this->employeeInformation->getNameWithInitials()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("Gender"); ?></span>
+                                                    <?php if ($this->employeeInformation->getGender() == 'male') { ?> <?php echo $this->translate("male"); ?> <?php } else { ?> <?php echo $this->translate("female"); ?> <?php } ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("Date-Of-Birth"); ?></span>
+                                                    <?php print($this->employeeInformation->getDateOfBirth()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+
+                                                <li>
+                                                    <span><?php echo $this->translate("Driving-License-No"); ?></span>
+                                                    <?php print($this->employeeInformation->getDrivingLicenseNo()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("Telephone-number-residence"); ?></span>
+                                                    <?php print($this->employeeInformation->getTelephoneNumberResidence()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("Contact-number-mobile"); ?></span>
+                                                    <?php print($this->employeeInformation->getEmergencyContactTelephoneNumberMobile()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("E-mail-Address-Personal"); ?></span>
+                                                    <?php print($this->employeeInformation->getEMailAddressPersonal()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("E-mail-Address-Office"); ?></span>
+                                                    <?php print($this->employeeInformation->getEMailAddressOffice()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+
+
+
+                                            </ul>
+
+
+                                            <div class="clear"></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                                <h5 class="panel-title"><strong><?php echo $this->translate("Work-Location"); ?></strong></h5>
+                                <div class="row border-top">
+                                    <div class="col-md-12 col-sm-12 col-xs-12 m-t-20 m-b-20">
+                                        <div class="view_information">
+                                            <ul>
+                                                <li>
+                                                    <span><?php echo $this->translate("Country"); ?></span>
+                                                    <?php
+                                                    $countryId = $this->employeeInformation->getCountry();
+                                                    if ($countryId != "") {
+                                                        print($this->getCountry($countryId)->getName());
+                                                    }
+                                                    ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("Region"); ?></span>
+                                                    <?php
+                                                    $regionId = $this->employeeInformation->getRegion();
+                                                    if ($regionId != "") {
+                                                        print($this->getRegion($regionId)->getName());
+                                                    }
+                                                    ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("Branch"); ?></span>
+                                                    <?php
+                                                    $branchId = $this->employeeInformation->getBranch();
+                                                    if ($branchId != "") {
+                                                        print($this->getBranch($branchId)->getName());
+                                                    }
+                                                    ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("Department"); ?></span>
+                                                    <?php
+                                                    $departmentId = $this->employeeInformation->getDepartment();
+                                                    if ($departmentId != "") {
+                                                        print($this->getDepartment($departmentId)->getName());
+                                                    }
+                                                    ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+
+                                            </ul>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h5 class="panel-title"><strong><?php echo $this->translate("Employment-Details"); ?></strong></h5>
+                                <div class="row border-top">
+                                    <div class="col-md-12 col-sm-12 col-xs-12 m-t-20 m-b-20">
+                                        <div class="view_information">
+                                            <ul>
+                                                <li>
+                                                    <span><?php echo $this->translate("Joined-Date"); ?></span>
+                                                    <?php print($this->employeeInformation->getJoinedDate()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+                                                <li>
+                                                    <span><?php echo $this->translate("Designation"); ?></span>
+                                                    <?php print($this->employeeInformation->getDesignation()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+                                                <li>
+                                                    <span><?php echo $this->translate("Contract-Status"); ?></span>
+                                                    <?php print($this->translate($this->employeeInformation->getContractStatus())); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("Employee-Type"); ?></span>
+                                                    <?php print($this->getType($this->translate($this->employeeInformation->getEmployeeType()))->getName()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("Employee-Status"); ?></span>
+                                                    <?php print($this->translate($this->employeeInformation->getEmployeeStatus())); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("Staff-ID-Status"); ?></span>
+                                                    <?php print($this->translate($this->employeeInformation->getStaffIdStatus())); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("Staff-ID-Issued-Date"); ?></span>
+                                                    <?php print($this->translate($this->employeeInformation->getStaffIdIssueDate())); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("EPF-ETF-Number"); ?></span>
+                                                    <?php print($this->employeeInformation->getEpfEtfNumber()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("EPF-ETF-JoinedDate"); ?></span>
+                                                    <?php print($this->employeeInformation->getEpfEtfNumberJoinedDate()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+
+
+                                            </ul>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="panel panel-default">
+
+                            <div class="panel-body">
+
+
+
+                                <h5 class="panel-title"><strong><?php echo $this->translate("Permanent-address"); ?></strong></h5>
+                                <div class="row border-top">
+                                    <div class="col-md-12 col-sm-12 col-xs-12 m-t-20 m-b-20">
+                                        <div class="view_information">
+                                            <ul>
+                                                <li>
+                                                    <span><?php echo $this->translate("Address"); ?></span>
+                                                    <?php print($this->employeeInformation->getPermanentAddressAddress()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("Street"); ?></span>
+                                                    <?php print($this->employeeInformation->getPermanentAddressState()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("City"); ?></span>
+                                                    <?php print($this->employeeInformation->getPermanentAddressCity()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("State"); ?></span>
+                                                    <?php print($this->employeeInformation->getPermanentAddressState()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("Zip-Postal-Code"); ?></span>
+                                                    <?php print($this->employeeInformation->getPermanentAddressZip()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("Country"); ?></span>
+                                                    <?php print($this->getCountryList($this->employeeInformation->getPermanentAddressCountry())); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+
+
+                                            </ul>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h5 class="panel-title"><strong><?php echo $this->translate("Residential-Address"); ?></strong></h5>
+                                <div class="row border-top">
+                                    <div class="col-md-12 col-sm-12 col-xs-12 m-t-20 m-b-20">
+                                        <div class="view_information">
+                                            <ul>
+                                                <li>
+                                                    <span><?php echo $this->translate("Address"); ?></span>
+                                                    <?php print($this->employeeInformation->getResidentialAddressAddress()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("Street"); ?></span>
+                                                    <?php print($this->employeeInformation->getResidentialAddressStreet()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("City"); ?></span>
+                                                    <?php print($this->employeeInformation->getResidentialAddressCity()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("State"); ?></span>
+                                                    <?php print($this->employeeInformation->getResidentialAddressState()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("Zip-Postal-Code"); ?></span>
+                                                    <?php print($this->employeeInformation->getResidentialAddressZip()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("Country"); ?></span>
+                                                    <?php print($this->getCountryList($this->employeeInformation->getResidentialAddressCountry())); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+
+
+                                            </ul>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h5 class="panel-title"><strong><?php echo $this->translate("In-Case-of-Emergency"); ?></strong></h5>
+                                <div class="row border-top">
+                                    <div class="col-md-12 col-sm-12 col-xs-12 m-t-20 m-b-20">
+                                        <div class="view_information">
+                                            <ul>
+                                                <li>
+                                                    <span><?php echo $this->translate("Contact-Name"); ?></span>
+                                                    <?php print($this->employeeInformation->getEmergencyContactName()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("Relationship"); ?></span>
+                                                    <?php print($this->employeeInformation->getEmergencyContactRelationship()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("Email-address"); ?></span>
+                                                    <?php print($this->employeeInformation->getEmergencyContactEmailAddress()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("Telephone-number-residence"); ?></span>
+                                                    <?php print($this->employeeInformation->getEmergencyContactTelephoneNumberResidence()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("Contact-number-mobile"); ?></span>
+                                                    <?php print($this->employeeInformation->getEmergencyContactTelephoneNumberMobile()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("Address"); ?></span>
+                                                    <?php print($this->employeeInformation->getEmergencyContactAddress()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("Street"); ?></span>
+                                                    <?php print($this->employeeInformation->getEmergencyContactAddressStreet()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("City"); ?></span>
+                                                    <?php print($this->employeeInformation->getEmergencyContactAddressCity()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("State"); ?></span>
+                                                    <?php print($this->employeeInformation->getEmergencyContactAddressState()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("Zip-Postal-Code"); ?></span>
+                                                    <?php print($this->employeeInformation->getEmergencyContactAddressZip()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("Country"); ?></span>
+                                                      <?php print($this->getCountryList($this->employeeInformation->getEmergencyContactAddressCountry())); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+
+
+                                            </ul>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<!-- END MAIN CONTENT -->

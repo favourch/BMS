@@ -1,0 +1,86 @@
+/* 
+    Created on : Jul 25, 2014, 10:28:12 PM
+    Author     : Iyngaran Iyathurai
+*/
+.data_table_action {
+    width: 125px;
+}
+
+.form_error {
+    background-color: #fcf3f3;
+	border: 1px solid #FF0000;
+}
+
+.normal_input {
+    width: 30%;
+}
+
+.tree_sub_space {
+    margin-left: 4%;
+}
+
+.tree_option_lable {
+    margin-left: 0.5%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.table_id {
+    width: 5%;
+}
+
+.table_date {
+    width: 15%;
+}
+
+.table_obtor_data {
+    font-size: 12px;
+}
+
+
+.table_obtor_data_small_text {
+    font-size: 8px;
+}
+
+.table_data {
+    width: 15%;
+}
+
+.data_row_caption {
+    font-size: 13px;
+    font-weight: 600;
+    text-align: right;
+    padding-right: 2px !important;
+}
+
+.data_row_value {
+    font-size: 13px;
+    font-weight: normal;
+    text-align: left;
+    padding-left: 2px !important;
+}
+
+.data_view {
+    font-size: 14px;
+}
+
+.table_log_message {
+    width: auto;
+}
+
+.data_value {
+    color: #333 !important;
+    font-size: 14px;
+}
+
+.table_data_not_found {
+    color: #FF0000;
+}
+
+.action_date {
+    width: 15%;
+}
+
+.action_user {
+     width: 15%;
+}

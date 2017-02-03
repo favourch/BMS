@@ -1,0 +1,172 @@
+   <div id="main-content">
+            
+            <div class="row">
+                <div class="col-md-12">
+            
+                    
+                    
+                    <div class="panel panel-default">
+                   
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <form id="form_task" name="form_task" role="form" method="post" class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Task-Name");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control" type="text" name="txtName" id="txtName"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Project-Name");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <select  class="form-control" name="txtProjectId" id="txtProjectId">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->projectInfo As $tIndex=>$project){?>
+                                                    <option value="<?php print($project->getId());?>"><?php print($project->getProjectName());?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Assigned-To");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <select  class="form-control" name="txtAssignedTo" id="txtAssignedTo">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->employeeInfo As $eIndex=>$employee){?>
+                                                    <option value="<?php print($employee->getId());?>"><?php print($employee->getNameWithInitials());?> (#<?php print($employee->getEmployeeNumber());?>)</option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Current-Status");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <select  class="form-control" name="txtCurrentStatus" id="txtCurrentStatus">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->taskStatusList As $tIndex=>$taskStatus){?>
+                                                    <option value="<?php print($taskStatus);?>"><?php print($this->translate($taskStatus));?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                      
+                                        
+                                          <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Task-Type");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <select  class="form-control" name="txtTaskType" id="txtTaskType">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->taskTypeList As $tIndex=>$taskType){?>
+                                                    <option value="<?php print($taskType);?>"><?php print($this->translate($taskType));?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Task-Priority");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                
+                                                <select  class="form-control" name="txtPriority" id="txtPriority">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->taskPriorityList As $pIndex=>$taskPriority){?>
+                                                    <option value="<?php print($taskPriority);?>"><?php print($this->translate($taskPriority));?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Task-Progress");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control" type="text" name="txtProgress" id="txtProgress"/>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Allocated-Hours");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control" type="text" name="txtAllocatedHours" id="txtAllocatedHours"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Hours-Spent");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control" type="text" name="txtHoursSpent" id="txtHoursSpent"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Start-Date");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control pickadate" type="text" name="txtStartDate" id="txtStartDate"/>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("End-Date");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control pickadate" type="text" name="txtEndDate" id="txtEndDate"/>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                          <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Task-Description");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <textarea parsley-minlength="3" class="form-control" type="text" name="txtDescription" id="txtDescription"></textarea>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        
+                                        
+                                   
+                                        <div class="form-group text-left">
+                                            <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Submit");?></button>
+                                            <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel");?></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    
+                </div>
+            </div>
+            
+                        
+            
+                        
+        </div>
+<script src="<?php print($this->baseUrl());?>/assets/validator/admin/form_task.js"></script>

@@ -1,0 +1,63 @@
+ <div id="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="btn-group">
+                        <a href="<?php print($this->baseUrl()); ?>/admin/user/add" id="table-edit_new" class="btn btn-danger">
+                            <?php echo $this->translate("Add-New");?> <i class="fa fa-plus"></i>
+                        </a>
+                    </div>
+                    
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12 table-responsive">
+                            <table class="table table-hover">
+                                <thead class="no-bd">
+                                    <tr>
+                                        <th><strong><?php echo $this->translate("ID");?></strong></th>
+                                        <th><strong><?php echo $this->translate("Full-Name");?></strong></th>
+                                        <th><strong><?php echo $this->translate("Email-Address");?></strong></th>
+                                        <th><strong><?php echo $this->translate("Role-Name");?></strong></th>
+                                         <th><strong><?php echo $this->translate("Status");?></strong></th>
+                                        <th class="text-center data_table_action"><strong><?php echo $this->translate("Actions");?></strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="no-bd-y">
+
+                                    <?php if ($this->users) { ?>
+                                        <?php foreach ($this->users As $uIndex => $userInfo) { ?>
+                                            <tr>
+                                                <td><?php print($uIndex+1); ?></td>
+                                                <td><?php print($userInfo->getFullName()); ?></td>
+                                                <td><?php print($userInfo->getEmailAddress()); ?></td>
+                                                <td><?php print($userInfo->getUserRole()->getName()); ?></td>
+                                                <td>
+                                                    <?php if($userInfo->getStatusIs() == 1) {?>
+                                                    <?php echo $this->translate("Enabled"); ?>
+                                                    <?php } elseif($userInfo->getStatusIs() == 2){?>
+                                                    <?php echo $this->translate("Disabled"); ?>
+                                                    <?php } elseif($userInfo->getStatusIs() == 3){?>
+                                                    <?php echo $this->translate("Suspended"); ?>
+                                                    <?php } ?>
+                                                </td>
+                                                <td class="text-center">
+                                                    <a title="<?php echo $this->translate("Edit");?>" href="<?php print($this->baseUrl()); ?>/admin/user/edit/id/<?php print($userInfo->getId()); ?>"><img src="<?php print($this->baseUrl()); ?>/assets/skin/images/b_edit.png" /></a>
+                                                    <a title="<?php echo $this->translate("View-User-Logs");?>" href="<?php print($this->baseUrl()); ?>/admin/user/view-log/id/<?php print($userInfo->getId()); ?>"><img src="<?php print($this->baseUrl()); ?>/assets/skin/images/b_views.png" /></a>
+                                                    <a title="<?php echo $this->translate("Delete");?>" href="<?php print($this->baseUrl()); ?>/admin/user/delete/id/<?php print($userInfo->getId()); ?>" class="form-data-delete"><img src="<?php print($this->baseUrl()); ?>/assets/skin/images/b_drop.png" /></a>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
+                                    <?php } ?>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

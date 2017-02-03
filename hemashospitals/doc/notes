@@ -1,0 +1,12 @@
+user_data_privilage
+	1 - Allow all country - Global User
+	2 - All only in user's country - Country User
+	3 - Allow only in selected region - Region User
+	4 - Allow only in selected branches - Branch User
+	5 - Allow only in selected departments - Department User
+        6 - Custome selected  - Assign Manually
+
+allowed_countries
+allowed_regions
+allowed_branches
+allowed_departments

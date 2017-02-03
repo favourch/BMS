@@ -1,0 +1,300 @@
+<div id="main-content">
+
+    <div class="row">
+        <div class="col-md-12">
+
+
+            <form id="form_asset" name="form_asset" role="form" method="post" class="form-horizontal" enctype="multipart/form-data">
+                <div class="panel panel-default">
+
+                    <div class="panel-body">
+
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                
+                                <div class="col-md-12 col-sm-12 col-xs-12 m-t-20 m-b-20">
+                                    
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Asset-Type");?></strong></label>
+                                        <div class="controls">
+                                            
+                                            <select class="form-control" id="txtAssetType" name="txtAssetType">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                     <option value="simple"><?php echo $this->translate("simple"); ?></option>
+                                                     <option value="bundle"><?php echo $this->translate("bundle"); ?></option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Serial-Number");?></strong>
+                                        </label>
+                                        <div class="controls">
+                                            <input class="form-control" type="text" id="txtSerialNumber" name="txtSerialNumber">
+                                        </div>
+                                    </div>
+                                    
+                                     <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Category");?></strong></label>
+                                        <div class="controls">
+                                            
+                                            <select class="form-control" id="txtCategory" name="txtCategory">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->categoryList As $cIndex=>$category){?>
+                                                    <option value="<?php print($category->getId());?>"><?php print($category->getName());?></option>
+                                                    <?php } ?>
+                                                </select>
+                                        </div>
+                                    </div>
+                                    
+                                     <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Model");?></strong></label>
+                                        <div class="controls">
+                                            <span id="model">
+                                            <select class="form-control" id="txtModel" name="txtModel">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                </select>
+                                                </span>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Country");?></strong></label>
+                                        <div class="controls">
+                                                <select class="form-control" name="txtCountry" id="txtCountry">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->countries As $cIndex=>$country){?>
+                                                     <option value="<?php print($country->getId());?>"><?php print($country->getName());?></option>
+                                                    <?php } ?>
+                                                </select>
+                                        </div>
+                                    </div>
+                                   
+                                   <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Branch");?></strong>
+                                        </label>
+                                        <div class="controls">
+                                            <span id="branch">
+                                                <select class="form-control" name="txtBranchName" id="txtBranchName">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                </select>
+                                                </span>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Purchased-Date");?></strong>
+                                        </label>
+                                        <div class="controls">
+                                            <input class="form-control" type="text" id="txtPurchasedDate" name="txtPurchasedDate">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Cost");?></strong>
+                                        </label>
+                                        <div class="controls">
+                                            <input class="form-control" type="text" id="txtCost" name="txtCost">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Warranty-Valid-Until");?></strong>
+                                        </label>
+                                        <div class="controls">
+                                            <input class="form-control" type="text" id="txtWarrantyValidUntil" name="txtWarrantyValidUntil">
+                                        </div>
+                                    </div>
+                                    
+                                     
+                                    
+                                </div>
+                                
+                                
+                                
+                            </div>
+                            <div class="col-md-6">
+                                
+                                
+                               <div class="col-md-12 col-sm-12 col-xs-12 m-t-20 m-b-20">
+                                    
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Tag-Number");?></strong></label>
+                                        <div class="controls">
+                                            <input class="form-control" type="text" id="txtTagNumber" name="txtTagNumber">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Barcode");?></strong>
+                                        </label>
+                                        <div class="controls">
+                                            <input class="form-control" type="text" id="txtBarcode" name="txtBarcode">
+                                        </div>
+                                    </div>
+                                   
+                                   
+                                   <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Vendor");?></strong></label>
+                                        <div class="controls">
+                                            
+                                            <select class="form-control" id="txtVendor" name="txtVendor">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->vendorList As $vIndex=>$vendor){?>
+                                                    <option value="<?php print($vendor->getId());?>"><?php print($vendor->getName());?></option>
+                                                    <?php } ?>
+                                                </select>
+                                        </div>
+                                    </div>
+                                   
+                                   
+                                   
+                                   <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Date-Acquired");?></strong></label>
+                                        <div class="controls">
+                                            <input class="form-control" type="text" id="txtDateAcquired" name="txtDateAcquired">
+                                        </div>
+                                    </div>
+                                   
+                                   
+                                   <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Region");?></strong>
+                                        </label>
+                                        <div class="controls">
+                                            <span id="region">
+                                                <select class="form-control" name="txtRegion" id="txtRegion">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                </select>
+                                                </span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Department");?></strong></label>
+                                        <div class="controls">
+                                           <span id="department">
+                                                <select class="form-control" name="txtDepartmentName" id="txtDepartmentName">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                </select>
+                                                </span>
+                                        </div>
+                                    </div>
+                                   
+                                   <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Purchased-From");?></strong>
+                                        </label>
+                                        <div class="controls">
+                                            <input class="form-control" type="text" id="txtPurchasedFrom" name="txtPurchasedFrom">
+                                        </div>
+                                    </div>
+                                   
+                                   
+                                   <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Next-Maintenance-Date");?></strong>
+                                        </label>
+                                        <div class="controls">
+                                            <input class="form-control" type="text" id="txtNextMaintenanceDate" name="txtNextMaintenanceDate">
+                                        </div>
+                                    </div>
+                                   
+                                   
+                                   <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Status");?></strong></label>
+                                        <div class="controls">
+                                            
+                                            <select class="form-control" id="txtStatus" name="txtStatus">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <option value="assets-in-use"><?php echo $this->translate("assets-in-use"); ?></option>
+                                                    <option value="assets-ready-to-use"><?php echo $this->translate("assets-ready-to-use"); ?></option>
+                                                    <option value="assets-waiting-for-service"><?php echo $this->translate("assets-waiting-for-service"); ?></option>
+                                                    <option value="assets-sent-out-for-service"><?php echo $this->translate("assets-sent-out-for-service"); ?></option>
+                                                    <option value="assets-out-of-use"><?php echo $this->translate("assets-out-of-use"); ?></option>
+                                                    <option value="assets-sold"><?php echo $this->translate("assets-sold"); ?></option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                   
+                                   
+                                   
+                                    
+                                    
+                                </div>
+                            
+                            
+                            
+                            </div>
+                            
+                            
+                            
+                            <div class="col-md-12">
+                                
+                                
+                               <div class="col-md-12 col-sm-12 col-xs-12 m-t-20 m-b-20">
+                                   
+                                   
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Description");?></strong>
+                                        </label>
+                                        <div class="controls">
+                                            <textarea class="form-control" id="txtDescription" name="txtDescription"></textarea>
+                                        </div>
+                                    </div>
+                                  
+                                   
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Current-User");?></strong>
+                                        </label>
+                                        <div class="controls">
+                                            <input class="form-control" type="text" id="txtCurrentUser" name="txtCurrentUser">
+                                        </div>
+                                    </div>
+                                   
+                                   <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Item-Picture");?></strong>
+                                        </label>
+                                        <div class="controls">
+                                            <input class="form-control normal_input" type="file" id="txtItemPicture" name="txtItemPicture">
+                                        </div>
+                                    </div>
+                                   
+                                   <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Attach-Invoice");?></strong>
+                                        </label>
+                                        <div class="controls">
+                                            <input class="form-control normal_input" type="file" id="txtAttachInvoice" name="txtAttachInvoice">
+                                        </div>
+                                    </div>
+                                   
+                                   
+                                   <div class="form-group text-left m-t-40">
+                                                            <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Submit");?></button>
+                                                            <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel");?></button>
+                                                </div>
+                                   
+                               </div>
+                                
+                            </div>
+                            
+                            
+                       
+                        </div>
+                        
+                 
+                    </div>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+
+
+
+
+</div>
+<script src="<?php print($this->baseUrl()); ?>/assets/validator/admin/asset.js"></script>

@@ -1,0 +1,260 @@
+<div id="main-content">
+
+    <div class="row">
+        <div class="col-md-12">
+
+
+            <form id="form_asset" name="form_asset" role="form" method="post" class="form-horizontal" enctype="multipart/form-data">
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+                        <div class="btn-group pull-right">
+                            <a href="#" id="form-data-back" class="btn btn-blue">
+                                <?php echo $this->translate("Go-back"); ?> <i class="fa fa-backward"></i>
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <div class="panel-body">
+
+                        <h5 class="panel-title"><strong>
+                                <?php echo $this->translate("The-Order-Details"); ?> #<?php print($this->orderInformation->getOrdernum()); ?>
+                            </strong></h5>
+                        <div class="row border-top">
+                            <div class="col-md-6">
+
+                                <div class="col-md-12 col-sm-12 col-xs-12 m-t-20">
+
+
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Date"); ?></strong></label>
+                                        <span class="tips data_value"><?php print($this->orderInformation->getDate()); ?></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Order"); ?></strong></label>
+                                        <span class="tips data_value">#<?php print($this->orderInformation->getOrdernum()); ?></span>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Client"); ?></strong></label>
+                                        <span class="tips data_value"> <?php print($this->getClient($this->orderInformation->getUserId())->getFirstname()); ?></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Promotion-Code"); ?></strong></label>
+                                        <span class="tips data_value">
+                                            <?php if (!$this->orderInformation->getPromocode()) { ?>
+                                                None
+                                            <?php } else { ?>
+                                                <?php print($this->orderInformation->getPromocode()->getName()); ?>
+                                            <?php } ?>
+                                        </span>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Canvasser"); ?></strong></label>
+                                        <span class="tips data_value">
+                                            <?php
+                                            if ($this->orderInformation->getCanvasser()) {
+                                                print($this->orderInformation->getCanvasser()->getFirstName() . "&nbsp;&nbsp;");
+                                                print($this->orderInformation->getCanvasser()->getLastName());
+                                            }
+                                            ?>
+                                        </span>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                            <div class="col-md-6">
+
+
+                                <div class="col-md-12 col-sm-12 col-xs-12 m-t-20">
+
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Payment-Method"); ?></strong></label>
+                                        <span class="tips data_value"><?php print($this->orderInformation->getPaymentmethod()->getName()); ?></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Amount"); ?></strong></label>
+                                        <span class="tips data_value">
+<?php print($this->orderInformation->getAmount()); ?> <?php if ($this->getClient($this->orderInformation->getUserId())) {
+    print($this->getClient($this->orderInformation->getUserId())->getCurrency()->getName());
+} ?>
+                                        </span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Invoice"); ?></strong></label>
+                                        <span class="tips data_value">#<a href="<?php print($this->baseUrl()); ?>/admin/billing/view-invoice/id/<?php print($this->orderInformation->getInvoiceid()->getId()); ?>" target="_blank"><?php print($this->orderInformation->getInvoiceid()->getId()); ?></a></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Status"); ?></strong></label>
+                                        <span class="tips data_value"><?php print($this->orderInformation->getStatus()); ?></span>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Salesperson"); ?></strong></label>
+                                        <span class="tips data_value">
+                                            <?php
+                                            if ($this->orderInformation->getSalesperson()) {
+                                                print($this->orderInformation->getSalesperson()->getFirstName() . "&nbsp;&nbsp;");
+                                                print($this->orderInformation->getSalesperson()->getLastName());
+                                            }
+                                            ?>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+      <div class="row">
+        <div class="col-md-12">
+
+
+            <form id="form_asset" name="form_asset" role="form" method="post" class="form-horizontal" enctype="multipart/form-data">
+                <div class="panel panel-default">
+			<div class="panel-body">
+
+                        <h5 class="panel-title"><strong>
+                                <?php echo $this->translate("Order-Items");?>
+                            </strong></h5>
+                        <div class="row border-top">
+                            <div class="col-md-12">
+
+                                <div class="col-md-12 col-sm-12 col-xs-12 m-t-20">
+
+                                    
+                            <table class="table table-bordered table_obtor_data table-hover">
+                        <thead>
+                            <tr>
+                                <th class="span2 text-center">Item Name</th>
+                                <th>Description</th>
+                                <th class="span2 text-center">Billing Cycle</th>
+                                <th class="span2 text-center">Amount</th>
+                                <th class="span1 text-center">Status</th>
+                                <th class="span2 text-center">Payment Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            
+                          
+                            
+                            <?php if($this->orderInformation->getOrderProducts()){?>
+                            <?php foreach ($this->orderInformation->getOrderProducts() As $product){?>
+                            <tr>
+                                
+                                <td>
+                                    <a href="<?php print($this->baseUrl());?>/admin/order/view-product-service/client/<?php print($product->getClient());?>/id/<?php print($product->getId());?>">
+                                    Product/Service
+                                    </a>
+                                </td>
+                                <td><?php print($product->getProduct()->getProductName());?> <BR/> <?php print($product->getDomain());?></td>
+                                <td class="span2 text-center"><?php print($product->getBillingCycle());?></td>
+                                <td class="span2 text-center"><?php print($product->getAmount());?> <?php if($this->getClient($this->orderInformation->getUserId())){ print($this->getClient($this->orderInformation->getUserId())->getCurrency()->getName()); } ?></td>
+                                <td class="span1 text-center">
+                                    <span class="label <?php if($product->getDomainStatus() == 'Active'){?>label-success<?php } elseif($product->getDomainStatus() == 'Suspended'){?> label-default <?php } elseif($product->getDomainStatus() == 'Terminated'){?> label-inverse <?php } else {?> label-warning <?php } ?>">
+                                    <?php print($product->getDomainStatus());?>
+                                      </span>  
+                                </td>
+                                <td class="span2 text-center">
+                                    <span class="label <?php if($this->orderInformation->getInvoiceid()->getStatus() == 'Paid'){?>label-success<?php } elseif($this->orderInformation->getInvoiceid()->getStatus() == 'Refunded'){?> label-default <?php } elseif($this->orderInformation->getInvoiceid()->getStatus() == 'Cancelled'){?> label-inverse <?php } else {?> label-warning <?php } ?>">
+                                       <?php print($this->orderInformation->getInvoiceid()->getStatus());?>
+                                    </span>
+                                </td>
+                            </tr>
+                            <?php } ?>
+                            <?php } ?>
+                            
+                            
+                            <?php if($this->orderInformation->getOrderdomain()){?>
+                            <?php foreach ($this->orderInformation->getOrderdomain() As $domain){?>
+                            <tr>
+                                
+                                <td>
+                                    <a href="<?php print($this->baseUrl());?>/admin/order/view-domain/client/<?php print($domain->getClient()->getId());?>/id/<?php print($domain->getId());?>">
+                                    Domain
+                                    </a>
+                                </td>
+                                <td><?php print($domain->getDomain());?></td>
+                                <td class="span2 text-center"><?php print($domain->getRegistrationperiod());?> Year</td>
+                                <td class="span2 text-center"><?php print($domain->getRecurringamount());?> <?php if($this->getClient($this->orderInformation->getUserId())){ print($this->getClient($this->orderInformation->getUserId())->getCurrency()->getName()); } ?></td>
+                                <td class="span1 text-center">
+                                    <span class="label <?php if($domain->getStatus() == 'Active'){?>label-success<?php } elseif($domain->getStatus() == 'Suspended'){?> label-default <?php } elseif($domain->getStatus() == 'Terminated'){?> label-inverse <?php } else {?> label-warning <?php } ?>">
+                                    <?php print($domain->getStatus());?>
+                                    </span>
+                                </td>
+                                <td class="span2 text-center">
+                                    <span class="label <?php if($this->orderInformation->getInvoiceid()->getStatus() == 'Paid'){?>label-success<?php } elseif($this->orderInformation->getInvoiceid()->getStatus() == 'Refunded'){?> label-default <?php } elseif($this->orderInformation->getInvoiceid()->getStatus() == 'Cancelled'){?> label-inverse <?php } else {?> label-warning <?php } ?>">
+                                       <?php print($this->orderInformation->getInvoiceid()->getStatus());?>
+                                    </span>
+                                </td>
+                            </tr>
+                            <?php } ?>
+                            <?php } ?>
+                            
+                           
+                            
+                        
+                        </tbody>
+                    </table>
+                                    
+                                    
+                                    <div class="row m-l-10">
+                                    
+                                       
+                                        
+                                        <div class="form-group text-left">
+                                            <button class="btn btn-blue" type="submit" name="bthUpdateOrder" value="Active" <?php if($this->orderInformation->getStatus() == 'Active'){?> disabled="disabled" <?php } ?> id="Submit"><?php echo $this->translate("Accept-Order");?></button>
+                                            <button name="bthUpdateOrder" value="Cancelled" class="btn btn-blue"><?php echo $this->translate("Cancel-Order");?></button>
+                                            <button name="bthUpdateOrder" value="Cancel_Refund" class="btn btn-blue"><?php echo $this->translate("Cancel-&-Refund");?></button>
+                                            <button name="bthUpdateOrder" value="Fraud" class="btn btn-blue"><?php echo $this->translate("Set-as-Fraud");?></button>
+                                            <button name="bthUpdateOrder" value="Pending" class="btn btn-blue"><?php echo $this->translate("Set-Back-to-Pending");?></button>
+                                            <button name="bthUpdateOrder" value="Delete" class="btn btn-blue"><?php echo $this->translate("Delete-Order");?></button>
+                                            <input type="hidden" name="txtOrderId" id="txtOrderId" value="<?php print($this->orderInformation->getId());?>" />
+                                        </div>
+                                    
+                                </div>
+
+ </div>
+                                
+                                
+                                
+                                
+                                
+ </div>
+ </div>
+                            
+                            
+                            
+                            
+ </div>
+ </div>
+                
+                
+                
+                
+</form>
+ </div>
+          
+          
+          
+ </div>
+    
+    
+</div>
+<script src="<?php print($this->baseUrl()); ?>/assets/validator/admin/asset.js"></script>

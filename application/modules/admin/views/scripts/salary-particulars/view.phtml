@@ -1,0 +1,75 @@
+   <div id="main-content">
+            
+            <div class="row">
+                <div class="col-md-12">
+            
+                    
+                    
+                    <div class="panel panel-default">
+                        
+                         <div class="panel-heading">
+                    <div class="btn-group pull-right">
+                        <a href="#" id="form-data-back" class="btn btn-blue">
+                            <?php echo $this->translate("Go-back");?> <i class="fa fa-backward"></i>
+                        </a>
+                    </div>
+           
+                </div>
+                   
+                        <div class="panel-body">
+                            <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-12 col-sm-12 col-xs-12 m-t-20">
+                                    <div class="view_information">
+                                            <ul>
+                                                <li>
+                                                    <span><?php echo $this->translate("Salary-Type");?></span>
+                                                   : <?php echo $this->translate($this->salaryInfo->getSalaryType()); ?>
+                                                    <div class="clear"></div>
+                                                </li>
+
+                                                <li>
+                                                    <span><?php echo $this->translate("Salary-Amount");?></span>
+                                                    : <?php print($this->salaryInfo->getSalaryAmount());?>
+                                                    <div class="clear"></div>
+                                                </li>
+                                                
+                                                <li>
+                                                    <span><?php echo $this->translate("Effective-From");?></span>
+                                                    : <?php print($this->salaryInfo->getEffectiveFrom());?>
+                                                    <div class="clear"></div>
+                                                </li>
+                                                
+                                                <li>
+                                                    <span><?php echo $this->translate("Current-Status");?></span>
+                                                    : <?php
+                                                    if($this->salaryInfo->getStatus()){
+                                                            echo $this->translate($this->salaryInfo->getStatus());
+                                                    }
+                                                      ?>
+                                                    <div class="clear"></div>
+                                                </li>
+                                                
+                                                <li>
+                                                    <span><?php echo $this->translate("Remarks");?></span>
+                                                    : <?php print($this->salaryInfo->getRemarks());?>
+                                                    <div class="clear"></div>
+                                                </li>
+                                                
+                                            </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    
+                    
+                </div>
+            </div>
+            
+                        
+            
+                        
+        </div>

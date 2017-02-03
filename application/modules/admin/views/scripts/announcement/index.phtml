@@ -1,0 +1,81 @@
+<div id="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    
+                     <div class="btn-group">
+                        <a href="<?php print($this->baseUrl()); ?>/admin/announcement/add-announcement/" id="table-edit_new" class="btn btn-danger">
+                            <?php echo $this->translate("Add-New");?> <i class="fa fa-plus"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="btn-group pull-right">
+                        <a href="#" id="form-data-back" class="btn btn-blue">
+                            <?php echo $this->translate("Go-back");?> <i class="fa fa-backward"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12 table-responsive m-t-20 table_padding">
+                            <table class="table table-bordered table_obtor_data table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="table_id table_head"><?php echo $this->translate("ID");?></th>
+                                        <th class="table_data_xx"><?php echo $this->translate("Announce-To");?></th>
+                                        <th class="table_data_xx"><?php echo $this->translate("Announce-Type");?></th>
+                                        <th class="table_data"><?php echo $this->translate("Subject");?></th>
+                                        <th class="table_data_xx"><?php echo $this->translate("Status");?></th>
+                                        <th class="text-center data_table_action"><?php echo $this->translate("Actions");?></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="no-bd-y">
+
+                                    <?php if ($this->announcementListInfo) { ?>
+                                        <?php foreach ($this->announcementListInfo As $aIndex => $announcementList) { ?>
+                                            <tr>
+                                                <td>
+                                                    <a title="<?php echo $this->translate("View");?>" href="<?php print($this->baseUrl()); ?>/admin/announcement/view/id/<?php print($announcementList->getId()); ?>">
+                                                    <?php print($announcementList->getId()); ?>
+                                                    </a>
+                                                </td>
+                                                <td><?php print($announcementList->getAnnounceTo()); ?></td>
+                                                <td><?php print($announcementList->getAnnounceType()); ?></td>
+                                                <td><?php print($announcementList->getSubject()); ?></td>
+                                                <td>
+                                                    <?php if($announcementList->getStatus() == "Sent") {?>
+                                                    <span class="label bg-green"><?php echo $this->translate("Sent"); ?></span>
+                                                    <?php } else {?>
+                                                    <span class="label bg-red"><?php echo $this->translate("Pending"); ?></span>
+                                                    <?php } ?>
+                                                </td>
+                                                
+                                                <td class="text-center">
+                                                    <a title="<?php echo $this->translate("Edit");?>" href="<?php print($this->baseUrl()); ?>/admin/announcement/edit-announcement/id/<?php print($announcementList->getId()); ?>"><img src="<?php print($this->baseUrl()); ?>/assets/skin/images/b_edit.png" /></a>
+                                                    <a title="<?php echo $this->translate("Delete");?>" href="<?php print($this->baseUrl()); ?>/admin/announcement/delete/id/<?php print($announcementList->getId()); ?>" class="form-data-delete"><img src="<?php print($this->baseUrl()); ?>/assets/skin/images/b_drop.png" /></a>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
+                                    <?php } else {?>
+                                            <tr>
+                                                <td colspan="6" class="table_data_not_found"><?php echo $this->translate("Records-Not-Available");?></td>
+                                            </tr>
+                                    <?php } ?>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                    
+                    
+                    <?php if(count($this->employeeInfo)>0){?>
+			<?php echo $this->partial('common/_pagination.phtml', array('paginationData' => $this->paggination)); ?>
+                    <?php } ?>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

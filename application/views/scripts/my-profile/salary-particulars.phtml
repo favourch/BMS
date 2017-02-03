@@ -1,0 +1,65 @@
+ <div id="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                
+                
+                <div class="panel-heading">
+                    <div class="btn-group pull-right">
+                        <a href="#" id="form-data-back" class="btn btn-blue">
+                            <?php echo $this->translate("Go-back");?> <i class="fa fa-backward"></i>
+                        </a>
+                    </div>
+           
+                </div>
+                
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12 m-t-20 table-responsive">
+                            <table class="table table-bordered table_obtor_data table-hover">
+                                <thead class="no-bd">
+                                    <tr>
+                                        <th class="table_id table_head"><?php echo $this->translate("ID");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Salary-Type");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Salary-Amount");?></th>  
+                                        <th class="table_data table_head"><?php echo $this->translate("Effective-From");?></th> 
+                                         <th class="table_data table_head"><?php echo $this->translate("Update-On");?></th> 
+                                    
+         
+                                    </tr>
+                                </thead>
+                                <tbody class="no-bd-y">
+
+                                    <?php if ($this->salaryParticulars) { ?>
+                                        <?php foreach ($this->salaryParticulars As $rIndex => $salaryParticular) { ?>
+                                            <tr>
+                                                <td>
+                                                    <a title="<?php echo $this->translate("View");?>" href="<?php print($this->baseUrl()); ?>/my-profile/salary-particulars-view/?id=<?php print($salaryParticular->getId()); ?>">
+                                                    <?php print($rIndex+1); ?>
+                                                    </a>
+                                                </td>
+                                                <td><?php print($salaryParticular->getSalaryType()); ?></td>
+                                                <td><?php print($salaryParticular->getSalaryAmount()); ?></td>
+                                                <td><?php print($salaryParticular->getEffectiveFrom()); ?></td>
+                                                <td><?php print($salaryParticular->getUpdatedOn()); ?></td>
+                               
+
+                                              
+                                            </tr>
+                                        <?php } ?>
+                                    <?php } else {?>
+                                            <tr>
+                                                <td colspan="5" class="table_data_not_found"><?php echo $this->translate("Records-Not-Available");?></td>
+                                            </tr>
+                                    <?php } ?>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

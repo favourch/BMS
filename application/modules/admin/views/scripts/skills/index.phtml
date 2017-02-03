@@ -1,0 +1,59 @@
+ <div id="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="btn-group">
+                        <a href="<?php print($this->baseUrl()); ?>/admin/skills/add/?rel-id=<?php print($this->relId);?>&rel-object=<?php print($this->relObject);?>" id="table-edit_new" class="btn btn-danger">
+                            <?php echo $this->translate("Add-New");?> <i class="fa fa-plus"></i>
+                        </a>
+                    </div>
+                    
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12 table-responsive">
+                            <table class="table table-bordered table_obtor_data table-hover">
+                                <thead class="no-bd">
+                                    <tr>
+                                        <th class="table_id table_head"><?php echo $this->translate("ID");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Title");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Years-Of-Experience");?></th>   
+                                        <th class="table_head text-center data_table_action"><?php echo $this->translate("Actions");?></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="no-bd-y">
+
+                                    <?php if ($this->skills) { ?>
+                                        <?php foreach ($this->skills As $rIndex => $skill) { ?>
+                                            <tr>
+                                                <td>
+                                                    <a title="<?php echo $this->translate("View");?>" href="<?php print($this->baseUrl()); ?>/admin/skills/view/?rel-id=<?php print($this->relId);?>&rel-object=Employee&id=<?php print($skill->getId()); ?>">
+                                                    <?php print($rIndex+1); ?>
+                                                    </a>
+                                                </td>
+                                                <td><?php print($skill->getTitle()); ?></td>
+                                                <td><?php print($skill->getYearsOfExperience()); ?></td>
+
+                                                <td class="text-center">
+                                                    <a title="<?php echo $this->translate("Edit");?>" href="<?php print($this->baseUrl()); ?>/admin/skills/edit/?rel-id=<?php print($this->relId);?>&rel-object=Employee&id=<?php print($skill->getId()); ?>"><img src="<?php print($this->baseUrl()); ?>/assets/skin/images/b_edit.png" /></a>
+                                                    <a title="<?php echo $this->translate("Delete");?>" href="<?php print($this->baseUrl()); ?>/admin/skills/delete/?rel-id=<?php print($this->relId);?>&rel-object=Employee&id=<?php print($skill->getId()); ?>" class="form-data-delete"><img src="<?php print($this->baseUrl()); ?>/assets/skin/images/b_drop.png" /></a>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
+                                    <?php } else {?>
+                                            <tr>
+                                                <td colspan="4" class="table_data_not_found"><?php echo $this->translate("Records-Not-Available");?></td>
+                                            </tr>
+                                    <?php } ?>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

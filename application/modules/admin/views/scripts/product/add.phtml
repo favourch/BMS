@@ -1,0 +1,322 @@
+   <div id="main-content">
+       <form id="form_product" name="form_product" role="form" method="post" class="form-horizontal">
+            <div class="row">
+                <div class="col-md-12">
+            
+                    
+                    
+                    <div class="panel panel-default">
+                   
+                        <div class="panel-body">
+                            
+                                <div class="col-md-5 pull-left">
+                                    <div class="row">
+                                    
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Product-Type");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                    <select name="cmbProductType" id="cmbProductType" class="form-control">
+                                                        <option value="">Please select</option>
+                                                        <?php foreach($this->productTypes As $pIndex=>$productType){?>
+                                                        <option value="<?php print($productType->getId());?>"><?php print($productType->getName());?></option>
+                                                        <?php } ?>
+                                                    </select>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Product-Name");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input type="text" id="txtProductName" name="txtProductName" class="form-control">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Require-Domain");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                 <input type="checkbox" value="1" id="chkRequiredDomain" name="chkRequiredDomain"> <?php echo $this->translate("Tick-to-show-domain-registration-options");?>
+                                            </div>
+                                        </div>
+                                        
+                             
+                         <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Sort-Order");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input type="text" id="txtSortOrder" name="txtSortOrder" class="form-control">
+                                            </div>
+                                        </div>
+                          
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Hidden");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input type="checkbox" value="1" id="chkHide" name="chkHide"> <?php echo $this->translate("Tick-to-hide-from-order-form");?>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Has-Admin");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                  <input type="radio" value="Yes" id="cmbHasAdmin" name="cmbHasAdmin"> <?php echo $this->translate("Yes");?>
+                                                  <input type="radio" value="No" id="cmbHasAdmin" name="cmbHasAdmin"> <?php echo $this->translate("No");?>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                   
+                                </div>
+                            </div>
+                            
+                                 <div class="col-md-5 pull-right">
+                                    <div class="row">
+                                    
+                                        <div class="form-group">
+                                            <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Product-Group");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                    <select name="cmbProductGroup" id="cmbProductGroup" class="form-control">
+                                        <option value="">Please select</option>
+                                        <?php foreach($this->productGroups As $pIndex=>$productGroup){?>
+                                        <option value="<?php print($productGroup->getId());?>"><?php print($productGroup->getName());?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                            </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("cPanel-Package");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                   <select name="cmbcPanelPackage" id="cmbcPanelPackage" class="form-control">
+                                        <option value="">Please select</option>
+
+                                        <?php foreach($this->cpanelPackages As $pIndex=>$package){?>
+                                        <option value="<?php print($package->getName());?>"><?php print(ucfirst($package->getName()));?></option>
+                                        <?php } ?>
+
+                                    </select>
+                                </div>
+                            </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Stock-Control");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                     <input type="checkbox" value="1" id="chkEnableQty" name="chkEnableQty"> Enable - Quantity in Stock : <input type="text" id="qtyInStock" name="qtyInStock" class="form-control">
+                                </div>
+                            </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Apply-Tax");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                     <input type="checkbox" value="1" id="chkApplyTax" name="chkApplyTax"> Tick this box to charge tax for this product
+                                </div>
+                            </div>
+                                
+                                
+                           <div class="form-group">
+                                            <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Retired");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                     <input type="checkbox" value="1" id="chkRetired" name="chkHide"> Tick to hide from admin area product dropdown menus
+                                </div>
+                            </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Welcome Email");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                     <select name="cmbMailTemplate" id="cmbMailTemplate" class="form-control">
+        <option value="">Please select</option>
+        
+        <?php foreach($this->mailTemplates As $mIndex=>$mailTemplate){?>
+        <option value="<?php print($mailTemplate->getTemplateId());?>"><?php print($mailTemplate->getTemplateName());?></option>
+        <?php } ?>
+        
+    </select>
+                                </div>
+                            </div>
+                                        
+                                  
+                                </div>
+                            </div>
+                            
+                            
+                            
+                            <div class="col-md-12 pull-right">
+                                    <div class="row">
+                                        
+                                        
+                                    
+                                       <div class="form-group">
+                                    <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Product-Description");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                     <textarea rows="3" class="form-control" id="txtProductDescription" name="txtProductDescription"></textarea>
+                                </div>
+                            </div>
+                                        
+                            <div class="form-group">
+                                    <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Payment-Type");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                     <input type="radio" value="free" name="rdPayType" id="rdPayType"><?php echo $this->translate("Free");?>
+                                     <input type="radio" value="onetime" name="rdPayType" id="rdPayType"> <?php echo $this->translate("One-Time");?>
+                                     <input type="radio" value="recurring" name="rdPayType" id="rdPayType"><?php echo $this->translate("Recurring");?>
+                                </div>
+                            </div>
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                    
+                                </div>
+                                
+                                
+                                <div class="row">
+                                    
+                                                           <div class="col-md-12 col-sm-12 col-xs-12 table-responsive m-t-20">
+                            <table class="table table-hover table_obtor_data">
+                                <thead class="no-bd">
+                                    <tr>
+                                       
+                                        <th class="table_data"><strong><?php echo $this->translate("Currency");?></strong></th>
+                                        <th class="table_data"><strong>&nbsp;</strong></th>
+                                        <th class="table_data"><strong><?php echo $this->translate(" One-Time/Monthly");?></strong></th>
+                                        <th class="table_data"><strong><?php echo $this->translate("Quarterly");?></strong></th>
+                                        <th class="table_data"><strong><?php echo $this->translate("Semi-Annually");?></strong></th>
+                                        <th class="table_data"><strong><?php echo $this->translate("Annually");?></strong></th>
+                                        <th class="table_data"><strong><?php echo $this->translate("Biennially");?></strong></th>
+					<th class="table_data"><strong><?php echo $this->translate("Triennially");?></strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="no-bd-y">
+
+                               <?php foreach($this->currencies As $cIndex=>$currency){?>
+                                            <tr>
+                                                <td>
+						 &nbsp;<?php print($currency->getName());?>
+   <input type="hidden" class="form-control" name="txtCurrencyId[]" value="<?php print($currency->getId());?>" />
+						</td>
+                                                <td>Setup Fee</td>
+                                                <td>
+						<input type="text" class="form-control" name="txtSetUpFeeMonthly[]" />
+						</td>
+                                                <td>
+						<input type="text" class="form-control" name="txtSetUpFeeQuarterly[]" />
+						</td>
+
+						<td>
+						<input type="text" class="form-control" name="txtSetUpFeeSemiAnnually[]" />
+						</td>
+
+						<td>
+						<input type="text" class="form-control" name="txtSetUpFeeAnnually[]" />
+						</td>
+                                               
+						<td>
+						<input type="text" class="form-control" name="txtSetUpFeeBiennially[]" />
+						</td>
+
+						<td>
+						<input type="text" class="form-control" name="txtSetUpFeeTriennially[]" />
+						</td>
+                                               
+                                                
+                                            </tr>
+
+
+<tr>
+<td>
+   &nbsp;
+</td>
+
+<td>
+   Price
+</td>
+
+<td>
+  <input type="text" class="form-control" name="txtFeeMonthly[]" />
+</td>
+
+<td>
+<input type="text" class="form-control" name="txtFeeQuarterly[]" />
+</td>
+
+<td>
+<input type="text" class="form-control" name="txtFeeSemiAnnually[]" />
+</td>
+
+<td>
+<input type="text" class="form-control" name="txtFeeAnnually[]" />
+</td>
+
+<td>
+<input type="text" class="form-control" name="txtFeeBiennially[]" />
+</td>
+
+<td>
+<input type="text" class="form-control" name="txtFeeTriennially[]" />
+</td>
+
+</tr>
+
+
+                                            
+                                            <?php } ?>
+                                           
+                                        
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                                    
+                                </div>
+                                
+                                
+                                
+                                <div class="row">
+                                    
+                                    
+                                    
+                                    <div class="form-group text-left">
+ 
+                                            <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Submit");?></button>
+                                            <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel");?></button>
+                                        </div>
+                                    
+                                    
+                                </div>
+                                
+                                
+                                
+                                
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+
+                    
+                    
+                </div>
+            </div>
+            
+                        
+            
+                   </form>     
+        </div>
+<script src="<?php print($this->baseUrl());?>/assets/validator/admin/product.js"></script>

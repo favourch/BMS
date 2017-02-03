@@ -1,0 +1,267 @@
+Administration-Panel-ObtorEBMS;Administration Panel ObtorEBMS
+Dashboard;Dashboard
+Staff-Management;Staff Management
+Manage-Staffs;Manage Staffs
+Add-New-Staff;Add New Staff
+View-All-Staffs;View All Staffs
+Advanced-Search;Advanced Search
+Attendance;Attendance
+Today-s-Attendance;Today's Attendance
+Add-New-Attendance;Add New Attendance
+Upload-Attendance-Csv-upload;Upload Attendance (Csv upload)
+Search-Attendance;Search Attendance
+Leaves;Leaves
+Today-s-Leave;Today's Leave
+Add-New-Leave;Add New Leave
+Pending-Leave-Applications;Pending Leave Applications
+Search-Leaves;Search Leaves
+Performance-Trackers;Performance Trackers
+Manage-Trackers;Manage Trackers
+Employee-Trackers;Employee Trackers
+Manage-Jobs;Manage Jobs
+Job-Titles;Job Titles
+Job-Categories;Job Categories
+Employment-Types;Employment Types
+Employment-Status;Employment Status
+Work-Shifts;Work Shifts
+Recruitment;Recruitment
+Manage-Vacancies;Manage Vacancies
+Manage-Candidates;Manage Candidates
+Manage-Documents;Manage Documents
+Add-New-Document;Add New Document
+Task-Management;Task Management
+Manage-Tasks;Manage Tasks
+Add-New-Task;Add New Task
+View-All-Tasks;View All Tasks
+Search-Tasks;Search Tasks
+Calendar;Calendar
+Announcements;Announcements
+Manage-Announcements;Manage-Announcements
+Make-New-Announcement;Make New Announcement
+View-All-Announcements;View All Announcements
+Search-Announcements;Search Announcements
+Customer-Inquiries;Customer Inquiries
+Manage-Inquiries;Manage Inquiries
+Add-New-Inquiries;Add New Inquiries
+View-All-Inquiries;View All Inquiries
+Search-Inquiries;Search Inquiries
+Assets;Assets
+Manage-Assets;Manage Assets
+Add-New-Asset;Add New Asset
+Brands;Brands
+Vendors;Vendors
+Category;Category
+Leads;Leads
+Manage-Leads;Manage Leads
+Add-New-Lead;Add New Lead
+Upload-Leads-Csv;Upload Leads (Csv)
+Search-Leads;Search Leads
+Contacts;Contacts
+Manage-Contacts;Manage Contacts
+Add-New-Contact;Add New Contact
+Search-Contact;Search Contact
+Opportunities;Opportunities
+Manage-Opportunities;Manage Opportunities
+Add-New-Opportunity;Add New Opportunity
+Search-Opportunity;Search Opportunity
+Email-Campaigns;Email Campaigns
+Manage-Emails;Manage Emails
+Add-New-Email;Add New Email
+Search-Email;Search Email
+Inventory;Inventory
+Products;Products
+Services;Services
+Purchase-Orders;Purchase Orders
+Sales-and-Sales-Order;Sales and Sales Order
+Invoices;Invoices
+Quotes;Quotes
+Create-New-Quote;Create New Quote
+View-Quotes;View Quotes
+Projects;Projects
+Manage-Projects;Manage Projects
+Add-New-Project;Add New Project
+Search-Project;Search Project
+User-Management;User Management
+Manage-Roles;Manage Roles
+Manage-Users;Manage Users
+Add-New-User;Add New User
+User-s-History;User's History
+Statistics;Statistics
+Organization;Organization
+Manage-Country;Manage Country
+Manage-Regions;Manage Regions
+Manage-Branches;Manage Branches
+Manage-Departments;Manage Departments
+Logs;Logs
+Activity-Logs;Activity Logs
+Settings;Settings
+System-Settings;System Settings
+My-Account;My Account
+Change-Password;Change Password
+User-Roles;User Roles
+Add-New;Add New
+Role-Name;Role Name
+Actions;Actions
+Edit;Edit
+View;View
+Delete;Delete
+Submit;Submit
+Cancel;Cancel
+Add-New-User-Role;Add New User Role
+Edit-User-Role;Edit User Role
+Go-back;Go back
+Countries;Countries
+Country-Name;Country Name
+Add-New-Country;Add New Country
+Edit-Country;Edit Country
+Country-Code;Country Code / Prefix
+Region-Name;Region Name
+Region-Code;Region Code / Prefix
+Add-New-Region;Add New Region
+Edit-Region;Edit Region
+Branch-Name;Branch Name
+Branch-Code;Branch Code
+Departments;Departments
+Department-Name;Department Name
+Add-New-Department;Add New Department
+Department-Code;Department Code
+Edit-Department;Edit Department
+Users;Users
+Add-New-User;Add New User
+Edit-User;Edit User
+View-User-Logs;View User's Logs
+User-s-Log-Information;User's Log
+select;Select
+Employee-Number;Employee Number
+Full-Name;Full Name
+Email-Address;Email Address
+Display-Name;Display Name
+Status;Status
+Enabled;Enabled
+Disabled;Disabled
+Suspended;Suspended
+Basic-Information;Basic Information
+Login-Information;Login Information
+Username;Username
+Password;Password
+Confirm-Password;Confirm Password
+User-Role-and-Privilege;User Role and Privilege
+User-Role;User-Role
+Data-Privilege;Data Privilege
+Global-User;Global User
+Country-User;Country User
+Region-User;Region User
+Branch-User;Branch User
+Department-User;Department User
+Assign-Manually;Assign Manually
+Select-Country-Region-Branch-Department;Select Country Region Branch Department
+ID;ID
+Date;Date
+Log-Message;Log Message
+Name-with-initials;Name with initials
+Gender;Gender
+Date-Of-Birth;Date Of Birth
+NIC-Number;NIC Number
+Driving-License-No;Driving License No
+Telephone-number-residence;Telephone number (Residence)
+Contact-number-mobile;Contact number (Mobile)
+E-mail-Address-Personal;E-mail Address (Personal)
+E-mail-Address-Office;E-mail Address (Office)
+Work-Location; Work Location
+Country;Country
+Region;Region
+Branch;Branch
+Department;Department
+Employment-Details;Employment Details
+Joined-Date;Joined Date
+Designation;Designation
+Contract-Status;Contract Status
+Employee-Type;Employee Type
+Employee-Status;Employee Status
+Staff-ID-Status;Staff ID Status
+Staff-ID-Issued-Date;Staff ID Issued Date
+EPF-ETF-Number;EPF/ETF Number
+EPF-ETF-JoinedDate;EPF/ETF Joined Date
+Permanent-address;Permanent Address
+Address;Address
+Street;Street
+City;City
+State;State
+Zip-Postal-Code;Zip/Postal Code
+Country;Country
+Residential-Address;Residential Address
+In-Case-of-Emergency;In Case of Emergency
+Contact-Name;Contact Name
+Relationship;Relationship
+Email-address;Email address
+male;Male
+female;Female
+Probation;Probation
+Confirmed;Confirmed
+Part-Time;Part Time
+Full-Time;Full Time
+In-Service;In Service
+Not-In-Service;Not in service
+Issued;Issued
+Not-Issued;Not Issued
+Name-with-initials-head;Employee Name
+Contact-Numbers;Contact Numbers
+E-mail-Address;Email Address
+Status;Status
+Edit-Staff;Edit Staff Information
+View-Staff;View Staff Information
+Edit-Profile;Edit Profile
+Work-experience;Professional Experience
+Education-Qualification;Education Qualification
+Skills;Skills 
+Languages;Languages
+License;License
+Attachments;Attachments
+Professional-Experience;Professional Experiences
+Add-New-Professional-Experience;Add New Professional Experience
+Company-Name;Company Name
+Job-Title;Job Title
+From-Date;From Date
+To-Date;To Date
+Comments;Comments
+View-Professional-Experience;View Professional Experience
+Edit-Professional-Experience;Edit Professional Experience
+Educational-Qualification;Educational Qualification
+Level;Level
+Institute;Institute
+Major-Specialization;Major Specialization
+Year;Year
+Gpa;Gpa
+Start-Date;Start Date
+End-Date;End Date
+Skills;Skills
+Title;Title
+Years-Of-Experience;Years Of Experience
+Add-New-Skill;Add New Skill
+Edit-Skill;Edit Skill
+View-Skill;View Skill
+Assets;Assets
+Add-New-Asset;Add New Asset
+simple;Simple Asset
+bundle;Bundle Asset
+Asset-Type;Asset Type
+Serial-Number;Serial Number
+Model;Model
+Purchased-Date;Purchased Date
+Cost;Cost
+Warranty-Valid-Until;Warranty Valid Until
+Tag-Number;Tag Number
+Barcode;Barcode
+Vendor;Vendor
+Date-Acquired;Date Acquired
+Purchased-From;Purchased From
+Next-Maintenance-Date;Next Maintenance Date
+Description;Description
+Current-User;Current User
+In-Use;In use
+Ready-Use;Ready to use
+Waiting-For-Service;Waiting for service
+Sent-Out-For-Service;Sent out for service
+Out-Of-Use;Out of use
+Sold;Sold
+Edit-Asset;Edit Asset

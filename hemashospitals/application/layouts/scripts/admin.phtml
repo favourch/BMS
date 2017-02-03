@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js sidebar-large lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js sidebar-large lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js sidebar-large lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js sidebar-large"> <!--<![endif]-->
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+    <!-- BEGIN META SECTION -->
+    <meta charset="utf-8">
+    <title><?php echo $this->translate($this->page_heading);?> - <?php echo $this->translate($this->pageTitle);?> - <?php print($this->versionNumber);?></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="" name="description" />
+    <meta content="themes-lab" name="author" />
+    <!-- END META SECTION -->
+    <?php print($this->partial('common/assets/_top.phtml')); ?>
+</head>
+
+<body data-page="<?php print($this->data_page);?>">
+    <?php print($this->partial('common/_top_menu.phtml',array('page_heading'=>$this->page_heading))); ?>
+    
+    
+    <!-- BEGIN WRAPPER -->
+    <div id="wrapper">
+        
+        
+        <?php print($this->partial('common/_main_sidebar.phtml')); ?>
+
+
+        <!-- BEGIN MAIN CONTENT -->
+      <?php echo $this->layout()->content ?>
+        <!-- END MAIN CONTENT -->
+
+    </div>
+    <!-- END WRAPPER -->
+   
+    <?php print($this->partial('common/_footer_plugin.phtml',array('action_status'=>$this->action_status))); ?>
+     <?php print($this->partial('common/assets/_bottom.phtml')); ?>
+</body>
+
+</html>

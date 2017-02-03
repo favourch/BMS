@@ -1,0 +1,53 @@
+<h5 class="panel-title"><strong><?php echo $this->translate("Log-Information"); ?></strong></h5>
+                        <div class="row border-top">
+                            <div class="col-md-12 col-sm-12 col-xs-12 m-t-20 m-b-20">
+                                <table class="table table-hover table_obtor_data">
+                                <thead class="no-bd">
+                                    <tr>
+                                        <th class="table_id"><strong><?php echo $this->translate("ID");?></strong></th>
+                                        <th class="table_log_message"><strong><?php echo $this->translate("Log-Message");?></strong></th>
+                                        <th class="text-center data_table_action action_user"><strong><?php echo $this->translate("Action-User");?></strong></th>
+                                        <th class="text-center data_table_action action_date"><strong><?php echo $this->translate("Action-Date");?></strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="no-bd-y">
+
+                                    <?php if($this->logInformation) {?>
+                                    <?php foreach($this->logInformation As $lIndex=>$logMessage) {?>
+                                            <tr>
+                                                <td>
+					         <?php print($lIndex+1);?>
+                                                </td>
+                                                <td>
+                                                    <?php 
+                                                    if($logMessage->getAction() == 'STATUS'){
+                                                      print($this->translate('status-set-to')." '".$this->translate($logMessage->getLogMessage())."'");
+                                                    }elseif ($logMessage->getAction() == 'STATUS_CHANGED') {
+                                                        print($this->translate('status-changed-to')." '".$this->translate($logMessage->getLogMessage())."'");
+                                                    }elseif ($logMessage->getAction() == 'ASSIGNED') {
+                                                        print($this->translate('asset-assigned-to')." '".$this->translate($logMessage->getLogMessage())."'");  
+                                                    }else {
+                                                      print($this->translate($logMessage->getLogMessage()));
+                                                    }
+                                                    ?>
+                                                </td>
+                                                
+                                                <td class="text-center">
+                                                 <?php print($logMessage->getUserDisplayName());?>
+                                                </td>
+                                                <td class="text-center">
+                                                <?php print($this->dateString($logMessage->getActionDate()));?>
+                                                </td>
+                                            </tr>
+                                    <?php } } else {?>
+                                           <tr>
+                                               <td colspan="4" class="text-center table_data_not_found">
+							<?php echo $this->translate("No-log-messages");?>
+                                                </td>
+                                           </tr>
+                                    <?php } ?>
+
+                                </tbody>
+                            </table>
+                            </div>
+                        </div>

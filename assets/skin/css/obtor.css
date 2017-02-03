@@ -1,0 +1,234 @@
+/* 
+    Created on : Jul 25, 2014, 10:28:12 PM
+    Author     : Iyngaran Iyathurai
+*/
+.data_table_action {
+    width: 55px;
+}
+
+.form_error {
+    background-color: #fcf3f3;
+	border: 1px solid #FF0000;
+}
+
+.normal_input {
+    width: 30%;
+}
+
+.tree_sub_space {
+    margin-left: 4%;
+}
+
+.tree_option_lable {
+    margin-left: 0.5%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.table_id {
+    width: 5%;
+}
+
+.table_date {
+    width: 15%;
+}
+
+.table_obtor_data {
+    font-size: 12px; table_head
+}
+
+
+.table_obtor_data_small_text {
+    font-size: 8px;
+}
+
+.table_data {
+    width: auto;
+}
+
+.table_data_x {
+    width: 5%;
+}
+
+.table_data_text_right {
+    text-align: right;
+}
+
+
+.table_data_xx {
+    width: 7%;
+}
+
+.table_data_xxx {
+    width: 9%;
+}
+
+.table_data_xxxx {
+    width: 12%;
+}
+
+.table_data_xxxxx {
+    width: 14%;
+}
+
+.data_row_caption {
+    font-size: 13px;
+    font-weight: 600;
+    text-align: right;
+    padding-right: 2px !important;
+}
+
+.data_row_value {
+    font-size: 13px;
+    font-weight: normal;
+    text-align: left;
+    padding-left: 2px !important;
+}
+
+.data_view {
+    font-size: 14px;
+}
+
+.table_log_message {
+    width: auto;
+}
+
+.data_value {
+    color: #333 !important;
+    font-size: 14px;
+}
+
+.table_data_not_found {
+    color: #FF0000;
+    text-align: center;
+}
+
+.action_date {
+    width: 15%;
+}
+
+.action_user {
+     width: 15%;
+}
+
+.attendance_summary_desc {
+    width: 80%;
+}
+
+.attendance_value {
+    width: 20%;
+}
+
+.table_time_row {
+   max-width: 2% !important;
+}
+
+.table_yes_no_row {
+   max-width: 2% !important;
+}
+
+
+.panel-inner-title {
+    font-size: 14px;
+    border-bottom: 1px solid rgb(239, 239, 239) !important;
+    margin-bottom: 10px !important;
+}
+
+.data_value {
+    text-align: left;
+}
+.data_value_summary {
+    text-align: right;
+}
+
+.table_head {
+    font-weight: bold;
+    text-align: center;
+    width: auto;
+}
+
+.table_padding {
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+}
+
+
+/* CSS Document */
+.view_information {
+	padding: 0 10px;
+	/*width: 100%;*/
+	width: auto;
+	margin: auto;
+}
+
+.view_information p {
+	padding: 5px 0;
+	font-weight: bold;
+	border-bottom: #2b2e33 1px dashed;
+	margin-bottom: 15px;
+}
+
+.view_information ul {
+	padding: 5px 0;
+}
+
+.view_information ul li {
+	border-bottom: #efefef 1px solid;
+	padding: 5px 0 3px;
+	margin-bottom: 5px;
+}
+
+.view_information ul li span {
+	display: block;
+	width: 210px;
+	float: left;
+	font-weight: 600;
+        font-size: 12px;
+}
+
+.view_information h2 {
+	border: 1px solid #2b2e33;
+	margin-bottom: 5px;
+	padding: 10px;
+}
+
+.center-contents {
+    text-align: center !important;
+}
+
+#single_command_progres {
+    display: none;
+}
+
+#quick_single_command_progres {
+    display: none; 
+}
+
+.mid_with_form_control_x {
+    width: 49%;
+}
+
+.attendance_status_icons {
+    font-size: 10px !important;
+}
+
+.time_combo {
+    width: 15% !important;
+}
+
+.small_combo_yes_no {
+    width: 20% !important;
+}
+
+.small_text_date_time {
+    width: 35% !important;
+}
+
+.small_text_xx {
+    width: 30% !important;
+}
+
+.leaveTimeFormGroup {
+    display: none;
+}
+

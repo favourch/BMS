@@ -1,0 +1,164 @@
+<!-- BEGIN MAIN SIDEBAR -->
+        <nav id="sidebar">
+            <div id="main-menu">
+                <ul class="sidebar-nav">
+                    <li class="current">
+                        <a href="<?php print($this->baseUrl());?>/admin/dashboard/"><i class="fa fa-dashboard"></i><span class="sidebar-text"><?php echo $this->translate("Dashboard");?></span></a>
+                    </li>
+                    
+                    <!-- HRM Module -->
+                   
+                   
+               
+                    
+                    <!-- HRM Module -->
+                    <li>
+                        <a href="#"><i class="glyphicon glyphicon-wrench"></i><span class="sidebar-text"><?php echo $this->translate("Assets"); ?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+				
+                            <li>
+                                <a href="<?php print($this->baseUrl());?>/admin/asset/"><span class="sidebar-text"><?php echo $this->translate("Manage-Assets"); ?></span></a>
+                            </li>
+                            <li>
+                                <a href="<?php print($this->baseUrl());?>/admin/asset/add/"><span class="sidebar-text"><?php echo $this->translate("Add-New-Asset"); ?></span></a>
+                            </li>
+                            <li>
+                                <a href="<?php print($this->baseUrl());?>/admin/model/?rel=asset"><span class="sidebar-text"><?php echo $this->translate("Model"); ?></span></a>
+                            </li>
+                            <li>
+                                <a href="<?php print($this->baseUrl());?>/admin/vendor/"><span class="sidebar-text"><?php echo $this->translate("Vendors"); ?></span></a>
+                            </li>
+
+				<li>
+                                <a href="<?php print($this->baseUrl());?>/admin/category/?rel=asset"><span class="sidebar-text"><?php echo $this->translate("Category"); ?></span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    
+                  
+                    
+           
+                    
+                     <!-- The common modules... -->
+                    <li>
+                        <a href="#"><i class="glyph-icon flaticon-account"></i><span class="sidebar-text"><?php echo $this->translate("User-Management"); ?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+				
+                            <li>
+                                <a href="<?php print($this->baseUrl());?>/admin/user-roles/">
+                                    <span class="sidebar-text"><?php echo $this->translate("Manage-Roles"); ?></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php print($this->baseUrl());?>/admin/user/"><span class="sidebar-text"><?php echo $this->translate("Manage-Users"); ?></span></a>
+                            </li>
+                            <li>
+                                <a href="<?php print($this->baseUrl());?>/admin/user/add"><span class="sidebar-text"><?php echo $this->translate("Add-New-User"); ?></span></a>
+                            </li>
+                            <li>
+                                <a href="<?php print($this->baseUrl());?>/admin/user/history"><span class="sidebar-text"><?php echo $this->translate("User-s-History"); ?></span></a>
+                            </li>
+				<li>
+                                <a href="<?php print($this->baseUrl());?>/admin/user/statistics"><span class="sidebar-text"><?php echo $this->translate("Statistics"); ?></span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="#"><i class="glyphicon glyphicon-qrcode"></i><span class="sidebar-text"><?php echo $this->translate("Organization"); ?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+                            <li>
+                                <a href="<?php print($this->baseUrl());?>/admin/country/"><span class="sidebar-text"><?php echo $this->translate("Manage-Country"); ?></span></a>
+                            </li>
+                            <li>
+                                <a href="<?php print($this->baseUrl());?>/admin/region/"><span class="sidebar-text"><?php echo $this->translate("Manage-Regions"); ?></span></a>
+                            </li>
+                            <li>
+                                <a href="<?php print($this->baseUrl());?>/admin/branch/"><span class="sidebar-text"><?php echo $this->translate("Manage-Branches"); ?></span></a>
+                            </li>
+                            <li>
+                                <a href="<?php print($this->baseUrl());?>/admin/department/"><span class="sidebar-text"><?php echo $this->translate("Manage-Departments"); ?></span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="#"><i class="glyph-icon flaticon-orders"></i><span class="sidebar-text"><?php echo $this->translate("Logs"); ?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+                               <li>
+                                <a href="<?php print($this->baseUrl());?>/admin/logs/index/type=activity"><span class="sidebar-text"><?php echo $this->translate("Activity-Logs"); ?></span></a>
+                            </li>
+                            <li>
+                                <a href="<?php print($this->baseUrl());?>/admin/logs/"><span class="sidebar-text"><?php echo $this->translate("System-Logs"); ?></span></a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                    	
+                    
+                    <li class="m-b-245">
+                        <a href="#"><i class="glyph-icon flaticon-settings21"></i><span class="sidebar-text"><?php echo $this->translate("Settings"); ?></span><span class="fa arrow"></span></a>
+                         <ul class="submenu collapse">
+                            <li>
+                                <a href="#"><span class="sidebar-text"><?php echo $this->translate("System-Settings"); ?></span></a>
+                            </li>
+                            <li>
+                                <a href="#"><span class="sidebar-text"><?php echo $this->translate("My-Account"); ?></span></a>
+                            </li>
+                            <li>
+                                <a href="#"><span class="sidebar-text"><?php echo $this->translate("Change-Password"); ?></span></a>
+                            </li>
+                        </ul>    
+                    </li>
+                    
+                </ul>
+            </div>
+            <div class="footer-widget">
+                <img src="<?php print($this->baseUrl());?>/assets/skin/img/gradient.png" alt="gradient effet" class="sidebar-gradient-img" />
+                <div id="sidebar-charts">
+                    <div class="sidebar-charts-inner">
+                        <div class="sidebar-charts-left">
+                            <div class="sidebar-chart-title">Orders</div>
+                            <div class="sidebar-chart-number">1,256</div>
+                        </div>
+                        <div class="sidebar-charts-right" class="sparkline mini-chart" data-type="bar" data-color="theme">
+                            <span class="dynamicbar1"></span>
+                        </div>
+                    </div>
+                    <hr class="divider">
+                    <div class="sidebar-charts-inner">
+                        <div class="sidebar-charts-left">
+                            <div class="sidebar-chart-title">Income</div>
+                            <div class="sidebar-chart-number">$47,564</div>
+                        </div>
+                        <div class="sidebar-charts-right" class="sparkline mini-chart" data-type="bar" data-color="theme">
+                            <span class="dynamicbar2"></span>
+                        </div>
+                    </div>
+                    <hr class="divider">
+                    <div class="sidebar-charts-inner">
+                        <div class="sidebar-charts-left">
+                            <div class="sidebar-chart-title">Visits</div>
+                            <div class="sidebar-chart-number" id="number-visits">147,687</div>
+                        </div>
+                        <div class="sidebar-charts-right" class="sparkline mini-chart" data-type="bar" data-color="theme">
+                            <span class="dynamicbar3"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-footer clearfix">
+                    <a class="pull-left" href="#" rel="tooltip" data-placement="top" data-original-title="Settings"><i class="glyph-icon flaticon-settings21"></i></a>
+                    <a class="pull-left toggle_fullscreen" href="#" rel="tooltip" data-placement="top" data-original-title="Fullscreen"><i class="glyph-icon flaticon-fullscreen3"></i></a>
+                    <a class="pull-left" href="#" rel="tooltip" data-placement="top" data-original-title="Lockscreen"><i class="glyph-icon flaticon-padlock23"></i></a>
+                    <a class="pull-left" href="<?php print($this->baseUrl());?>/admin/login/logout" rel="tooltip" data-placement="top" data-original-title="Logout"><i class="fa fa-power-off"></i></a>
+                </div> 
+            </div>
+        </nav>
+        <!-- END MAIN SIDEBAR -->

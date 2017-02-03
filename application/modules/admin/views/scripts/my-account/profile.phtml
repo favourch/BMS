@@ -1,0 +1,127 @@
+<div id="main-content">
+
+    <div class="row">
+        <div class="col-md-12">
+           
+                <div class="panel panel-default">
+                    
+                    <div class="panel-heading">
+                    <div class="btn-group pull-right">
+                        <a href="#" id="form-data-back" class="btn btn-blue">
+                            <?php echo $this->translate("Go-back");?> <i class="fa fa-backward"></i>
+                        </a>
+                    </div>
+           
+                </div>
+
+                    <div class="panel-body">
+
+
+                        <div class="row">
+                        
+                            <div class="col-md-12">
+                                
+                                
+                               <div class="col-md-12 col-sm-12 col-xs-12 m-t-20">
+                                    <div class="view_information">
+                                            <p>
+                                              <?php echo $this->translate("Basic-Information"); ?>
+                                            </p>
+                                             <ul>
+                                                 
+                                                  <li>
+                                                      <?php
+                            $userDisplayImage = '';
+                            $currentUserInfo = $this->userInformation;
+                            if($currentUserInfo){
+                                $userDisplayImage = $currentUserInfo->getUserImage();
+                            } else {
+                                 $userDisplayImage = '';
+                            }
+                            ?>
+                                                   <?php if($userDisplayImage != ''){?>
+                             <img src="<?php print($this->baseUrl());?>/uploads/user/images/<?php print($userDisplayImage);?>" alt="user avatar" width="120" class="p-r-5">
+                            <?php } else {?>
+                            <img src="<?php print($this->baseUrl());?>/assets/skin/img/avatars/avatar2.png" alt="user avatar" width="30" class="p-r-5">
+                            <?php } ?>
+                                                  <div class="clear"></div>
+                                             </li>
+                                               
+                                             <li>
+                                                  <span><?php echo $this->translate("Employee-Number"); ?></span>
+                                                      <?php if($this->userInformation->getEmpNumber() != ""){print($this->userInformation->getEmpNumber());}else{print("-");}?>
+                                                  <div class="clear"></div>
+                                             </li>
+                                             
+                                             <li>
+                                                  <span><?php echo $this->translate("Country-Name");?></span>
+                                                      <?php if($this->userInformation->getCountry() != ""){print($this->getCountry($this->userInformation->getCountry())->getName());}else{print("-");}?>
+                                                  <div class="clear"></div>
+                                             </li>
+                                             
+                                             <li>
+                                                  <span><?php echo $this->translate("Region-Name");?></span>
+                                                      <?php if($this->userInformation->getRegion() != ""){print($this->getRegion($this->userInformation->getRegion())->getName());}else{print("-");}?>
+                                                  <div class="clear"></div>
+                                             </li>
+                                             
+                                             <li>
+                                                  <span><?php echo $this->translate("Branch-Name");?></span>
+                                                      <?php if($this->userInformation->getBranch() != ""){print($this->getBranch($this->userInformation->getBranch())->getName());}else{print("-");}?>
+                                                  <div class="clear"></div>
+                                             </li>
+                                             
+                                             <li>
+                                                  <span><?php echo $this->translate("Department-Name");?></span>
+                                                      <?php if($this->userInformation->getDepartment() != ""){print($this->getDepartment($this->userInformation->getDepartment())->getName());}else{print("-");}?>
+                                                  <div class="clear"></div>
+                                             </li>
+                                             
+                                             <li>
+                                                  <span><?php echo $this->translate("Full-Name"); ?></span>
+                                                      <?php if($this->userInformation->getFullName() != ""){print($this->userInformation->getFullName());}else{print("-");}?>
+                                                  <div class="clear"></div>
+                                             </li>
+                                             
+                                             <li>
+                                                  <span><?php echo $this->translate("Email-Address"); ?></span>
+                                                      <?php if($this->userInformation->getEmailAddress() != ""){print($this->userInformation->getEmailAddress());}else{print("-");}?>
+                                                  <div class="clear"></div>
+                                             </li>
+                                             
+                                             <li>
+                                                  <span><?php echo $this->translate("Display-Name"); ?></span>
+                                                      <?php if($this->userInformation->getDisplayName() != ""){print($this->userInformation->getDisplayName());}else{print("-");}?>
+                                                  <div class="clear"></div>
+                                             </li>
+                                             
+                                             
+                                             
+                                             
+                                     <div class="clear"></div>
+                                     </div>
+                                </div>
+                                
+                                
+                                
+                                
+                                 
+                                
+                            </div>
+                            
+                            
+                           
+                                    
+                            
+                            
+                        </div>
+                    </div>
+                    
+                    
+                   
+                    
+                    
+                </div>
+        </div>
+    </div>
+</div>

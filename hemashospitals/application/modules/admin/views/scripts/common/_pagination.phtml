@@ -1,0 +1,43 @@
+<?php 
+$totalResult 		= $this->paginationData->TotalResults;
+$totalPages 		= $this->paginationData->TotalPages;
+$currentPage 		= $this->paginationData->CurrentPage;
+$pageParam   		= $this->paginationData->PageVarName;
+$pageNumbers 		= $this->paginationData->numbers;
+$prevPage    		= $this->paginationData->ResultArray['PREV_PAGE'];
+$currentPage    	= $this->paginationData->ResultArray['CURRENT_PAGE'];
+$nextPage    		= $this->paginationData->ResultArray['NEXT_PAGE'];
+$displayRecordFrom  = $this->paginationData->ResultArray['START_OFFSET'];
+$displayRecordTo  	= $this->paginationData->ResultArray['END_OFFSET'];
+$firstPage          = 1;
+?>
+
+<div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12 table-responsive">
+                            <div id="table2_info" class="dataTables_info">Showing <?php print($displayRecordFrom);?> to <?php print($displayRecordTo);?> of <?php print($totalResult);?> entries</div>
+                        </div>
+                        
+                         <div class="col-md-12 col-sm-12 col-xs-12 table-responsive">
+                            <div class="dataTables_paginate paging_bootstrap">
+                                <ul class="pagination">
+                                    <li class="prev disabled">
+                                        <a href="#"><i class="icon-left-open-mini"></i></a>
+                                    </li>
+                                    
+                                    <!-- Numbered page links -->
+                                    <?php if(count($pageNumbers)>0){?>
+                                        <?php foreach ($pageNumbers as $page): ?>
+                                        <?php if ($page != $currentPage): ?>
+                                        <li><a href="<?= $this->url(array('page' => $page)); ?>"><?= $page; ?></a></li>
+                                        <?php else: ?>
+                                        <li class="active"><a href="#"><?= $page; ?></a></li>
+                                        <?php endif; ?>
+                                        <?php endforeach; ?>
+                                    <?php } ?>
+                          
+                                    
+                                    <li class="next"><a href="#"><i class="icon-right-open-mini"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>

@@ -1,0 +1,79 @@
+<div id="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    
+                     <div class="btn-group">
+                        <a href="<?php print($this->baseUrl()); ?>/admin/lead/add/" id="table-edit_new" class="btn btn-danger">
+                            <?php echo $this->translate("Add-New");?> <i class="fa fa-plus"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="btn-group pull-right">
+                        <a href="#" id="form-data-back" class="btn btn-blue">
+                            <?php echo $this->translate("Go-back");?> <i class="fa fa-backward"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12 table-responsive m-t-20">
+                            <table class="table table-bordered table_obtor_data table-hover">
+                                <thead class="no-bd">
+                                    <tr>
+                                        <th class="table_id table_head"><?php echo $this->translate("ID");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("First_Name");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Company");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Industry");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Designation");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Priority");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Current_Status");?></th>
+                                        <th class="text-center table_head data_table_action"><?php echo $this->translate("Actions");?></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="no-bd-y">
+
+                                    <?php if ($this->leadInformation) { ?>
+                                        <?php foreach ($this->leadInformation As $vIndex => $leadInfo) { ?>
+                                            <tr>
+                                                <td>
+                                                    <a title="<?php echo $this->translate("View");?>" href="<?php print($this->baseUrl()); ?>/admin/lead/view/id/<?php print($leadInfo->getId()); ?>">
+                                                    <?php print($leadInfo->getId()); ?>
+                                                    </a>
+                                                </td>
+                                                <td><?php print($leadInfo->getFirstName()); ?></td>
+                                                <td><?php print($leadInfo->getCompany()); ?></td>
+                                                <td><?php print($leadInfo->getIndustry()); ?></td>
+                                                <td><?php print($leadInfo->getDesignation()); ?></td>
+                                                <td><?php print($leadInfo->getPriority()); ?></td>
+                                                <td><?php print($leadInfo->getLeadstatus()); ?></td>
+                                                
+                                                <td class="text-center">
+                                                    <a title="<?php echo $this->translate("Edit");?>" href="<?php print($this->baseUrl()); ?>/admin/lead/edit/id/<?php print($leadInfo->getId()); ?>"><img src="<?php print($this->baseUrl()); ?>/assets/skin/images/b_edit.png" /></a>
+                                                    <a title="<?php echo $this->translate("Delete");?>" href="<?php print($this->baseUrl()); ?>/admin/lead/delete/id/<?php print($leadInfo->getId()); ?>" class="form-data-delete"><img src="<?php print($this->baseUrl()); ?>/assets/skin/images/b_drop.png" /></a>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
+                                   <?php } else {?>
+                                            <tr>
+                                                <td colspan="8" class="table_data_not_found"><?php echo $this->translate("Records-Not-Available");?></td>
+                                            </tr>
+                                    <?php } ?>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                    
+                    
+                    <?php if(count($this->leadInformation)>0){?>
+			<?php echo $this->partial('common/_pagination.phtml', array('paginationData' => $this->paggination)); ?>
+                    <?php } ?>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

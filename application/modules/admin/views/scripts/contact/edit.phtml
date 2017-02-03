@@ -1,0 +1,206 @@
+   <div id="main-content">
+            
+            <div class="row">
+                <div class="col-md-12">
+            
+                    <div class="panel panel-default">
+                   
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form id="form_contact" name="form_contact" role="form" method="post" class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Contact-No");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtContactNo" id="txtContactNo" value="<?php print($this->contactInfo->getContactNo());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Account-Id");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtAccountId" id="txtAccountId" value="<?php print($this->contactInfo->getAccountId());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Salutation");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtSalutation" id="txtSalutation" value="<?php print($this->contactInfo->getSalutation());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("First-Name");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtFirstName" id="txtFirstName" value="<?php print($this->contactInfo->getFirstName());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Last-Name");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtLastName" id="txtLastName" value="<?php print($this->contactInfo->getLastName());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Email-Address");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtEmailAddress" id="txtEmailAddress" value="<?php print($this->contactInfo->getEmailAddress());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Phone");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtPhone" id="txtPhone" value="<?php print($this->contactInfo->getPhone());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Mobile");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtMobile" id="txtMobile" value="<?php print($this->contactInfo->getMobile());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Title");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtTitle" id="txtTitle" value="<?php print($this->contactInfo->getTitle());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                         <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Fax");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtFax" id="txtFax" value="<?php print($this->contactInfo->getFax());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Reports-To");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtReportsTo" id="txtReportsTo" value="<?php print($this->contactInfo->getReportsTo());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Training");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtTraining" id="txtTraining" value="<?php print($this->contactInfo->getTraining());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("User-Type");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtUserType" id="txtUserType" value="<?php print($this->contactInfo->getUserType());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Contact-Type");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtContactType" id="txtContactType" value="<?php print($this->contactInfo->getContactType());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Other-Email");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtOtherEmail" id="txtOtherEmail" value="<?php print($this->contactInfo->getOtherEmail());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                         <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Yahoo-Id");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtYahooId" id="txtYahooId" value="<?php print($this->contactInfo->getYahooId());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                         <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Donot-Call");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtDonotCall" id="txtDonotCall" value="<?php print($this->contactInfo->getDonotCall());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Email-Opt-Out");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtEmailOptOut" id="txtEmailOptOut" value="<?php print($this->contactInfo->getEmailOptOut());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Image");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtImageName" id="txtImageName" value="<?php print($this->contactInfo->getImageName());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Reference");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtReference" id="txtReference" value="<?php print($this->contactInfo->getReference());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Notify-Owner");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtNotifyOwner" id="txtNotifyOwner" value="<?php print($this->contactInfo->getNotifyOwner());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        
+                                   
+                                        <div class="form-group text-left">
+                                            <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Submit");?></button>
+                                            <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel");?></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    
+                </div>
+            </div>
+            
+                        
+            
+                        
+        </div>
+<script src="<?php print($this->baseUrl());?>/assets/validator/admin/contact.js"></script>

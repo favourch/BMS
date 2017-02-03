@@ -1,0 +1,106 @@
+<div id="main-content">
+
+    <div class="row">
+        <div class="col-md-12">
+
+
+
+            <div class="panel panel-default">
+
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <form id="form_attendance" name="form_attendance" role="form" method="post" class="form-horizontal">
+                                
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Employee");?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <select parsley-minlength="3" class="form-control" name="employee" id="employee">
+                                        <option value="">-- select employee --</option>
+                                        <?php foreach ($this->employeeInfo As $empIndex => $employee) { ?>
+                                            <option value="<?php print($employee->getId()); ?>"><?php print($employee->getNameWithInitials()); ?></option>
+                                        <?php } ?>
+                                    </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Date-On"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3" class="form-control pickadate" type="text" name="txtDateOn" id="txtDateOn"/>
+                                    </div>
+                                </div>
+
+                                
+
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Attendance-In-Time"); ?></strong></label>
+                                    <span class="tips">Example 08:45 (hour:min)</span>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <select class="form-control time_combo" name="cmbAttInTimeHr" id="cmbAttInTimeHr">
+                                             <option value=""></option>
+                                             <?php for($hr=1;$hr<24;$hr++){?>
+                                             <option value="<?php print(sprintf("%02s", $hr));?>"><?php print(sprintf("%02s", $hr));?></option>
+                                             <?php } ?>
+                                        </select>
+                                        
+                                        <select class="form-control time_combo" name="cmbAttInTimeMin" id="cmbAttInTimeMin">
+                                             <option value=""></option>
+                                             <?php for($min=0;$min<60;$min++){?>
+                                             <option value="<?php print(sprintf("%02s", $min));?>"><?php print(sprintf("%02s", $min));?></option>
+                                             <?php } ?>
+                                        </select>
+                                       
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Attendance-Out-Time"); ?></strong></label>
+                                    <span class="tips">Example 16:45 (hour:min)</span>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <select class="form-control time_combo" name="cmbAttOutTimeHr" id="cmbAttOutTimeHr">
+                                             <option value=""></option>
+                                             <?php for($hr=1;$hr<24;$hr++){?>
+                                             <option value="<?php print(sprintf("%02s", $hr));?>"><?php print(sprintf("%02s", $hr));?></option>
+                                             <?php } ?>
+                                        </select>
+                                        
+                                        <select class="form-control time_combo" name="cmbAttOutTimeMin" id="cmbAttOutTimeMin">
+                                             <option value=""></option>
+                                             <?php for($min=0;$min<60;$min++){?>
+                                             <option value="<?php print(sprintf("%02s", $min));?>"><?php print(sprintf("%02s", $min));?></option>
+                                             <?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                
+
+
+
+                                <div class="form-group text-left">
+                                    <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Submit"); ?></button>
+                                    <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel"); ?></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+
+</div>
+<script src="<?php print($this->baseUrl()); ?>/assets/validator/admin/attendance-add.js"></script>

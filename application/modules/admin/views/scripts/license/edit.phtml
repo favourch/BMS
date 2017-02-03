@@ -1,0 +1,73 @@
+   <div id="main-content">
+            
+            <div class="row">
+                <div class="col-md-12">
+            
+                    
+                    
+                    <div class="panel panel-default">
+                   
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <form id="form_license" name="form_license" role="form" method="post" class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("License-Type");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <select class="form-control" type="text" name="txtLicenseType" id="txtLicenseType"/>
+                                                <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                <?php foreach($this->licenses As $lIndex=>$license){?>
+                                                     <option value="<?php print($license);?>" <?php if($this->licenseInfo->getLicenseType() == $license){?> selected="selected" <?php } ?>><?php print($this->translate($license));?></option>
+                                                    <?php } ?>
+                                            </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("License-Number");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control" type="text" name="txtLicenseNumber" id="txtLicenseNumber" value="<?php print($this->licenseInfo->getLicenseNumber());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Issued-Date");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control pickadate" type="text" name="txtIssuedDate" id="txtIssuedDate" value="<?php print($this->licenseInfo->getIssuedDate());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Expiry-Date");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control pickadate" type="text" name="txtExpiryDate" id="txtExpiryDate" value="<?php print($this->licenseInfo->getExpiryDate());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                     
+                                        
+                                   
+                                        <div class="form-group text-left">
+                                            <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Submit");?></button>
+                                            <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel");?></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    
+                </div>
+            </div>
+            
+                        
+            
+                        
+        </div>
+<script src="<?php print($this->baseUrl());?>/assets/validator/admin/license.js"></script>

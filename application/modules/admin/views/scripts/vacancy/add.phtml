@@ -1,0 +1,171 @@
+   <div id="main-content">
+            
+            <div class="row">
+                <div class="col-md-12">
+            
+                    
+                    
+                    <div class="panel panel-default">
+                   
+                        <div class="panel-body">
+                            <div class="row">
+                                
+                                    <form id="form_vacancy" name="form_vacancy" role="form" method="post" class="form-horizontal">
+                                        <div class="col-md-5">
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Job-Title");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <select  class="form-control" name="txtJobTitle" id="txtJobTitle">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->jobTitles As $jIndex=>$jobTitle){?>
+                                                    <option value="<?php print($jobTitle->getId());?>"><?php print($jobTitle->getName());?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Category");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                               <select  class="form-control" name="txtJobCategory" id="txtJobCategory">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->categoryList As $jIndex=>$jobCategory){?>
+                                                    <option value="<?php print($jobCategory->getId());?>"><?php print($jobCategory->getName());?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Country-Name");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <select class="form-control" name="country" id="country">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->countries As $cIndex=>$country){?>
+                                                     <option value="<?php print($country->getId());?>"><?php print($country->getName());?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Region-Name");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <span id="region_box">
+                                                <select class="form-control" name="region" id="region">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                </select>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Branch-Name");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <span id="branch_box">
+                                                <select class="form-control" name="branch" id="branch">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                </select>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Department-Name");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <span id="department_box">
+                                                <select class="form-control" name="department" id="department">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                </select>
+                                                </span>
+                                            </div>
+                                        </div>          
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Publish-Start-Date");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control" type="text" name="txtPublishStartDate" id="txtPublishStartDate"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Publish-End-Date");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control" type="text" name="txtPublishEnddate" id="txtPublishEnddate"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Vacancy-Qty");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control" type="text" name="txtQty" id="txtQty"/>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        
+                                        </div>
+                                        
+                                         <div class="col-md-12">
+                                             
+                                             <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Vacancy-Title");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control" type="text" name="txtVacancyTitle" id="txtVacancyTitle"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Small-Description");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <textarea class="form-control" type="text" name="txtSmallDescription" id="txtSmallDescription"></textarea>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Detailed-Description");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <textarea class="form-control" type="text" name="txtDetailedDescription" id="txtDetailedDescription"></textarea>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        
+                                        
+                                        
+                                   
+                                        <div class="form-group text-left">
+                                            <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Submit");?></button>
+                                            <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel");?></button>
+                                        </div>
+                                              </div>
+                                    </form>
+                               
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    
+                </div>
+            </div>
+            
+                        
+            
+                        
+        </div>
+<script src="<?php print($this->baseUrl());?>/assets/validator/admin/vacancy.js"></script>

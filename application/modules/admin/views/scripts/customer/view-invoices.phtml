@@ -1,0 +1,85 @@
+                    <!-- Navigation info -->
+                    <ul id="nav-info" class="clearfix">
+                        <li><a href="index.html"><i class="icon-home"></i></a></li>
+                        <li><a href="javascript:void(0)">Pages</a></li>
+                        <li class="active"><a href="">Blank</a></li>
+                    </ul>
+                    <!-- END Navigation info -->
+
+                    <!-- Your Content -->
+                    
+                    <h3 class="page-header page-header-top">Clients Profile</h3>
+                      
+                    
+                        
+                            
+                         <!-- Tabs -->
+                         <?php echo $this->partial('common/_client_links.phtml', array('clientId' => $this->clientInfo->getId(),'currentLink' => $this->actionName)); ?>
+                         
+                       
+                  
+                         
+                        
+                       <table class="table table-hover">
+                        <thead>
+                            <tr>
+                             
+                                
+                                <th>Invoice #</th>
+                                <th class="hidden-phone">Invoice Date</th>
+                                <th class="span2 text-center">Due Date</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th class="span2 text-center"><i class="icon-bolt"></i> View</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            
+                           
+                          <?php if($this->myInvoices){?>
+                            <?php foreach($this->myInvoices As $invoiceIndex=>$invoice){?>
+                            
+                            
+                            <tr>
+                                
+                                <td><?php print($invoice->getInvoiceNum());?></td>
+                                <td><?php print($invoice->getDate());?></td>
+                                <td><?php print($invoice->getDueDate());?></td>
+                                <td>
+                                     <?php print($invoice->getClient()->getCurrency()->getCurrencySym());?> 
+                                    <?php print($this->formatToDecimal($invoice->getTotal()));?>
+                                    <?php print($invoice->getClient()->getCurrency()->getName());?> 
+                                </td>
+                                <td><?php print($invoice->getStatus());?></td>
+                                
+                                <td class="span1 text-center">
+                                    <div class="btn-group">
+                                        <a href="<?php print($this->baseUrl());?>/admin/billing/view-invoice/id/<?php print($invoice->getId());?>" data-toggle="tooltip" title="View Invoice" class="btn btn-mini btn-success"><i class="icon-pencil"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <?php } ?>
+                            
+                            <?php } ?>
+                            
+                        
+                        </tbody>
+                    </table>
+                    <!-- END Default style --> 
+                        
+                   
+                    
+                    
+                    
+                   
+                    <!-- End Your Content -->
+                    <script>
+$(document).on("change", "#cmbClientId", function(e) {
+   var location = $(this).val();
+   document.location.href = location;
+   
+});
+</script>
+                    
+               

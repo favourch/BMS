@@ -1,0 +1,85 @@
+   <div id="main-content">
+            
+            <div class="row">
+                <div class="col-md-12">
+            
+                    
+                    
+                    <div class="panel panel-default">
+                   
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <form id="form_salary_particulars" name="form_salary_particulars" role="form" method="post" class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Salary-Type");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <select  class="form-control" name="cmbSalaryType" id="cmbSalaryType">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                     <option value="Basic"><?php echo $this->translate("Basic"); ?></option>
+                                                     <option value="Allowance"><?php echo $this->translate("Allowance"); ?></option>
+                                                     <option value="Bonus"><?php echo $this->translate("Bonus"); ?></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Salary-Amount");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control" type="text" name="txtSalaryAmount" id="txtSalaryAmount"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Effective-From");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="pickadate form-control" type="text" name="txtEffectiveFrom" id="txtEffectiveFrom"/>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Current-Status");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <select  class="form-control" name="cmbCurrentStatus" id="cmbCurrentStatus">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                     <option value="Enabled"><?php echo $this->translate("Enabled"); ?></option>
+                                                     <option value="Disabled"><?php echo $this->translate("Disabled"); ?></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                         
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Remarks");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <textarea class="form-control" type="text" name="txtRemarks" id="txtRemarks"></textarea>
+                                            </div>
+                                        </div>
+                                        
+                                   
+                                        <div class="form-group text-left">
+                                            <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Submit");?></button>
+                                            <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel");?></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    
+                </div>
+            </div>
+            
+                        
+            
+                        
+        </div>
+<script src="<?php print($this->baseUrl());?>/assets/validator/admin/form_salary_particulars.js"></script>

@@ -1,0 +1,186 @@
+   <div id="main-content">
+            
+            <div class="row">
+                <div class="col-md-12">
+            
+                    
+                    
+                    <div class="panel panel-default">
+                        
+                         <div class="panel-heading">
+                    <div class="btn-group pull-right">
+                        <a href="#" id="form-data-back" class="btn btn-blue">
+                            <?php echo $this->translate("Go-back");?> <i class="fa fa-backward"></i>
+                        </a>
+                    </div>
+           
+                </div>
+                   
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="view_information">
+                                            <ul>
+                                                <li>
+                                                    <span><?php echo $this->translate("Project-Number");?></span>
+                                                   : <?php print($this->projectInformation->getProjectNumber());?>
+                                                    <div class="clear"></div>
+                                                </li>
+                                               
+                                                <li>
+                                                    <span><?php echo $this->translate("Project-Name");?></span>
+                                                   : <?php print($this->projectInformation->getProjectName());?>
+                                                    <div class="clear"></div>
+                                                </li>
+                                               
+                                                 <li>
+                                                    <span><?php echo $this->translate("Link-To-Accounts-Contacts");?></span>
+                                                   : <?php print($this->projectInformation->getLinkToAccountsContacts());?>
+                                                    <div class="clear"></div>
+                                                </li>
+                                                
+                                                 <li>
+                                                    <span><?php echo $this->translate("Start-Date");?></span>
+                                                   : <?php print($this->projectInformation->getStartDate());?>
+                                                    <div class="clear"></div>
+                                                </li>
+                                                
+                                                 <li>
+                                                    <span><?php echo $this->translate("Targetend-Date");?></span>
+                                                   : <?php print($this->projectInformation->getTargetendDate());?>
+                                                    <div class="clear"></div>
+                                                </li>
+                                                
+                                                <li>
+                                                    <span><?php echo $this->translate("Actualend-Date");?></span>
+                                                   : <?php print($this->projectInformation->getActualendDate());?>
+                                                    <div class="clear"></div>
+                                                </li>
+                                                
+                                                <li>
+                                                    <span><?php echo $this->translate("Target-Budget");?></span>
+                                                   : <?php print($this->projectInformation->getTargetBudget());?>
+                                                    <div class="clear"></div>
+                                                </li>
+                                                
+                                                <li>
+                                                    <span><?php echo $this->translate("Project-Url");?></span>
+                                                   : <?php print($this->projectInformation->getProjectUrl());?>
+                                                    <div class="clear"></div>
+                                                </li>
+                                                
+                                                <li>
+                                                    <span><?php echo $this->translate("Project-Status");?></span>
+                                                   : <?php print($this->projectInformation->getProjectStatus());?>
+                                                    <div class="clear"></div>
+                                                </li>
+                                                
+                                                
+                                                <li>
+                                                    <span><?php echo $this->translate("Project-Priority");?></span>
+                                                   : <?php print($this->projectInformation->getProjectPriority());?>
+                                                    <div class="clear"></div>
+                                                </li>
+                                                
+                                                 <li>
+                                                    <span><?php echo $this->translate("Project-Type");?></span>
+                                                   : <?php print($this->projectInformation->getProjectType());?>
+                                                    <div class="clear"></div>
+                                                </li>
+                                                
+                                                 <li>
+                                                    <span><?php echo $this->translate("Progress");?></span>
+                                                   : <?php print($this->projectInformation->getProgress());?>
+                                                    <div class="clear"></div>
+                                                </li>
+                                                
+                                            </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                       
+                        
+                        <div class="panel-body">
+                             <div class="panel-heading">
+                            <h3 class="panel-title"><strong>Task</strong> List</h3>
+                        </div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12 table-responsive m-t-20">
+                           <table class="table table-bordered table_obtor_data table-hover">
+                                <thead class="no-bd">
+                                    <tr>
+                                        <th class="table_id table_head"><?php echo $this->translate("ID");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Task_Name");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Task_Priority");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Task_Progress");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Allocated_Hours");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Hours_Spent");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Start_Date");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("End_Date");?></th>
+ <th class="table_data table_head"><?php echo $this->translate("Assigned_To");?></th>
+ <th class="table_data table_head"><?php echo $this->translate("Current_Status");?></th>
+                                        <th class="text-center data_table_action"><?php echo $this->translate("Actions");?></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="no-bd-y">
+
+                                    <?php if ($this->taskInformation) { ?>
+                                        <?php foreach ($this->taskInformation As $vIndex => $task) { ?>
+                                            <tr>
+                                                <td>
+                                                    <a title="<?php echo $this->translate("View");?>" href="<?php print($this->baseUrl()); ?>/admin/task/view/id/<?php print($task->getId()); ?>">
+                                                    <?php print($task->getId()); ?>
+                                                    </a>
+                                                </td>
+                                                <td><?php print($task->getName()); ?></td>
+                                                <td><?php print($task->getPriority()); ?></td>
+                                            <td><?php print($task->getProgress()); ?>%</td>
+<td><?php print($task->getAllocatedHours()); ?></td>
+<td><?php print($task->getHoursSpent()); ?></td>
+<td><?php print($task->getStartDate()); ?></td>
+<td><?php print($task->getEndDate()); ?></td>
+<td><?php print($this->getEmployee($task->getAssignedTo())->getNameWithInitials()); ?></td>
+<td><?php print($task->getCurrentStatus()); ?></td>
+                                                
+                                                
+                                                
+                                                <td class="text-center">
+                                                    <a title="<?php echo $this->translate("Edit");?>" href="<?php print($this->baseUrl()); ?>/admin/task/edit/id/<?php print($task->getId()); ?>"><img src="<?php print($this->baseUrl()); ?>/assets/skin/images/b_edit.png" /></a>
+                                                    <a title="<?php echo $this->translate("Delete");?>" href="<?php print($this->baseUrl()); ?>/admin/task/delete/id/<?php print($task->getId()); ?>" class="form-data-delete"><img src="<?php print($this->baseUrl()); ?>/assets/skin/images/b_drop.png" /></a>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
+                                   <?php } else {?>
+                                            <tr>
+                                                <td colspan="11" class="table_data_not_found"><?php echo $this->translate("Records-Not-Available");?></td>
+                                            </tr>
+                                    <?php } ?>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                    
+                    
+                    <?php if(count($this->taskInformation)>0){?>
+			<?php echo $this->partial('common/_pagination.phtml', array('paginationData' => $this->paggination)); ?>
+                    <?php } ?>
+                    
+                </div>
+                        
+                        
+                        
+                    </div>
+
+                    
+                    
+                </div>
+            </div>
+            
+                        
+            
+                        
+        </div>

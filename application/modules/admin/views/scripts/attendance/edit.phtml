@@ -1,0 +1,362 @@
+<div id="main-content">
+
+    <div class="row">
+        <div class="col-md-12">
+
+
+
+            <div class="panel panel-default">
+
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <form id="form_attendance" name="form_attendance" role="form" method="post" class="form-horizontal">
+                                
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Employee");?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <select parsley-minlength="3" class="form-control" name="txtEmployee" id="txtEmployee" disabled="disabled">
+                                        <option value="">-- select employee --</option>
+                                        <?php foreach ($this->employeeInfo As $empIndex => $employee) { ?>
+                                        <option value="<?php print($employee->getId()); ?>" <?php if($this->attendanceInformation->getEmployee() == $employee->getId()){?> selected="selected" <?php } ?>><?php print($employee->getNameWithInitials()); ?></option>
+                                        <?php } ?>
+                                    </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Date-On"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input readonly="readonly" parsley-minlength="3" class="form-control small_text_date" type="text" name="txtDateOn" id="txtDateOn" value="<?php print($this->attendanceInformation->getDateOn());?>"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Is-Working-Day"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <select disabled="disabled" parsley-minlength="3" class="form-control small_combo_yes_no" name="txtIsWorkingDay" id="txtIsWorkingDay">
+                                                                          <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                            <option value="Yes" <?php if($this->attendanceInformation->getIsWorkingDay() == 'Yes'){?> selected="selected" <?php }?>><?php echo $this->translate("Yes"); ?></option>
+                                            <option value="No" <?php if($this->attendanceInformation->getIsWorkingDay() == 'No'){?> selected="selected" <?php }?>><?php echo $this->translate("No"); ?></option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Scheduled-On-Time"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3" readonly="readonly" class="form-control small_text_date_time" type="text" name="txtScheduledOnTime" id="txtScheduledOnTime" value="<?php print($this->attendanceInformation->getScheduledOnTime());?>"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Scheduled-Off-Time"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3"  readonly="readonly" class="form-control small_text_date_time" type="text" name="txtScheduledOffTime" id="txtScheduledOffTime" value="<?php print($this->attendanceInformation->getScheduledOffTime());?>"/>
+                                    </div>
+                                </div>
+
+                                 <?php 
+                                 $attendanceInTime = $this->attendanceInformation->getAttendanceInTime();
+                                 $attendanceInTimePices = explode(":", $attendanceInTime);
+                                 $inTimeHr = '';
+                                 $inTimeMin = '';
+                                 if($attendanceInTimePices){
+                                     $inTimeHr = $attendanceInTimePices[0];
+                                     $inTimeMin = $attendanceInTimePices[1];
+                                 }
+                                 ?>
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Attendance-In-Time"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <select class="form-control time_combo" disabled="disabled" name="cmbAttInTimeHr" id="cmbAttInTimeHr">
+                                             <option value=""></option>
+                                             <?php for($hr=1;$hr<24;$hr++){?>
+                                             <option value="<?php print(sprintf("%02s", $hr));?>" <?php if($inTimeHr == $hr){?> selected="selected" <?php } ?>><?php print(sprintf("%02s", $hr));?></option>
+                                             <?php } ?>
+                                        </select>
+                                        
+                                        <select class="form-control time_combo" disabled="disabled" name="cmbAttInTimeMin" id="cmbAttInTimeMin">
+                                             <option value=""></option>
+                                             <?php for($min=0;$min<60;$min++){?>
+                                             <option value="<?php print(sprintf("%02s", $min));?>" <?php if($inTimeMin == $min){?> selected="selected" <?php } ?>><?php print(sprintf("%02s", $min));?></option>
+                                             <?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                
+                                 <?php 
+                                 $attendanceOutTime = $this->attendanceInformation->getAttendanceOutTime();
+                                 $attendanceOutTimePices = explode(":", $attendanceOutTime);
+                                 $outTimeHr = '';
+                                 $outTimeMin = '';
+                                 if($attendanceOutTimePices){
+                                     $outTimeHr = $attendanceOutTimePices[0];
+                                     $outTimeMin = $attendanceOutTimePices[1];
+                                 }
+                                 ?>
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Attendance-Out-Time"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        
+                                        <select class="form-control time_combo" disabled="disabled" name="cmbAttOutTimeHr" id="cmbAttOutTimeHr">
+                                             <option value=""></option>
+                                             <?php for($hr=1;$hr<24;$hr++){?>
+                                             <option value="<?php print(sprintf("%02s", $hr));?>" <?php if($outTimeHr == $hr){?> selected="selected" <?php } ?>><?php print(sprintf("%02s", $hr));?></option>
+                                             <?php } ?>
+                                        </select>
+                                        
+                                        <select class="form-control time_combo" disabled="disabled" name="cmbAttOutTimeMin" id="cmbAttOutTimeMin">
+                                             <option value=""></option>
+                                             <?php for($min=0;$min<60;$min++){?>
+                                             <option value="<?php print(sprintf("%02s", $min));?>" <?php if($outTimeMin == $min){?> selected="selected" <?php } ?>><?php print(sprintf("%02s", $min));?></option>
+                                             <?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Is-Late"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <select disabled="disabled" parsley-minlength="3" class="form-control small_combo_yes_no" name="txtIsLate" id="txtIsLate">
+                                            <option value=""></option>
+                                            <option value="Yes" <?php if($this->attendanceInformation->getIsLate() == 'Yes'){?> selected="selected" <?php }?>><?php echo $this->translate("Yes"); ?></option>
+                                            <option value="No" <?php if($this->attendanceInformation->getIsLate() == 'No'){?> selected="selected" <?php }?>><?php echo $this->translate("No"); ?></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Is-Early-Off"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <select disabled="disabled" parsley-minlength="3" class="form-control small_combo_yes_no" name="txtIsEarlyOff" id="txtIsEarlyOff">
+                                            <option value=""></option>
+                                            <option value="Yes" <?php if($this->attendanceInformation->getIsEarlyOff() == 'Yes'){?> selected="selected" <?php }?>><?php echo $this->translate("Yes"); ?></option>
+                                            <option value="No" <?php if($this->attendanceInformation->getIsEarlyOff() == 'No'){?> selected="selected" <?php }?>><?php echo $this->translate("No"); ?></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Other-In-Out"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                       <input parsley-minlength="3" class="form-control" type="text" name="txtOtherInOut" id="txtOtherInOut" value="<?php print($this->attendanceInformation->getOtherInOut());?>"/>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Remarks"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <textarea parsley-minlength="3" class="form-control" type="text" name="txtRemarks" id="txtRemarks"><?php print($this->attendanceInformation->getRemarks());?></textarea>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("In-Time-Fp-Serial"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                       <input parsley-minlength="3" class="form-control" type="text" name="txtInTimeFpSerial" id="txtInTimeFpSerial" value="<?php print($this->attendanceInformation->getInTimeFpSerial());?>"/>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Out-Time-Fp-Serial"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                       <input parsley-minlength="3" class="form-control" type="text" name="txtOutTimeFpSerial" id="txtOutTimeFpSerial" value="<?php print($this->attendanceInformation->getOutTimeFpSerial());?>"/>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("In-Time-Status-Exempted"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <select parsley-minlength="3" disabled="disabled" class="form-control small_combo_yes_no" name="txtInTimeStatusExempted" id="txtInTimeStatusExempted">
+                                            <option value=""></option>
+                                            <option value="Yes" <?php if($this->attendanceInformation->getInTimeStatusExempted() == 'Yes'){?> selected="selected" <?php }?>><?php echo $this->translate("Yes"); ?></option>
+                                            <option value="No" <?php if($this->attendanceInformation->getInTimeStatusExempted() == 'No'){?> selected="selected" <?php }?>><?php echo $this->translate("No"); ?></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Out-Time-Status-Exempted"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <select parsley-minlength="3" disabled="disabled" class="form-control small_combo_yes_no" name="txtOutTimeStatusExempted" id="txtOutTimeStatusExempted">
+                                             <option value=""></option>
+                                            <option value="Yes" <?php if($this->attendanceInformation->getOutTimeStatusExempted() == 'Yes'){?> selected="selected" <?php }?>><?php echo $this->translate("Yes"); ?></option>
+                                            <option value="No" <?php if($this->attendanceInformation->getOutTimeStatusExempted() == 'No'){?> selected="selected" <?php }?>><?php echo $this->translate("No"); ?></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("In-Time-Execused"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <select parsley-minlength="3" class="form-control small_combo_yes_no" name="txtInTimeExecused" id="txtInTimeExecused">
+                                            <option value=""></option>
+                                            <option value="Yes" <?php if($this->attendanceInformation->getInTimeExecused() == 'Yes'){?> selected="selected" <?php }?>><?php echo $this->translate("Yes"); ?></option>
+                                            <option value="No" <?php if($this->attendanceInformation->getInTimeExecused() == 'No'){?> selected="selected" <?php }?>><?php echo $this->translate("No"); ?></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Out-Time-Execused"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <select parsley-minlength="3" class="form-control small_combo_yes_no" name="txtOutTimeExecused" id="txtOutTimeExecused">
+                                             <option value=""></option>
+                                            <option value="Yes" <?php if($this->attendanceInformation->getOutTimeExecused() == 'Yes'){?> selected="selected" <?php }?>><?php echo $this->translate("Yes"); ?></option>
+                                            <option value="No" <?php if($this->attendanceInformation->getOutTimeExecused() == 'No'){?> selected="selected" <?php }?>><?php echo $this->translate("No"); ?></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("In-Time-Different-Min"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3" readonly="readonly" class="form-control small_text_xx" type="text" name="txtInTimeDifferentMin" id="txtInTimeDifferentMin" value="<?php print($this->attendanceInformation->getInTimeDifferentMin());?>"/>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Out-Time-Different-Min"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3"  readonly="readonly" class="form-control small_text_xx" type="text" name="txtOutTimeDifferentMin" id="txtOutTimeDifferentMin" value="<?php print($this->attendanceInformation->getOutTimeDifferentMin());?>"/>
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("In-Time-Different-Min-Type"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3" readonly="readonly" class="form-control small_text_xx" type="text" name="txtInTimeDifferentMinType" id="txtInTimeDifferentMinType" value="<?php print($this->attendanceInformation->getInTimeDifferentMinType());?>"/>
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Out-Time-Different-Min-Type"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3" readonly="readonly" class="form-control small_text_xx" type="text" name="txtOutTimeDifferentMinType" id="txtOutTimeDifferentMinType" value="<?php print($this->attendanceInformation->getOutTimeDifferentMinType());?>"/>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Is-On-Leave"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                         <select parsley-minlength="3" disabled="disabled" class="form-control small_combo_yes_no" name="txtIsOnLeave" id="txtIsOnLeave">
+                                                                                <option value=""></option>
+                                            <option value="Yes" <?php if($this->attendanceInformation->getIsOnLeave() == 'Yes'){?> selected="selected" <?php }?>><?php echo $this->translate("Yes"); ?></option>
+                                            <option value="No" <?php if($this->attendanceInformation->getIsOnLeave() == 'No'){?> selected="selected" <?php }?>><?php echo $this->translate("No"); ?></option>
+                                                </select>
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Counted-Working-Day"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3" readonly="readonly" class="form-control small_text_xx" type="text" name="txtCountedWorkingDay" id="txtCountedWorkingDay" value="<?php print($this->attendanceInformation->getCountedWorkingDay());?>"/>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Extra-Working-Hrs"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3" readonly="readonly" class="form-control small_text_xx" type="text" name="txtExtraWorkingHrs" id="txtExtraWorkingHrs" value="<?php print($this->attendanceInformation->getExtraWorkingHrs());?>"/>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("ExtraWorkingHrsApproved"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <select parsley-minlength="3" class="form-control small_combo_yes_no" name="txtExtraWorkingHrsApproved" id="txtExtraWorkingHrsApproved">
+                                            <option value=""></option>
+                                            <option value="Yes" <?php if($this->attendanceInformation->getExtraWorkingHrsApproved() == 'Yes'){?> selected="selected" <?php }?>><?php echo $this->translate("Yes"); ?></option>
+                                            <option value="No" <?php if($this->attendanceInformation->getExtraWorkingHrsApproved() == 'No'){?> selected="selected" <?php }?>><?php echo $this->translate("No"); ?></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Approved-Extra-Working-Hrs"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3" class="form-control small_text_xx" type="text" name="txtApprovedExtraWorkingHrs" id="txtApprovedExtraWorkingHrs" value="<?php print($this->attendanceInformation->getApprovedExtraWorkingHrs());?>"/>
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Is-Paid-For-Extra-Hrs"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <select parsley-minlength="3" class="form-control small_combo_yes_no" name="txtIsPaidForExtraHrs" id="txtIsPaidForExtraHrs">
+                                            <option value=""></option>
+                                            <option value="Yes" <?php if($this->attendanceInformation->getIsPaidForExtraHrs() == 'Yes'){?> selected="selected" <?php }?>><?php echo $this->translate("Yes"); ?></option>
+                                            <option value="No" <?php if($this->attendanceInformation->getIsPaidForExtraHrs() == 'No'){?> selected="selected" <?php }?>><?php echo $this->translate("No"); ?></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Manually-Added-Or-Edited"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <select parsley-minlength="3" disabled="disabled" class="form-control small_combo_yes_no" name="txtManuallyAddedOrEdited" id="txtManuallyAddedOrEdited">
+                                            <option value=""></option>
+                                            <option value="Yes" <?php if($this->attendanceInformation->getManuallyAddedOrEdited() == 'Yes'){?> selected="selected" <?php }?>><?php echo $this->translate("Yes"); ?></option>
+                                            <option value="No" <?php if($this->attendanceInformation->getManuallyAddedOrEdited() == 'No'){?> selected="selected" <?php }?>><?php echo $this->translate("No"); ?></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group text-left">
+                                    <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Submit"); ?></button>
+                                    <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel"); ?></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+
+</div>
+<script src="<?php print($this->baseUrl()); ?>/assets/validator/admin/attendance.js"></script>

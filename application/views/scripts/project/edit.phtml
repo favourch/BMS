@@ -1,0 +1,165 @@
+   <div id="main-content">
+            
+            <div class="row">
+                <div class="col-md-12">
+            
+                    
+                    
+                    <div class="panel panel-default">
+                   
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form id="form_project" name="form_project" role="form" method="post" class="form-horizontal">
+                                        
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Project-Number");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtProject_number" id="txtProject_number" value="<?php print($this->projectInformation->getProjectNumber());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Project-Name");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtProject_name" id="txtProject_name" value="<?php print($this->projectInformation->getProjectName());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Link-To-Accounts-Contacts");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <select  class="form-control normal_input" name="txtLink_to_accounts_contacts" id="txtLink_to_accounts_contacts">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->clientList As $cIndex=>$client){?>
+                                                    <option value="<?php print($client->getId());?>"  <?php if($this->projectInformation->getLinkToAccountsContacts() == $client->getId()){?> selected="selected" <?php } ?>><?php print($client->getFirstname());?> <?php print($client->getLastname());?> (#<?php print($client->getId());?>)</option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Start-Date");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtStart_date" id="txtStart_date" value="<?php print($this->projectInformation->getStartDate());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Targetend-Date");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtTargetend_date" id="txtTargetend_date" value="<?php print($this->projectInformation->getTargetendDate());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Actualend-Date");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtActualend_date" id="txtActualend_date" value="<?php print($this->projectInformation->getActualendDate());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Target-Budget");?></strong>
+                                            <span class="tips">In Hours (A man-hour)</span>
+                                            </label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtTarget_budget" id="txtTarget_budget" value="<?php print($this->projectInformation->getTargetBudget());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Project-Url");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtProject_url" id="txtProject_url" value="<?php print($this->projectInformation->getProjectUrl());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Project-Status");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <select  class="form-control normal_input" name="txtProject_status" id="txtProject_status">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->projectStatusList As $pIndex=>$projectStatus){?>
+                                                    <option value="<?php print($projectStatus);?>" <?php if($this->projectInformation->getProjectStatus() == $projectStatus){?> selected="selected" <?php } ?>><?php print($this->translate($projectStatus));?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Project-Priority");?></strong>
+                                            
+                                            </label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <select  class="form-control normal_input" name="txtProject_priority" id="txtProject_priority">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->projectPriorityList As $pIndex=>$projectPriority){?>
+                                                    <option value="<?php print($projectPriority);?>" <?php if($this->projectInformation->getProjectPriority() == $projectPriority){?> selected="selected" <?php } ?>><?php print($this->translate($projectPriority));?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Project-Type");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <select  class="form-control normal_input" name="txtProject_type" id="txtProject_type">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->projectTypeList As $pIndex=>$projectType){?>
+                                                    <option value="<?php print($projectType);?>" <?php if($this->projectInformation->getProjectType() == $projectType){?> selected="selected" <?php } ?>><?php print($this->translate($projectType));?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Progress");?></strong>
+                                            <span class="tips">In percentage</span>
+                                            </label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtprogress" id="txtprogress" value="<?php print($this->projectInformation->getProgress());?>"/>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                   
+                                        <div class="form-group text-left">
+                                            <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Submit");?></button>
+                                            <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel");?></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    
+                </div>
+            </div>
+            
+                        
+            
+                        
+        </div>
+<script src="<?php print($this->baseUrl());?>/assets/validator/admin/project.js"></script>

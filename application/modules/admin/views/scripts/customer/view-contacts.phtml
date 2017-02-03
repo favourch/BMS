@@ -1,0 +1,64 @@
+                    <!-- Navigation info -->
+                    <ul id="nav-info" class="clearfix">
+                        <li><a href="index.html"><i class="icon-home"></i></a></li>
+                        <li><a href="javascript:void(0)">Pages</a></li>
+                        <li class="active"><a href="">Blank</a></li>
+                    </ul>
+                    <!-- END Navigation info -->
+
+                    <!-- Your Content -->
+                    
+                    <h3 class="page-header page-header-top">Clients Profile</h3>
+                      
+                     <div class="row-fluid">
+                    
+<p>Active Client: 
+    
+     <select id="cmbClientId"  name="cmbClientId" class="input-xlarge">
+                                        <option value=""></option>
+                                        <?php foreach($this->clientDetails As $cIndex=>$client){?>
+                                        <option value="<?php print($this->baseUrl());?>/admin/client/view/id/<?php print($client->getId());?>"  <?php if($this->clientInfo->getId() == $client->getId()){?> selected="selected" <?php } ?> ><?php print($client->getCompanyname());?> - <?php print($client->getFirstname());?> <?php print($client->getLastname());?></option>
+                                         <?php } ?>
+                                        
+                                    </select>
+    
+                     </div> 
+                        
+                            
+                         <!-- Tabs -->
+                         <?php echo $this->partial('common/_client_links.phtml', array('clientId' => $this->clientInfo->getId(),'currentLink' => $this->actionName)); ?>
+                         
+                         
+                    <!-- END Tabs -->
+                    <div class="row-fluid tab_content">
+                     	
+                        
+                        
+                        
+                        
+                                           <div class="form-box-content">
+                            
+                            
+                           
+                            
+                            
+
+
+                            
+                        </div>
+                        
+                        
+                        
+                        
+                     </div>  
+                   
+                    <!-- End Your Content -->
+                    <script>
+$(document).on("change", "#cmbClientId", function(e) {
+   var location = $(this).val();
+   document.location.href = location;
+   
+});
+</script>
+                    
+               

@@ -1,0 +1,6 @@
+<select class="form-control" name="department" id="department">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->departments As $dIndex=>$department){?>
+                                                     <option value="<?php print($department->getId());?>"><?php print($department->getName());?></option>
+                                                    <?php } ?>
+                                                </select>

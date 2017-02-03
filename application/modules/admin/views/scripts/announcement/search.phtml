@@ -1,0 +1,81 @@
+   <div id="main-content">
+            
+            <div class="row">
+                <div class="col-md-12">
+            
+                    <form id="form_announce_step1" name="form_announce_step1" role="form" method="get" class="form-horizontal" action="<?php print($this->baseUrl());?>/admin/announcement/"> 
+                    
+                    <div class="panel panel-default">
+                   
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-5">
+                                   
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Announce-To");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <select class="form-control" id="announce-to" name="announce-to">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                     <option value="Staff"><?php echo $this->translate("Staff"); ?></option>
+                                                     <option value="Customer"><?php echo $this->translate("Customer"); ?></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Media");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <select class="form-control" id="announce-media" name="announce-media">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                     <option value="Email"><?php echo $this->translate("Email"); ?></option>
+                                                     <option value="Sms"><?php echo $this->translate("Sms"); ?></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    
+                                      <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Status");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <select class="form-control" id="status" name="status">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                     <option value="Pending"><?php echo $this->translate("Pending"); ?></option>
+                                                     <option value="Sent"><?php echo $this->translate("Sent"); ?></option>
+                                                     <option value="Draft"><?php echo $this->translate("Draft"); ?></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                                    <div class="col-md-12">
+                                        
+                                         <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Announcement-Subject");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input type="text" class="form-control" id="announcement-subject" name="announcement-subject" />
+                                            </div>
+                                        </div>
+                            
+                                   
+                                        <div class="form-group text-left">
+                                            <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Submit");?></button>
+                                            <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel");?></button>
+                                        </div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+ </form>
+                    
+                    
+                </div>
+            </div>
+            
+                        
+            
+                        
+        </div>

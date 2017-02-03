@@ -1,0 +1,76 @@
+   <div id="main-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        
+                        <div class="panel-heading">
+                    <div class="btn-group pull-right">
+                        <a href="#" id="form-data-back" class="btn btn-blue">
+                            <?php echo $this->translate("Go-back");?> <i class="fa fa-backward"></i>
+                        </a>
+                    </div>
+           
+                </div>
+                        
+                        
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    
+                                    <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("FROM-IP");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <span class="tips data_value"><?php print($this->logInformation->getIpAddress());?></span>
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Action-Date");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <span class="tips data_value">
+                                                    <?php print($this->dateString($this->logInformation->getActionDate()));?>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    
+                                       <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Action-User");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <span class="tips data_value">
+                                                    <?php print($this->logInformation->getUserDisplayName());?>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    
+                                    
+                                    <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Log-Message");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <span class="tips data_value">
+                                                    <?php 
+                                                    if($this->logInformation->getAction() == 'STATUS'){
+                                                      print($this->translate('status-set-to')." '".$this->translate($this->logInformation->getLogMessage())."'");
+                                                    }elseif ($this->logInformation->getAction() == 'STATUS_CHANGED') {
+                                                        print($this->translate('status-changed-to')." '".$this->translate($this->logInformation->getLogMessage())."'");
+                                                    }elseif ($this->logInformation->getAction() == 'ASSIGNED') {
+                                                        print($this->translate('asset-assigned-to')." '".$this->translate($this->logInformation->getLogMessage())."'");  
+                                                    }else {
+                                                      print($this->translate($this->logInformation->getLogMessage()));
+                                                    }
+                                                    ?>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

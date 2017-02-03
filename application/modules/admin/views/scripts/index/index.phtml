@@ -1,0 +1,296 @@
+<script src="<?php print($this->baseUrl());?>/assets/skin/plugins/Highcharts-4_0_4/js/highcharts.js"></script>
+<script src="<?php print($this->baseUrl());?>/assets/skin/plugins/Highcharts-4_0_4/js/exporting.js"></script>
+<div id="main-content" class="dashboard">
+          <div class="row m-t-20">
+            
+                 <div class="col-md-3 col-sm-12">
+              <div class="panel no-bd bd-3 panel-stat">
+                <div class="panel-body bg-blue p-15">
+                  <div class="row m-b-6">
+                    <div class="col-xs-3">
+                      <i class="glyph-icon flaticon-visitors"></i>
+                    </div>
+                     <div class="col-xs-9">
+                      <small class="stat-title">TOTAL STAFF IN SERVICE</small>
+                      <h1 class="m-0 p-l-20 w-500"><span class="animate-number" data-value="<?php print($this->totalStaffInService);?>" data-animation-duration="1400">0</span></h1>
+                    </div>  
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <small class="stat-title">ON DUTY TODAY</small>
+                      <h3 class="m-0 w-500"><span class="animate-number" data-value="<?php print($this->onDutyToday);?>" data-animation-duration="1400">0</span></h3>
+                    </div>
+                    <div class="col-xs-6">
+                      <small class="stat-title">OFF DUTY TODAY</small>
+                      <h3 class="m-0 w-500"><span class="animate-number" data-value="<?php print($this->offDutyToday);?>" data-animation-duration="1400">0</span></h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+              
+              
+            <div class="col-md-3 col-sm-12">
+              <div class="panel no-bd bd-3 panel-stat">
+                <div class="panel-body bg-red p-15">
+                  <div class="row m-b-6">
+                    <div class="col-xs-3">
+                      <i class="glyph-icon flaticon-educational"></i>
+                    </div>
+                     <div class="col-xs-9">
+                      <small class="stat-title">TOTAL TASK ON PROGRESS</small>
+                      <h1 class="m-0 w-500 p-l-20"><?php print($this->total_tasks_on_progress);?></h1>
+                    </div>  
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <small class="stat-title">Immediate</small>
+                      <h3 class="m-0 w-500"><?php print($this->totalImmediateTasks);?></h3>
+                    </div>
+                    <div class="col-xs-6">
+                      <small class="stat-title">Urgent</small>
+                      <h3 class="m-0 w-500"><?php print($this->totalUrgentTasks);?></h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+              
+              
+                  <div class="col-md-3 col-sm-12">
+              <div class="panel no-bd bd-3 panel-stat">
+                <div class="panel-body bg-green p-15">
+                  <div class="row m-b-6">
+                    <div class="col-xs-3">
+                      <i class="glyph-icon flaticon-orders"></i>
+                    </div>
+                     <div class="col-xs-9">
+                      <small class="stat-title">THIS YEAR TOTAL SALARY</small>
+                      <h1 class="m-0 w-500">$<span class="animate-number" data-value="<?php print($this->totalSalaryThisYear);?>" data-animation-duration="1400">0</span></h1>
+                    </div>  
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <small class="stat-title">Last month</small>
+                      <h3 class="m-0 w-500">$<span class="animate-number" data-value="<?php print($this->totalSalaryLastMonth);?>" data-animation-duration="1400">0</span></h3>
+                    </div>
+                    <div class="col-xs-6">
+                      <small class="stat-title">This Month</small>
+                      <h3 class="m-0 w-500">$<span class="animate-number" data-value="<?php print($this->totalSalaryThisMonth);?>" data-animation-duration="1400">0</span></h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+              
+              
+              
+            <div class="col-md-3 col-sm-12">
+              <div class="panel no-bd bd-3 panel-stat">
+                <div class="panel-body bg-dark p-15">
+                  <div class="row m-b-6">
+                    <div class="col-xs-3">
+                      <i class="glyph-icon flaticon-incomes"></i>
+                    </div>
+                     <div class="col-xs-9">
+                      <small class="stat-title">TOTAL ASSETS VALUE</small>
+                      <h1 class="m-0 w-500">$<span class="animate-number" data-value="<?php print($this->totalAssetsValue);?>" data-animation-duration="1400">0</span></h1>
+                    </div>  
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <small class="stat-title">NEW ASSETS</small>
+                      <h3 class="m-0 w-500">$<span class="animate-number" data-value="<?php print($this->totalNewAssets);?>" data-animation-duration="1400">0</span></h3>
+                    </div>
+                    <div class="col-xs-6">
+                      <small class="stat-title">Out of use</small>
+                      <h3 class="m-0 w-500">$<span class="animate-number" data-value="<?php print($this->totalAssetsValueOutOfUse);?>" data-animation-duration="1400">0</span></h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+    
+    
+    <div class="row">
+            <div class="col-md-12">
+              <div class="panel">
+                <div class="panel-body">
+                  <div class="row">
+                    
+                      <script type="text/javascript">
+$(function () {
+    $('#attendance-summary-container').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Attendance Summary Report'
+        },
+        subtitle: {
+            text: 'From Jan 12 to Jan 16'
+        },
+        xAxis: {
+            categories: [<?php print($this->weekAttendanceSummaryDates);?>]
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Total Number Of Staff'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y}</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: 'On Service',
+            data: [<?php print($this->weekAttendanceTotalStaffInService);?>]
+
+        },{
+            name: 'On Duty',
+            data: [<?php print($this->weekAttendanceOnDutyToday);?>]
+
+        }, {
+            name: 'On time arrival',
+            data: [<?php print($this->weekTotalPresentedOnTime);?>]
+
+        }, {
+            name: 'Late arrival',
+            data: [<?php print($this->weekTotalPresentedLate);?>]
+
+        }, {
+            name: 'Early Off',
+            data: [<?php print($this->weekTotalPresentedEarlyOff);?>]
+
+        }, {
+            name: 'Off Duty',
+            data: [<?php print($this->weekAttendanceOffDutyToday);?>]
+
+        }]
+    });
+});
+		</script>
+                
+                    <div id="attendance-summary-container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+    
+    
+    
+    
+      <div class="row m-t-20">
+            
+        
+        
+        <div class="col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><strong>To Do</strong> List</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 8%;">#</th>
+                                                <th><?php echo $this->translate("Title");?></th>
+                                                <th style="width: 8%;"><?php echo $this->translate("Status");?></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                           <?php if ($this->toDoListInfo) { ?>
+                                        <?php foreach ($this->toDoListInfo As $rIndex => $toDoList) { ?>
+                                            <tr>
+                                                <td><?php print($rIndex+1);?></td>
+                                                <td><?php print($toDoList->getListTitle()); ?></td>
+                                                <td><?php print($toDoList->getStatus()); ?></td>
+                                            </tr>
+                                           <?php } ?>
+                                    <?php } else {?>
+                                            <tr>
+                                                <td colspan="3" class="table_data_not_found"><?php echo $this->translate("Records-Not-Available");?></td>
+                                            </tr>
+                                    <?php } ?>
+                                           
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+        
+        <div class="col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><strong>Pending</strong> Tasks</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th><?php echo $this->translate("Task_Name");?></th>
+                                                <th class="table_data_xx"><?php echo $this->translate("Current_Status");?></th>
+                                               
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                            <?php if ($this->taskInformation) { ?>
+                                        <?php foreach ($this->taskInformation As $vIndex => $task) { ?>
+                                            <tr>
+                                                <td>
+                                                    <a title="<?php echo $this->translate("View");?>" href="<?php print($this->baseUrl()); ?>/project/task-view/id/<?php print($task->getId()); ?>">
+                                                    <?php print($task->getId()); ?>
+                                                    </a>
+                                                </td>
+                                               <td><?php print($task->getName()); ?></td>
+                                                <td><?php print($task->getCurrentStatus()); ?></td>
+                                            </tr>
+                                            <?php } ?>
+                                   <?php } else {?>
+                                            <tr>
+                                                <td colspan="3" class="table_data_not_found"><?php echo $this->translate("Records-Not-Available");?></td>
+                                            </tr>
+                                    <?php } ?>
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+        
+    </div>
+    
+       
+        </div>
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+    <script src="<?php print($this->baseUrl());?>/assets/skin/js/dashboard.js"></script>
+    <!-- END  PAGE LEVEL SCRIPTS -->

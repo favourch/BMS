@@ -1,0 +1,128 @@
+   <div id="main-content">
+            
+            <div class="row">
+                <div class="col-md-12">
+            
+                    
+                    
+                    <div class="panel panel-default">
+                   
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form id="form_announcement_recipient_list" name="form_announcement_recipient_list" role="form" method="post" class="form-horizontal" action="">
+                                        
+                                    
+                                        
+                                        <div class="col-md-12 col-sm-12 col-xs-12 table-responsive m-t-20 table_padding" id="recipientListItems">
+                            <table class="table table-bordered table_obtor_data table-hover">
+                                <thead>
+                                    <tr>
+                                         <th class="table_id table_head">&nbsp;&nbsp;</th>
+                                        <th class="table_id table_head"><?php echo $this->translate("ID");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Name-with-initials-head");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("Table-Contact-Numbers");?></th>
+                                        <th class="table_data table_head"><?php echo $this->translate("E-mail-Address");?></th>
+                           
+                                        <th class="table_head table_data_xx"><?php echo $this->translate("Table-Contract-Status");?></th>
+                                        <th class="table_head table_data_xxxx"><?php echo $this->translate("Table-Employee-Type");?></th>
+                                        <th class="table_head table_data_xx"><?php echo $this->translate("Status");?></th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody class="no-bd-y">
+
+                                    <?php if ($this->employeeInfo) { ?>
+                                        <?php foreach ($this->employeeInfo As $eIndex => $employee) { ?>
+                                            <tr>
+                                                  <td class="text-center">
+                                                      <input type="checkbox" class="recipientListItems" name="<?php print($employee->getId()); ?>" id="chkStaffId<?php print($eIndex);?>" value="<?php print($employee->getNameWithInitials()); ?>" />
+                                                </td>
+                                                <td>
+                                                    <a title="<?php echo $this->translate("View");?>" href="<?php print($this->baseUrl()); ?>/admin/staff/view/id/<?php print($employee->getId()); ?>">
+                                                    <?php print($employee->getEmployeeNumber()); ?>
+                                                    </a>
+                                                </td>
+                                                <td><?php print($employee->getNameWithInitials()); ?></td>
+                                                <td>
+                                                    <div class="col-md-12 col-sm-12 col-xs-12" id="tooltips">
+                                                        <a rel="tooltip" data-toggle="tooltip" data-placement="top" title="<?php print($employee->getTelephoneNumberMobile()); ?>/<?php print($employee->getTelephoneNumberResidence()); ?>">
+                                                          <?php print($employee->getTelephoneNumberMobile()); ?>
+                                                        </a>
+                                                    </div> 
+                                                    
+                                                </td>
+                                                <td><?php print($employee->getEMailAddressOffice()); ?></td>
+                                          
+                                                <td>
+                                                    <?php if($employee->getContractStatus() == "Probation"){?>
+                                                    <?php echo $this->translate("Probation"); ?>
+                                                    <?php } else {?>
+                                                    <?php echo $this->translate("Confirmed"); ?>
+                                                    <?php } ?>
+                                                </td>
+                                                <td>
+                                                    <?php print($this->getType($employee->getEmployeeType())->getName()); ?>
+                                                </td>
+                                                <td>
+                                                    <?php if($employee->getEmployeeStatus() == "In-Service") {?>
+                                                    <span class="label bg-green"><?php echo $this->translate("In-Service"); ?></span>
+                                                    <?php } else {?>
+                                                    <span class="label bg-red"><?php echo $this->translate("Not-In-Service"); ?></span>
+                                                    <?php } ?>
+                                                </td>
+                                                
+                                              
+                                            </tr>
+                                        <?php } ?>
+                                    <?php } else {?>
+                                            <tr>
+                                                <td colspan="8" class="table_data_not_found"><?php echo $this->translate("Records-Not-Available");?></td>
+                                            </tr>
+                                    <?php } ?>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                                        
+                                        <div class="col-md-12 col-sm-12 col-xs-12 m-b-20" id="selected-item-list">
+                                          
+                                        </div>
+                                        
+                                        
+                                        
+                                        
+                                        <div class="form-group text-left">
+                                            <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Submit");?></button>
+                                            <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel");?></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    
+                </div>
+            </div>
+            
+                        
+            
+                  
+        </div>
+
+<script type="text/javascript">
+
+$('.recipientListItems').change(function() {
+        if($(this).is(":checked")) {
+           var staffId =  $(this).attr("name");
+           var staffName =  $(this).attr("value");
+           $('#selected-item-list').append("<span class='label label-default m-r-5'"+" id='"+'listitem_'+staffId+"'"+"><input type='hidden' name='txtRecList[]' value="+staffId+" />"+staffName+"</span>");
+        } else {
+            var staffId =  $(this).attr("name");
+            $("#listitem_" + staffId).remove();
+        }   
+    });
+</script>

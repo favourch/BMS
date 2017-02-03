@@ -1,0 +1,116 @@
+<div id="main-content">
+
+    <div class="row">
+        <div class="col-md-12">
+
+
+
+            <div class="panel panel-default">
+
+                <div class="panel-body">
+                    <h5 class="panel-title"><strong><?php echo $this->translate("Leave-Information-Step1"); ?></strong></h5>
+                    <div class="row border-top">
+                        
+                        <form id="form_leave_step1" name="form_leave_step1" role="form" method="get" class="form-horizontal" action="<?php print($this->baseUrl());?>/leave/add/">
+                        
+                        <div class="col-md-5 col-sm-12 col-xs-12 m-t-20 m-b-20">
+                            
+
+                            <div class="form-group">
+                                <label class="form-label"><strong><?php echo $this->translate("No-Of-Days-Leave"); ?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                    <input parsley-minlength="3" class="form-control" type="text" name="no-of-days-leave" id="no-of-days-leave"/>
+                                </div>
+                            </div>
+
+
+
+                             <div class="form-group text-left">
+                                            <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Go-To-Next-Step");?></button>
+                                            <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel");?></button>
+                                        </div>
+
+
+                        </div>
+                            </form>
+                    </div>
+
+
+
+                    
+
+
+
+
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+
+</div>
+
+<script type="text/javascript">
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+jQuery(document).ready(function() {
+    // The text to show up within a field when it is incorrect
+    emptyerror = "This field is required.";
+    
+    jQuery("#form_leave_step1").submit(function() {
+        
+        //employee
+        var employee = jQuery('#employee').val();
+        if ((employee == "") || (employee == emptyerror)) {
+            jQuery('#employee').addClass("form_error");
+            jQuery('#employee').val(emptyerror);
+        } else {
+            jQuery('#employee').removeClass("form_error");
+        }
+        
+        //no_Of_Days_Leave
+        var no_Of_Days_Leave = jQuery('#no-of-days-leave').val();
+        if ((no_Of_Days_Leave == "") || (no_Of_Days_Leave == emptyerror)) {
+            jQuery('#no-of-days-leave').addClass("form_error");
+            jQuery('#no-of-days-leave').val(emptyerror);
+        } else {
+            jQuery('#no-of-days-leave').removeClass("form_error");
+        }
+        
+        
+        if (jQuery(":input").hasClass("form_error")) {
+            validationErrorMsg();
+            return false;
+        } else {
+            return true;
+        }
+        
+        
+        
+    });
+    
+     // Clears any fields in the form when the user clicks on them
+    jQuery(":input").focus(function() {
+        if (jQuery(this).hasClass("form_error")) {
+            jQuery(this).val("");
+            jQuery(this).removeClass("form_error");
+        }
+			
+    });
+    
+});
+
+
+</script>
+    

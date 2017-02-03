@@ -1,0 +1,292 @@
+   <div id="main-content">
+       <form id="form_view_view_domain" name="form_view_view_domain" role="form" method="post" class="form-horizontal">
+            <div class="row">
+                <div class="col-md-12">
+            
+                    
+                    
+                    <div class="panel panel-default">
+                   
+                        <div class="panel-body">
+                            <h5 class="panel-title"><strong><?php echo $this->translate("Order"); ?></strong> # <?php print($this->domainInformation->getOrder());?> -<a href="<?php print($this->baseUrl());?>/admin/order/view/id/<?php print($this->domainInformation->getId());?>"> view order</a></h5>
+                            <div class="row border-top">
+                                <div class="col-md-12 col-sm-12 col-xs-12 m-t-20 m-b-20">
+                                
+                                    <div class="col-md-12 pull-right">
+                                    <div class="row">
+                                    
+                                       <div class="form-group">
+                                    <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Domains");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                     <select name="security_question" id="security_question" class="form-control" tabindex="6">
+        <option value="">Please select</option>
+        <?php if($this->clientsDomains){?>
+        <?php foreach($this->clientsDomains As $dIndex=>$domain){?>
+        
+        <option value="<?php print($domain->getId());?>" <?php if($this->domainInformation->getId() == $domain->getId()){?> selected="selected" <?php } ?> ><?php print($domain->getDomain());?></option>
+        
+        <?php } ?>
+        <?php } ?>
+    </select>
+                                </div>
+                            </div>
+                                        
+                                        
+                                        
+                                    
+                                    
+                                </div>
+                            </div>
+                                    
+                                </div>
+                            </div>
+                            
+                             
+                            
+                                <div class="col-md-5 pull-left">
+                                    <div class="row">
+                                    
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Order-Type");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input type="text" id="txtRegistrationDate" name="txtRegistrationDate" class="form-control" tabindex="8" value="<?php print($this->domainInformation->getType());?>">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Registration-Date");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input type="text" name="txtRegistrationDate" id="txtRegistrationDate" class="form-control" value="<?php print($this->domainInformation->getRegistrationdate());?>" />
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Expiry-Date");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input type="text" name="txtExpiryDate" id="txtExpiryDate" class="form-control" value="<?php print($this->domainInformation->getExpirydate());?>" />
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Next-Due-Date");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input type="text" name="txtNextDueDate" id="txtNextDueDate" class="form-control" value="<?php print($this->domainInformation->getNextduedate());?>" />
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Payment-Method");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <select name="cmbPaymentMethod" id="cmbPaymentMethod" class="form-control">
+                                                    <option value="">Please select</option>
+                                                    <?php foreach($this->paymentMethods As $rIndex=>$paymentMethod){?>
+                                                    <option value="<?php print($paymentMethod->getId());?>" <?php if($paymentMethod->getId() == $this->domainInformation->getPaymentmethod()->getId()){?> selected="selected" <?php } ?> ><?php print($paymentMethod->getName());?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Status");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <select name="cmbStatus" id="cmbStatus" class="form-control">
+        <option value="">Please select</option>
+        <option value="Pending" <?php if($this->domainInformation->getStatus() == 'Pending'){?> selected="selected" <?php } ?>>Pending</option>
+        <option value="Pending Transfer" <?php if($this->domainInformation->getStatus() == 'Pending Transfer'){?> selected="selected" <?php } ?>>Pending Transfer</option>
+        <option value="Active" <?php if($this->domainInformation->getStatus() == 'Active'){?> selected="selected" <?php } ?>>Active</option>
+        <option value="Expired" <?php if($this->domainInformation->getStatus() == 'Expired'){?> selected="selected" <?php } ?>>Expired</option>
+        <option value="Cancelled" <?php if($this->domainInformation->getStatus() == 'Cancelled'){?> selected="selected" <?php } ?>>Cancelled</option>
+        <option value="Fraud" <?php if($this->domainInformation->getStatus() == 'Fraud'){?> selected="selected" <?php } ?>>Fraud</option>
+    </select>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Subscription-ID");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input type="text" name="txtSubscriptionID" id="txtSubscriptionID" class="form-control" value="<?php print($this->domainInformation->getSubscriptionid());?>" />
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Nameserver-2");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input type="text" name="txtNameserver2" id="txtNameserver2" class="form-control" value="<?php print($this->domainInformation->getNameServer2());?>" />
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Nameserver-4");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                               <input type="text" name="txtNameserver4" id="txtNameserver4" class="form-control" value="<?php print($this->domainInformation->getNameServer4());?>" />
+                                            </div>
+                                        </div>
+                                        
+                           
+                                        
+                                   
+                                </div>
+                            </div>
+                            
+                                 <div class="col-md-5 pull-right">
+                                    <div class="row">
+                                    
+                                        <div class="form-group">
+                                            <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Registration-Period");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                    <input type="text" id="txtRegistrationPeriod" name="txtRegistrationPeriod" class="form-control" tabindex="9" value="<?php print($this->domainInformation->getRegistrationperiod());?>" style="width: 60px;"> Years
+                                </div>
+                            </div>
+                                        
+                          
+                                        <div class="form-group">
+                                            <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Domain");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                     <input type="text" name="txtDomainName" id="txtDomainName" class="form-control" value="<?php print($this->domainInformation->getDomain());?>" />
+                                </div>
+                            </div>
+                         
+                                       <div class="form-group">
+                                            <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Registrar");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                     <select name="cmbRegistrar" id="cmbRegistrar" class="form-control">
+                                        <option value="">Please select</option>
+                                        <?php foreach($this->registrars As $rIndex=>$register){?>
+                                        <option value="<?php print($register->getName());?>" <?php if($register->getName() == $this->domainInformation->getRegistrar()){?> selected="selected" <?php } ?> ><?php print($register->getName());?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                            </div> 
+                                        
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("First-Payment-Amount");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                     <input type="text" name="txtFirstPaymentAmount" id="txtFirstPaymentAmount" class="form-control" value="<?php print($this->domainInformation->getFirstpaymentamount());?>" />
+                                </div>
+                            </div> 
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Recurring-Amount");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                    <input type="text" name="txtRecurringAmount" id="txtRecurringAmount" class="form-control" value="<?php print($this->domainInformation->getRecurringamount());?>" />
+                                </div>
+                            </div> 
+                                        
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Promotion-Code");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                   <input type="text" name="txtPromotionCode" id="txtPromotionCode" class="form-control" value="<?php print($this->domainInformation->getPromoid());?>" />
+                                </div>
+                            </div> 
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Nameserver-1");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                   <input type="text" name="txtNameserver1" id="txtNameserver1" class="form-control" value="<?php print($this->domainInformation->getNameServer1());?>" />
+                                </div>
+                            </div> 
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Nameserver-3");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                    <input type="text" name="txtNameserver3" id="txtNameserver3" class="form-control" value="<?php print($this->domainInformation->getNameServer3());?>" />
+                                </div>
+                            </div> 
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Registrar-Lock");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                    <input type="checkbox" value="Yes" name="chkRegistrarLock" <?php if($this->domainInformation->getRegistrarLock() == 'Yes'){?> checked="checked" <?php } ?> /> Yes 
+                                </div>
+                            </div> 
+                                        
+                                        
+                                  
+                                </div>
+                            </div>
+                            
+                            
+                            
+                            <div class="col-md-12 pull-right">
+                                    <div class="row">
+                                        
+                                        <div class="form-group">
+                                    <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Run-Commands");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                     <button name="bthRunCommand" value="Register" class="btn btn-blue">Register</button>
+    <button name="bthRunCommand" value="Transfer" class="btn btn-blue">Transfer</button>
+    <button name="bthRunCommand" value="Renew" class="btn btn-blue">Renew</button>
+    <button name="bthRunCommand" value="Modify Contact Details" class="btn btn-blue">Modify Contact Details</button>
+    <button name="bthRunCommand" value="Get EPP Code" class="btn btn-blue">Get EPP Code</button>
+                                </div>
+                            </div>
+                                        
+                                        
+                                        <div class="form-group">
+                                    <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Management-Tools");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                      <input type="checkbox" value="Yes" name="chkDnsManagement" <?php if($this->domainInformation->getDnsmanagement() == 'Yes'){?> checked="checked" <?php } ?> /> DNS Management 
+                                      <input type="checkbox" value="Yes" name="chkEmailForwarding" <?php if($this->domainInformation->getEmailforwarding() == 'Yes'){?> checked="checked" <?php } ?> /> Email Forwarding
+                                       <input type="checkbox" value="Yes" name="chkIDProtection" <?php if($this->domainInformation->getIdprotection() == 'Yes'){?> checked="checked" <?php } ?> /> ID Protection
+                                        <input type="checkbox" value="Yes" name="chkDonotrenew" <?php if($this->domainInformation->getDonotrenew() == 'Yes'){?> checked="checked" <?php } ?> /> Disable Auto Renew
+                                </div>
+                            </div>
+                                        
+                                    
+                                       <div class="form-group">
+                                    <label class="form-label" for="firstname-input"><strong><?php echo $this->translate("Admin-Notes");?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                      <textarea rows="3" class="form-control" id="admin_notes" name="admin_notes" tabindex="25"><?php print($this->domainInformation->getAdditionalnotes());?></textarea>
+                                </div>
+                            </div>
+                                        
+                                        <div class="form-group text-left">
+                   <input type="hidden" name="txtId" value="<?php print($this->domainInformation->getId());?>" />
+                                <input type="hidden" name="txtClientId" value="<?php print($this->domainInformation->getClient()->getId());?>" />
+                                            <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Save-Changes");?></button>
+                                            <button type="reset" class="btn btn-blue"><?php echo $this->translate("Cancel");?></button>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+
+                    
+                    
+                </div>
+            </div>
+            
+                        
+            
+                   </form>     
+        </div>
+<script src="<?php print($this->baseUrl());?>/assets/validator/admin/view_view_domain.js"></script>

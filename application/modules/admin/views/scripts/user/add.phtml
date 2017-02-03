@@ -1,0 +1,255 @@
+<div id="main-content">
+    <div class="row">
+        <div class="col-md-12">
+
+
+
+            <div class="panel panel-default">
+                <form id="form_user" name="form_user" role="form" method="post" class="form-horizontal">
+                    <div class="panel-body">
+                        <h5 class="panel-title"><strong><?php echo $this->translate("Basic-Information"); ?></strong></h5>
+                        <div class="row border-top">
+                            <div class="col-md-5 m-t-20">
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Employee-Number"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3" class="form-control" type="text" name="txtEmployeeNumber" id="txtEmployeeNumber"/>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Country-Name");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <select class="form-control" name="country" id="country">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->countries As $cIndex=>$country){?>
+                                                     <option value="<?php print($country->getId());?>"><?php print($country->getName());?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Region-Name");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <span id="region_box">
+                                                <select class="form-control" name="region" id="region">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                </select>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Branch-Name");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <span id="branch_box">
+                                                <select class="form-control" name="branch" id="branch">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                </select>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Department-Name");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <span id="department_box">
+                                                <select class="form-control" name="department" id="department">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                </select>
+                                                </span>
+                                            </div>
+                                        </div>                               
+                                
+                                
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Full-Name"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3" class="form-control" type="text" name="txtFullName" id="txtFullName"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Email-Address"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3" class="form-control" type="text" name="txtUserEmail" id="txtUserEmail"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Display-Name"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3" class="form-control" type="text" name="txtDisplayName" id="txtDisplayName"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Status"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <select parsley-minlength="3" class="form-control" name="txtUserStatus" id="txtUserStatus">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <option value="1"><?php echo $this->translate("Enabled"); ?></option>
+                                                    <option value="2"><?php echo $this->translate("Disabled"); ?></option>
+                                                    <option value="3"><?php echo $this->translate("Suspended"); ?></option>
+                                                </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <h5 class="panel-title"><strong><?php echo $this->translate("Login-Information"); ?></strong></h5>
+                        <div class="row border-top">
+                            <div class="col-md-5 m-t-20">
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Username"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3" class="form-control" type="text" name="txtUsername" id="txtUsername"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Password"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3" class="form-control" type="password" name="txtUserPassword" id="txtUserPassword"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Confirm-Password"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3" class="form-control" type="password" name="txtConfirmPassword" id="txtConfirmPassword"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <h5 class="panel-title"><strong><?php echo $this->translate("User-Role-and-Privilege"); ?></strong></h5>
+                        <div class="row border-top">
+                            <div class="col-md-5 m-t-20">
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("User-Role"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <select parsley-minlength="3" class="form-control" name="txtUserRole" id="txtUserRole">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->userRoles As $uIndex=>$userRole){?>
+                                                    <option value="<?php print($userRole->getId());?>"><?php print($userRole->getName());?></option>
+                                                    <?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Data-Privilege"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <select parsley-minlength="3" class="form-control" name="txtDataPrivilege" id="txtDataPrivilege">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <option value="1"><?php echo $this->translate("Global-User"); ?></option>
+                                                    <option value="2"><?php echo $this->translate("Country-User"); ?></option>
+                                                    <option value="3"><?php echo $this->translate("Region-User"); ?></option>
+                                                    <option value="4"><?php echo $this->translate("Branch-User"); ?></option>
+                                                    <option value="5"><?php echo $this->translate("Department-User"); ?></option>
+                                                    <option value="6"><?php echo $this->translate("Assign-Manually"); ?></option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <h5 class="panel-title manul_selection"><strong><?php echo $this->translate("Select-Country-Region-Branch-Department"); ?></strong></h5>
+                        <div class="row border-top manul_selection">
+                            <div class="col-md-5 m-t-20">
+                                <div class="form-group">
+                                    <?php if($this->countries){?>
+                                    <div id="obtor_data_privilages">
+                                        <?php foreach($this->countries As $cIndex=>$country){?>
+                                        <ul>
+                                            <li><input type="checkbox" value="<?php print($country->getId());?>" name="chkCountry[]"><span class="w-500 tree_option_lable"><?php print($country->getName());?></span>
+                                                
+                                                <?php 
+                                                $regions = $this->getRegions($country->getId());
+                                                foreach($regions As $rIndex=>$region){
+                                                ?>
+                                                <ul class="tree_sub_space">
+                                                    <li><input type="checkbox" name="chkRegion[]" value="<?php print($region->getId());?>"><span class="w-500 tree_option_lable"><?php print($region->getName());?></span>
+                                                        <?php 
+                                                        $branches = $this->getBranches($region->getId());
+                                                        foreach($branches As $bIndex=>$branch){
+                                                        ?>
+                                                        <ul class="tree_sub_space">
+                                                            <li><input type="checkbox" name="chkBranch[]" value="<?php print($branch->getId());?>"><span class="w-500 tree_option_lable"><?php print($branch->getName());?></span>
+                                                                   
+                                                                    <ul class="tree_sub_space">
+                                                                        <?php 
+                                                                   $departments = $this->getDepartments($branch->getId());
+                                                                   foreach($departments As $bIndex=>$department){
+                                                                   ?>
+                                                                        <li><input type="checkbox" name="chkDepartment[]" value="<?php print($department->getId());?>"><span class="w-500 tree_option_lable"><?php print($department->getName());?></span>
+                                                                   <?php } ?>
+                                                                    </ul>
+                                                        </ul>
+                                                        <?php } ?>
+                                                </ul>
+                                                <?php } ?>
+                                                
+                                            </li>
+                                        </ul>
+                                        <?php } ?>
+                                    </div>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+
+<div class="row">
+                            <div class="col-md-5 m-t-20">
+                                <div class="form-group text-left">
+                               <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Submit");?></button>
+                                            <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel");?></button>
+                                </div>
+			    </div>
+</div>
+
+                    </div>
+
+            </div>
+            </form>
+
+
+        </div>
+
+
+
+    </div>
+</div>
+
+
+
+
+</div>
+<script src="<?php print($this->baseUrl()); ?>/assets/validator/admin/user.js"></script>

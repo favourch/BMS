@@ -1,0 +1,331 @@
+<div id="main-content">
+
+    <div class="row">
+        <div class="col-md-12">
+
+
+
+            <div class="panel panel-default">
+                
+                <form id="form_leave_step2" name="form_leave_step2" role="form" method="post" class="form-horizontal">
+
+                <div class="panel-body">
+                    <h5 class="panel-title"><strong><?php echo $this->translate("Basic-Information"); ?></strong></h5>
+                    <div class="row border-top">
+                        <div class="col-md-5 col-sm-12 col-xs-12 m-t-20 m-b-20">
+                            <div class="form-group">
+                                <label class="form-label"><strong><?php echo $this->translate("Employee"); ?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                    <input type="hidden" class="form-control" name="txtEmployee" id="txtEmployee" value="<?php print($this->leaveEmployeeInfo->getId());?>" />
+                                    <input type="text" class="form-control" name="txtEmployeeDisplayName" id="txtEmployeeDisplayName" <?php if($this->getEmployee($this->leaveEmployeeInfo->getId())){?> value="<?php print($this->getEmployee($this->leaveEmployeeInfo->getId())->getNameWithInitials());?>" <?php } ?> />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label"><strong><?php echo $this->translate("No-Of-Days-Leave"); ?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                    <input parsley-minlength="3" class="form-control" type="text" name="txtNoOfDaysLeave" id="txtNoOfDaysLeave" value="<?php print($this->no_of_days_leave);?>"/>
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label class="form-label"><strong><?php echo $this->translate("Reason"); ?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                    <textarea parsley-minlength="3" class="form-control" type="text" name="txtReason" id="txtReason"></textarea>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+                    <div id="leave_days">
+                        <?php for ($leaveDay = 1; $leaveDay <= $this->no_of_days_leave; $leaveDay++) { ?>
+                            <h5 class="panel-title"><strong><?php echo $this->translate("Leave-Day"); ?> - <?php print($leaveDay); ?></strong></h5>
+                            <div class="row border-top">
+                                <div class="col-md-5 col-sm-12 col-xs-12 m-t-20 m-b-20">
+
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("Date-On"); ?></strong></label>
+                                        <div class="input-icon right">
+                                            <i class="fa"></i>
+                                            <input class="pickadate form-control" type="text" name="txtDateOn[]" id="txtDateOn<?php print($leaveDay);?>">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label"><strong><?php echo $this->translate("LeaveType"); ?></strong></label>
+                                        <div class="input-icon right">
+                                            <i class="fa"></i>
+                                            <select parsley-minlength="3" class="form-control leaveType"  name="txtLeaveType[]" id="txtLeaveType<?php print($leaveDay);?>" title="<?php print($leaveDay);?>">
+                                                <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                <option value="short"><?php echo $this->translate("short"); ?></option>
+                                                <option value="half"><?php echo $this->translate("half"); ?></option>
+                                                <option value="full"><?php echo $this->translate("full"); ?></option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group leaveTimeFormGroup" id="leaveTime<?php print($leaveDay);?>">
+                                        <label class="form-label"><strong><?php echo $this->translate("LeaveTime"); ?></strong></label>
+                                        <span class="tips"><?php echo $this->translate("please-enter-the-time-if-leave-is-not-full-day"); ?></span>
+                                        <div class="input-icon right">
+                                            <i class="fa"></i>
+                                            <?php echo $this->translate("From"); ?> : 
+                                             <select class="form-control time_combo" name="cmbFromTimeHr[]" id="cmbFromTimeHr<?php print($leaveDay);?>">
+                                             <option value=""></option>
+                                             <?php for($hr=1;$hr<24;$hr++){?>
+                                             <option value="<?php print(sprintf("%02s", $hr));?>"><?php print(sprintf("%02s", $hr));?></option>
+                                             <?php } ?>
+                                        </select>
+                                            
+                                             <select class="form-control time_combo" name="cmbFromTimeMin[]" id="cmbFromTimeMin<?php print($leaveDay);?>">
+                                             <option value=""></option>
+                                             <?php for($min=0;$min<60;$min++){?>
+                                             <option value="<?php print(sprintf("%02s", $min));?>"><?php print(sprintf("%02s", $min));?></option>
+                                             <?php } ?>
+                                        </select>
+                                            
+                                            <?php echo $this->translate("To"); ?> : 
+                                            <select class="form-control time_combo" name="cmbToTimeHr[]" id="cmbToTimeHr<?php print($leaveDay);?>">
+                                             <option value=""></option>
+                                             <?php for($hr=1;$hr<24;$hr++){?>
+                                             <option value="<?php print(sprintf("%02s", $hr));?>"><?php print(sprintf("%02s", $hr));?></option>
+                                             <?php } ?>
+                                        </select>
+                                            
+                                             <select class="form-control time_combo" name="cmbToTimeMin[]" id="cmbToTimeMin<?php print($leaveDay);?>">
+                                             <option value=""></option>
+                                             <?php for($min=0;$min<60;$min++){?>
+                                             <option value="<?php print(sprintf("%02s", $min));?>"><?php print(sprintf("%02s", $min));?></option>
+                                             <?php } ?>
+                                        </select>
+                                  
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        <?php } ?>
+                    </div>
+
+
+                    <h5 class="panel-title"><strong><?php echo $this->translate("Other-Details"); ?></strong></h5>
+                    <div class="row border-top">
+                        <div class="col-md-5 col-sm-12 col-xs-12 m-t-20 m-b-20">
+
+                            
+                            
+                            
+                            <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Manager-Employee-Id");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input type="hidden" class="form-control" name="txtManagerEmployeeId" id="txtManagerEmployeeId" value="<?php print($this->leaveEmployeeInfo->getId());?>" />
+                                                 <input type="text" class="form-control" name="txtManagerEmployeeIdDiaplayName" id="txtManagerEmployeeIdDiaplayName" <?php if($this->getEmployee($this->leaveEmployeeInfo->getId())){?> value="<?php print($this->getEmployee($this->leaveEmployeeInfo->getId())->getNameWithInitials());?>" <?php } ?> />
+                                            </div>
+                                        </div>
+                            
+                            <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Supervisor-EmployeeId");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input type="hidden" class="form-control" name="txtSupervisorEmployeeId" id="txtSupervisorEmployeeId" value="<?php print($this->leaveEmployeeInfo->getTeamLeader());?>" />
+                                                <input type="text" class="form-control" name="txtSupervisorEmployeeIdDisplayName" id="txtSupervisorEmployeeIdDisplayName" <?php if($this->getEmployee($this->leaveEmployeeInfo->getTeamLeader())){?> value="<?php print($this->getEmployee($this->leaveEmployeeInfo->getTeamLeader())->getNameWithInitials());?>" <?php } ?> />
+                                            </div>
+                                        </div>
+                            
+                            
+                            <div class="form-group">
+                                <label class="form-label"><strong><?php echo $this->translate("Acting-Staff-Id"); ?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                    <select parsley-minlength="3" class="form-control" name="txtActingStaffId" id="txtActingStaffId">
+                                        <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                        <?php foreach ($this->employeeInfo As $empIndex => $employee) { ?>
+                                            <option value="<?php print($employee->getId()); ?>"><?php print($employee->getNameWithInitials()); ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="form-label"><strong><?php echo $this->translate("Work-Area-To-Be-Covered"); ?></strong></label>
+                                <div class="input-icon right">
+                                    <i class="fa"></i>
+                                    <textarea parsley-minlength="3" class="form-control" type="text" name="txtWorkAreaToBeCovered" id="txtWorkAreaToBeCovered"></textarea>
+                                </div>
+                            </div>
+                            
+                            
+                              
+ <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Admin-Remarks");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                               
+                                                 <textarea parsley-minlength="3" class="form-control" type="text" name="txtAdminRemarks" id="txtAdminRemarks"></textarea>
+                                            </div>
+                                        </div>
+                            
+                            <div class="form-group text-left">
+                                            <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Submit");?></button>
+                                            <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel");?></button>
+                                        </div>
+                            
+
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+                    </form>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+
+</div>
+
+
+<script type="text/javascript">
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+jQuery(document).ready(function() {
+    // The text to show up within a field when it is incorrect
+    emptyerror = "This field is required.";
+    
+    jQuery("#form_leave_step2").submit(function() {
+        
+        //employee
+        var employee = jQuery('#txtEmployeeDisplayName').val();
+        if ((employee == "") || (employee == emptyerror)) {
+            jQuery('#txtEmployeeDisplayName').addClass("form_error");
+            jQuery('#txtEmployeeDisplayName').val(emptyerror);
+        } else {
+            jQuery('#txtEmployeeDisplayName').removeClass("form_error");
+        }
+        
+        //no_Of_Days_Leave
+        var no_Of_Days_Leave = jQuery('#txtNoOfDaysLeave').val();
+        if ((no_Of_Days_Leave == "") || (no_Of_Days_Leave == emptyerror)) {
+            jQuery('#txtNoOfDaysLeave').addClass("form_error");
+            jQuery('#txtNoOfDaysLeave').val(emptyerror);
+        } else {
+            jQuery('#txtNoOfDaysLeave').removeClass("form_error");
+        }
+        
+         //Reason
+        var leaveReason = jQuery('#txtReason').val();
+        if ((leaveReason == "") || (leaveReason == emptyerror)) {
+            jQuery('#txtReason').addClass("form_error");
+            jQuery('#txtReason').val(emptyerror);
+        } else {
+            jQuery('#txtReason').removeClass("form_error");
+        }
+        
+         	//DateOn1
+        var leaveDateOn1 = jQuery('#txtDateOn1').val();
+        if ((leaveDateOn1 == "") || (leaveDateOn1 == emptyerror)) {
+            jQuery('#txtDateOn1').addClass("form_error");
+            jQuery('#txtDateOn1').val(emptyerror);
+        } else {
+            jQuery('#txtDateOn1').removeClass("form_error");
+        }
+        
+
+ 	//txtLeaveType1
+        var leaveType1 = jQuery('#txtLeaveType1').val();
+        if ((leaveType1 == "") || (leaveType1 == emptyerror)) {
+            jQuery('#txtLeaveType1').addClass("form_error");
+            jQuery('#txtLeaveType1').val(emptyerror);
+        } else {
+            jQuery('#txtLeaveType1').removeClass("form_error");
+        }
+        
+
+
+ 	//txtManagerEmployeeId
+        var managerEmployeeId = jQuery('#txtManagerEmployeeIdDiaplayName').val();
+        if ((managerEmployeeId == "") || (managerEmployeeId == emptyerror)) {
+            jQuery('#txtManagerEmployeeIdDiaplayName').addClass("form_error");
+            jQuery('#txtManagerEmployeeIdDiaplayName').val(emptyerror);
+        } else {
+            jQuery('#txtManagerEmployeeIdDiaplayName').removeClass("form_error");
+        }
+
+ 	//txtSupervisorEmployeeId
+        var supervisorEmployeeId = jQuery('#txtSupervisorEmployeeIdDisplayName').val();
+        if ((supervisorEmployeeId == "") || (supervisorEmployeeId == emptyerror)) {
+            jQuery('#txtSupervisorEmployeeIdDisplayName').addClass("form_error");
+            jQuery('#txtSupervisorEmployeeIdDisplayName').val(emptyerror);
+        } else {
+            jQuery('#txtSupervisorEmployeeIdDisplayName').removeClass("form_error");
+        }
+        
+        
+        if (jQuery(":input").hasClass("form_error")) {
+            validationErrorMsg();
+            return false;
+        } else {
+            return true;
+        }
+        
+
+        
+        
+    });
+    
+     // Clears any fields in the form when the user clicks on them
+    jQuery(":input").focus(function() {
+        if (jQuery(this).hasClass("form_error")) {
+            jQuery(this).val("");
+            jQuery(this).removeClass("form_error");
+        }
+			
+    });
+    
+    
+    
+    jQuery( ".leaveType" ).change(function() {
+            var selectedLeaveType = jQuery(this).attr('title');
+            var leaveType = jQuery(this).val();
+            var leaveTimeLayer = "#leaveTime"+selectedLeaveType;
+            if(leaveType == 'short' || leaveType == 'half'){
+                jQuery(leaveTimeLayer).show();
+            } else {
+                jQuery(leaveTimeLayer).hide();
+            }
+            
+    });
+    
+});
+
+
+</script>
+    

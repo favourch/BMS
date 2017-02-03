@@ -1,0 +1,36 @@
+<div id="main-content">
+  <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><strong>Progress bar</strong> options</h3>
+                        </div>
+                        <div class="panel-body">
+                            
+                            <?php foreach($this->xmlData As $mIndex=>$modules){?>
+                            <div class="row">
+                               <?php foreach($modules->children() as $controllers) {?>
+                                <div class="col-md-3 ">
+                                    <h4><?php print($controllers->title);?></h4>
+                                        <ul class="list">
+                                            <?php 
+                                            // get actions...
+                                            $actions = $controllers->actions;
+                                            foreach($actions->children() as $action) {
+                                            ?>
+                                                    <li>
+                                                        <label class="" for="flat-checkbox-1"><input type="checkbox" /> <?php print($action->title);?></label>
+                                                    </li>
+                                            <?php } ?>
+                                                </ul>
+                                </div>
+                                <?php } ?>
+                              
+                            </div>
+                            <?php } ?>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+</div>

@@ -1,0 +1,71 @@
+   <div id="main-content">
+            
+            <div class="row">
+                <div class="col-md-12">
+            
+                    
+                    
+                    <div class="panel panel-default">
+                   
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form id="form_vendor" name="form_vendor" role="form" method="post" class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Vendor-Name");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtVendorName" id="txtVendorName"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Vendor-Contact-Numbers");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <input parsley-minlength="3" class="form-control normal_input" type="text" name="txtContactNumber" id="txtContactNumber"/>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Vendor-Address");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <textarea parsley-minlength="3" class="form-control normal_input" name="txtVendorAddress" id="txtVendorAddress"></textarea>
+                                            </div>
+                                        </div>
+                                        
+                                         <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Vendor-Status");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <select class="form-control normal_input" type="text" name="txtVendorStatus" id="txtVendorStatus"/>
+                                                <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                     <option value="1"><?php echo $this->translate("Enabled"); ?></option>
+                                                     <option value="0"><?php echo $this->translate("Disabled"); ?></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                   
+                                        <div class="form-group text-left">
+                                            <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Submit");?></button>
+                                            <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel");?></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    
+                </div>
+            </div>
+            
+                        
+            
+                        
+        </div>
+<script src="<?php print($this->baseUrl());?>/assets/validator/admin/vendor.js"></script>

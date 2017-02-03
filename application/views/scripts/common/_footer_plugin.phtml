@@ -1,0 +1,16 @@
+<?php if($this->action_status != ""){?>
+<script type="text/javascript">
+        window.onload=function(){
+            <?php if($this->action_status == 'updated'){?>
+            saveSuccessMsg();
+            <?php } elseif ($this->action_status == 'deleted') { ?>
+            deleteSuccessMsg();
+            <?php } elseif ($this->action_status == 'salary-not-generated-for-selected-month') { ?>
+            salaryNotGeneratedForSelectedMonth();
+             <?php } elseif ($this->action_status == 'file-uploaded') { ?>
+            fileUploadSuccessMsg();
+           <?php } ?>
+        };
+        
+    </script>
+<?php } ?>

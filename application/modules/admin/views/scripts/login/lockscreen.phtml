@@ -1,0 +1,39 @@
+<div class="panel panel-signin">
+                <div class="panel-body">
+                    <div class="logo text-center">
+                        <img src="<?php print($this->baseUrl());?>/assets/admin-login/images/logo-primary.png" alt="Chain Logo" >
+                    </div>
+                    <br />
+                    <p class="text-center">Sign in to your account</p>
+                    
+                    <div class="mb30"></div>
+                    
+<form name="login-form" id="login-form" method="post">
+                        <div class="input-group mb15">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input type="text" disabled="disabled" class="form-control" placeholder="Username" name="txtUsername" id="txtUsername" value="Iyngaran Iyathurai">
+                        </div><!-- input-group -->
+                        <div class="input-group mb15">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input type="password" class="form-control" placeholder="Password" name="txtPassword" id="txtPassword">
+                        </div><!-- input-group -->
+                        
+                        <div class="clearfix">
+                            <div class="pull-left">
+                                <div class="ckbox ckbox-primary mt10">
+                                    <input type="checkbox" id="rememberMe" value="1">
+                                    <label for="rememberMe">Remember Me</label>
+                                </div>
+                            </div>
+                            <div class="pull-right">
+                                <button type="submit" class="btn btn-success">Sign In <i class="fa fa-angle-right ml5"></i></button>
+                            </div>
+                        </div>                      
+                    </form>
+                    
+                    
+                </div><!-- panel-body -->
+                <div class="panel-footer">
+                    <a href="<?php print($this->baseUrl());?>/admin/login/reset-password" class="btn btn-primary btn-block">Forgot password?</a>
+                </div><!-- panel-footer -->
+            </div><!-- panel -->

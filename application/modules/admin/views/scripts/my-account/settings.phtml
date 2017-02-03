@@ -1,0 +1,185 @@
+<div id="main-content">
+    <div class="row">
+        <div class="col-md-12">
+
+
+
+            <div class="panel panel-default">
+                <form id="form_user" name="form_user" role="form" method="post" class="form-horizontal" enctype="multipart/form-data">
+                    <div class="panel-body">
+                        <h5 class="panel-title"><strong><?php echo $this->translate("Basic-Information"); ?></strong></h5>
+                        <div class="row border-top">
+                            <div class="col-md-5 m-t-20">
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Employee-Number"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3" class="form-control" type="text" name="txtEmployeeNumber" id="txtEmployeeNumber" value="<?php print($this->userInformation->getEmpNumber());?>"/>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Country-Name");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <select class="form-control" name="country" id="country">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->countries As $cIndex=>$country){?>
+                                                    <option value="<?php print($country->getId());?>" <?php if($this->userInformation->getCountry() == $country->getId()){?> selected="selected" <?php } ?> ><?php print($country->getName());?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Region-Name");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <span id="region_box">
+                                                <select class="form-control" name="region" id="region">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                     <?php foreach($this->regions As $cIndex=>$region){?>
+                                                     <option value="<?php print($region->getId());?>" <?php if($this->userInformation->getRegion() == $region->getId()){?> selected="selected" <?php } ?>><?php print($region->getName());?></option>
+                                                    <?php } ?>
+                                                </select>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Branch-Name");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <span id="branch_box">
+                                                <select class="form-control" name="branch" id="branch">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                    <?php foreach($this->branches As $cIndex=>$branch){?>
+                                                     <option value="<?php print($branch->getId());?>" <?php if($this->userInformation->getBranch() == $branch->getId()){?> selected="selected" <?php } ?>><?php print($branch->getName());?></option>
+                                                    <?php } ?>
+                                                </select>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="form-group">
+                                            <label class="form-label"><strong><?php echo $this->translate("Department-Name");?></strong></label>
+                                            <div class="input-icon right">
+                                                <i class="fa"></i>
+                                                <span id="department_box">
+                                                <select class="form-control" name="department" id="department">
+                                                    <option value="">--<?php echo $this->translate("select"); ?>--</option>
+                                                     <?php foreach($this->departments As $dIndex=>$department){?>
+                                                     <option value="<?php print($department->getId());?>" <?php if($this->userInformation->getDepartment() == $department->getId()){?> selected="selected" <?php } ?>><?php print($department->getName());?></option>
+                                                    <?php } ?>
+                                                </select>
+                                                </span>
+                                            </div>
+                                        </div>                               
+                                
+                                
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Full-Name"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3" class="form-control" type="text" name="txtFullName" id="txtFullName" value="<?php print($this->userInformation->getFullName());?>"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Email-Address"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3" class="form-control" type="text" name="txtUserEmail" id="txtUserEmail" value="<?php print($this->userInformation->getEmailAddress());?>"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Display-Name"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3" class="form-control" type="text" name="txtDisplayName" id="txtDisplayName" value="<?php print($this->userInformation->getDisplayName());?>"/>
+                                    </div>
+                                </div>
+
+                                
+                            </div>
+                        </div>
+
+
+
+                        <h5 class="panel-title"><strong><?php echo $this->translate("Login-Information"); ?></strong></h5>
+                        <div class="row border-top">
+                            <div class="col-md-5 m-t-20">
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Username"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3" class="form-control" type="text" name="txtUsername" id="txtUsername" value="<?php print($this->userInformation->getUserName());?>"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Password"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3" class="form-control" type="password" name="txtUserPassword" id="txtUserPassword"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Confirm-Password"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input parsley-minlength="3" class="form-control" type="password" name="txtConfirmPassword" id="txtConfirmPassword"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                         <h5 class="panel-title"><strong><?php echo $this->translate("User-Image"); ?></strong></h5>
+                        <div class="row border-top">
+                            <div class="col-md-5 m-t-20">
+                             
+                                <div class="form-group">
+                                    <label class="form-label"><strong><?php echo $this->translate("Upload-New-Image"); ?></strong></label>
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                               <input class="form-control" type="file" id="txtUserImage" name="txtUserImage">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                      
+<div class="row">
+                            <div class="col-md-5 m-t-20">
+                                <div class="form-group text-left">
+                               <button class="btn btn-blue" type="submit" name="Submit" id="Submit"><?php echo $this->translate("Submit");?></button>
+                                            <button type="reset" class="btn btn-default"><?php echo $this->translate("Cancel");?></button>
+                                </div>
+			    </div>
+</div>
+
+                    </div>
+
+            </div>
+            </form>
+
+
+        </div>
+
+
+
+    </div>
+</div>
+
+
+
+
+</div>
+<script src="<?php print($this->baseUrl()); ?>/assets/validator/admin/edit-user.js"></script>

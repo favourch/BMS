@@ -1,0 +1,651 @@
+<!-- BEGIN MAIN SIDEBAR -->
+        <nav id="sidebar">
+            <div id="main-menu">
+                <ul class="sidebar-nav">
+                    <li <?php if($this->controllerName=='index' && $this->actionName=='index'){?> class="current active" <?php } ?>>
+                        <a href="<?php print($this->baseUrl());?>/admin/"><i class="fa fa-dashboard"></i><span class="sidebar-text"><?php echo $this->translate("Dashboard");?></span></a>
+                    </li>
+                    
+                    <!-- HRM Module -->
+                    <li <?php if($this->controllerName=='staff'){?> class="current active hasSub" <?php } ?>>
+                        <a href="#"><i class="fa fa-wheelchair"></i><span class="sidebar-text"><?php echo $this->translate("Staff-Management");?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+				
+                            <li <?php if($this->controllerName=='staff' && $this->actionName=='index'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/staff/"><span class="sidebar-text"><?php echo $this->translate("Manage-Staffs");?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='staff' && $this->actionName=='add'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/staff/add/"><span class="sidebar-text"><?php echo $this->translate("Add-New-Staff");?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='staff' && $this->actionName=='search'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/staff/search/"><span class="sidebar-text"><?php echo $this->translate("Advanced-Search");?></span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    
+                     <!-- HRM Module -->
+                    <li <?php if($this->controllerName=='attendance'){?> class="current active hasSub" <?php } ?>>
+                        <a href="#"><i class="fa fa-credit-card"></i><span class="sidebar-text"><?php echo $this->translate("Attendance"); ?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+				
+                            <li <?php if($this->controllerName=='attendance' && $this->actionName=='index'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/attendance/"><span class="sidebar-text"><?php echo $this->translate("Today-s-Attendance"); ?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='attendance' && $this->actionName=='add'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/attendance/add/"><span class="sidebar-text"><?php echo $this->translate("Add-New-Attendance"); ?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='attendance' && $this->actionName=='upload'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/attendance/upload/"><span class="sidebar-text"><?php echo $this->translate("Upload-Attendance-Csv-upload"); ?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='attendance' && $this->actionName=='search'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/attendance/search/"><span class="sidebar-text"><?php echo $this->translate("Search-Attendance"); ?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='attendance' && $this->actionName=='run-commands'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/attendance/run-commands/"><span class="sidebar-text"><?php echo $this->translate("Run-Attendance-Command"); ?></span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    
+                    <!-- HRM Module -->
+                    <li <?php if($this->controllerName=='leave'){?> class="current active hasSub" <?php } ?>>
+                        <a href="#"><i class="glyphicon glyphicon-calendar"></i><span class="sidebar-text"><?php echo $this->translate("Leaves"); ?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+				
+                            <li <?php if($this->controllerName=='leave' && $this->actionName=='index'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/leave/?leave-from=<?php print(date('Y-m-d'));?>&leave-to=<?php print(date('Y-m-d'));?>"><span class="sidebar-text"><?php echo $this->translate("Today-s-Leave"); ?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='leave' && ($this->actionName=='add' || $this->actionName=='add-leave')){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/leave/add-leave/"><span class="sidebar-text"><?php echo $this->translate("Add-New-Leave"); ?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='leave' && $this->actionName=='search'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/leave/index/?status=Pending"><span class="sidebar-text"><?php echo $this->translate("Pending-Leave-Applications"); ?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='leave' && $this->actionName=='search'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/leave/search/"><span class="sidebar-text"><?php echo $this->translate("Search-Leaves"); ?></span></a>
+                            </li>
+                             <li <?php if($this->controllerName=='leave' && $this->actionName=='latest-leave-applications'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/leave/latest-leave-applications/"><span class="sidebar-text"><?php echo $this->translate("Latest-Leave-Applications"); ?></span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    
+                    <!-- HRM Module -->
+                    <li <?php if($this->controllerName=='payroll'){?> class="current active hasSub" <?php } ?>>
+                        <a href="#"><i class="glyphicon glyphicon-book"></i><span class="sidebar-text"><?php echo $this->translate("Payroll"); ?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+				
+                            <li <?php if($this->controllerName=='payroll' && ($this->actionName=='index' && $this->actionStatus!='Pending')){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/payroll/">
+					<span class="sidebar-text"><?php echo $this->translate("Salary-Payments"); ?></span>
+				</a>
+                            </li>
+
+                            <li <?php if($this->controllerName=='payroll' && ($this->actionName=='index' && $this->actionStatus=='Pending')){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/payroll/index/?status=Pending"><span class="sidebar-text"><?php echo $this->translate("Pending-Salary"); ?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='payroll' && $this->actionName=='search'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/payroll/search/"><span class="sidebar-text"><?php echo $this->translate("Search-Salary-Payments"); ?></span></a>
+                            </li>
+                             <li <?php if($this->controllerName=='payroll' && $this->actionName=='recent-salary-payments'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/payroll/recent-salary-payments/"><span class="sidebar-text"><?php echo $this->translate("Recent-Salary-Payments"); ?></span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    
+                         <!-- ERP Module -->
+                    <li style="display:none;" <?php if($this->controllerName=='customer'){?> class="current active hasSub" <?php } ?>>
+                        <a href="#"><i class="glyphicon glyphicon-link"></i><span class="sidebar-text"><?php echo $this->translate("Customers"); ?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+				
+                            <li <?php if($this->controllerName=='customer' && $this->actionName=='index'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/customer/"><span class="sidebar-text"><?php echo $this->translate("Manage-Customer"); ?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='customer' && $this->actionName=='add'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/customer/add/"><span class="sidebar-text"><?php echo $this->translate("Add-Customer"); ?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='customer' && $this->actionName=='search'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/customer/search/"><span class="sidebar-text"><?php echo $this->translate("Customer-Search"); ?></span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                           <!-- ERP Module -->
+                    <li style="display:none;" <?php if($this->controllerName=='order'){?> class="current active hasSub" <?php } ?>>
+                        <a href="#"><i class="glyphicon glyphicon-shopping-cart"></i><span class="sidebar-text"><?php echo $this->translate("Orders"); ?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+				
+                            <li <?php if($this->controllerName=='order' && $this->actionName=='index'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/order/"><span class="sidebar-text"><?php echo $this->translate("Manage-Orders"); ?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='order' && $this->actionName=='add'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/order/add/"><span class="sidebar-text"><?php echo $this->translate("Add-New-Order"); ?></span></a>
+                            </li>
+
+       <li style="display:none;" <?php if($this->controllerName=='order' && $this->actionName=='search'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/order/search/"><span class="sidebar-text"><?php echo $this->translate("Search-Order"); ?></span></a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                    
+                    <!-- ERP Module -->
+                    <li style="display:none;" <?php if($this->controllerName=='billing'){?> class="current active hasSub" <?php } ?>>
+                        <a href="#"><i class="glyphicon glyphicon-barcode"></i><span class="sidebar-text"><?php echo $this->translate("Billing"); ?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+				
+                            <li <?php if($this->controllerName=='billing' && $this->actionName=='transactions'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/billing/transactions/"><span class="sidebar-text"><?php echo $this->translate("Transactions-List"); ?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='billing' && $this->actionName=='billable-items'){?> class="current active" <?php } ?> style="display: none;">
+                                <a href="<?php print($this->baseUrl());?>/admin/billing/billable-items/"><span class="sidebar-text"><?php echo $this->translate("Billable-Items"); ?></span></a>
+                            </li>
+
+<li <?php if($this->controllerName=='billing' && $this->actionName=='quotes'){?> class="current active" <?php } ?> style="display: none;">
+                                <a href="<?php print($this->baseUrl());?>/admin/billing/quotes/"><span class="sidebar-text"><?php echo $this->translate("Quotes"); ?></span></a>
+                            </li>
+
+<li <?php if($this->controllerName=='billing' && $this->actionName=='offline-cc-processing'){?> class="current active" <?php } ?> style="display: none;">
+                                <a href="<?php print($this->baseUrl());?>/admin/billing/offline-cc-processing/"><span class="sidebar-text"><?php echo $this->translate("Offline-CC-Processing"); ?></span></a>
+                            </li>
+
+<li <?php if($this->controllerName=='billing' && $this->actionName=='gateway-log'){?> class="current active" <?php } ?> style="display: none;">
+                                <a href="<?php print($this->baseUrl());?>/admin/billing/gateway-log/"><span class="sidebar-text"><?php echo $this->translate("Gateway-Log"); ?></span></a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                    
+                    <!-- ERP Module -->
+                    <li style="display:none;" <?php if($this->controllerName=='invoice'){?> class="current active hasSub" <?php } ?>>
+                        <a href="#"><i class="glyphicon glyphicon-list-alt"></i><span class="sidebar-text"><?php echo $this->translate("Invoices"); ?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+				
+                            <li <?php if($this->controllerName=='invoices' && $this->actionName=='index'){?> class="current active" <?php } ?>>
+                       		<a href="<?php print($this->baseUrl());?>/admin/invoice/"><span class="sidebar-text"><?php echo $this->translate("Recent-Invoices"); ?></span></a>
+                            </li>
+
+<li style="display:none;" <?php if($this->controllerName=='invoice' && $this->actionName=='search'){?> class="current active" <?php } ?>>
+                       		<a href="<?php print($this->baseUrl());?>/admin/invoice/search/"><span class="sidebar-text"><?php echo $this->translate("Search-Invoices"); ?></span></a>
+                            </li>
+
+                            
+                        </ul>
+                    </li>
+                    
+                    <!-- ERP Module -->
+                    <li style="display:none;" <?php if($this->controllerName=='domain'){?> class="current active hasSub" <?php } ?>>
+                        <a href="#"><i class="glyphicon glyphicon-globe"></i><span class="sidebar-text"><?php echo $this->translate("Domains"); ?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+				
+                            <li <?php if($this->controllerName=='domain' && $this->actionName=='index'){?> class="current active" <?php } ?>>
+                       		<a href="<?php print($this->baseUrl());?>/admin/domain/"><span class="sidebar-text"><?php echo $this->translate("Recent-Domains"); ?></span></a>
+                            </li>
+
+<li <?php if($this->controllerName=='domain' && $this->actionName=='search'){?> class="current active" <?php } ?>>
+                       		<a href="<?php print($this->baseUrl());?>/admin/domain/search/"><span class="sidebar-text"><?php echo $this->translate("Search-Domains"); ?></span></a>
+                            </li>
+
+                            
+                        </ul>
+                    </li>
+                    
+                    
+
+
+<!-- ERP Module -->
+                    <li style="display:none;" <?php if($this->controllerName=='product'){?> class="current active hasSub" <?php } ?>>
+                        <a href="#"><i class="glyphicon glyphicon-wrench"></i><span class="sidebar-text"><?php echo $this->translate("Products-&-Services"); ?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+				
+                            <li <?php if($this->controllerName=='product' && $this->actionName=='index'){?> class="current active" <?php } ?>>
+                       		<a href="<?php print($this->baseUrl());?>/admin/product/"><span class="sidebar-text"><?php echo $this->translate("Products-&-Services"); ?></span></a>
+                            </li>
+
+<li <?php if($this->controllerName=='product' && $this->actionName=='search'){?> class="current active" <?php } ?>>
+                       		<a href="<?php print($this->baseUrl());?>/admin/product/search/"><span class="sidebar-text"><?php echo $this->translate("New-Products-&-Services"); ?></span></a>
+                            </li>
+
+                            
+                        </ul>
+                    </li>
+                    
+                    
+                    <!-- HRM Module -->
+                    <li <?php if($this->controllerName=='performance-tracker'){?> class="current active hasSub" <?php } ?> style="display: none;">
+                        <a href="#"><i class="glyphicon glyphicon-list-alt"></i><span class="sidebar-text"><?php echo $this->translate("Performance-Trackers"); ?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+				
+                            <li <?php if($this->controllerName=='performance-tracker' && $this->actionName=='index'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/performance-tracker/"><span class="sidebar-text"><?php echo $this->translate("Manage-Trackers"); ?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='performance-tracker' && $this->actionName=='track'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/performance-tracker/track/"><span class="sidebar-text"><?php echo $this->translate("Employee-Trackers"); ?></span></a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                    
+                    
+                    <!-- HRM Module -->
+                    <li <?php if(($this->controllerName=='job-title') || ($this->controllerName=='category' && $this->actionName=='index' && $this->actionRel=='job') || ($this->controllerName=='types' && $this->actionName=='index' && $this->actionRel=='job')){?> class="current active hasSub" <?php } ?>>
+                        <a href="#"><i class="glyphicon glyphicon-tag"></i><span class="sidebar-text"><?php echo $this->translate("Manage-Jobs"); ?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+				
+                            <li <?php if($this->controllerName=='job-title' && $this->actionName=='index'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/job-title/"><span class="sidebar-text"><?php echo $this->translate("Job-Titles"); ?></span></a>
+                            </li>
+                            <li <?php if(($this->controllerName=='category' && $this->actionName=='index' && $this->actionRel=='job')){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/category/?rel=job"><span class="sidebar-text"><?php echo $this->translate("Job-Categories"); ?></span></a>
+                            </li>
+
+			    <li <?php if(($this->controllerName=='types' && $this->actionName=='index' && $this->actionRel=='job')){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/types/?rel=job"><span class="sidebar-text"><?php echo $this->translate("Employment-Types"); ?></span></a>
+                            </li>
+
+		           
+                            
+                        </ul>
+                    </li>
+                    
+                    
+                    <!-- HRM Module -->
+                    <li <?php if($this->controllerName=='vacancy' || $this->controllerName=='candidate'){?> class="current active hasSub" <?php } ?>>
+                        <a href="#"><i class="fa fa-chain"></i><span class="sidebar-text"><?php echo $this->translate("Recruitment"); ?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+				
+                            <li <?php if($this->controllerName=='vacancy'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/vacancy/"><span class="sidebar-text"><?php echo $this->translate("Manage-Vacancies"); ?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='candidate'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/candidate/"><span class="sidebar-text"><?php echo $this->translate("Manage-Candidates"); ?></span></a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                    
+                    <!-- Common Module -->
+                    <li <?php if($this->controllerName=='document'){?> class="current active hasSub" <?php } ?>>
+                        <a href="#"><i class="fa fa-dropbox"></i><span class="sidebar-text"><?php echo $this->translate("Manage-Documents"); ?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+				
+                            <li <?php if($this->controllerName=='document' && $this->actionName=='index'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/document/"><span class="sidebar-text"><?php echo $this->translate("Manage-Documents"); ?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='document' && $this->actionName=='add'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/document/add/"><span class="sidebar-text"><?php echo $this->translate("Add-New-Document"); ?></span></a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                    
+                   
+                    
+                   
+                    <li <?php if($this->controllerName=='calendar'){?> class="current active" <?php } ?>>
+                        <a href="<?php print($this->baseUrl());?>/admin/calendar/"><i class="glyph-icon flaticon-calendar53"></i><span class="sidebar-text"><?php echo $this->translate("Calendar"); ?></span></a>
+                    </li>
+                    
+                    <!-- HRM Module -->
+                    <li <?php if($this->controllerName=='announcement'){?> class="current active hasSub" <?php } ?>>
+                        <a href="#"><i class="fa fa-volume-up"></i><span class="sidebar-text"><?php echo $this->translate("Announcements"); ?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+				
+                            <li <?php if($this->controllerName=='announcement' && ($this->actionName=='index' && $this->actionStatus=='')){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/announcement/"><span class="sidebar-text"><?php echo $this->translate("Manage-Announcements"); ?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='announcement' && $this->actionName=='add-announcement'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/announcement/add-announcement/"><span class="sidebar-text"><?php echo $this->translate("Make-New-Announcement"); ?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='announcement' && ($this->actionName=='index' && $this->actionStatus=='Pending')){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/announcement/?status=Pending"><span class="sidebar-text"><?php echo $this->translate("View-All-Announcements"); ?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='announcement' && $this->actionName=='search'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/announcement/search/"><span class="sidebar-text"><?php echo $this->translate("Search-Announcements"); ?></span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <!-- HRM Module -->
+                    <li style="display:none;" <?php if($this->controllerName=='inquire'){?> class="current active hasSub" <?php } ?>>
+                        <a href="#"><i class="glyph-icon flaticon-email"></i><span class="sidebar-text"><?php echo $this->translate("Customer-Inquiries"); ?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+				
+                            <li <?php if(($this->controllerName=='inquire' && $this->actionName=='index') && ($this->actionStatus != 'in-progress')){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/inquire/"><span class="sidebar-text"><?php echo $this->translate("Manage-Inquiries"); ?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='inquire' && $this->actionName=='add'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/inquire/add/"><span class="sidebar-text"><?php echo $this->translate("Add-New-Inquiries"); ?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='inquire' && $this->actionName=='index' && $this->actionStatus == 'in-progress'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/inquire/index/?status=in-progress"><span class="sidebar-text"><?php echo $this->translate("View-All-Inquiries"); ?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='inquire' && $this->actionName=='search'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/inquire/search/"><span class="sidebar-text"><?php echo $this->translate("Search-Inquiries"); ?></span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <!-- HRM Module -->
+                    <li <?php if($this->controllerName=='asset'){?> class="current active hasSub" <?php } ?>>
+                        <a href="#"><i class="glyphicon glyphicon-screenshot"></i><span class="sidebar-text"><?php echo $this->translate("Assets"); ?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+				
+                            <li <?php if($this->controllerName=='asset' && $this->actionName=='index'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/asset/"><span class="sidebar-text"><?php echo $this->translate("Manage-Assets"); ?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='asset' && $this->actionName=='add'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/asset/add/"><span class="sidebar-text"><?php echo $this->translate("Add-New-Asset"); ?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='model'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/model/?rel=asset"><span class="sidebar-text"><?php echo $this->translate("Model"); ?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='vendor'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/vendor/"><span class="sidebar-text"><?php echo $this->translate("Vendors"); ?></span></a>
+                            </li>
+
+				<li <?php if($this->controllerName=='category'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/category/?rel=asset"><span class="sidebar-text"><?php echo $this->translate("Category"); ?></span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    
+                    <!-- CRM module -->
+                    
+                    <li style="display:none;" <?php if($this->controllerName=='lead'){?> class="current active hasSub" <?php } ?>>
+                        <a href="#"><i class="fa fa-anchor"></i><span class="sidebar-text"><?php echo $this->translate("Leads"); ?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+				
+                            <li <?php if($this->controllerName=='lead' && $this->actionName=='index'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/lead/"><span class="sidebar-text"><?php echo $this->translate("Manage-Leads"); ?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='lead' && $this->actionName=='add'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/lead/add/"><span class="sidebar-text"><?php echo $this->translate("Add-New-Lead"); ?></span></a>
+                            </li>
+			    <li <?php if($this->controllerName=='lead' && $this->actionName=='upload'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/lead/upload/"><span class="sidebar-text"><?php echo $this->translate("Upload-Leads-Csv"); ?></span></a>
+                            </li>
+ 			   <li <?php if($this->controllerName=='lead' && $this->actionName=='search'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/lead/search/"><span class="sidebar-text"><?php echo $this->translate("Search-Leads"); ?></span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    
+                    <!-- CRM module -->
+                    
+                    <li style="display:none;" <?php if($this->controllerName=='contact'){?> class="current active hasSub" <?php } ?>>
+                        <a href="#"><i class="glyphicon glyphicon-link"></i><span class="sidebar-text"><?php echo $this->translate("Contacts"); ?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+				
+                            <li <?php if($this->controllerName=='contact' && $this->actionName=='index'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/contact/"><span class="sidebar-text"><?php echo $this->translate("Manage-Contacts"); ?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='contact' && $this->actionName=='add'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/contact/add/"><span class="sidebar-text"><?php echo $this->translate("Add-New-Contact"); ?></span></a>
+                            </li>
+
+ 			   <li <?php if($this->controllerName=='contact' && $this->actionName=='search'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/contact/search/"><span class="sidebar-text"><?php echo $this->translate("Search-Contact"); ?></span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    
+                    <!-- CRM module -->
+                    
+                    <li <?php if($this->controllerName=='opportunity'){?> class="current active hasSub" <?php } ?> style="display: none;">
+                        <a href="#"><i class="glyphicon glyphicon-thumbs-up"></i><span class="sidebar-text"><?php echo $this->translate("Opportunities"); ?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+				
+                            <li <?php if($this->controllerName=='opportunity' && $this->actionName=='index'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/opportunity/"><span class="sidebar-text"><?php echo $this->translate("Manage-Opportunities"); ?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='opportunity' && $this->actionName=='add'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/opportunity/add/"><span class="sidebar-text"><?php echo $this->translate("Add-New-Opportunity"); ?></span></a>
+                            </li>
+
+ 			   <li <?php if($this->controllerName=='opportunity' && $this->actionName=='search'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/opportunity/search/"><span class="sidebar-text"><?php echo $this->translate("Search-Opportunity"); ?></span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    
+                    <!-- CRM module -->
+                    
+                    <li style="display:none;" <?php if($this->controllerName=='email-campaign'){?> class="current active hasSub" <?php } ?>>
+                        <a href="#"><i class="glyphicon glyphicon-envelope"></i><span class="sidebar-text"><?php echo $this->translate("Email-Campaigns"); ?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+				
+                            <li <?php if($this->controllerName=='email-campaign' && $this->actionName=='index'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/email-campaign/"><span class="sidebar-text"><?php echo $this->translate("Manage-Emails"); ?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='email-campaign' && $this->actionName=='add'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/email-campaign/add/"><span class="sidebar-text"><?php echo $this->translate("Add-New-Email"); ?></span></a>
+                            </li>
+
+ 			   <li <?php if($this->controllerName=='email-campaign' && $this->actionName=='search'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/email-campaign/search/"><span class="sidebar-text"><?php echo $this->translate("Search-Email"); ?></span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <!-- CRM module -->
+                    
+                    
+                    
+                    
+                    <!-- CRM module -->
+                    
+                    <li style="display:none;" <?php if($this->controllerName=='quote'){?> class="current active hasSub" <?php } ?> style="display: none;">
+                        <a href="#"><i class="glyphicon glyphicon-hdd"></i><span class="sidebar-text"><?php echo $this->translate("Quotes"); ?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+				
+                            <li <?php if($this->controllerName=='quote' && $this->actionName=='add'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/quote/add/"><span class="sidebar-text"><?php echo $this->translate("Create-New-Quote"); ?></span></a>
+                            </li>
+                            
+			    <li <?php if($this->controllerName=='quote' && $this->actionName=='index'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/quote/"><span class="sidebar-text"><?php echo $this->translate("View-Quotes"); ?></span></a>
+                            </li>
+
+				
+                        </ul>
+                    </li>
+                    
+                    
+                    
+                    <!-- CRM module -->
+                    
+                    <li  <?php if($this->controllerName=='project'){?> class="current active hasSub" <?php } ?>>
+                        <a href="#"><i class="fa fa-stack-overflow"></i><span class="sidebar-text"><?php echo $this->translate("Projects"); ?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+				
+                            <li <?php if($this->controllerName=='project' && $this->actionName=='index'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/project/"><span class="sidebar-text"><?php echo $this->translate("Manage-Projects"); ?></span></a>
+                            </li>
+                            
+			    <li <?php if($this->controllerName=='project' && $this->actionName=='add'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/project/add/"><span class="sidebar-text"><?php echo $this->translate("Add-New-Project"); ?></span></a>
+                            </li>
+
+				<li <?php if($this->controllerName=='project' && $this->actionName=='search'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/project/search/"><span class="sidebar-text"><?php echo $this->translate("Search-Project"); ?></span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                     <!-- HRM Module -->
+                    <li <?php if($this->controllerName=='task'){?> class="current active hasSub" <?php } ?>>
+                        <a href="#"><i class="glyphicon glyphicon-road"></i><span class="sidebar-text"><?php echo $this->translate("Task-Management"); ?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+				
+                            <li <?php if($this->controllerName=='task' && $this->actionName=='index'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/task/"><span class="sidebar-text"><?php echo $this->translate("Manage-Tasks"); ?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='task' && $this->actionName=='add'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/task/add/"><span class="sidebar-text"><?php echo $this->translate("Add-New-Task"); ?></span></a>
+                            </li>
+			    <li <?php if($this->controllerName=='task' && $this->actionName=='search'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/task/?status=In-Progress"><span class="sidebar-text"><?php echo $this->translate("View-All-Tasks"); ?></span></a>
+                            </li>
+ 			   <li <?php if($this->controllerName=='task' && $this->actionName=='search'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/task/search/"><span class="sidebar-text"><?php echo $this->translate("Search-Tasks"); ?></span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    
+                   <li <?php if($this->controllerName=='to-do-list'){?> class="current active hasSub" <?php } ?>>
+                        <a href="#"><i class="fa fa-edit"></i><span class="sidebar-text"><?php echo $this->translate("My-To-DO-List"); ?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+                               
+                              <li <?php if($this->controllerName=='to-do-list' && $this->actionName=='index'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/to-do-list/index/?status=Active"><span class="sidebar-text"><?php echo $this->translate("My-To-DO-List"); ?></span></a>
+                              </li>
+                            
+                              <li <?php if($this->controllerName=='to-do-list' && $this->actionName=='add'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/to-do-list/add"><span class="sidebar-text"><?php echo $this->translate("Add-To-My-List"); ?></span></a>
+                              </li>
+                            <li <?php if($this->controllerName=='to-do-list' && $this->actionName=='search'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/to-do-list/search"><span class="sidebar-text"><?php echo $this->translate("Search"); ?></span></a>
+                              </li>
+                            
+                        </ul>
+                    </li>
+                    
+                     <!-- The common modules... -->
+                    <li <?php if($this->controllerName=='user' || $this->controllerName=='user-roles'){?> class="current active hasSub" <?php } ?>>
+                        <a href="#"><i class="glyph-icon flaticon-account"></i><span class="sidebar-text"><?php echo $this->translate("User-Management"); ?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+				
+                            <li <?php if($this->controllerName=='user-roles' && $this->actionName=='index'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/user-roles/">
+                                    <span class="sidebar-text"><?php echo $this->translate("Manage-Roles"); ?></span>
+                                </a>
+                            </li>
+                            <li <?php if($this->controllerName=='user' && $this->actionName=='index'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/user/"><span class="sidebar-text"><?php echo $this->translate("Manage-Users"); ?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='user' && $this->actionName=='add'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/user/add"><span class="sidebar-text"><?php echo $this->translate("Add-New-User"); ?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='user' && $this->actionName=='history'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/user/history"><span class="sidebar-text"><?php echo $this->translate("User-s-History"); ?></span></a>
+                            </li>
+                            <li style="display: none;" <?php if($this->controllerName=='user' && $this->actionName=='statistics'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/user/statistics"><span class="sidebar-text"><?php echo $this->translate("Statistics"); ?></span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li <?php if($this->controllerName=='country' || $this->controllerName=='region' || $this->controllerName=='branch' || $this->controllerName=='department'){?> class="current active hasSub" <?php } ?>>
+                        <a href="#"><i class="glyphicon glyphicon-qrcode"></i><span class="sidebar-text"><?php echo $this->translate("Organization"); ?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+                            <li <?php if($this->controllerName=='country'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/country/"><span class="sidebar-text"><?php echo $this->translate("Manage-Country"); ?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='region'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/region/"><span class="sidebar-text"><?php echo $this->translate("Manage-Regions"); ?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='branch'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/branch/"><span class="sidebar-text"><?php echo $this->translate("Manage-Branches"); ?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='department'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/department/"><span class="sidebar-text"><?php echo $this->translate("Manage-Departments"); ?></span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    
+                    <li <?php if($this->controllerName=='logs'){?> class="current active hasSub" <?php } ?>>
+                        <a href="#"><i class="glyph-icon flaticon-orders"></i><span class="sidebar-text"><?php echo $this->translate("Logs"); ?></span><span class="fa arrow"></span></a>
+                          <ul class="submenu collapse">
+                               <li <?php if($this->controllerName=='logs' && $this->actionName=='index'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/logs/index/type=activity"><span class="sidebar-text"><?php echo $this->translate("Activity-Logs"); ?></span></a>
+                            </li>
+                            <li style="display:none;" <?php if($this->controllerName=='logs' && $this->actionName=='index'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/logs/"><span class="sidebar-text"><?php echo $this->translate("System-Logs"); ?></span></a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                    	
+                    
+                    <li <?php if($this->controllerName=='settings' || $this->controllerName=='my-account' || $this->controllerName=='change-password'){?> class="m-b-245 current active hasSub" <?php } else {?> class="m-b-245 hasSub" <?php } ?>>
+                        <a href="#"><i class="glyph-icon flaticon-settings21"></i><span class="sidebar-text"><?php echo $this->translate("Settings"); ?></span><span class="fa arrow"></span></a>
+                         <ul class="submenu collapse">
+                            <li <?php if($this->controllerName=='settings' && $this->actionName=='general-settings'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/settings/general-settings/"><span class="sidebar-text"><?php echo $this->translate("System-General-Settings"); ?></span></a>
+                            </li>
+                            <li style="display: none;" <?php if($this->controllerName=='settings' && $this->actionName=='payment-gateways'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/settings/payment-gateways/"><span class="sidebar-text"><?php echo $this->translate("System-Payment-Gateways"); ?></span></a>
+                            </li>
+                            
+                            <li style="display: none;" <?php if($this->controllerName=='settings' && $this->actionName=='domain-settings'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/settings/domain-settings/"><span class="sidebar-text"><?php echo $this->translate("System-Domain-Settings"); ?></span></a>
+                            </li>
+                            
+                        
+                            <li <?php if($this->controllerName=='settings' && $this->actionName=='leave-settings'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/settings/leave-settings/"><span class="sidebar-text"><?php echo $this->translate("Employee-Leave-Settings"); ?></span></a>
+                            </li>
+                            
+                            <li <?php if($this->controllerName=='settings' && $this->actionName=='office-time-settings'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/settings/office-time-settings/"><span class="sidebar-text">
+                                    <?php echo $this->translate("Office-Opening-Time-Settings"); ?>
+                                    </span>
+                                </a>
+                            </li>
+                            
+                             <li <?php if($this->controllerName=='settings' && $this->actionName=='system-settings'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/settings/system-settings/"><span class="sidebar-text">
+                                    <?php echo $this->translate("System-Settings"); ?>
+                                    </span>
+                                </a>
+                            </li>
+                            
+                            <li <?php if($this->controllerName=='my-account'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/my-account/profile"><span class="sidebar-text"><?php echo $this->translate("My-Profile"); ?></span></a>
+                            </li>
+                            <li <?php if($this->controllerName=='change-password'){?> class="current active" <?php } ?>>
+                                <a href="<?php print($this->baseUrl());?>/admin/my-account/settings"><span class="sidebar-text"><?php echo $this->translate("Account-Settings"); ?></span></a>
+                            </li>
+                        </ul>    
+                    </li>
+                    
+                </ul>
+            </div>
+            <div class="footer-widget">
+                <img src="<?php print($this->baseUrl());?>/assets/skin/img/gradient.png" alt="gradient effet" class="sidebar-gradient-img" />
+                <div id="sidebar-charts">
+                    <div class="sidebar-charts-inner">
+                        <div class="sidebar-charts-left">
+                            <div class="sidebar-chart-title">Total Staffs</div>
+                            <div class="sidebar-chart-number"><?php print($this->getTotalStaffInService());?></div>
+                        </div>
+                        <div class="sidebar-charts-right" class="sparkline mini-chart" data-type="bar" data-color="theme">
+                            <span class="dynamicbar1"></span>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="sidebar-footer clearfix">
+                    <a class="pull-left" href="<?php print($this->baseUrl());?>/admin/my-account/settings" rel="tooltip" data-placement="top" data-original-title="Settings"><i class="glyph-icon flaticon-settings21"></i></a>
+                    <a class="pull-left toggle_fullscreen" href="#" rel="tooltip" data-placement="top" data-original-title="Fullscreen"><i class="glyph-icon flaticon-fullscreen3"></i></a>
+                    <a class="pull-left" href="<?php print($this->baseUrl());?>/admin/login/lockscreen" rel="tooltip" data-placement="top" data-original-title="Lockscreen"><i class="glyph-icon flaticon-padlock23"></i></a>
+                    <a class="pull-left" href="<?php print($this->baseUrl());?>/admin/login/logout" rel="tooltip" data-placement="top" data-original-title="Logout"><i class="fa fa-power-off"></i></a>
+                </div> 
+            </div>
+        </nav>
+        <!-- END MAIN SIDEBAR -->
